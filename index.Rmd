@@ -29,6 +29,18 @@ Official course information see Sakai (syllabus, calendar, paper PDFs, etc).
 |Nov 27 & 29    | *Projects* | | |
 |Dec 4          | *Projects* | | |
 
+### Resources
+
+* [Online R Classes and Resources](http://genomicsclass.github.io/book/pages/resources.html)
+* Rafael Irizarry and Michael Love, "Data Analysis for the Life Sciences" 
+[Free PDF](https://leanpub.com/dataanalysisforthelifesciences),
+[HTML](http://genomicsclass.github.io/book/)
+* Kasper Hansen "Bioconductor for Genomic Data Science" 
+[HTML](https://kasperdanielhansen.github.io/genbioconductor/)
+* Aaron Quinlan "Applied Computational Genomics" [Slides](https://github.com/quinlan-lab/applied-computational-genomics)
+
+---
+
 This page was last updated on `r format(Sys.time(), "%m/%d/%Y")`.
 
 [GitHub](https://github.com/mikelove/compbio)
