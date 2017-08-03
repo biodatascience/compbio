@@ -1,0 +1,16 @@
+---
+title: "Introduction to Computational Biology"
+author: "[Michael Love](http://mikelove.github.io)"
+output: rmarkdown::html_document
+---
+
+### 
+
+### Schedule
+
+| Week | Topic | Rmd | HTML |
+|------|-------|-----|------|
+| foo | bar | [link](google.com) | [link](google.com) |
+
+
+This page was last updated on `r format(Sys.time(), "%m/%d/%Y")`.
