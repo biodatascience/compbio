@@ -14,3 +14,6 @@ output: rmarkdown::html_document
 
 
 This page was last updated on `r format(Sys.time(), "%m/%d/%Y")`.
+
+[License](LICENSE)
+
