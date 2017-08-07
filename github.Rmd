@@ -25,7 +25,7 @@ install or upgrade the software on your computer. We need to do the following
 steps:
 
 * Install/upgrade R (to version 3.4)
-* Install RStudio 
+* Install RStudio for Desktop (free)
 * Install git
 * Hook RStudio up to use git
 
@@ -39,19 +39,24 @@ The second step can be done by visiting the [RStudio](https://www.rstudio.com/) 
 The third and fourth step are best accomplished by following the instructions
 at the [happygitwithr](http://happygitwithr.com/) website. You do not
 need a free private repo for this course. You will just be cloning from the
-class repo by not pushing homework back to the repo, instead you will email 
+class repo but not pushing homework back to the repo, instead you will email 
 me your completed homeworks. You do not need to complete all of the steps
 at *happygitwithr*, only: registering a GitHub account, installing git,
-and introduce yourself to git. For pushing back to GitHub for other projects,
+and introduce yourself to git. If, for other research projects, you are
+interested in using GitHub for version control,
 you can follow the rest of the instructions on HTTPS or SSH credentials,
 but this is not necessary just to clone the class repo.
 
 This class has two "views"  you might say. 
 The [HTML/website version](https://mikelove.github.io/compbio/) and the 
-[GitHub version](https://github.com/mikelove/compbio). You can get the 
-link to clone the class repo from the GitHub version. It's a green link
-that says "Clone or download". You should copy the link that appears 
-to the clipboard, and you will use this later in RStudio.
+[GitHub version](https://github.com/mikelove/compbio). From the GitHub version,
+you can poke around, and click on files, even see the history of the code.
+If you want to look at the raw text for an Rmd or HTML file, you 
+can click the **Raw** link on the top of the document.
+
+To clone the class repo, you should go to the GitHub version of this class 
+and look for a green link that says "Clone or download". 
+You should copy the link that appears to the clipboard.
 
 Now, open RStudio, and follow the menu items: 
 *File > New Project > Version Control > Git*. 
