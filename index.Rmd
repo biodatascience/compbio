@@ -12,7 +12,7 @@ Official course information see Sakai (syllabus, calendar, paper PDFs, etc).
 
 | Week | Topic | Rmd | HTML |
 |------|-------|-----|------|
-|Aug 23         | GitHub | [Rmd](github.Rmd) | [HTML](github.html) |
+|Aug 23         | GitHub | [Rmd](https://github.com/mikelove/compbio/blob/gh-pages/github.Rmd) | [HTML](github.html) |
 |Aug 28 & 30    | R & EDA | | |
 |LbrDay & Sep 6 | Bioconductor | | |
 |Sep 11 & 13    | Distances & normalization | | |
