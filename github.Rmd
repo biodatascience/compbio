@@ -41,8 +41,8 @@ at the [happygitwithr](http://happygitwithr.com/) website. You do not
 need a free private repo for this course. You will just be cloning from the
 class repo but not pushing homework back to the repo, instead you will email 
 me your completed homeworks. You do not need to complete all of the steps
-at *happygitwithr*, only: registering a GitHub account, installing git,
-and introduce yourself to git. If, for other research projects, you are
+at *happygitwithr*, only:  installing git and introduce yourself to git. 
+If, for other research projects, you are
 interested in using GitHub for version control,
 you can follow the rest of the instructions on HTTPS or SSH credentials,
 but this is not necessary just to clone the class repo.
