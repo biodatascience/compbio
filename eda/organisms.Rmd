@@ -1,7 +1,23 @@
+---
+title: "Simple EDA using dplyr and ggplot2"
+author: "[Michael Love](http://mikelove.github.io)"
+output: rmarkdown::html_document
+---
+
+In this document, we will explore a small table of data about
+the genomes of various organisms. I also include a file, 
+`scrape_ensembl.R` which shows how I scraped this data
+from the [Ensembl](http://ensembl.org) website.
+
+We start by reading in the TSV (tab-separated value) data
+using the readr package:
+
+```{r}
 library(readr)
 orgs <- read_tsv("organisms_genes.tsv")
 head(orgs)
 table(orgs$type)
+```
 
 library(magrittr)
 orgs$type %<>% factor
@@ -67,3 +83,4 @@ ggplot(dat, aes(z, col=type, fill=type)) +
 
 ggplot(dat, aes(z, col=type, fill=type)) +
   geom_histogram(position="dodge")
+```
