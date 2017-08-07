@@ -1,0 +1,65 @@
+---
+title: "Using git and GitHub"
+author: "[Michael Love](http://mikelove.github.io)"
+output: rmarkdown::html_document
+---
+
+This class is hosted on GitHub, and we will use the `git` program and GitHub accounts
+to distribute lecture notes and homework assignments.
+We talked about RStudio, git and GitHub in class, but to review:
+
+* [RStudio](https://www.rstudio.com/) is an interface to R, with support for git and GitHub integration
+* `git` is a program for version control (mostly useful for plain text documents) 
+* GitHub and BitBucket are websites/companies which host `git` repositories 
+
+As of the writing of this document, GitHub offers free public repositories, 
+while BitBucket offers free public or private repositories. GitHub seems to
+be more popular for open source projects.
+
+You can start a `git` repository (repo) by either *cloning* an existing repo
+(as you will do for this course, `compbio`), or *initializing* a repo
+from scratch. 
+
+We want to clone the course repo in RStudio, but first, we may need to 
+install or upgrade the software on your computer. We need to do the following
+steps:
+
+* Install/upgrade R (to version 3.4)
+* Install RStudio 
+* Install git
+* Hook RStudio up to use git
+
+The first step can be done by visiting [CRAN](cran.r-project.org), and
+clicking the appropriate link for your operating system. When you load R,
+you want it to say that R is version 3.4 when you type `sessionInfo()`
+(`3.4.0` or `3.4.1` is fine).
+
+The second step can be done by visiting the [RStudio](https://www.rstudio.com/) website.
+
+The third and fourth step are best accomplished by following the instructions
+at the [happygitwithr](http://happygitwithr.com/) website. You do not
+need a free private repo for this course. You will just be cloning from the
+class repo by not pushing homework back to the repo, instead you will email 
+me your completed homeworks. You do not need to complete all of the steps
+at *happygitwithr*, only: registering a GitHub account, installing git,
+and introduce yourself to git. For pushing back to GitHub for other projects,
+you can follow the rest of the instructions on HTTPS or SSH credentials,
+but this is not necessary just to clone the class repo.
+
+This class has two "views"  you might say. 
+The [HTML/website version](https://mikelove.github.io/compbio/) and the 
+[GitHub version](https://github.com/mikelove/compbio). You can get the 
+link to clone the class repo from the GitHub version. It's a green link
+that says "Clone or download". You should copy the link that appears 
+to the clipboard, and you will use this later in RStudio.
+
+Now, open RStudio, and follow the menu items: 
+*File > New Project > Version Control > Git*. 
+You will paste the link from the previous step into the box that 
+says "repository URL". You can set the project directory name to `compbio`.
+
+Following this, you should see a number of `Rmd` and `html` files in the Files 
+panel on the lower right hand side. And there will be a git tab in the top right
+panel. The git tab will allow you to **pull** down new material as the course goes
+on and homeworks are posted to the course repo.
+
