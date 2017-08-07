@@ -1,0 +1,78 @@
+url <- "http://duffel.rail.bio/recount/SRP012682/rse_gene_brain.Rdata"
+
+library(readr)
+download.file(url, "brain.rda") # ~200 Mb
+load("brain.rda")
+
+library(recount)
+system.time({rse <- scale_counts(rse_gene)})
+
+# we will learn about this `rse` object later
+# for now we will just extract the information
+# we need to do EDA
+
+cts <- assay(rse)
+dim(cts)
+
+condition <- rse$smtsd
+library(magrittr)
+condition %<>% (function(x) sub("Brain - (.*)", "\\1", x))
+table(condition)
+condition %<>% factor
+table(condition)
+
+dim(cts)
+rs <- rowSums(cts)
+hist(log10(rs + 1))
+cts <- cts[rs > 100,]
+dim(cts)
+
+plot(cts[,1:2])
+logcts <- log10(cts + 1)
+plot(logcts[,1:2])
+
+hist(logcts[,1])
+
+library(matrixStats)
+rv <- rowVars(logcts)
+o <- order(rv, decreasing=TRUE)[1:500]
+pc <- prcomp(t(logcts[o,]))
+plot(pc$x[,1:2])
+
+library(rafalib)
+bigpar()
+plot(pc$x[,1:2], col=condition, pch=ceiling(as.numeric(condition)/8))
+legend("top", levels(condition),
+       pch=rep(1:2,c(8,nlevels(condition)-8)),
+       col=1:nlevels(condition),
+       ncol=2, cex=.5, bg="white")
+
+regions <- c("Cerebellum","Cortex","Hippocampus","Hypothalamus")
+condition.sub <- condition %in% regions
+table(condition.sub)
+
+dists <- dist(t(logcts[o,condition.sub]))
+
+library(pheatmap)
+library(RColorBrewer)
+cols <- colorRampPalette(rev(brewer.pal(9,"Blues")))(255)
+df <- data.frame(condition=droplevels(condition[condition.sub]),
+                 row.names=colnames(corrs))
+distmat <- as.matrix(dists)
+pheatmap(distmat, color=cols,
+         clustering_distance_rows=dists,
+         clustering_distance_cols=dists,
+         annotation_col=df,
+         show_rownames=FALSE, show_colnames=FALSE)
+
+corrs <- cor(logcts[o,condition.sub])
+
+library(pheatmap)
+cols <- colorRampPalette(c("red","white","blue"))(21)
+df <- data.frame(condition=droplevels(condition[condition.sub]),
+                 row.names=colnames(corrs))
+pheatmap(corrs, breaks=-10:10/10, color=cols,
+         annotation_col=df,
+         show_rownames=FALSE, show_colnames=FALSE)
+
+
