@@ -6,13 +6,13 @@ output: rmarkdown::html_document
 
 ### Course information
 
-Official course information see Sakai (syllabus, calendar, paper PDFs, etc).
-
-This course uses R extensively, and assumes basic command of R as a
-pre-requisite. A self-quiz is available 
-[here](), 
+For official course information see Sakai (syllabus, calendar, paper PDFs, etc).
+This course makes extensive use of R and assumes basic familiarity with
+base R (not packages) as a prerequisite. 
+A self-quiz is available 
+[here](https://github.com/mikelove/compbio/blob/gh-pages/selfquiz/selfquiz.R), 
 with answers provided 
-[here]().
+[here](https://github.com/mikelove/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda).
 
 ### Schedule and course notes
 
@@ -50,12 +50,11 @@ RStudio.
 * Kasper Hansen "Bioconductor for Genomic Data Science" 
 [HTML](https://kasperdanielhansen.github.io/genbioconductor/)
 * Aaron Quinlan "Applied Computational Genomics" [Slides](https://github.com/quinlan-lab/applied-computational-genomics)
+* Jennifer Bryan et al Stat 545 [HTML](http://stat545.com/)
 
 ---
 
-This page was last updated on `r format(Sys.time(), "%m/%d/%Y")`.
+This page was last updated on `r format(Sys.time(), "%m/%d/%Y")`. 
 
-[GitHub](https://github.com/mikelove/compbio)
-
-[License](https://github.com/mikelove/compbio/blob/gh-pages/LICENSE)
-
+* [GitHub repo](https://github.com/mikelove/compbio)
+* [License](https://github.com/mikelove/compbio/blob/gh-pages/LICENSE)
