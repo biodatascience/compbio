@@ -1,16 +1,22 @@
-url <- "http://duffel.rail.bio/recount/SRP012682/rse_gene_brain.Rdata"
+---
+title: "Exploring RNA measurements from brain"
+author: "[Michael Love](http://mikelove.github.io)"
+output: rmarkdown::html_document
+---
 
+```{r}
+url <- "http://duffel.rail.bio/recount/SRP012682/rse_gene_brain.Rdata"
 library(readr)
 download.file(url, "brain.rda") # ~200 Mb
 load("brain.rda")
-
 library(recount)
 system.time({rse <- scale_counts(rse_gene)})
+```
 
-# we will learn about this `rse` object later
-# for now we will just extract the information
-# we need to do EDA
+We will learn about this `rse` object later for now we will just
+extract the information we need to do EDA.
 
+```{r}
 cts <- assay(rse)
 dim(cts)
 
@@ -74,5 +80,4 @@ df <- data.frame(condition=droplevels(condition[condition.sub]),
 pheatmap(corrs, breaks=-10:10/10, color=cols,
          annotation_col=df,
          show_rownames=FALSE, show_colnames=FALSE)
-
-
+```

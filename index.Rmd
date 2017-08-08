@@ -8,6 +8,12 @@ output: rmarkdown::html_document
 
 Official course information see Sakai (syllabus, calendar, paper PDFs, etc).
 
+This course uses R extensively, and assumes basic command of R as a
+pre-requisite. A self-quiz is available 
+[here](), 
+with answers provided 
+[here]().
+
 ### Schedule and course notes
 
 For `Rmd` files, go to the
