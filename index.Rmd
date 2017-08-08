@@ -12,8 +12,8 @@ Official course information see Sakai (syllabus, calendar, paper PDFs, etc).
 
 | Week | Topic | Rmd | HTML |
 |------|-------|-----|------|
-|Aug 23         | GitHub | [Rmd](https://github.com/mikelove/compbio/blob/gh-pages/github.Rmd) | [HTML](github.html) |
-|Aug 28 & 30    | R & EDA | | |
+|Aug 23         | GitHub | [github](https://github.com/mikelove/compbio/blob/gh-pages/github.Rmd) | [github](github.html) |
+|Aug 28 & 30    | R & EDA | [organisms](https://github.com/mikelove/compbio/blob/gh-pages/eda/organisms.Rmd) | [organisms](eda/organisms.html) |
 |LbrDay & Sep 6 | Bioconductor | | |
 |Sep 11 & 13    | Distances & normalization | | |
 |Sep 18 & 20    | Testing | | |
