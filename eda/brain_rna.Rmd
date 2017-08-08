@@ -4,17 +4,61 @@ author: "[Michael Love](http://mikelove.github.io)"
 output: rmarkdown::html_document
 ---
 
+Here we will show some very simple explorations of high-dimensional
+data typical of computational biology. This particular study has a
+study ID `SRP012682` and it happens to be the 
+*Genotype-Tissue Expression Project* or 
+[GTEx](https://gtexportal.org).
+
+You can look up the study on the SRA (Sequence Read Archive) or the
+ENA (European Nucleotide Archive) and find a [description](http://www.ebi.ac.uk/ena/data/view/PRJNA75899):
+
+> The aim of the Genotype-Tissue Expression (GTEx) Project is to
+> increase our understanding of how changes in our genes affect human
+> health and disease with the ultimate goal of improving health care
+> for future generations. GTEx will create a database that researchers
+> can use to study how inherited changes in genes lead to common
+> diseases. GTEx researchers are studying genes in different tissues
+> obtained from many different people....
+
+There is a computational project, called 
+[recount2](https://jhubiostatistics.shinyapps.io/recount/), which performs a
+basic summarization of public data sets with gene expression
+data. There are numerous competing methods for computing gene
+expression from raw data, which we will cover later in the course. For
+now, let's just load the summarized table computed by *recount2*.
+This gives us, for each gene and each sample, a measurement of gene
+expression. We can use these measurements to compare samples, and we
+will discuss distances and normalization as a future topic.
+
+First we need to install the *SummarizedExperiment* R package, which is hosted on
+Bioconductor:
+
+```{r eval=FALSE}
+source("http://bioconductor.org/biocLite.R")
+biocLite("SummarizedExperiment")
+```
+
+We can then download the summarized experiment data (note, it is 200
+Mb so it may take a minute):
+
 ```{r}
 url <- "http://duffel.rail.bio/recount/SRP012682/rse_gene_brain.Rdata"
-library(readr)
-download.file(url, "brain.rda") # ~200 Mb
-load("brain.rda")
-library(recount)
-system.time({rse <- scale_counts(rse_gene)})
+file <- "brain.rda"
+if (!file.exists(file)) download.file(url, file)
+load(file)
+ls()
+```
+
+```{r}
+library(SummarizedExperiment)
+source("../bioc/my_scale_counts.R")
+rse <- my_scale_counts(rse_gene)
 ```
 
 We will learn about this `rse` object later for now we will just
-extract the information we need to do EDA.
+extract the information we need to do some EDA (exploratory data
+analysis). 
 
 ```{r}
 cts <- assay(rse)
