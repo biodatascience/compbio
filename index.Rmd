@@ -10,10 +10,16 @@ Official course information see Sakai (syllabus, calendar, paper PDFs, etc).
 
 ### Schedule and course notes
 
-| Week | Topic | Rmd | HTML |
+For `Rmd` files, go to the
+[course repo](https://github.com/mikelove/compbio) and navigate the
+directories, or best of all to clone the repo and navigate within
+RStudio.
+
+
+| Week | Topic | Rmd loc | HTML |
 |------|-------|-----|------|
-|Aug 23         | GitHub | [github](https://github.com/mikelove/compbio/blob/gh-pages/github.Rmd) | [github](github.html) |
-|Aug 28 & 30    | R & EDA | [organisms](https://github.com/mikelove/compbio/blob/gh-pages/eda/organisms.Rmd) | [organisms](eda/organisms.html) |
+|Aug 23         | GitHub | `github.Rmd` | [github](github.html) |
+|Aug 28 & 30    | R & EDA | `eda` | [organisms](eda/organisms.html), [NA,Inf,NaN](eda/na_inf_nan.html) |
 |LbrDay & Sep 6 | Bioconductor | | |
 |Sep 11 & 13    | Distances & normalization | | |
 |Sep 18 & 20    | Testing | | |
