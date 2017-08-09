@@ -25,8 +25,8 @@ RStudio.
 | Week | Topic | Rmd loc | HTML |
 |------|-------|-----|------|
 |Aug 23         | GitHub | `github.Rmd` | [github](github.html) |
-|Aug 28 & 30    | R & EDA | `eda` | [organisms](eda/organisms.html), [NA,Inf,NaN](eda/na_inf_nan.html) |
-|LbrDay & Sep 6 | Bioconductor | | |
+|Aug 28 & 30    | R & EDA | `eda` | [organisms](eda/organisms.html), [NA,Inf,NaN](eda/na_inf_nan.html), [brain RNA](eda/brain_rna.html) |
+|LbrDay & Sep 6 | Bioconductor | `bioc` | |
 |Sep 11 & 13    | Distances & normalization | | |
 |Sep 18 & 20    | Testing | | |
 |Sep 25 & 27    | Re-sampling | | |
