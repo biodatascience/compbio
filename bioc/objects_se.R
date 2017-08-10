@@ -1,0 +1,66 @@
+library(SummarizedExperiment)
+colData <- data.frame(sample=factor(1:6),
+                      condition=factor(c("A","A","B","B","C","C")),
+                      treated=factor(rep(0:1,3)))
+colData
+
+library(EnsDb.Hsapiens.v86)
+txdb <- EnsDb.Hsapiens.v86
+g <- genes(txdb)
+g <- keepStandardChromosomes(g, pruning.mode="coarse")
+rowRanges <- g[1:10]
+
+exprs <- matrix(rnorm(6 * 10), ncol=6, nrow=10)
+
+se <- SummarizedExperiment(exprs, colData=colData, rowRanges=rowRanges)
+se
+
+query <- GRanges("1", IRanges(25000,40000))
+se.sub <- se[overlapsAny(se, query),]
+
+rowRanges(se.sub)
+assay(se.sub)
+
+seqinfo(se)
+
+# https://jhubiostatistics.shinyapps.io/recount/
+library(recount)
+#download_study("SRP046226")
+load(file.path("SRP046226","rse_gene.Rdata"))
+ls()
+
+source("my_scale_counts.R")
+
+rse <- my_scale_counts(rse_gene)
+
+colData(rse)
+rse$characteristics[[1]]
+rse$condition <- sapply(rse$characteristics, `[`, 3)
+rse$treatment <- sapply(rse$characteristics, `[`, 4)
+
+library(magrittr)
+rse$condition %<>% (function(x) factor(sub("disease state: (.*)","\\1",x)))
+rse$treatment %<>% (function(x) factor(sub("treatment: (.*)","\\1",x)))
+
+rse$condition
+rse$treatment
+
+library(DESeq2)
+dds <- DESeqDataSet(rse, ~condition + treatment)
+
+vsd <- vst(dds, blind=FALSE)
+
+library(matrixStats)
+rv <- rowVars(assay(vsd))
+library(pheatmap)
+anno.col <- as.data.frame(colData(vsd)[,c("condition","treatment")])
+pheatmap(assay(vsd)[head(order(mads, decreasing=TRUE),100),],
+         annotation_col=anno.col,
+         show_rownames=FALSE)
+
+mat <- assay(vsd)[head(order(mads, decreasing=TRUE),100),]
+mat <- mat - rowMeans(mat)
+pheatmap(mat,
+         annotation_col=anno.col,
+         show_rownames=FALSE,
+         cluster_rows=FALSE)
