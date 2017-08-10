@@ -4,6 +4,42 @@ author: "[Michael Love](http://mikelove.github.io)"
 output: rmarkdown::html_document
 ---
 
+Why use Bioconductor? From a user perspective, the answer is clear:
+because many statisticians, bioinformaticians, and computer scientists
+have spent time writing methods and algorithms specifically for
+biological (often genomic) data. A reason for this (why many people
+have contributed to this project) is that there is a shared
+infrastructure for common data types. This infrastructure is built up
+of object classes. An example of a class is *GRanges* which is a way
+to specify a set of ranges in a particular genome, e.g. from basepair
+100 to basepair 200 on chromosome 1 of the human genome (version 38).
+
+We will introduce the different Bioconductor objects in this
+section. In this particular document, we will discuss perhaps the most
+important class of object, which is the *ExpressionSet* or
+*SummarizedExperiment* (it's actually two classes, I lied). But they
+are similar so I will present them together. They have the same
+structure:
+
+* a matrix of data, rows are genomic features, and columns are samples
+* a table of data about the samples (columns)
+* a table of data about the features (rows)
+
+A diagram of this 3-part structure can be found 
+[here](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4509590/figure/F2/).
+
+The ExpressionSet was created primarily to store *microarray* data,
+where each column of the matrix stored the values from a particular
+microarray. The SummarizedExperiment is a new class, similar to
+ExpressionSet, which makes more sense for the era of *sequencing*
+data. One particular difference is that the rows of a
+SummarizedExperiment can correspond to particular *GRanges*, e.g. the
+number of RNA-seq reads that can be assigned to a particular gene, and
+the location of the gene in the genome.
+
+But first let's explore the ExpressionSet, because it came first in
+time, and it's very simple:
+
 ```{r message=FALSE}
 library(Biobase)
 phenoData <- data.frame(sample=factor(1:6),
