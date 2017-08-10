@@ -13,6 +13,9 @@ A self-quiz is available
 [here](https://github.com/mikelove/compbio/blob/gh-pages/selfquiz/selfquiz.R), 
 with answers provided 
 [here](https://github.com/mikelove/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda).
+You can also find a
+[list of base R functions](https://github.com/mikelove/compbio/blob/gh-pages/eda/functions.md)
+that one should be familiar with.
 
 ### Schedule and course notes
 
@@ -26,7 +29,7 @@ RStudio.
 |------|-------|-----|------|
 |Aug 23         | GitHub | `github.Rmd` | [github](github.html) |
 |Aug 28 & 30    | R & EDA | `eda` | [organisms](eda/organisms.html), [NA,Inf,NaN](eda/na_inf_nan.html), [brain RNA](eda/brain_rna.html) |
-|LbrDay & Sep 6 | Bioconductor | `bioc` | |
+|LbrDay & Sep 6 | Bioconductor | `bioc` | objects, ranges, rangeslist, SummarizedExperiment, annotations, biostrings |
 |Sep 11 & 13    | Distances & normalization | | |
 |Sep 18 & 20    | Testing | | |
 |Sep 25 & 27    | Re-sampling | | |

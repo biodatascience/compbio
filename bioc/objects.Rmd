@@ -1,0 +1,95 @@
+---
+title: "Working with Bioconductor objects"
+author: "[Michael Love](http://mikelove.github.io)"
+output: rmarkdown::html_document
+---
+
+```{r message=FALSE}
+library(Biobase)
+phenoData <- data.frame(sample=factor(1:6),
+                        condition=factor(c("A","A","B","B","C","C")),
+                        treated=factor(rep(0:1,3)))
+phenoData
+```
+
+```{r}
+featureData <- data.frame(geneID=1:10, geneSymbol=letters[1:10])
+featureData
+```
+
+```{r}
+exprs <- matrix(rnorm(6 * 10), ncol=6, nrow=10)
+eset <- ExpressionSet(exprs,
+                      AnnotatedDataFrame(phenoData),
+                      AnnotatedDataFrame(featureData))
+eset
+```
+
+```{r}
+pData(eset)
+fData(eset)
+```
+
+```{r}
+idx <- eset$condition %in% c("A","B")
+eset.sub <- eset[,idx]
+pData(eset.sub)
+```
+
+```{r}
+levels(eset.sub$condition)
+```
+
+```{r}
+library(magrittr)
+eset.sub$condition %<>% droplevels
+levels(eset.sub$condition)
+```
+
+```{r}
+exprs(eset.sub)
+exprs(eset)[,idx]
+```
+
+# GEO
+
+2 million samples are hosted by the 
+Gene Expression Omnibus, or [GEO](https://www.ncbi.nlm.nih.gov/geo/).
+
+```{r message=FALSE}
+library(GEOquery)
+geo <- getGEO("GSE2125")
+names(geo)
+e <- geo[[1]]
+```
+
+```{r}
+names(pData(e))
+e$condition <- sub("status: ","",e$characteristics_ch1)
+table(e$condition)
+```
+
+```{r}
+exprs(e)[1:5,1:5]
+boxplot(exprs(e),range=0)
+```
+
+```{r}
+library(preprocessCore)
+exprs(e) <- normalize.quantiles(exprs(e))
+boxplot(exprs(e),range=0)
+```
+
+```{r message=FALSE}
+library(matrixStats)
+rv <- rowVars(exprs(e))
+```
+
+```{r}
+library(pheatmap)
+o <- head(order(rv, decreasing=TRUE),200)
+pheatmap(exprs(e)[o,],
+         annotation_col=pData(e)["condition"],
+         show_rownames=FALSE, show_colnames=FALSE)
+```
+
