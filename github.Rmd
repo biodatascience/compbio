@@ -1,7 +1,7 @@
 ---
 title: "Using git and GitHub"
 author: "[Michael Love](http://mikelove.github.io)"
-output: rmarkdown::html_document
+output: html_document
 ---
 
 This class is hosted on GitHub, and we will use the `git` program and GitHub accounts

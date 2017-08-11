@@ -1,7 +1,7 @@
 ---
 title: "Exploring RNA measurements from brain"
 author: "[Michael Love](http://mikelove.github.io)"
-output: rmarkdown::html_document
+output: html_document
 ---
 
 Here we will show some very simple explorations of high-dimensional

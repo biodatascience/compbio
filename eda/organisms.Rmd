@@ -1,7 +1,7 @@
 ---
 title: "Simple EDA using dplyr and ggplot2"
 author: "[Michael Love](http://mikelove.github.io)"
-output: rmarkdown::html_document
+output: html_document
 ---
 
 In this document, we will explore a small table of data about
