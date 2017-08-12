@@ -1,0 +1,79 @@
+---
+title: "Genomic ranges: GRanges"
+author: "[Michael Love](http://mikelove.github.io)"
+output: html_document
+---
+
+Here we show off the way we specify genomic ranges in Bioconductor,
+using the *GenomicRanges* package and the *GRanges* class.
+
+A *GRanges* object specifies both the basepairs involved in the range
+(these are integer ranges), the strand (+ or -), and the
+chromosome. Chromosomes in Bioconductor are called "sequences"
+(because sometimes we may want to specify ranges of non-chromosomes,
+for example viral DNA, un-incorporated contigs, etc.).
+
+Let's start with a set of interval ranges, an *IRanges* object.
+
+```{r}
+library(GenomicRanges)
+ir <- IRanges(start=100 + 1:10, width=10)
+ir
+```
+
+We could also specify the same ranges by setting the *end*:
+
+```{r}
+ir <- IRanges(start=100 + 1:10, end=100 + 10:19)
+ir
+```
+
+We can make a simple plot:
+
+```{r}
+library(rafalib)
+nullplot(start(range(ir))-5, end(range(ir))+5, 0, 11)
+arrows(start(ir),1:10,end(ir),1:10,lwd=3,code=3,angle=90,length=.05)
+```
+
+
+```{r}
+st <- rep(c("+","-"),5)
+st
+```
+
+```{r}
+gr <- GRanges(seqnames="chr1", ranges=ir, strand=st)
+gr
+```
+
+```{r}
+gr + 10
+shift(gr, 10)
+resize(gr, width=1)
+flank(gr, width=2, both=TRUE)
+```
+
+```{r}
+seqnames(gr)
+seqinfo(gr)
+```
+
+```{r}
+library(EnsDb.Hsapiens.v86)
+edb <- EnsDb.Hsapiens.v86
+g <- genes(edb)
+length(g)
+```
+
+```{r}
+seqnames(g)
+g <- keepStandardChromosomes(g, pruning.mode="coarse")
+seqnames(g)
+seqinfo(g)
+genome(g)
+```
+
+```{r}
+table(seqnames(g))
+```
