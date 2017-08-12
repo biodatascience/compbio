@@ -29,7 +29,7 @@ RStudio.
 |------|-------|---------|------|
 |Aug 23         | GitHub | `github.Rmd` | [github](github.html) |
 |Aug 28 & 30    | R & EDA | `eda` | [organisms](eda/organisms.html), [NAs](eda/na_inf_nan.html), [brain RNA](eda/brain_rna.html) |
-|LbrDay & Sep 6 | Bioconductor | `bioc` | [objects](bioc/objects.html), ranges 1 2, SE, anno, strings |
+|LbrDay & Sep 6 | Bioconductor | `bioc` | [objects](bioc/objects.html), ranges [1](bioc/ranges.html) 2, SE, anno, strings |
 |Sep 11 & 13    | Distances & norm. | | |
 |Sep 18 & 20    | Testing | | |
 |Sep 25 & 27    | Re-sampling | | |
