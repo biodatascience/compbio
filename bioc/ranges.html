@@ -151,8 +151,13 @@ ir</code></pre>
 ##   [5]       105       114        10</code></pre>
 <p>We can make a plot of these ranges. It’s a bit different than a typical plot, because I want to point out that we have <em>discrete</em> locations in the genome (so the position isn’t defined over <span class="math inline">\(\mathbb{R}\)</span> but over <span class="math inline">\(\mathbb{N}\)</span>). So I’ve shifted the positions of the labels by 0.5 (see the <code>axis</code> command). Another detail to notice is that the ranges are <em>inclusive</em>. So the first range, from 101 to 110 <em>includes</em> the 110 basepair. So I’ve added +1 when I draw the arrows to show it includes the last basepair.</p>
 <p>(Note that the convention used in Bioconductor to define interval ranges is not universal. The BED convention is that the range does <strong>not</strong> include the start position of the range. So 101-110 in BED format would not include the 101th basepair.)</p>
-<pre class="r"><code>library(rafalib)
-nullplot(start(range(ir)), end(range(ir))+1, 0, 6, xaxt=&quot;n&quot;)
+<pre class="r"><code>library(rafalib)</code></pre>
+<pre><code>## 
+## Attaching package: 'rafalib'</code></pre>
+<pre><code>## The following object is masked from 'package:devtools':
+## 
+##     install_bioc</code></pre>
+<pre class="r"><code>nullplot(start(range(ir)), end(range(ir))+1, 0, 6, xaxt=&quot;n&quot;)
 abline(v=100:115, col=&quot;grey&quot;)
 axis(1, at=100:115 + .5, labels=100:115) 
 arrows(start(ir),seq_along(ir),end(ir)+1,seq_along(ir),
@@ -201,7 +206,7 @@ gr</code></pre>
 ##   [5]     chr1 [115, 124]      -
 ##   -------
 ##   seqinfo: 1 sequence from an unspecified genome; no seqlengths</code></pre>
-<pre class="r"><code>resize(gr, width=1) # just the left-most basepair</code></pre>
+<pre class="r"><code>resize(gr, width=1) # 1 bp from the start (+) or end (-)</code></pre>
 <pre><code>## GRanges object with 5 ranges and 0 metadata columns:
 ##       seqnames     ranges strand
 ##          &lt;Rle&gt;  &lt;IRanges&gt;  &lt;Rle&gt;
@@ -212,7 +217,7 @@ gr</code></pre>
 ##   [5]     chr1 [114, 114]      -
 ##   -------
 ##   seqinfo: 1 sequence from an unspecified genome; no seqlengths</code></pre>
-<pre class="r"><code>flank(gr, width=2, both=TRUE) # +/- 2 bp from one end</code></pre>
+<pre class="r"><code>flank(gr, width=2, both=TRUE) # +/- 2 bp from &quot; or &quot;</code></pre>
 <pre><code>## GRanges object with 5 ranges and 0 metadata columns:
 ##       seqnames     ranges strand
 ##          &lt;Rle&gt;  &lt;IRanges&gt;  &lt;Rle&gt;
@@ -238,8 +243,22 @@ gr</code></pre>
 <p>This data is easily accessible in Bioconductor using the <em>ensembldb</em> package, and the specific Ensembl database package from Bioconductor.</p>
 <p>(Note this file is 75 Mb, so you’ll want to have a decent internet connection: it contains lots of information about all human genes. We will later download the human genome itself, which is close to 1 Gb compressed.)</p>
 <p>This says there are about 60 thousand genes (according to Ensembl).</p>
-<pre class="r"><code>library(ensembldb)
-library(EnsDb.Hsapiens.v86)
+<pre class="r"><code>library(ensembldb)</code></pre>
+<pre><code>## Loading required package: GenomicFeatures</code></pre>
+<pre><code>## Loading required package: AnnotationDbi</code></pre>
+<pre><code>## Loading required package: Biobase</code></pre>
+<pre><code>## Welcome to Bioconductor
+## 
+##     Vignettes contain introductory material; view with
+##     'browseVignettes()'. To cite Bioconductor, see
+##     'citation(&quot;Biobase&quot;)', and for packages 'citation(&quot;pkgname&quot;)'.</code></pre>
+<pre><code>## Loading required package: AnnotationFilter</code></pre>
+<pre><code>## 
+## Attaching package: 'ensembldb'</code></pre>
+<pre><code>## The following object is masked from 'package:stats':
+## 
+##     filter</code></pre>
+<pre class="r"><code>library(EnsDb.Hsapiens.v86)
 edb &lt;- EnsDb.Hsapiens.v86
 g &lt;- genes(edb)
 length(g)</code></pre>

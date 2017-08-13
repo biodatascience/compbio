@@ -85,14 +85,14 @@ Here we show some basic manipulations of *GRanges*:
 ```{r}
 gr + 10 # growing by 10 on either side
 shift(gr, 10) # shifting by 10
-resize(gr, width=1) # just the left-most basepair
-flank(gr, width=2, both=TRUE) # +/- 2 bp from one end
+resize(gr, width=1) # 1 bp from the start (+) or end (-)
+flank(gr, width=2, both=TRUE) # +/- 2 bp from " or "
 ```
 
-Note that the last command, `flank`, gave us intervals of length 4,
-which are centered on the *start* of the ranges with positive strand,
-and centered on the *end* of the ranges with negative strand. This is
-particular useful for genes, in which we often care about the region
+Note that the last two commands, `resize` and `flank`, gave back
+ranges relative to the *start* of the ranges with positive strand, and
+to the *end* of the ranges with negative strand. This is particular
+useful for working with genes, in which we often care about the region
 surrounding the *transcription start site* or TSS of a gene. The TSS
 will be the left-most basepair of a gene on the positive strand, and
 the right-most basepair of a gene on the negative strand.
