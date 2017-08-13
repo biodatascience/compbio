@@ -228,7 +228,7 @@ gr</code></pre>
 ##   [5]     chr1 [113, 116]      -
 ##   -------
 ##   seqinfo: 1 sequence from an unspecified genome; no seqlengths</code></pre>
-<p>Note that the last command, <code>flank</code>, gave us intervals of length 4, which are centered on the <em>start</em> of the ranges with positive strand, and centered on the <em>end</em> of the ranges with negative strand. This is particular useful for genes, in which we often care about the region surrounding the <em>transcription start site</em> or TSS of a gene. The TSS will be the left-most basepair of a gene on the positive strand, and the right-most basepair of a gene on the negative strand.</p>
+<p>Note that the last two commands, <code>resize</code> and <code>flank</code>, gave back ranges relative to the <em>start</em> of the ranges with positive strand, and to the <em>end</em> of the ranges with negative strand. This is particular useful for working with genes, in which we often care about the region surrounding the <em>transcription start site</em> or TSS of a gene. The TSS will be the left-most basepair of a gene on the positive strand, and the right-most basepair of a gene on the negative strand.</p>
 <p>These functions would usually give us more information, but in this case the information was not specified:</p>
 <pre class="r"><code>seqnames(gr)</code></pre>
 <pre><code>## factor-Rle of length 5 with 1 run
@@ -243,22 +243,8 @@ gr</code></pre>
 <p>This data is easily accessible in Bioconductor using the <em>ensembldb</em> package, and the specific Ensembl database package from Bioconductor.</p>
 <p>(Note this file is 75 Mb, so you’ll want to have a decent internet connection: it contains lots of information about all human genes. We will later download the human genome itself, which is close to 1 Gb compressed.)</p>
 <p>This says there are about 60 thousand genes (according to Ensembl).</p>
-<pre class="r"><code>library(ensembldb)</code></pre>
-<pre><code>## Loading required package: GenomicFeatures</code></pre>
-<pre><code>## Loading required package: AnnotationDbi</code></pre>
-<pre><code>## Loading required package: Biobase</code></pre>
-<pre><code>## Welcome to Bioconductor
-## 
-##     Vignettes contain introductory material; view with
-##     'browseVignettes()'. To cite Bioconductor, see
-##     'citation(&quot;Biobase&quot;)', and for packages 'citation(&quot;pkgname&quot;)'.</code></pre>
-<pre><code>## Loading required package: AnnotationFilter</code></pre>
-<pre><code>## 
-## Attaching package: 'ensembldb'</code></pre>
-<pre><code>## The following object is masked from 'package:stats':
-## 
-##     filter</code></pre>
-<pre class="r"><code>library(EnsDb.Hsapiens.v86)
+<pre class="r"><code>library(ensembldb)
+library(EnsDb.Hsapiens.v86)
 edb &lt;- EnsDb.Hsapiens.v86
 g &lt;- genes(edb)
 length(g)</code></pre>

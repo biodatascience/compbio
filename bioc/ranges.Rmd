@@ -17,7 +17,7 @@ for example viral DNA, un-incorporated contigs, etc.).
 
 Let's start with a set of interval ranges, an *IRanges* object.
 
-```{r}
+```{r message=FALSE}
 library(GenomicRanges)
 ir <- IRanges(start=100 + 1:5, width=10)
 ir
@@ -119,7 +119,7 @@ compressed.)
 
 This says there are about 60 thousand genes (according to Ensembl).
 
-```{r}
+```{r message=FALSE}
 library(ensembldb)
 library(EnsDb.Hsapiens.v86)
 edb <- EnsDb.Hsapiens.v86
