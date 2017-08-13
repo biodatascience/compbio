@@ -1,52 +1,91 @@
+---
+title: "Accessing annotations in Bioconductor"
+author: "[Michael Love](http://mikelove.github.io)"
+output: html_document
+---
+
+```{r}
 library(Biostrings)
 dna <- "AAACGCG"
+```
 
+```{r}
 dna <- DNAString("AAACGCG")
 reverseComplement(dna)
+```
 
+```{r}
 dna <- DNAStringSet(c("AAA","CGC","TCT"))
 dna
+```
 
+```{r}
 letterFrequency(dna, "C")
 letterFrequency(dna, "C", as.prob=TRUE)
 letterFrequency(dna, "CG", as.prob=TRUE)
+```
 
+```{r}
 dna <- DNAStringSet(c("AACTCAA","CTCTAAA","AAAGAG"))
 vmatchPattern("CTC", dna)
+```
 
+```{r}
 dna <- DNAString("AAACTCAAAGAGAAATTTAAA")
 pd <- PDict(c("CTC","GAG","TTT","AAA"))
 matchPDict(pd, dna)
+```
 
+```{r}
 library(AnnotationHub)
 ah <- AnnotationHub()
-display(ah)
+```
 
+```{r, eval=FALSE}
+display(ah)
+```
+
+```{r}
 res <- query(ah, c("ensembl","GRCh38","dna.primary_assembly"))
 res$sourceurl
 genome <- query(ah, c("ensembl","GRCh38","dna.primary","release-87"))[[1]]
+```
 
-# Note! this downloads ~1 Gb to ~/.AnnotationHub
+Note! this downloads ~1 Gb to `~/.AnnotationHub`
 
+```{r}
 seqinfo(genome)
 gr <- GRanges("1", IRanges(1e6 + 1, 1e6 + 100))
 dna <- getSeq(genome, gr)
 dna
+```
 
+```{r}
 txome <- query(ah, c("ensembl","GRCh38","cdna.all","release-87"))[[1]]
 seqinfo(txome)
 txs <- seqnames(seqinfo(txome))
+```
 
+```{r}
 edb <- query(ah, c("EnsDb", "Hsapiens", "v87"))[[1]]
 ebg <- exonsBy(edb, by="tx")
+```
 
+```{r}
 ebg[1]
 len <- sum(width(ebg[[1]]))
+```
 
+```{r}
 tx <- grep(names(ebg[1]), txs, value=TRUE)
 tx.seq <- getSeq(txome, GRanges(tx, IRanges(1, len)))
+```
 
+```{r}
 exon.seq <- getSeq(genome, ebg[[1]])
 unlist(exon.seq)
+```
 
+```{r}
 tx.seq == unlist(exon.seq)
+```
