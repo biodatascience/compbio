@@ -1,7 +1,9 @@
 ---
 title: "Introduction to Computational Biology"
 author: "[Michael Love](http://mikelove.github.io)"
-output: html_document
+output: 
+  html_document:
+    self_contained: false
 ---
 
 ### Course information
