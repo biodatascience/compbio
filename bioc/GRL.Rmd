@@ -35,7 +35,7 @@ produced by all of the genes in the human genome.
 
 We start by loading the Ensembl database used previously.
 
-```{r}
+```{r message=FALSE}
 library(EnsDb.Hsapiens.v86)
 edb <- EnsDb.Hsapiens.v86
 ```
@@ -155,7 +155,7 @@ start(ebt2[[1]][1]) > start(ebt2[[1]][l])
 # Visualizing genes with Gviz
 
 ```{r}
-#library(Gviz)
+library(Gviz)
 granges2df <- function(x) {
   df <- as(x, "data.frame")
   df <- df[,c("seqnames","start","end","strand","group_name")]
@@ -168,7 +168,7 @@ granges2df <- function(x) {
 ```{r}
 df <- granges2df(ebt2)
 df$gene <- gid
-#grt <- GeneRegionTrack(df)
+grt <- GeneRegionTrack(df)
 ```
 
 ```{r}
@@ -176,20 +176,20 @@ range(ebt2)
 range(unlist(ebt2))
 ```
 
-```{r eval=FALSE}
+```{r}
 gax <- GenomeAxisTrack()
 plotTracks(list(gax,grt), chromosome="20",
            transcriptAnnotation="transcript",
            from=44619522 - 10000, to=44652233 + 10000)
 ```
 
-```{r eval=FALSE}
+```{r}
 plotTracks(list(gax,grt), chromosome="20",
            transcriptAnnotation="gene",
            from=44619522 - 10000, to=44652233 + 10000)
 ```
 
-```{r eval=FALSE}
+```{r}
 plotTracks(list(gax,grt), chromosome="20",
            collapseTranscripts=TRUE,
            shape="arrow",
@@ -197,13 +197,13 @@ plotTracks(list(gax,grt), chromosome="20",
            from=44619522 - 10000, to=44652233 + 10000)
 ```
 
-```{r eval=FALSE}
+```{r}
 df$feature <- "A"
 df$feature[6] <- "B"
 grt <- GeneRegionTrack(df)
 ```
 
-```{r eval=FALSE}
+```{r}
 plotTracks(list(gax,grt), chromosome="20",
            transcriptAnnotation="transcript",
            from=44619522 - 10000, to=44652233 + 10000,
