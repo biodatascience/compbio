@@ -27,14 +27,14 @@ directories, or best of all to clone the repo and navigate within
 RStudio.
 
 
-| Week | Topic | Dir | HTML |
-|------|-------|-----|------|
+| Week | Topic | Dir. | HTML |
+|------|-------|------|------|
 |Aug 23         | GitHub | | [github](github.html) |
 |Aug 28 & 30    | R & EDA | `eda` | [EDA](eda/EDA.html), [NAs](eda/NAs.html), [brain RNA](eda/brain_RNA.html) |
-|LbrDay & Sep 6 | Bioconductor | `bioc` | [objects](bioc/objects.html), [ranges](bioc/ranges.html), [GRL](bioc/GRL.html), SE, anno, strings |
-|Sep 11 & 13    | Distances & norm. | | |
-|Sep 18 & 20    | Testing | | |
-|Sep 25 & 27    | Re-sampling | | |
+|LbrDay & Sep 6 | Bioconductor | `bioc` | [objects](bioc/objects.html), [ranges](bioc/ranges.html), [GRangesList](bioc/GRL.html) |
+|Sep 11 & 13    | Bioc. continued | `bioc` | SummarizedExperiment, anno, strings |
+|Sep 18 & 20    | Distances & norm. | | |
+|Sep 25 & 27    | Testing | | |
 |Oct 2 & 4      | Alignment & Networks | | |
 |Oct 9 & 11	    | *Mid-term* | | |
 |Oct 16 & 18    | *Fall break* | | |
