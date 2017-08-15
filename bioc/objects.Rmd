@@ -10,7 +10,7 @@ have spent time writing methods and algorithms specifically for
 biological (often genomic) data. A reason for this (why many people
 have contributed to this project) is that there is a shared
 infrastructure for common data types. This infrastructure is built up
-of object classes. An example of a class is *GRanges* which is a way
+of object classes. An example of a class is *GRanges*, which is a way
 to specify a set of ranges in a particular genome, e.g. from basepair
 100 to basepair 200 on chromosome 1 of the human genome (version 38).
 
@@ -37,7 +37,7 @@ packages. The most important details are:
 
 How do you know if a package is a Bioconductor package? For one thing,
 you can just google the package name and you'll see either CRAN or
-Bioconductor as a first result (packages must be one or the either,
+Bioconductor as a first result (packages must be in one or the other,
 they are not allowed to be on both repositories). But also, you can
 use `biocLite()` to install any packages, even ones on CRAN. By the
 way, you can install multiple packages at once by making a string
