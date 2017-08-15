@@ -21,6 +21,50 @@ objects have specific *methods* that help you either access the
 information in the object, run analyses on the object, plot the
 object, etc.
 
+# Getting started with Bioconductor
+
+Before we get started, you need to know how to install Bioconductor
+packages. The most important details are:
+
+* Bioconductor is a package repository, like CRAN
+* All Bioconductor packages **must** be installed with `biocLite()`
+* Bioconductor packages are linked in their versions, both to each
+  other and to the version of R
+* `biocLite()` will look up your version of R and give you the
+  appropriate versions of Bioconductor packages
+* If you want the latest version of Bioconductor, you need to use the
+  latest version of R
+
+How do you know if a package is a Bioconductor package? For one thing,
+you can just google the package name and you'll see either CRAN or
+Bioconductor as a first result (packages must be one or the either,
+they are not allowed to be on both repositories). But also, you can
+use `biocLite()` to install any packages, even ones on CRAN. By the
+way, you can install multiple packages at once by making a string
+vector: `biocLite(c("foo","bar"))`
+
+Why all this stress on versioning? This is because the packages in
+Bioconductor are highly *interdependent*, and also quick dependent on
+R internals. So that the project can guarantee the code will run and
+not give errors on many systems (Linux, Mac and Windows have support
+for the majority Bioconductor packages), new development is locked
+into cycles, such that a *release* of Bioconductor shouldn't contain
+any two packages which conflict and could potentially cause errors.
+  
+Details: of course, Bioconductor is also a
+[project](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4509590), made
+up of people. There is a *core team* which is supported by an NIH
+grant, and developers who contribute to the open source Bioconductor
+packages. There are also yearly 
+[conferences](https://www.bioconductor.org/help/events/)
+(one in US, one in Europe, and one in Asia).
+
+# Working with Bioconductor objects
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
 We will introduce the core Bioconductor objects this
 week. In this particular document, we will discuss perhaps the most
 important class of object, which is the *ExpressionSet* or
@@ -158,9 +202,12 @@ boxplot(exprs(e),range=0)
 ```
 
 We will perform *quantile normalization* to make it easier to compute
-distances across samples. We will discuss distances and normalization
-techniques in a later section. One consequence of quantile
-normalization is that the boxplots are identical afterward.
+distances across samples. The quantile normalization function we use
+here is one of many options for minimizing systematic differences
+between samples in microarray data.  We will discuss distances and
+normalization techniques in a later section. One obvious consequence
+of quantile normalization is that the boxplots are identical
+afterward. 
 
 ```{r}
 library(preprocessCore)

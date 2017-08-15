@@ -35,6 +35,10 @@ produced by all of the genes in the human genome.
 
 We start by loading the Ensembl database used previously.
 
+```{r echo=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
 ```{r message=FALSE}
 library(EnsDb.Hsapiens.v86)
 edb <- EnsDb.Hsapiens.v86
@@ -154,7 +158,29 @@ start(ebt2[[1]][1]) > start(ebt2[[1]][l])
 
 # Visualizing genes with Gviz
 
-```{r}
+The most robust package for visualizing genomic "tracks" in R is
+*Gviz*. A track basically refers to a set of features displayed with
+the genome going from left to right. Users typically want to see
+annotations (where the genes and exons are), as well as experiment
+data (RNA sequences, epigenetic information, etc.)
+
+It's a little bit of extra work to visualize a *GRangesList*
+(you have to convert the data to a data.frame first) using *Gviz*, but
+the package does have in-depth (albiet dense) documentation, and a
+working vignette.
+
+In my opinion, this could still be easier. There are people
+working on other approaches, such as 
+[epivizr](http://bioconductor.org/packages/epivizr). Outside of R,
+people commonly use the 
+[UCSC Genome Browser](https://genome.ucsc.edu/) (a website), or
+[IGV](http://software.broadinstitute.org/software/igv/) (a standalone
+Java application).
+
+The following function I define takes a GRangesList object and turns it
+into a data.frame that can be read by the Gviz package.
+
+```{r message=FALSE}
 library(Gviz)
 granges2df <- function(x) {
   df <- as(x, "data.frame")
@@ -165,16 +191,31 @@ granges2df <- function(x) {
 }
 ```
 
+Now we will make a data.frame called `df` with the information about
+the transcripts of our gene, and make a *GeneRegionTrack* out of it.
+
 ```{r}
 df <- granges2df(ebt2)
 df$gene <- gid
 grt <- GeneRegionTrack(df)
 ```
 
+We need to set the range of the plot, and for this we can find out the
+range of all the ranges within `ebt2`. I do this by `unlist`-ing the
+GRangesList (making a big GRanges object), and then asking the range.
+
 ```{r}
-range(ebt2)
 range(unlist(ebt2))
 ```
+
+Now we put our tracks together, with a genome axis track as well.
+What can we see here? There transcripts are mostly overlapping. There
+are a cluster of transcripts that are long and basically overlapping
+except for a few exons excluded. Then there are transcripts which only
+contain the beginning exons (the arrows indicate that the beginning of
+the transcript is on the right-hand side), and there is one transcript
+with just the ending exons (left-hand side). This is pretty typical
+for a multiple-isoform gene.
 
 ```{r}
 gax <- GenomeAxisTrack()
@@ -183,25 +224,18 @@ plotTracks(list(gax,grt), chromosome="20",
            from=44619522 - 10000, to=44652233 + 10000)
 ```
 
-```{r}
-plotTracks(list(gax,grt), chromosome="20",
-           transcriptAnnotation="gene",
-           from=44619522 - 10000, to=44652233 + 10000)
-```
-
-```{r}
-plotTracks(list(gax,grt), chromosome="20",
-           collapseTranscripts=TRUE,
-           shape="arrow",
-           transcriptAnnotation="gene",
-           from=44619522 - 10000, to=44652233 + 10000)
-```
+Note that it is also possible to label certain features. We just
+create a new column called `feature`, and then we can put whatever
+grouping or labels we like. Here we are coloring an individual exon of
+one of the transcripts:
 
 ```{r}
 df$feature <- "A"
 df$feature[6] <- "B"
 grt <- GeneRegionTrack(df)
 ```
+
+Now we add a specific color for that exon:
 
 ```{r}
 plotTracks(list(gax,grt), chromosome="20",

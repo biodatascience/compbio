@@ -112,16 +112,11 @@ genomic ranges, the set of human genes, as annotated by the
 This data is easily accessible in Bioconductor using the *ensembldb*
 package, and the specific Ensembl database package from Bioconductor.
 
-(Note this file is 75 Mb, so you'll want to have a decent internet
-connection: it contains lots of information about all human genes.
-We will later download the human genome itself, which is close to 1 Gb
-compressed.)
-
 This says there are about 60 thousand genes (according to Ensembl).
 
 ```{r message=FALSE}
 library(ensembldb)
-library(EnsDb.Hsapiens.v86)
+library(EnsDb.Hsapiens.v86) # this pkg is about 75 Mb
 edb <- EnsDb.Hsapiens.v86
 g <- genes(edb)
 length(g)
