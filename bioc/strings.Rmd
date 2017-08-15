@@ -1,5 +1,5 @@
 ---
-title: "Accessing annotations in Bioconductor"
+title: "Working with DNA and RNA sequences using Biostrings"
 author: "[Michael Love](http://mikelove.github.io)"
 output: html_document
 ---

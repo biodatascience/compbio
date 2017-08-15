@@ -46,15 +46,10 @@ basic summarization of public data sets with gene expression data. We
 will use data from *recount2* again.
 
 ```{r}
-url <- "http://duffel.rail.bio/recount/SRP012682/rse_gene_brain.Rdata"
-file <- "brain.rda"
+url <- "http://duffel.rail.bio/recount/SRP046226/rse_gene.Rdata"
+file <- "asthma.rda"
 if (!file.exists(file)) download.file(url, file)
 load(file)
-ls()
-####
-library(recount)
-download_study("SRP046226")
-load(file.path("SRP046226","rse_gene.Rdata"))
 ls()
 ```
 
@@ -68,31 +63,43 @@ colData(rse)
 rse$characteristics[[1]]
 rse$condition <- sapply(rse$characteristics, `[`, 3)
 rse$treatment <- sapply(rse$characteristics, `[`, 4)
+```
 
+```{r}
 library(magrittr)
-rse$condition %<>% (function(x) factor(sub("disease state: (.*)","\\1",x)))
+rse$condition %<>% (function(x) {
+  factor(sub("-",".", sub("disease state: (.*)","\\1",x) ))
+  })
 rse$treatment %<>% (function(x) factor(sub("treatment: (.*)","\\1",x)))
+```
 
+```{r}
 rse$condition
 rse$treatment
+```
 
+```{r}
 library(DESeq2)
 dds <- DESeqDataSet(rse, ~condition + treatment)
+```
 
+```{r}
 vsd <- vst(dds, blind=FALSE)
+```
 
+```{r}
 library(matrixStats)
 rv <- rowVars(assay(vsd))
-library(pheatmap)
-anno.col <- as.data.frame(colData(vsd)[,c("condition","treatment")])
-pheatmap(assay(vsd)[head(order(mads, decreasing=TRUE),100),],
-         annotation_col=anno.col,
-         show_rownames=FALSE)
+```
 
-mat <- assay(vsd)[head(order(mads, decreasing=TRUE),100),]
-mat <- mat - rowMeans(mat)
-pheatmap(mat,
+```{r}
+anno.col <- as.data.frame(colData(vsd)[,c("condition","treatment")])
+anno.col
+```
+
+```{r}
+library(pheatmap)
+pheatmap(assay(vsd)[head(order(rv, decreasing=TRUE),100),],
          annotation_col=anno.col,
-         show_rownames=FALSE,
-         cluster_rows=FALSE)
+         show_rownames=FALSE, show_colnames=FALSE)
 ```
