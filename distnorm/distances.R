@@ -1,0 +1,107 @@
+#library(recount)
+proj <- "ERP001942"
+#download_study(proj)
+load(file.path(proj,"rse_gene.Rdata"))
+source("../bioc/my_scale_counts.R")
+rse <- my_scale_counts(rse_gene)
+
+library(readr)
+pheno <- read_tsv("geuvadis.tsv")
+df <- data.frame(pheno[,c("Run_s","Center_Name_s","population_s")])
+df <- data.frame(lapply(df, factor))
+colnames(df) <- c("run","center","population")
+levels(df$center) <- c("CGR","CNAG","HZM","ICMB","LUMC","MPIMG","UG","UU")
+nrow(df)
+ncol(rse)
+
+all(colnames(rse) %in% df$run)
+
+m <- match(colnames(rse), df$run)
+rse$center <- df$center[m]
+rse$population <- df$population[m]
+
+# the number of counts per sample
+# (column sum per million)
+cspm <- colSums(assay(rse))/1e6
+range(cspm)
+idx <- order(cspm)[c(100,500)]
+cspm[idx]
+
+plot(assay(rse)[,idx])
+
+plot(log10(assay(rse)[,idx] + 1))
+abline(0,1,col="red", lwd=3)
+
+x <- log2(assay(rse)[,idx[1]] + 1)
+y <- log2(assay(rse)[,idx[2]] + 1)
+plot(.5*(x + y), y - x,
+     cex=.5, col=rgb(0,0,0,.2), pch=20)
+abline(h=0, col="red", lwd=3)
+
+# reminder of distance:
+plot(.5*(x + y), y - x, type="h")
+
+# show PCA of unnormalized counts
+library(matrixStats)
+log.cts <- log(assay(rse) + 1)
+rv <- rowVars(log.cts)
+system.time({
+  pc <- prcomp(t(log.cts[head(order(rv,decreasing=TRUE),20000),]))
+}) # takes ~1 min
+plot(cspm, pc$x[,1])
+
+outlier <- which(pc$x[,1] > 300)
+boxplot(log.cts[,c(1:20,outlier)], range=0)
+
+system.time({
+  pc <- prcomp(t(log.cts[head(order(rv,decreasing=TRUE),20000),-outlier]))
+}) # takes ~1 min
+plot(cspm[-outlier], pc$x[,1])
+
+# show construction of pseudoreference
+# show calculation of median ratios
+
+reference <- exp(rowMeans(log(assay(rse))))
+x <- log2(reference)
+y <- log2(assay(rse)[,which.max(cspm)] + 1)
+plot(.5*(x + y), y - x,
+     cex=.5, col=rgb(0,0,0,.2), pch=20)
+abline(h=0, col="red", lwd=3)
+
+hist(y - x, breaks=200, col="grey", xlim=c(-2,5))
+median.lfc <- median((y - x)[is.finite(x)])
+abline(v = median.lfc, col="blue", lwd=3)
+
+plot(.5*(x + y), y - x,
+     cex=.5, col=rgb(0,0,0,.2), pch=20)
+abline(h=0, col="red", lwd=3)
+abline(h=median.lfc, col="blue", lwd=3)
+
+#
+library(DESeq2)
+dds <- DESeqDataSet(rse, ~1)
+dds <- estimateSizeFactors(dds)
+ntd <- normTransform(dds)
+plotPCA(ntd, c("center")) # just looks at top genes by variance
+plotPCA(ntd, c("population"))
+
+chrY <- as.logical(seqnames(rowRanges(ntd)) == "chrY")
+chrYexprs <- colSums(counts(dds, normalized=TRUE)[chrY,])
+hist(chrYexprs, breaks=100, col="grey")
+hist(log10(chrYexprs), breaks=100, col="grey")
+dds$male <- log10(chrYexprs) > 3.5
+table(dds$male)
+save(dds, file="geuvadis.rda")
+
+dds.f <- dds[,!dds$male]
+dds.f <- estimateSizeFactors(dds.f)
+ntd.f <- normTransform(dds.f)
+plotPCA(ntd.f, c("center"))
+plotPCA(ntd.f, c("population"))
+
+library(genefilter)
+tests <- rowFtests(assay(ntd.f), ntd.f$center)
+top.gene.log.exprs <- assay(ntd.f)[which.min(tests$p.value),]
+plot(top.gene.log.exprs ~ ntd.f$center)
+hist(tests$p.value, col="grey")
+
