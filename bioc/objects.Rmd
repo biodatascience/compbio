@@ -47,7 +47,7 @@ Why all this stress on versioning? This is because the packages in
 Bioconductor are highly *interdependent*, and also some are very dependent on
 R internals. So that the project can guarantee the code will run and
 not give errors on many systems (Linux, Mac and Windows have support
-for the majority Bioconductor packages), new development is locked
+for the majority of Bioconductor packages), new development is locked
 into cycles, such that a *release* of Bioconductor shouldn't contain
 any two packages which conflict and could potentially cause errors.
   
