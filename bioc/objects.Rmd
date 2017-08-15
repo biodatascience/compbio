@@ -44,7 +44,7 @@ way, you can install multiple packages at once by making a string
 vector: `biocLite(c("foo","bar"))`
 
 Why all this stress on versioning? This is because the packages in
-Bioconductor are highly *interdependent*, and also quick dependent on
+Bioconductor are highly *interdependent*, and also some are very dependent on
 R internals. So that the project can guarantee the code will run and
 not give errors on many systems (Linux, Mac and Windows have support
 for the majority Bioconductor packages), new development is locked
