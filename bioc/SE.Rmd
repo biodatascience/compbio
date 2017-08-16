@@ -4,6 +4,25 @@ author: "[Michael Love](http://mikelove.github.io)"
 output: html_document
 ---
 
+When I previously covered [objects](objects.html), we learned about
+ExpressionSet, and mentioned that a similarly shaped object is
+SummarizedExperiment. By shape, I refer to the 
+[3 tables](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4509590/figure/F2/)
+that make up the object, one for the data, one for the sample
+information, and one for the feature/row information. In
+SummarizedExperiment, these are called `assay`, `colData` and
+`rowData` or `rowRanges` (more on this below). 
+This generalizes the language that was used for
+ExpressionSet, so they apply to more types of datasets (not just gene
+expression: `exprs`, `phenoData`, and `featureData`).
+
+It helps to start by making a small toy SummarizedExperiment, to see
+how the pieces come together.
+
+```{r echo=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
 ```{r message=FALSE}
 library(SummarizedExperiment)
 colData <- data.frame(sample=factor(1:6),
@@ -12,7 +31,15 @@ colData <- data.frame(sample=factor(1:6),
 colData
 ```
 
-```{r}
+So far, it is similar to ExpressionSet. The key difference is that the
+rows of a SummarizedExperiment can correspond to
+[GRanges](ranges.html). If we don't have ranges, we can just put a
+table on the side of the SummarizedExperiment by specifying `rowData`.
+
+I will show in the example though how to provide `rowRanges`. Let's
+use the first 10 genes in the Ensembl database for human:
+
+```{r message=FALSE}
 library(EnsDb.Hsapiens.v86)
 txdb <- EnsDb.Hsapiens.v86
 g <- genes(txdb)
@@ -20,25 +47,69 @@ g <- keepStandardChromosomes(g, pruning.mode="coarse")
 rowRanges <- g[1:10]
 ```
 
+We will make up some simulated "expression" measurements, and then
+store these in the SummarizedExperiment. I call `list` so I can name
+the matrix, otherwise it would not be named.
+
 ```{r}
 exprs <- matrix(rnorm(6 * 10), ncol=6, nrow=10)
-se <- SummarizedExperiment(exprs, colData=colData, rowRanges=rowRanges)
+se <- SummarizedExperiment(assay=list("exprs"=exprs),
+                           colData=colData,
+                           rowRanges=rowRanges)
 se
 ```
 
+We see this object has one named matrix. It could have others, and in
+that case you could access the first with `assay` and in general by
+name, e.g. `assays(se)[["exprs"]]`
+
+```{r}
+assayNames(se)
+```
+
+Finally, if we wanted to add data onto the rows, for example, the
+score of a test on the matrix data, we use the metadata columns
+function, or `mcols`:
+
+```{r}
+mcols(se)$score <- rnorm(10)
+mcols(se)
+```
+
+# Using the ranges of a SummarizedExperiment
+
+How does this additional functionality of the `rowRanges` facilitate
+faster data analysis? Suppose we are working with another data set
+besides `se` and we find a region of interest on chromsome 1. If we
+want to pull out the expression data for that region, we just ask for
+the subset of `se` that overlaps. First we build the query region, and
+then use the *GRanges* function `overlapsAny` within single square
+brackets (like you would subset any matrix-like object:
+
 ```{r}
 query <- GRanges("1", IRanges(25000,40000))
-se.sub <- se[overlapsAny(se, query),]
+se.sub <- se[overlapsAny(se, query), ]
 ```
+
+We get just three ranges, and three rows of the SummarizedExperiment:
 
 ```{r}
 rowRanges(se.sub)
 assay(se.sub)
 ```
 
+Another useful property is that we know metadata about the
+chromosomes, and the version of the genome. (If you were not yet
+aware, the basepair position of a given feature, say gene *XYZ*, will
+change between versions of the genome, as sequences are added or
+rearranged --- you should also know that the human genome has not been
+fully sequenced as of 2017, which we will discuss in class.)
+
 ```{r}
 seqinfo(se)
 ```
+
+# Downloading SummarizedExperiment data
 
 We previously introduced the computational project, called 
 [recount2](https://jhubiostatistics.shinyapps.io/recount/), which performs a

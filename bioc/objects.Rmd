@@ -89,7 +89,8 @@ number of RNA-seq reads that can be assigned to a particular gene, and
 the location of the gene in the genome.
 
 But first let's explore the ExpressionSet, because it came first in
-time, and it's very simple.
+time, and it's very simple. 
+We will explore [SummarizedExperiment](SE.html) later.
 
 The components of an ExpressionSet are the matrix of data, the table
 about the samples (phenotypic data) and the table about the features
