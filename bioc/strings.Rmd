@@ -4,7 +4,7 @@ author: "[Michael Love](http://mikelove.github.io)"
 output: html_document
 ---
 
-```{r}
+```{r message=FALSE}
 library(Biostrings)
 dna <- "AAACGCG"
 ```
@@ -36,7 +36,7 @@ pd <- PDict(c("CTC","GAG","TTT","AAA"))
 matchPDict(pd, dna)
 ```
 
-```{r}
+```{r results="hide"}
 library(AnnotationHub)
 ah <- AnnotationHub()
 ```
@@ -48,10 +48,13 @@ display(ah)
 ```{r}
 res <- query(ah, c("ensembl","GRCh38","dna.primary_assembly"))
 res$sourceurl
-genome <- query(ah, c("ensembl","GRCh38","dna.primary","release-87"))[[1]]
 ```
 
-Note! this downloads ~1 Gb to `~/.AnnotationHub`
+Note! this downloads ~700 Mb to `~/.AnnotationHub`
+
+```{r}
+genome <- query(ah, c("ensembl","GRCh38","dna.primary","release-87"))[[1]]
+```
 
 ```{r}
 seqinfo(genome)
@@ -62,12 +65,20 @@ dna
 
 ```{r}
 txome <- query(ah, c("ensembl","GRCh38","cdna.all","release-87"))[[1]]
+```
+
+```{r}
 seqinfo(txome)
 txs <- seqnames(seqinfo(txome))
 ```
 
+The following call downloads about ~300 Mb
+
 ```{r}
 edb <- query(ah, c("EnsDb", "Hsapiens", "v87"))[[1]]
+```
+
+```{r}
 ebg <- exonsBy(edb, by="tx")
 ```
 

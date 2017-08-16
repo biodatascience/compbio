@@ -167,10 +167,13 @@ with the summary: "alveolar macrophages from human subjects".
 
 ```{r message=FALSE}
 library(GEOquery)
-# downloads 10 Mb
-geo <- getGEO("GSE2125") 
-names(geo)
-e <- geo[[1]]
+file <- list.files(pattern="GSE2125")
+if (length(file) == 0) {
+  geo <- getGEO("GSE2125", destdir=".")
+  e <- geo[[1]]
+} else {
+  e <- getGEO(filename=file)
+}
 ```
 
 We can take a look at the phenotypic data. A lot is repetitive. Some

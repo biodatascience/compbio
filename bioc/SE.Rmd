@@ -4,7 +4,7 @@ author: "[Michael Love](http://mikelove.github.io)"
 output: html_document
 ---
 
-```{r}
+```{r message=FALSE}
 library(SummarizedExperiment)
 colData <- data.frame(sample=factor(1:6),
                       condition=factor(c("A","A","B","B","C","C")),
@@ -59,10 +59,14 @@ rse <- my_scale_counts(rse_gene)
 ```
 
 ```{r}
-colData(rse)
+colData(rse)[,1:6]
 rse$characteristics[[1]]
 rse$condition <- sapply(rse$characteristics, `[`, 3)
 rse$treatment <- sapply(rse$characteristics, `[`, 4)
+```
+
+```{r}
+rowRanges(rse)
 ```
 
 ```{r}
