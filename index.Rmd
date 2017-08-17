@@ -32,7 +32,7 @@ RStudio.
 |Aug 23         | GitHub | | [github](github.html) |
 |Aug 28 & 30    | R & EDA | `eda` | [EDA](eda/EDA.html), [NAs](eda/NAs.html), [brain RNA](eda/brain_RNA.html) |
 |LbrDay & Sep 6 | Bioconductor | `bioc` | [objects](bioc/objects.html), [ranges](bioc/ranges.html), [GRangesList](bioc/GRL.html) |
-|Sep 11 & 13    | Bioc. continued | `bioc` | [SummarizedExperiment](bioc/SE.html), anno, strings |
+|Sep 11 & 13    | Bioc. continued | `bioc` | [SummarizedExperiment](bioc/SE.html), [anno](bioc/anno.html), [strings](bioc/strings.html) |
 |Sep 18 & 20    | Distances & norm. | | |
 |Sep 25 & 27    | Testing | | |
 |Oct 2 & 4      | Alignment & Networks | | |
