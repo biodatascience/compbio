@@ -1,7 +1,13 @@
-#library(recount)
-proj <- "ERP001942"
-#download_study(proj)
-load(file.path(proj,"rse_gene.Rdata"))
+# this downloads ~75 Mb
+
+
+library(SummarizedExperiment)
+url <- "http://duffel.rail.bio/recount/ERP001942/rse_gene.Rdata"
+file <- "geuvadis.rda"
+if (!file.exists(file)) download.file(url, file)
+load(file)
+ls()
+
 source("../bioc/my_scale_counts.R")
 rse <- my_scale_counts(rse_gene)
 
@@ -29,13 +35,16 @@ cspm[idx]
 
 plot(assay(rse)[,idx])
 
-plot(log10(assay(rse)[,idx] + 1))
+plot(log10(assay(rse)[,idx] + 1), col=rgb(0,0,0,.2))
+
+plot(log10(assay(rse)[,idx] + 1), 
+     cex=.5, col=rgb(0,0,0,.1), pch=20)
 abline(0,1,col="red", lwd=3)
 
 x <- log2(assay(rse)[,idx[1]] + 1)
 y <- log2(assay(rse)[,idx[2]] + 1)
 plot(.5*(x + y), y - x,
-     cex=.5, col=rgb(0,0,0,.2), pch=20)
+     cex=.5, col=rgb(0,0,0,.1), pch=20)
 abline(h=0, col="red", lwd=3)
 
 # reminder of distance:
@@ -51,7 +60,10 @@ system.time({
 plot(cspm, pc$x[,1])
 
 outlier <- which(pc$x[,1] > 300)
+points(cspm[outlier], pc$x[outlier,1], col="blue", cex=3)
+
 boxplot(log.cts[,c(1:20,outlier)], range=0)
+
 
 system.time({
   pc <- prcomp(t(log.cts[head(order(rv,decreasing=TRUE),20000),-outlier]))
