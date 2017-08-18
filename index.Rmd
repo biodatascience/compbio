@@ -61,5 +61,5 @@ RStudio.
 
 This page was last updated on `r format(Sys.time(), "%m/%d/%Y")`. 
 
-* [GitHub repo](https://github.com/mikelove/compbio)
-* [License](https://github.com/mikelove/compbio/blob/gh-pages/LICENSE)
+* [GitHub repo](https://github.com/biodatascience/compbio)
+* [License](https://github.com/biodatascience/compbio/blob/gh-pages/LICENSE)
