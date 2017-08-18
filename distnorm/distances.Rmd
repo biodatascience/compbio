@@ -1,6 +1,16 @@
-# this downloads ~75 Mb
+---
+title: "Computing distances for high-throughput data matrices"
+author: "[Michael Love](http://mikelove.github.io)"
+output: html_document
+---
 
+This downloads ~75 Mb
 
+```{r echo=FALSE}
+knitr::opts_chunk$set(cache=TRUE)
+```
+
+```{r}
 library(SummarizedExperiment)
 url <- "http://duffel.rail.bio/recount/ERP001942/rse_gene.Rdata"
 file <- "geuvadis.rda"
@@ -116,4 +126,4 @@ tests <- rowFtests(assay(ntd.f), ntd.f$center)
 top.gene.log.exprs <- assay(ntd.f)[which.min(tests$p.value),]
 plot(top.gene.log.exprs ~ ntd.f$center)
 hist(tests$p.value, col="grey")
-
+```
