@@ -12,17 +12,17 @@ For official course information see Sakai (syllabus, calendar, paper PDFs, etc).
 This course makes extensive use of R and assumes basic familiarity with
 base R (not packages) as a prerequisite. 
 A self-quiz is available 
-[here](https://github.com/mikelove/compbio/blob/gh-pages/selfquiz/selfquiz.R), 
+[here](https://github.com/biodatascience/compbio/blob/gh-pages/selfquiz/selfquiz.R), 
 with answers provided 
-[here](https://github.com/mikelove/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda).
+[here](https://github.com/biodatascience/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda).
 You can also find a
-[list of base R functions](https://github.com/mikelove/compbio/blob/gh-pages/eda/functions.md)
+[list of base R functions](https://github.com/biodatascience/compbio/blob/gh-pages/eda/functions.md)
 that one should be familiar with.
 
 ### Schedule and course notes
 
 For `Rmd` files, go to the
-[course repo](https://github.com/mikelove/compbio) and navigate the
+[course repo](https://github.com/biodatascience/compbio) and navigate the
 directories, or best of all to clone the repo and navigate within
 RStudio.
 
