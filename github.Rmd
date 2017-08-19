@@ -48,10 +48,10 @@ you can follow the rest of the instructions on HTTPS or SSH credentials,
 but this is not necessary just to clone the class repo.
 
 This class has two "views"  you might say. 
-The [HTML/website version](https://mikelove.github.io/compbio/) and the 
-[GitHub version](https://github.com/mikelove/compbio). From the GitHub version,
+The [HTML/website version](https://biodatascience.github.io/compbio/) and the 
+[GitHub version](https://github.com/biodatascience/compbio_src). From the GitHub version,
 you can poke around, and click on files, even see the history of the code.
-If you want to look at the raw text for an Rmd or HTML file, you 
+If you want to look at the raw text for an Rmd file, you 
 can click the **Raw** link on the top of the document.
 
 To clone the class repo, you should go to the GitHub version of this class 

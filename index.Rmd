@@ -16,13 +16,13 @@ A self-quiz is available
 with answers provided 
 [here](https://github.com/biodatascience/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda).
 You can also find a
-[list of base R functions](https://github.com/biodatascience/compbio/blob/gh-pages/eda/functions.md)
+[list of base R functions](https://github.com/biodatascience/compbio_src/blob/gh-pages/eda/functions.md)
 that one should be familiar with.
 
 ### Schedule and course notes
 
 For `Rmd` files, go to the
-[course repo](https://github.com/biodatascience/compbio) and navigate the
+[course repo](https://github.com/biodatascience/compbio_src) and navigate the
 directories, or best of all to clone the repo and navigate within
 RStudio.
 
@@ -61,5 +61,5 @@ RStudio.
 
 This page was last updated on `r format(Sys.time(), "%m/%d/%Y")`. 
 
-* [GitHub repo](https://github.com/biodatascience/compbio)
-* [License](https://github.com/biodatascience/compbio/blob/gh-pages/LICENSE)
+* [GitHub repo](https://github.com/biodatascience/compbio_src)
+* [License](https://github.com/biodatascience/compbio_src/blob/gh-pages/LICENSE)
