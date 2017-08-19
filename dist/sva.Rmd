@@ -1,3 +1,10 @@
+---
+title: "Surrogate variable analysis for finding hidden batch effects"
+author: "[Michael Love](http://mikelove.github.io)"
+output: html_document
+---
+
+```{r}
 download.file("http://bowtie-bio.sourceforge.net/recount/countTables/bottomly_count_table.txt", "bottomly_count_table.txt")
 download.file("http://bowtie-bio.sourceforge.net/recount/phenotypeTables/bottomly_phenodata.txt", "bottomly_phenodata.txt")
 
@@ -22,3 +29,5 @@ library(rafalib)
 bigpar()
 dds$strain.int <- as.integer(dds$strain)
 plot(fit$sv[,1:2], col=dds$batch, pch=dds$strain.int, cex=2)
+```
+

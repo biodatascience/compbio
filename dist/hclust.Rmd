@@ -1,3 +1,10 @@
+---
+title: "Hierarchical clustering"
+author: "[Michael Love](http://mikelove.github.io)"
+output: html_document
+---
+
+```{r}
 library(DESeq2)
 load("geuvadis.rda")
 dds.f <- dds[,!dds$male]
@@ -62,3 +69,4 @@ pheatmap(mat[head(o,200),idx],
 
 plotPCA(vsd, "population")
 plotPCA(vsd[,vsd$population=="YRI"], "center")
+```

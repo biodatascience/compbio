@@ -258,11 +258,7 @@ se.sub &lt;- se[overlapsAny(se, query), ]</code></pre>
 <pre class="r"><code>url &lt;- &quot;http://duffel.rail.bio/recount/SRP046226/rse_gene.Rdata&quot;
 file &lt;- &quot;asthma.rda&quot;
 if (!file.exists(file)) download.file(url, file)
-load(file)
-ls()</code></pre>
-<pre><code>##  [1] &quot;colData&quot;   &quot;exprs&quot;     &quot;file&quot;      &quot;g&quot;         &quot;query&quot;    
-##  [6] &quot;rowRanges&quot; &quot;rse_gene&quot;  &quot;se&quot;        &quot;se.sub&quot;    &quot;txdb&quot;     
-## [11] &quot;url&quot;</code></pre>
+load(file)</code></pre>
 <p>We use a custom function to produce a matrix which a count of RNA fragments for each gene (rows) and each sample (columns)</p>
 <pre class="r"><code>source(&quot;my_scale_counts.R&quot;)
 rse &lt;- my_scale_counts(rse_gene)</code></pre>

@@ -188,18 +188,20 @@ elementNROWS(matches)</code></pre>
 ##   [4]        19        21         3</code></pre>
 <div id="working-with-genomes" class="section level1">
 <h1>Working with genomes</h1>
-<p>While some genomes exist as packages on Bioconductor, for example…</p>
+<p>Many genomes exist as packages on Bioconductor, for example:</p>
 <ul>
 <li><a href="http://bioconductor.org/packages/BSgenome.Hsapiens.UCSC.hg19">BSgenome.Hsapiens.UCSC.hg19</a></li>
 <li><a href="http://bioconductor.org/packages/BSgenome.Hsapiens.UCSC.hg38">BSgenome.Hsapiens.UCSC.hg38</a></li>
+<li><a href="http://bioconductor.org/packages/BSgenome.Hsapiens.NCBI.GRCh38">BSgenome.Hsapiens.NCBI.GRCh38</a></li>
 </ul>
-<p>I want to show you though, how to work with genomes that don’t exist as a package on Bioconductor. For example, the Ensembl version of the genome doesn’t exist on Bioconductor as a package, just the UCSC versions above. The first step is to load up the <em>AnnotationHub</em> package:</p>
+<p>We will work with the UCSC version of the hg38/GRCh38 genome, the second package above. This package is ~670 Mb, so you may want to keep track of where it is kept on your computer. You can look up the library path using <code>.libPaths()</code>, and you can remove packages with <code>remove.packages()</code>.</p>
+<p>But first, I want to show you also how to work with genomes that don’t exist as a package on Bioconductor. The first step would be to load up the <em>AnnotationHub</em> package:</p>
 <pre class="r"><code>library(AnnotationHub)
 ah &lt;- AnnotationHub()</code></pre>
 <pre><code>## snapshotDate(): 2017-07-11</code></pre>
-<p>As before, you can look through a web browser to find a particular genome. Try searching for <strong>species:</strong> Homo sapiens, <strong>genome:</strong> grch38, <strong>description:</strong> FASTA. Notice the different descriptions. Note that “cDNA” stands for the sequence that is transcribed into RNA (so the exon sequence of transcripts).</p>
+<p>As before, you can look through a web browser to find a particular genome. For example, try searching for <strong>species:</strong> Homo sapiens, <strong>genome:</strong> grch38, <strong>description:</strong> FASTA. Notice the different descriptions. Note that “cDNA” stands for the sequence that is transcribed into RNA (so the exon sequence of transcripts).</p>
 <pre class="r"><code>display(ah)</code></pre>
-<p>We can also query the AnnotationHub using the <code>query</code> function. The genome we want is labelled <code>dna.primary_assembly</code> so we use that as a keyword:</p>
+<p>We can also query the AnnotationHub using the <code>query</code> function. Suppose we wanted the GRCh38 human genome (though we have it above in a package). We look for the files labeled <code>dna.primary_assembly</code>:</p>
 <pre class="r"><code>res &lt;- query(ah, c(&quot;ensembl&quot;,&quot;GRCh38&quot;,&quot;dna.primary_assembly&quot;))
 res$sourceurl</code></pre>
 <pre><code>## [1] &quot;ftp://ftp.ensembl.org/pub/release-82/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz&quot;
@@ -210,36 +212,55 @@ res$sourceurl</code></pre>
 ## [6] &quot;ftp://ftp.ensembl.org/pub/release-87/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz&quot;
 ## [7] &quot;ftp://ftp.ensembl.org/pub/release-88/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz&quot;
 ## [8] &quot;ftp://ftp.ensembl.org/pub/release-89/fasta/homo_sapiens/dna/Homo_sapiens.GRCh38.dna.primary_assembly.fa.gz&quot;</code></pre>
-<p><strong>Note!</strong> the following line downloads the human genome sequence, which is ~700 Mb compressed to <code>~/.AnnotationHub</code>.</p>
-<pre class="r"><code>genome &lt;- query(ah, c(&quot;ensembl&quot;,&quot;GRCh38&quot;,&quot;dna.primary&quot;,&quot;release-87&quot;))[[1]]</code></pre>
-<pre><code>## require(&quot;rtracklayer&quot;)</code></pre>
-<pre><code>## loading from cache '/home/love//.AnnotationHub/60651'</code></pre>
-<p>We can extract particular sequences from the genome using <em>GRanges</em></p>
-<pre class="r"><code>seqinfo(genome)</code></pre>
-<pre><code>## Seqinfo object with 194 sequences from an unspecified genome:
-##   seqnames   seqlengths isCircular genome
-##   1           248956422       &lt;NA&gt;   &lt;NA&gt;
-##   10          133797422       &lt;NA&gt;   &lt;NA&gt;
-##   11          135086622       &lt;NA&gt;   &lt;NA&gt;
-##   12          133275309       &lt;NA&gt;   &lt;NA&gt;
-##   13          114364328       &lt;NA&gt;   &lt;NA&gt;
-##   ...               ...        ...    ...
-##   KI270539.1        993       &lt;NA&gt;   &lt;NA&gt;
-##   KI270385.1        990       &lt;NA&gt;   &lt;NA&gt;
-##   KI270423.1        981       &lt;NA&gt;   &lt;NA&gt;
-##   KI270392.1        971       &lt;NA&gt;   &lt;NA&gt;
-##   KI270394.1        970       &lt;NA&gt;   &lt;NA&gt;</code></pre>
-<pre class="r"><code>gr &lt;- GRanges(&quot;1&quot;, IRanges(1e6 + c(1,101,201), width=100))
+<p>We could then download one of these files using double square brackets, to pick which of the genomes in <code>res</code>. We won’t do that. Instead, we will work with the package described above, which can be downloaded with <code>biocLite()</code></p>
+<pre class="r"><code>library(BSgenome.Hsapiens.UCSC.hg38)
+Hsapiens</code></pre>
+<pre><code>## Human genome:
+## # organism: Homo sapiens (Human)
+## # provider: UCSC
+## # provider version: hg38
+## # release date: Dec. 2013
+## # release name: Genome Reference Consortium GRCh38
+## # 455 sequences:
+## #   chr1                    chr2                    chr3                   
+## #   chr4                    chr5                    chr6                   
+## #   chr7                    chr8                    chr9                   
+## #   chr10                   chr11                   chr12                  
+## #   chr13                   chr14                   chr15                  
+## #   ...                     ...                     ...                    
+## #   chrUn_KI270744v1        chrUn_KI270745v1        chrUn_KI270746v1       
+## #   chrUn_KI270747v1        chrUn_KI270748v1        chrUn_KI270749v1       
+## #   chrUn_KI270750v1        chrUn_KI270751v1        chrUn_KI270752v1       
+## #   chrUn_KI270753v1        chrUn_KI270754v1        chrUn_KI270755v1       
+## #   chrUn_KI270756v1        chrUn_KI270757v1                               
+## # (use 'seqnames()' to see all the sequence names, use the '$' or '[['
+## # operator to access a given sequence)</code></pre>
+<p>We can extract particular sequences from a reference genome using <em>GRanges</em>. Note that the difference between the “UCSC” and “NCBI/Ensembl” style of chromosomes is <code>chr1</code> vs <code>1</code>.</p>
+<pre class="r"><code>seqinfo(Hsapiens)</code></pre>
+<pre><code>## Seqinfo object with 455 sequences (1 circular) from hg38 genome:
+##   seqnames         seqlengths isCircular genome
+##   chr1              248956422      FALSE   hg38
+##   chr2              242193529      FALSE   hg38
+##   chr3              198295559      FALSE   hg38
+##   chr4              190214555      FALSE   hg38
+##   chr5              181538259      FALSE   hg38
+##   ...                     ...        ...    ...
+##   chrUn_KI270753v1      62944      FALSE   hg38
+##   chrUn_KI270754v1      40191      FALSE   hg38
+##   chrUn_KI270755v1      36723      FALSE   hg38
+##   chrUn_KI270756v1      79590      FALSE   hg38
+##   chrUn_KI270757v1      71251      FALSE   hg38</code></pre>
+<pre class="r"><code>gr &lt;- GRanges(&quot;chr1&quot;, IRanges(1e6 + c(1,101,201), width=100))
 gr</code></pre>
 <pre><code>## GRanges object with 3 ranges and 0 metadata columns:
 ##       seqnames             ranges strand
 ##          &lt;Rle&gt;          &lt;IRanges&gt;  &lt;Rle&gt;
-##   [1]        1 [1000001, 1000100]      *
-##   [2]        1 [1000101, 1000200]      *
-##   [3]        1 [1000201, 1000300]      *
+##   [1]     chr1 [1000001, 1000100]      *
+##   [2]     chr1 [1000101, 1000200]      *
+##   [3]     chr1 [1000201, 1000300]      *
 ##   -------
 ##   seqinfo: 1 sequence from an unspecified genome; no seqlengths</code></pre>
-<pre class="r"><code>dna &lt;- getSeq(genome, gr)
+<pre class="r"><code>dna &lt;- getSeq(Hsapiens, gr)
 dna</code></pre>
 <pre><code>##   A DNAStringSet instance of length 3
 ##     width seq
@@ -247,9 +268,9 @@ dna</code></pre>
 ## [2]   100 CGCCTCAGGCCGTTTCCCTATTTAAGGCCTC...CCCACACTCGCCCCAGCCAATCGACGGCCGC
 ## [3]   100 GCTCCTCCCCCGCTCGCTGTCAGTCACGCCT...CGGGGCCCCCGCCCGCGCCCCCCTCCGACAC</code></pre>
 </div>
-<div id="working-with-the-transcriptome" class="section level1">
-<h1>Working with the transcriptome</h1>
-<p>We can also download the cDNA, which is the sequence of the exons for each transcript. Note that, if the gene is on the - strand, then the cDNA will be the reverse complement of the reference genome, the <code>genome</code> object above.</p>
+<div id="working-with-a-transcriptome" class="section level1">
+<h1>Working with a transcriptome</h1>
+<p>We can download the cDNA (“complementary DNA”), which is the sequence of the exons for each transcript. Note that, if the gene is on the - strand, then the cDNA will be the reverse complement of the reference genome, the <code>Hsapiens</code> object above.</p>
 <pre class="r"><code>txome &lt;- query(ah, c(&quot;ensembl&quot;,&quot;GRCh38&quot;,&quot;cdna.all&quot;,&quot;release-87&quot;))[[1]]</code></pre>
 <pre><code>## loading from cache '/home/love//.AnnotationHub/60650'</code></pre>
 <p>The <code>seqnames</code> in this case are not the chromosomes, they are the names of the transcripts, and there are 178,000 of them. Note that the transcript names have a <code>.</code> and an extra number on the end. We will have to chop this extra number off later.</p>

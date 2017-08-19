@@ -33,7 +33,7 @@ RStudio.
 |Aug 28 & 30    | R & EDA | `eda` | [EDA](eda/EDA.html), [NAs](eda/NAs.html), [brain RNA](eda/brain_RNA.html) |
 |LbrDay & Sep 6 | Bioconductor | `bioc` | [objects](bioc/objects.html), [ranges](bioc/ranges.html), [GRangesList](bioc/GRL.html) |
 |Sep 11 & 13    | Bioc. continued | `bioc` | [SummarizedExperiment](bioc/SE.html), [anno](bioc/anno.html), [strings](bioc/strings.html) |
-|Sep 18 & 20    | Distances & norm. | | |
+|Sep 18 & 20    | Distances & norm. | `dist` | [distances](dist/distances.html), [hclust](dist/hclust.html), [batch](dist/batch.html), [sva](dist/sva.html) |
 |Sep 25 & 27    | Testing | | |
 |Oct 2 & 4      | Alignment & Networks | | |
 |Oct 9 & 11	    | *Mid-term* | | |

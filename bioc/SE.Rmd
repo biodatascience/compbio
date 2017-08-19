@@ -129,7 +129,6 @@ url <- "http://duffel.rail.bio/recount/SRP046226/rse_gene.Rdata"
 file <- "asthma.rda"
 if (!file.exists(file)) download.file(url, file)
 load(file)
-ls()
 ```
 
 We use a custom function to produce a matrix which a count of RNA

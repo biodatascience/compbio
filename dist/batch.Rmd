@@ -1,3 +1,10 @@
+---
+title: "Batch effects and GC content"
+author: "[Michael Love](http://mikelove.github.io)"
+output: html_document
+---
+
+```{r}
 library(DESeq2)
 load("geuvadis.rda")
 
@@ -26,8 +33,7 @@ plotRanges(e)
 plotRanges(reduce(e))
 ebg.red <- reduce(ebg)
 
-library(BSgenome.Hsapiens.NCBI.GRCh38)
-seqlevelsStyle(ebg.red) <- "NCBI"
+library(BSgenome.Hsapiens.UCSC.hg38)
 # not exactly what we want
 # dna <- getSeq(Hsapiens, ebg.red) 
 dna <- extractTranscriptSeqs(Hsapiens, ebg.red)
@@ -67,3 +73,4 @@ legend("bottom", levels(center), fill=1:nlevels(center))
 
 # cross reference with Fig 2 here:
 # https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5143225/
+```

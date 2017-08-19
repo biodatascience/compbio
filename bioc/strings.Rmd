@@ -87,16 +87,21 @@ matches[[4]]
 
 # Working with genomes
 
-While some genomes exist as packages on Bioconductor, for example...
+Many genomes exist as packages on Bioconductor, for example:
 
 * [BSgenome.Hsapiens.UCSC.hg19](http://bioconductor.org/packages/BSgenome.Hsapiens.UCSC.hg19)
 * [BSgenome.Hsapiens.UCSC.hg38](http://bioconductor.org/packages/BSgenome.Hsapiens.UCSC.hg38)
+* [BSgenome.Hsapiens.NCBI.GRCh38](http://bioconductor.org/packages/BSgenome.Hsapiens.NCBI.GRCh38)
 
-I want to show you though, how to work with genomes that don't exist
-as a package on Bioconductor. For example, the Ensembl version of the
-genome doesn't exist on Bioconductor as a package, just the UCSC
-versions above. The first step is to load up the *AnnotationHub*
-package: 
+We will work with the UCSC version of the hg38/GRCh38 genome, the
+second package above. This package is ~670 Mb, so you may want to keep
+track of where it is kept on your computer. You can look up the
+library path using `.libPaths()`, and you can remove packages with
+`remove.packages()`.
+
+But first, I want to show you also how to work with genomes that don't
+exist as a package on Bioconductor. The first step would be to load up
+the *AnnotationHub* package:
 
 ```{r results="hide"}
 library(AnnotationHub)
@@ -104,49 +109,53 @@ ah <- AnnotationHub()
 ```
 
 As before, you can look through a web browser to find a particular genome.
-Try searching for **species:** Homo sapiens, **genome:** grch38,
+For example, try searching for **species:** Homo sapiens, **genome:** grch38,
 **description:** FASTA.
 Notice the different descriptions. Note that "cDNA" stands for the
 sequence that is transcribed into RNA (so the exon sequence of
-transcripts). 
+transcripts).
 
 ```{r, eval=FALSE}
 display(ah)
 ```
 
-We can also query the AnnotationHub using the `query` function. The
-genome we want is labelled `dna.primary_assembly` so we use that as a
-keyword:
+We can also query the AnnotationHub using the `query` function. 
+Suppose we wanted the GRCh38 human genome (though we have it above in a
+package). We look for the files labeled `dna.primary_assembly`:
 
 ```{r}
 res <- query(ah, c("ensembl","GRCh38","dna.primary_assembly"))
 res$sourceurl
-
 ```
 
-**Note!** the following line downloads the human genome sequence, which is
-~700 Mb compressed to `~/.AnnotationHub`.
+We could then download one of these files using double square
+brackets, to pick which of the genomes in `res`. We won't do that.
+Instead, we will work with the package described above, which can be
+downloaded with `biocLite()`
 
 ```{r}
-genome <- query(ah, c("ensembl","GRCh38","dna.primary","release-87"))[[1]]
+library(BSgenome.Hsapiens.UCSC.hg38)
+Hsapiens
 ```
 
-We can extract particular sequences from the genome using *GRanges*
+We can extract particular sequences from a reference genome using
+*GRanges*. Note that the difference between the "UCSC" and
+"NCBI/Ensembl" style of chromosomes is `chr1` vs `1`.
 
 ```{r}
-seqinfo(genome)
-gr <- GRanges("1", IRanges(1e6 + c(1,101,201), width=100))
+seqinfo(Hsapiens)
+gr <- GRanges("chr1", IRanges(1e6 + c(1,101,201), width=100))
 gr
-dna <- getSeq(genome, gr)
+dna <- getSeq(Hsapiens, gr)
 dna
 ```
 
-# Working with the transcriptome
+# Working with a transcriptome
 
-We can also download the cDNA, which is the sequence of the exons for
-each transcript. Note that, if the gene is on the - strand, then the
-cDNA will be the reverse complement of the reference genome, the
-`genome` object above.
+We can download the cDNA ("complementary DNA"), which is the sequence
+of the exons for each transcript. Note that, if the gene is on the -
+strand, then the cDNA will be the reverse complement of the reference
+genome, the `Hsapiens` object above.
 
 ```{r}
 txome <- query(ah, c("ensembl","GRCh38","cdna.all","release-87"))[[1]]
@@ -177,7 +186,3 @@ tx.len
 tx.seq <- getSeq(txome, GRanges(seqnames(si)[idx], IRanges(1, tx.len)))
 tx.seq
 ```
-
-
-
-
