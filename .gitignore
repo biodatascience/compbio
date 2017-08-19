@@ -1,3 +1,4 @@
 *.rda
+*.gz
 */*_cache
 */*_files
