@@ -124,6 +124,19 @@ plot(log10(assay(rse)[,idx] + 1),
 abline(0,1,col="red", lwd=3)
 ```
 
+# MA plot
+
+The problem with the scatterplot above is that, we really care about
+the differences between these two samples, but those differences are
+on a 45 degree angle. A common plot in genomics is to put the
+difference itself on the y-axis (typical the difference in log-scale measurements,
+so the *log fold change*). The x-axis can then be the average between
+the two values, whether on the original or log scale. This is called
+an "MA-plot" for *minus over average*, or a Bland-Altman plot. Note
+that we can now directly see the extent of the differences between
+these samples. And we can easily see the systematic technical factor
+associated with higher sequencing depth in the second sample.
+
 ```{r}
 x <- log2(assay(rse)[,idx[1]] + 1)
 y <- log2(assay(rse)[,idx[2]] + 1)
@@ -132,34 +145,81 @@ plot(.5*(x + y), y - x,
 abline(h=0, col="red", lwd=3)
 ```
 
+Remember, if we were to calculate Euclidean distances between samples
+on the log scale, we would be calculating the differences drawn below,
+squaring and summing them. So we definitely want to center these
+differences on the x-axis here, as we know the systematic difference
+is due solely to sequencing depth.
+
+While we're making this plot, also note the inflation of differences
+on the left side of the plot. This increase in variance depending on
+signal strength -- called 
+[heteroskedasticity](https://en.wikipedia.org/wiki/Heteroscedasticity)
+in statistics -- is a technical artifact from the inherent count-based
+measurements of high-throughput sequencing data, and needs to be dealt
+with to compute biologically meaningful distances between samples.
+
 ```{r}
 plot(.5*(x + y), y - x, type="h")
 ```
 
-PCA of unnormalized counts
+# Principle component analysis
+
+As this is a graduate course in biostatistics, I'm assuming some
+familiarity with 
+[principle component analysis](https://en.wikipedia.org/wiki/Principal_component_analysis). 
+PCA is an invaluable technique for high-throughput data, to capture in
+a 2D plot the inter-relationships between samples in the dataset. Note
+that multidimensional scaling (MDS) on a Euclidean distance matrix
+produces an equivalent plot as PCA. 
+
+Performing PCA on unnormalized counts will allow us to see the extent
+to which sequencing depth contributes to total variance (of
+log-transformed counts).  Computing PCA on such a large matrix ~58,000
+x ~660 takes a long time, so we subset to the top 20,000 genes by
+unsupervised variance (taking the variance of each row of the matrix,
+ignoring the technical and biological covariates).
+
+We can notice two things from plotting PC1 over the column sums we
+previously calculated: There is a single sample which is an outlier in
+PC1, and otherwise, PC1 is capturing the differences between samples
+in sequencing depth.
 
 ```{r}
 library(matrixStats)
 log.cts <- log(assay(rse) + 1)
 rv <- rowVars(log.cts)
+o <- order(rv,decreasing=TRUE)
 system.time({
-  pc <- prcomp(t(log.cts[head(order(rv,decreasing=TRUE),20000),]))
+  pc <- prcomp(t(log.cts[head(o,20000),]))
 }) # takes ~1 min
 plot(cspm, pc$x[,1])
 outlier <- which(pc$x[,1] > 300)
 points(cspm[outlier], pc$x[outlier,1], col="blue", cex=3)
 ```
 
+By plotting 20 "normal" samples and the outlier sample identified
+above, we see that this sample has a very different distribution of
+log counts. Remember from the above plot, the outlier does not have
+the highest sequencing depth (as measured by total count).
+
 ```{r}
-boxplot(log.cts[,c(1:20,outlier)], range=0)
+idx <- order(cspm)[round(seq(from=1,to=length(cspm),length=20))]
+boxplot(log.cts[,c(idx,outlier)], range=0)
 ```
+
+Here, we recompute the PCA, removing the outlier. Where we can clearly
+see that PC1 is capturing sequencing depth, so we definitely want to
+remove this technical effect.
 
 ```{r}
 system.time({
-  pc <- prcomp(t(log.cts[head(order(rv,decreasing=TRUE),20000),-outlier]))
+  pc <- prcomp(t(log.cts[head(o,20000),-outlier]))
 }) # takes ~1 min
 plot(cspm[-outlier], pc$x[,1])
 ```
+
+# Normalization for sequencing depth
 
 show construction of pseudo-reference
 
@@ -186,6 +246,8 @@ plot(.5*(x + y), y - x,
 abline(h=0, col="red", lwd=3)
 abline(h=median.lfc, col="blue", lwd=3)
 ```
+
+# What do we see after normalization
 
 ```{r}
 library(DESeq2)
