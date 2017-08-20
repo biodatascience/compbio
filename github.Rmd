@@ -14,10 +14,13 @@ We talked about RStudio, git and GitHub in class, but to review:
 
 As of the writing of this document, GitHub offers free public repositories, 
 while BitBucket offers free public or private repositories. GitHub seems to
-be more popular for open source projects.
+be more popular for open source projects. For this course, we will use
+private repositories for turning in homeworks and final projects,
+which are available because the course is labeled as an educational
+*organization* on GitHub. 
 
 You can start a `git` repository (repo) by either *cloning* an existing repo
-(as you will do for this course, `compbio`), or *initializing* a repo
+(as you will do for this course), or *initializing* a repo
 from scratch. 
 
 We want to clone the course repo in RStudio, but first, we may need to 
@@ -27,7 +30,7 @@ steps:
 * Install/upgrade R (to version 3.4)
 * Install RStudio for Desktop (free)
 * Install git
-* Hook RStudio up to use git
+* Hook RStudio up to use git and GitHub
 
 The first step can be done by visiting [CRAN](cran.r-project.org), and
 clicking the appropriate link for your operating system. When you load R,
@@ -37,22 +40,21 @@ you want it to say that R is version 3.4 when you type `sessionInfo()`
 The second step can be done by visiting the [RStudio](https://www.rstudio.com/) website.
 
 The third and fourth step are best accomplished by following the instructions
-at the [happygitwithr](http://happygitwithr.com/) website. You do not
-need a free private repo for this course. You will just be cloning from the
-class repo but not pushing homework back to the repo, instead you will email 
-me your completed homeworks. You do not need to complete all of the steps
-at *happygitwithr*, only:  installing git and introduce yourself to git. 
-If, for other research projects, you are
-interested in using GitHub for version control,
-you can follow the rest of the instructions on HTTPS or SSH credentials,
-but this is not necessary just to clone the class repo.
+at the [happygitwithr](http://happygitwithr.com/) website. To follow
+along with the course, you just need to clone the course repository
+from GitHub. However, to turn in homework, you will also need to
+*commit* and *push* your local work into private assignment repos. So
+you should follow the instructions at the link above to: register a
+GitHub account, install git, introduce yourself to git, set up keys
+for SSH, connect RStudio to Git and GitHub.
 
 This class has two "views"  you might say. 
 The [HTML/website version](https://biodatascience.github.io/compbio/) and the 
-[GitHub version](https://github.com/biodatascience/compbio_src). From the GitHub version,
-you can poke around, and click on files, even see the history of the code.
-If you want to look at the raw text for an Rmd file, you 
-can click the **Raw** link on the top of the document.
+[GitHub version](https://github.com/biodatascience/compbio_src) which
+has all the "source" Rmarkdown files. From the GitHub version,
+you can poke around, and click on Rmarkdown files, even see the history of the code.
+If you want to look at the raw text for an Rmd file, 
+you can click the **Raw** link on the top of the document.
 
 To clone the class repo, you should go to the GitHub version of this class 
 and look for a green link that says "Clone or download". 
@@ -63,8 +65,11 @@ Now, open RStudio, and follow the menu items:
 You will paste the link from the previous step into the box that 
 says "repository URL". You can set the project directory name to `compbio`.
 
-Following this, you should see a number of `Rmd` and `html` files in the Files 
-panel on the lower right hand side. And there will be a git tab in the top right
-panel. The git tab will allow you to **pull** down new material as the course goes
-on and homeworks are posted to the course repo.
+Following this, you should see a number of directories, which contain
+`Rmd` files in the Files panel on the lower right hand side. And there
+will be a git tab in the top right panel. The git tab will allow you
+to **pull** down new material as the course goes on and homeworks are
+posted to the course repo.
 
+We will explain in class how you will keep a private repo for turning
+in assignments.
