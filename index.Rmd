@@ -16,7 +16,7 @@ A self-quiz is available
 with answers provided 
 [here](https://github.com/biodatascience/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda).
 You can also find a
-[list of base R functions](https://github.com/biodatascience/compbio_src/blob/gh-pages/eda/functions.md)
+[list of base R functions](https://github.com/biodatascience/compbio_src/blob/master/eda/functions.md)
 that one should be familiar with.
 
 ### Schedule and course notes
