@@ -24,7 +24,7 @@ that one should be familiar with.
 For `Rmd` files, go to the
 [course repo](https://github.com/biodatascience/compbio_src) and navigate the
 directories, or best of all to clone the repo and navigate within
-RStudio.
+RStudio. 
 
 
 | Week | Topic | Dir. | HTML |
@@ -45,6 +45,14 @@ RStudio.
 |Nov 20 & Thxg  | *Projects* | | |
 |Nov 27 & 29    | *Projects* | | |
 |Dec 4          | *Projects* | | |
+
+### Reading list
+
+* What is role of computational biology or statistics in the larger scientific enterprise?
+    - [All biology is computational biology](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2002050) - Florian Markowetz
+    - [Questions, Answers and Statistics](https://www.stat.berkeley.edu/~sandrine/Docs/TerrySelectedWorksSpringer/Version1/Nolan/Nolan.pdf) - Deborah Nolan
+    - [Ten Simple Rules for Effective Statistical Practice](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004961) - Kass, Caffo, Davidian, Meng, Yu, and Reid
+    - [50 years of data science](https://dl.dropboxusercontent.com/u/23421017/50YearsDataScience.pdf) - David Donoho
 
 ### Resources
 
