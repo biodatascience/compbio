@@ -135,15 +135,7 @@ biocLite(&quot;SummarizedExperiment&quot;)</code></pre>
 <pre class="r"><code>url &lt;- &quot;http://duffel.rail.bio/recount/SRP012682/rse_gene_brain.Rdata&quot;
 file &lt;- &quot;brain.rda&quot;
 if (!file.exists(file)) download.file(url, file)
-load(file)
-ls()</code></pre>
-<pre><code>##  [1] &quot;cols&quot;              &quot;condition&quot;         &quot;condition.sub&quot;    
-##  [4] &quot;condition.sub.idx&quot; &quot;corrs&quot;             &quot;cts&quot;              
-##  [7] &quot;dat&quot;               &quot;df&quot;                &quot;distmat&quot;          
-## [10] &quot;dists&quot;             &quot;file&quot;              &quot;logcts&quot;           
-## [13] &quot;my_scale_counts&quot;   &quot;o&quot;                 &quot;pc&quot;               
-## [16] &quot;regions&quot;           &quot;rs&quot;                &quot;rse&quot;              
-## [19] &quot;rse_gene&quot;          &quot;rv&quot;                &quot;url&quot;</code></pre>
+load(file)</code></pre>
 <p>I’ve written a simple function which scales the gene expression data. It should roughly be <em>counts</em> of molecules detected for each gene and for each sample. It takes maybe half a minute to do the scaling.</p>
 <pre class="r"><code>library(SummarizedExperiment)
 source(&quot;../bioc/my_scale_counts.R&quot;)
