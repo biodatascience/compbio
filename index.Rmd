@@ -35,7 +35,7 @@ RStudio.
 |Sep 11 & 13    | Bioc. continued | `bioc` | | [SummarizedExperiment](bioc/SE.html), [anno](bioc/anno.html), [strings](bioc/strings.html) |
 |Sep 18 & 20    | Distances & norm. | `dist` | | [distances](dist/distances.html), [hclust](dist/hclust.html) |
 |Sep 25 & 27    | Distances & norm. | `dist` | | [batch](dist/batch.html), [sva](dist/sva.html)|
-|Oct 2 & 4      | Multiple testing | `test` | | multtest, localfdr, IDR, misspecify |
+|Oct 2 & 4      | Multiple testing | `test` | | [multtest](test/multtest.html), [localfdr](test/localfdr.html), IDR, misspecify |
 |Oct 9 & 11	    | *Mid-term* | | | |
 |Oct 16 & 18    | *Fall break* | | | |
 |Oct 23 & 25    | Models and EM | `model` | | |
