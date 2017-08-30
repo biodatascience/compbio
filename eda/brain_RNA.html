@@ -138,9 +138,11 @@ if (!file.exists(file)) download.file(url, file)
 load(file)</code></pre>
 <p>I’ve written a simple function which scales the gene expression data. It should roughly be <em>counts</em> of molecules detected for each gene and for each sample. It takes maybe half a minute to do the scaling.</p>
 <pre class="r"><code>library(SummarizedExperiment)
-source(&quot;../bioc/my_scale_counts.R&quot;)
+library(here)
+source(here(&quot;bioc&quot;,&quot;my_scale_counts.R&quot;))
 rse &lt;- my_scale_counts(rse_gene)</code></pre>
-<p>We will learn about this <code>rse</code> object later for now we will just extract the information we need to do some EDA (exploratory data analysis). We have ~60,000 genes and ~1400 samples.</p>
+<p>We will learn about this <code>rse</code> object later for now we will just extract the information we need to do some EDA (exploratory data analysis). There are smarter ways to work with these objects than extracting the matrices, which we will see next week when we explore Bioconductor objects.</p>
+<p>We have ~60,000 genes and ~1400 samples.</p>
 <pre class="r"><code>cts &lt;- assay(rse)
 dim(cts)</code></pre>
 <pre><code>## [1] 58037  1409</code></pre>
