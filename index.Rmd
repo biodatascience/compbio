@@ -48,11 +48,44 @@ RStudio.
 
 ### Reading list
 
-* What is role of computational biology or statistics in the larger scientific enterprise?
-    - [All biology is computational biology](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2002050) - Florian Markowetz
-    - [Questions, Answers and Statistics](https://www.stat.berkeley.edu/~sandrine/Docs/TerrySelectedWorksSpringer/Version1/Nolan/Nolan.pdf) - Deborah Nolan
-    - [Ten Simple Rules for Effective Statistical Practice](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004961) - Kass, Caffo, Davidian, Meng, Yu, and Reid
-    - [50 years of data science](https://dl.dropboxusercontent.com/u/23421017/50YearsDataScience.pdf) - David Donoho
+I will fill out the reading list as the course goes on. This is not
+nearly a complete reading list, but just some of literature I will
+reference in class.
+
+* **What is the role of the computational biologist / statistician?**
+    - [All biology is computational biology](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2002050) Florian Markowetz
+    - [Questions, Answers and Statistics](https://www.stat.berkeley.edu/~sandrine/Docs/TerrySelectedWorksSpringer/Version1/Nolan/Nolan.pdf) Deborah Nolan
+    - [Ten Simple Rules for Effective Statistical Practice](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004961) Kass, Caffo, Davidian, Meng, Yu, and Reid
+    - [50 years of data science](https://dl.dropboxusercontent.com/u/23421017/50YearsDataScience.pdf) David Donoho
+* **Exploratory data analysis**
+    - [dplyr - A Grammar of Data Manipulation](http://dplyr.tidyverse.org/)
+	- [ggplot2](http://ggplot2.org/)
+	- [The Genotype-Tissue Expression (GTEx) pilot analysis: Multitissue gene regulation in humans](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4547484/)
+* **Bioconductor**
+    - [Orchestrating high-throughput genomic analysis with Bioconductor](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4509590/) Huber et al 
+* **Distances and normalization**
+    - [Differential expression analysis for sequence count data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3218662/) Simon Anders and Wolfgang Huber
+    - [Tackling the widespread and critical impact of batch effects in high-throughput data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3880143/) Leek et al
+    - [Capturing Heterogeneity in Gene Expression Studies by Surrogate Variable Analysis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1994707/) Jeffrey Leek and John Storey
+	- [Normalization of RNA-seq data using factor analysis of control genes or samples](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4404308/) Risso et al
+	- [Using probabilistic estimation of expression residuals (PEER) to obtain increased power and interpretability of gene expression analyses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3398141/) Stegle et al
+* **Multiple testing**
+    - [Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing](http://www.jstor.org/stable/2346101) Yoav Benjamini and Yosef Hochberg
+	- [A direct approach to false discovery rates](http://genomics.princeton.edu/storeylab//papers/directfdr.pdf) John Storey
+	- [Statistical significance for genomewide studies](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC170937/) John Storey and Robert Tibshirani
+	- [Large-Scale simultaneous hypothesis testing](http://www.tandfonline.com/doi/abs/10.1198/016214504000000089) Bradley Efron
+	- [Measuring reproducibility of high-throughput experiments](https://projecteuclid.org/euclid.aoas/1318514284) Li et al
+* **Expectation maximization**
+    - [What is the expectation maximization algorithm?](https://www.nature.com/nbt/journal/v26/n8/full/nbt1406.html) - Chuong B Do and Serafim Batzoglou
+	- [Gaussian mixture models and the EM algorithm](https://people.csail.mit.edu/rameshvs/content/gmm-em.pdf) - Ramesh Sridharan
+* **Linear models and hierarchical models**
+    - [Linear models and empirical Bayes methods for assessing differential expression in microarray experiments](http://www.statsci.org/smyth/pubs/ebayes.pdf) - Gordon Smyth
+    - [Analyzing ’omics data using hierarchical models](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2904972/) - Hongkai Ji and X Shirley Liu
+* **Hidden Markov Models**
+    - [An Introduction to Hidden Markov Models](http://ieeexplore.ieee.org/abstract/document/1165342/?reload=true) Lawrence Rabiner and Biing-Hwang Juang
+    - [Hidden Markov models approach to the analysis of array CGH data](http://www.sciencedirect.com/science/article/pii/S0047259X04000260) Fridlyand et al
+* **Network analysis**
+    - [Static And Dynamic DNA Loops Form AP-1 Bound Activation Hubs During Macrophage Development](http://www.biorxiv.org/content/early/2017/05/25/142026) - Phanstiel et al
 
 ### Resources
 
