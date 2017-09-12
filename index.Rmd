@@ -78,6 +78,7 @@ reference in class.
 * **Expectation maximization**
     - [What is the expectation maximization algorithm?](https://www.nature.com/nbt/journal/v26/n8/full/nbt1406.html) - Chuong B Do and Serafim Batzoglou
 	- [Gaussian mixture models and the EM algorithm](https://people.csail.mit.edu/rameshvs/content/gmm-em.pdf) - Ramesh Sridharan
+	- [EM algorithm notes](http://cs229.stanford.edu/notes/cs229-notes8.pdf) - Andrew Ng
 * **Linear models and hierarchical models**
     - [Linear models and empirical Bayes methods for assessing differential expression in microarray experiments](http://www.statsci.org/smyth/pubs/ebayes.pdf) - Gordon Smyth
     - [Analyzing ’omics data using hierarchical models](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2904972/) - Hongkai Ji and X Shirley Liu
