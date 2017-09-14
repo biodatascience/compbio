@@ -32,7 +32,7 @@ RStudio.
 |Aug 23         | GitHub | | | [github](github.html) |
 |Aug 28 & 30    | R & EDA | `eda` | [🔭](https://github.com/biodatascience/compbio_src/blob/master/eda/EDA_hw.Rmd) | [EDA](eda/EDA.html), [NAs](eda/NAs.html), [brain RNA](eda/brain_RNA.html) |
 |LbrDay & Sep 6 | Bioconductor | `bioc` | [♫](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc1_HW.Rmd) | [objects](bioc/objects.html), [ranges](bioc/ranges.html), [GRangesList](bioc/GRL.html) |
-|Sep 11 & 13    | Bioc. continued | `bioc` | | [SummarizedExperiment](bioc/SE.html), [anno](bioc/anno.html), [strings](bioc/strings.html) |
+|Sep 11 & 13    | Bioc. continued | `bioc` | [𝄞](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc2_HW.Rmd) | [SummarizedExperiment](bioc/SE.html), [anno](bioc/anno.html), [strings](bioc/strings.html) |
 |Sep 18 & 20    | Distances & norm. | `dist` | | [distances](dist/distances.html), [hclust](dist/hclust.html) |
 |Sep 25 & 27    | Distances & norm. | `dist` | | [batch](dist/batch.html), [sva](dist/sva.html)|
 |Oct 2 & 4      | Multiple testing | `test` | | [multtest](test/multtest.html), [localfdr](test/localfdr.html), [IDR](test/IDR.html) |
