@@ -39,7 +39,7 @@ RStudio.
 |Oct 9 & 11	    | *Mid-term* | | | |
 |Oct 16 & 18    | *Fall break* | | | |
 |Oct 23 & 25    | Models and EM | `model` | | [EM](model/EM.html), [motif](model/motif.html) |
-|Oct 30 & Nov 1 | Hierarchical models | `hier` | | |
+|Oct 30 & Nov 1 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html), [jamesstein](hier/jamesstein.html) |
 |Nov 6 & 8	    | HMM | `hmm` | | |
 |Nov 13 & 15    | Networks | `net` | | |
 |Nov 20 & Thxg  | *Projects* | | | |
@@ -80,9 +80,11 @@ reference in class.
 	- [Gaussian mixture models and the EM algorithm](https://people.csail.mit.edu/rameshvs/content/gmm-em.pdf) - Ramesh Sridharan
 	- [EM algorithm notes](http://cs229.stanford.edu/notes/cs229-notes8.pdf) - Andrew Ng
 	- [MEME: discovering and analyzing DNA and protein sequence motifs](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1538909/) - Bailey et al
-* **Linear models and hierarchical models**
+* **Hierarchical models**
     - [Linear models and empirical Bayes methods for assessing differential expression in microarray experiments](http://www.statsci.org/smyth/pubs/ebayes.pdf) - Gordon Smyth
     - [Analyzing ’omics data using hierarchical models](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2904972/) - Hongkai Ji and X Shirley Liu
+	- [Stein's Paradox in Statistics](http://statweb.stanford.edu/~ckirby/brad/other/Article1977.pdf) - Bradley Efron and Carl Morris
+	- [Stein's estimation rule and its competitors - an empirical Bayes approach](https://www.jstor.org/stable/2284155) - Bradley Efron and Carl Morris
 * **Hidden Markov Models**
     - [An Introduction to Hidden Markov Models](http://ieeexplore.ieee.org/abstract/document/1165342/?reload=true) Lawrence Rabiner and Biing-Hwang Juang
     - [Hidden Markov models approach to the analysis of array CGH data](http://www.sciencedirect.com/science/article/pii/S0047259X04000260) Fridlyand et al
