@@ -29,31 +29,31 @@ RStudio.
 
 | Week | Topic | Dir. | HW | HTML | Title |
 |------|-------|------|----|------|-------|
-|Aug 23         | GitHub | | | [github](github.html) | |
-|Aug 28 & 30    | R & EDA | `eda` | [🔭](https://github.com/biodatascience/compbio_src/blob/master/eda/EDA_hw.Rmd) | [EDA](eda/EDA.html) | |
-| | | | | [NAs](eda/NAs.html) | |
-| | | | | [brain RNA](eda/brain_RNA.html) | |
-|LbrDay & Sep 6 | Bioconductor | `bioc` | [♫](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc1_HW.Rmd) | [objects](bioc/objects.html) | |
-| | | | | [ranges](bioc/ranges.html) | |
-| | | | |  [GRL](bioc/GRL.html) | GRangesList |
-|Sep 11 & 13    | Bioc. continued | `bioc` | [♬](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc2_HW.Rmd) | [SE](bioc/SE.html) | SummarizedExperiment |
-| | | | | [anno](bioc/anno.html) | |
-| | | | | [strings](bioc/strings.html) | |
-|Sep 18 & 20    | Distances & norm. | `dist` | | [distances](dist/distances.html) | |
-| | | | | [hclust](dist/hclust.html) | |
-|Sep 25 & 27    | Distances & norm. | `dist` | | [batch](dist/batch.html) |
-| | | | |  [sva](dist/sva.html) | |
-|Oct 2 & 4      | Multiple testing | `test` | | [multtest](test/multtest.html) | |
-| | | | | [localfdr](test/localfdr.html) | |
-| | | | |  [IDR](test/IDR.html) | |
+|Aug 23         | GitHub | | | [github](github.html) | RStudio, git, and GitHub |
+|Aug 28 & 30    | R & EDA | `eda` | [🔭](https://github.com/biodatascience/compbio_src/blob/master/eda/EDA_hw.Rmd) | [EDA](eda/EDA.html) | Exploratory data analysis |
+| | | | | [NAs](eda/NAs.html) | Missing values in R |
+| | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
+|LbrDay & Sep 6 | Bioconductor | `bioc` | [♫](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc1_HW.Rmd) | [objects](bioc/objects.html) | Complex data objects: eSet |
+| | | | | [ranges](bioc/ranges.html) | Genomic ranges |
+| | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
+|Sep 11 & 13    | Bioconductor | `bioc` | [♬](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc2_HW.Rmd) | [SE](bioc/SE.html) | The SummarizedExperiment |
+| | | | | [anno](bioc/anno.html) | Accessing annotations |
+| | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
+|Sep 18 & 20    | Distances & norm. | `dist` | | [distances](dist/distances.html) | Distances in high dimensions |
+| | | | | [hclust](dist/hclust.html) | Hierarchical clustering |
+|Sep 25 & 27    | Distances & norm. | `dist` | | [batch](dist/batch.html) | Batch effects and sources |
+| | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
+|Oct 2 & 4      | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
+| | | | | [localfdr](test/localfdr.html) | Local false discovery rate |
+| | | | |  [IDR](test/IDR.html) | Irreproducible discovery rate |
 |Oct 9 & 11	    | *Mid-term* | | | | |
 |Oct 16 & 18    | *Fall break* | | | | |
-|Oct 23 & 25    | Models and EM | `model` | | [EM](model/EM.html) | |
-| | | | |  [motif](model/motif.html) | |
-|Oct 30 & Nov 1 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | |
-| | | | |  [jamesstein](hier/jamesstein.html) | |
+|Oct 23 & 25    | Models and EM | `model` | | [EM](model/EM.html) | Expectation maximization |
+| | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
+|Oct 30 & Nov 1 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+| | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
 |Nov 6 & 8	    | Signal processing | `signal` | | | |
-|Nov 13 & 15    | Networks | `net` | | | |
+|Nov 13 & 15    | Network analysis | `net` | | | |
 |Nov 20 & Thxg  | *Projects* | | | | |
 |Nov 27 & 29    | *Projects* | | | | |
 |Dec 4          | *Projects* | | | | |
@@ -97,7 +97,7 @@ reference in class.
     - [Analyzing ’omics data using hierarchical models](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2904972/) - Hongkai Ji and X Shirley Liu
 	- [Stein's Paradox in Statistics](http://statweb.stanford.edu/~ckirby/brad/other/Article1977.pdf) - Bradley Efron and Carl Morris
 	- [Stein's estimation rule and its competitors - an empirical Bayes approach](https://www.jstor.org/stable/2284155) - Bradley Efron and Carl Morris
-* **Hidden Markov Models**
+* **Signal processing**
     - [An Introduction to Hidden Markov Models](http://ieeexplore.ieee.org/abstract/document/1165342/?reload=true) Lawrence Rabiner and Biing-Hwang Juang
     - [Hidden Markov models approach to the analysis of array CGH data](http://www.sciencedirect.com/science/article/pii/S0047259X04000260) Fridlyand et al
 * **Network analysis**
