@@ -27,24 +27,36 @@ directories, or best of all to clone the repo and navigate within
 RStudio. 
 
 
-| Week | Topic | Dir. | HW | HTML |
-|------|-------|------|----|------|
-|Aug 23         | GitHub | | | [github](github.html) |
-|Aug 28 & 30    | R & EDA | `eda` | [🔭](https://github.com/biodatascience/compbio_src/blob/master/eda/EDA_hw.Rmd) | [EDA](eda/EDA.html), [NAs](eda/NAs.html), [brain RNA](eda/brain_RNA.html) |
-|LbrDay & Sep 6 | Bioconductor | `bioc` | [♫](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc1_HW.Rmd) | [objects](bioc/objects.html), [ranges](bioc/ranges.html), [GRangesList](bioc/GRL.html) |
-|Sep 11 & 13    | Bioc. continued | `bioc` | [𝄞](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc2_HW.Rmd) | [SummarizedExperiment](bioc/SE.html), [anno](bioc/anno.html), [strings](bioc/strings.html) |
-|Sep 18 & 20    | Distances & norm. | `dist` | | [distances](dist/distances.html), [hclust](dist/hclust.html) |
-|Sep 25 & 27    | Distances & norm. | `dist` | | [batch](dist/batch.html), [sva](dist/sva.html)|
-|Oct 2 & 4      | Multiple testing | `test` | | [multtest](test/multtest.html), [localfdr](test/localfdr.html), [IDR](test/IDR.html) |
-|Oct 9 & 11	    | *Mid-term* | | | |
-|Oct 16 & 18    | *Fall break* | | | |
-|Oct 23 & 25    | Models and EM | `model` | | [EM](model/EM.html), [motif](model/motif.html) |
-|Oct 30 & Nov 1 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html), [jamesstein](hier/jamesstein.html) |
-|Nov 6 & 8	    | Signal processing | `signal` | | |
-|Nov 13 & 15    | Networks | `net` | | |
-|Nov 20 & Thxg  | *Projects* | | | |
-|Nov 27 & 29    | *Projects* | | | |
-|Dec 4          | *Projects* | | | |
+| Week | Topic | Dir. | HW | HTML | Title |
+|------|-------|------|----|------|-------|
+|Aug 23         | GitHub | | | [github](github.html) | |
+|Aug 28 & 30    | R & EDA | `eda` | [🔭](https://github.com/biodatascience/compbio_src/blob/master/eda/EDA_hw.Rmd) | [EDA](eda/EDA.html) | |
+| | | | | [NAs](eda/NAs.html) | |
+| | | | | [brain RNA](eda/brain_RNA.html) | |
+|LbrDay & Sep 6 | Bioconductor | `bioc` | [♫](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc1_HW.Rmd) | [objects](bioc/objects.html) | |
+| | | | | [ranges](bioc/ranges.html) | |
+| | | | |  [GRL](bioc/GRL.html) | GRangesList |
+|Sep 11 & 13    | Bioc. continued | `bioc` | [𝄞](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc2_HW.Rmd) | [SE](bioc/SE.html) | SummarizedExperiment |
+| | | | | [anno](bioc/anno.html) | |
+| | | | | [strings](bioc/strings.html) | |
+|Sep 18 & 20    | Distances & norm. | `dist` | | [distances](dist/distances.html) | |
+| | | | | [hclust](dist/hclust.html) | |
+|Sep 25 & 27    | Distances & norm. | `dist` | | [batch](dist/batch.html) |
+| | | | |  [sva](dist/sva.html) | |
+|Oct 2 & 4      | Multiple testing | `test` | | [multtest](test/multtest.html) | |
+| | | | | [localfdr](test/localfdr.html) | |
+| | | | |  [IDR](test/IDR.html) | |
+|Oct 9 & 11	    | *Mid-term* | | | | |
+|Oct 16 & 18    | *Fall break* | | | | |
+|Oct 23 & 25    | Models and EM | `model` | | [EM](model/EM.html) | |
+| | | | |  [motif](model/motif.html) | |
+|Oct 30 & Nov 1 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | |
+| | | | |  [jamesstein](hier/jamesstein.html) | |
+|Nov 6 & 8	    | Signal processing | `signal` | | | |
+|Nov 13 & 15    | Networks | `net` | | | |
+|Nov 20 & Thxg  | *Projects* | | | | |
+|Nov 27 & 29    | *Projects* | | | | |
+|Dec 4          | *Projects* | | | | |
 
 ### Reading list
 
