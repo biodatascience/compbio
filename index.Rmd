@@ -67,8 +67,10 @@ reference in class.
 * **What is the role of the computational biologist / statistician?**
     - [All biology is computational biology](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2002050) Florian Markowetz
     - [Questions, Answers and Statistics](https://www.stat.berkeley.edu/~sandrine/Docs/TerrySelectedWorksSpringer/Version1/Nolan/Nolan.pdf) Deborah Nolan
+	- [50 Years of Data Science](https://dl.dropboxusercontent.com/u/23421017/50YearsDataScience.pdf) David Donoho
+	- [The Future of Data Analysis](https://projecteuclid.org/euclid.aoms/1177704711) John Tukey (this article, discussed by Donoho, is from 1962)
     - [Ten Simple Rules for Effective Statistical Practice](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004961) Kass, Caffo, Davidian, Meng, Yu, and Reid
-    - [50 years of data science](https://dl.dropboxusercontent.com/u/23421017/50YearsDataScience.pdf) David Donoho
+    - [Statistical Modeling: The Two Cultures](https://projecteuclid.org/euclid.ss/1009213726) Leo Breiman 
 * **Exploratory data analysis**
     - [dplyr - A Grammar of Data Manipulation](http://dplyr.tidyverse.org/)
 	- [ggplot2](http://ggplot2.org/)
@@ -88,20 +90,20 @@ reference in class.
 	- [Large-Scale simultaneous hypothesis testing](http://www.tandfonline.com/doi/abs/10.1198/016214504000000089) Bradley Efron
 	- [Measuring reproducibility of high-throughput experiments](https://projecteuclid.org/euclid.aoas/1318514284) Li et al
 * **Expectation maximization**
-    - [What is the expectation maximization algorithm?](https://www.nature.com/nbt/journal/v26/n8/full/nbt1406.html) - Chuong B Do and Serafim Batzoglou
-	- [Gaussian mixture models and the EM algorithm](https://people.csail.mit.edu/rameshvs/content/gmm-em.pdf) - Ramesh Sridharan
-	- [EM algorithm notes](http://cs229.stanford.edu/notes/cs229-notes8.pdf) - Andrew Ng
-	- [MEME: discovering and analyzing DNA and protein sequence motifs](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1538909/) - Bailey et al
+    - [What is the expectation maximization algorithm?](https://www.nature.com/nbt/journal/v26/n8/full/nbt1406.html) Chuong B Do and Serafim Batzoglou
+	- [Gaussian mixture models and the EM algorithm](https://people.csail.mit.edu/rameshvs/content/gmm-em.pdf) Ramesh Sridharan
+	- [EM algorithm notes](http://cs229.stanford.edu/notes/cs229-notes8.pdf) Andrew Ng
+	- [MEME: discovering and analyzing DNA and protein sequence motifs](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1538909/) Bailey et al
 * **Hierarchical models**
-    - [Linear models and empirical Bayes methods for assessing differential expression in microarray experiments](http://www.statsci.org/smyth/pubs/ebayes.pdf) - Gordon Smyth
-    - [Analyzing ’omics data using hierarchical models](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2904972/) - Hongkai Ji and X Shirley Liu
-	- [Stein's Paradox in Statistics](http://statweb.stanford.edu/~ckirby/brad/other/Article1977.pdf) - Bradley Efron and Carl Morris
-	- [Stein's estimation rule and its competitors - an empirical Bayes approach](https://www.jstor.org/stable/2284155) - Bradley Efron and Carl Morris
+    - [Linear models and empirical Bayes methods for assessing differential expression in microarray experiments](http://www.statsci.org/smyth/pubs/ebayes.pdf) Gordon Smyth
+    - [Analyzing ’omics data using hierarchical models](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2904972/) Hongkai Ji and X Shirley Liu
+	- [Stein's Paradox in Statistics](http://statweb.stanford.edu/~ckirby/brad/other/Article1977.pdf) Bradley Efron and Carl Morris
+	- [Stein's estimation rule and its competitors - an empirical Bayes approach](https://www.jstor.org/stable/2284155) Bradley Efron and Carl Morris
 * **Signal processing**
     - [An Introduction to Hidden Markov Models](http://ieeexplore.ieee.org/abstract/document/1165342/?reload=true) Lawrence Rabiner and Biing-Hwang Juang
     - [Hidden Markov models approach to the analysis of array CGH data](http://www.sciencedirect.com/science/article/pii/S0047259X04000260) Fridlyand et al
 * **Network analysis**
-    - [Static And Dynamic DNA Loops Form AP-1 Bound Activation Hubs During Macrophage Development](http://www.biorxiv.org/content/early/2017/05/25/142026) - Phanstiel et al
+    - [Static And Dynamic DNA Loops Form AP-1 Bound Activation Hubs During Macrophage Development](http://www.biorxiv.org/content/early/2017/05/25/142026) Phanstiel et al
 
 ### Resources
 
