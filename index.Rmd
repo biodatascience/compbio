@@ -40,7 +40,7 @@ RStudio.
 |Oct 16 & 18    | *Fall break* | | | |
 |Oct 23 & 25    | Models and EM | `model` | | [EM](model/EM.html), [motif](model/motif.html) |
 |Oct 30 & Nov 1 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html), [jamesstein](hier/jamesstein.html) |
-|Nov 6 & 8	    | HMM | `hmm` | | |
+|Nov 6 & 8	    | Signal processing | `signal` | | |
 |Nov 13 & 15    | Networks | `net` | | |
 |Nov 20 & Thxg  | *Projects* | | | |
 |Nov 27 & 29    | *Projects* | | | |
