@@ -56,7 +56,7 @@ RStudio.
 |Nov 13 & 15    | Network analysis | `net` | | | |
 |Nov 20 & Thxg  | *Projects* | | | | |
 |Nov 27 & 29    | *Projects* | | | | |
-|Dec 4          | *Projects* | | | | |
+|Dec 4 & 6      | *Projects* | | | | |
 
 ### Reading list
 
