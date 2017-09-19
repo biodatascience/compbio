@@ -103,7 +103,7 @@ reference in class.
     - [An Introduction to Hidden Markov Models](http://ieeexplore.ieee.org/abstract/document/1165342/?reload=true) Lawrence Rabiner and Biing-Hwang Juang
     - [Hidden Markov models approach to the analysis of array CGH data](http://www.sciencedirect.com/science/article/pii/S0047259X04000260) Fridlyand et al
 * **Network analysis**
-    - [Static And Dynamic DNA Loops Form AP-1 Bound Activation Hubs During Macrophage Development](http://www.biorxiv.org/content/early/2017/05/25/142026) Phanstiel et al
+    - [Static And Dynamic DNA Loops Form AP-1 Bound Activation Hubs During Macrophage Development](http://dx.doi.org/10.1016/j.molcel.2017.08.006) Phanstiel et al
 
 ### Resources
 
