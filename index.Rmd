@@ -52,7 +52,7 @@ RStudio.
 | | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
 |Oct 30 & Nov 1 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
-|Nov 6 & 8	    | Signal processing | `signal` | | | |
+|Nov 6 & 8	    | Signal processing | `signal` | | [hmm](signal/hmm.html) | Hidden Markov Models |
 |Nov 13 & 15    | Network analysis | `net` | | | |
 |Nov 20 & Thxg  | *Projects* | | | | |
 |Nov 27 & 29    | *Projects* | | | | |
