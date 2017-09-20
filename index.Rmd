@@ -39,7 +39,7 @@ RStudio.
 |Sep 11 & 13    | Bioconductor | `bioc` | [♬](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc2_HW.Rmd) | [SE](bioc/SE.html) | The SummarizedExperiment |
 | | | | | [anno](bioc/anno.html) | Accessing annotations |
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
-|Sep 18 & 20    | Distances & norm. | `dist` | | [distances](dist/distances.html) | Distances in high dimensions |
+|Sep 18 & 20    | Distances & norm. | `dist` | [⚖](https://github.com/biodatascience/compbio_src/blob/master/dist/dist1_HW.Rmd) | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | | [hclust](dist/hclust.html) | Hierarchical clustering |
 |Sep 25 & 27    | Distances & norm. | `dist` | | [batch](dist/batch.html) | Batch effects and sources |
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
