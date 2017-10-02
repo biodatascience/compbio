@@ -88,6 +88,7 @@ reference in class.
 	- [A direct approach to false discovery rates](http://genomics.princeton.edu/storeylab//papers/directfdr.pdf) John Storey
 	- [Statistical significance for genomewide studies](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC170937/) John Storey and Robert Tibshirani
 	- [Large-Scale simultaneous hypothesis testing](http://www.tandfonline.com/doi/abs/10.1198/016214504000000089) Bradley Efron
+	- [Empirical Bayes Analysis of a Microarray Experiment](http://dx.doi.org/10.1198/016214501753382129) Efron et al
 	- [Measuring reproducibility of high-throughput experiments](https://projecteuclid.org/euclid.aoas/1318514284) Li et al
 * **Expectation maximization**
     - [What is the expectation maximization algorithm?](https://www.nature.com/nbt/journal/v26/n8/full/nbt1406.html) Chuong B Do and Serafim Batzoglou
