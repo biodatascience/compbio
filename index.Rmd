@@ -48,7 +48,7 @@ RStudio.
 | | | | |  [IDR](test/IDR.html) | Irreproducible discovery rate |
 |Oct 9 & 11	    | *Mid-term* | | | | |
 |Oct 16 & 18    | *Fall break* | | | | |
-|Oct 23 & 25    | Models and EM | `model` | | [EM](model/EM.html) | Expectation maximization |
+|Oct 23 & 25    | Models and EM | `model` | [⛰](https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd) | [EM](model/EM.html) | Expectation maximization |
 | | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
 |Oct 30 & Nov 1 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
