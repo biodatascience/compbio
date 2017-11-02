@@ -50,7 +50,7 @@ RStudio.
 |Oct 16 & 18    | *Fall break* | | | | |
 |Oct 23 & 25    | Models and EM | `model` | [⛰](https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd) | [EM](model/EM.html) | Expectation maximization |
 | | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
-|Oct 30 & Nov 1 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+|Oct 30 & Nov 1 | Hierarchical models | `hier` |  [♚](https://github.com/biodatascience/compbio_src/blob/master/hier/hier_HW.Rmd) | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
 |Nov 6 & 8	    | Signal processing | `signal` | | [hmm](signal/hmm.html) | Hidden Markov Models |
 |Nov 13 & 15    | Network analysis | `net` | | [network](net/network.html) | Network analysis |
