@@ -283,7 +283,7 @@ abline(h=mu.hat, col=1:3 * 2, lwd=3)</code></pre>
 <pre><code>## [1] 0.07976709</code></pre>
 <pre class="r"><code>sd(y[x.hat == 2])</code></pre>
 <pre><code>## [1] 0.08026075</code></pre>
-<p>Finally, the transition probabilities also make sense, and roughly correspond to what we would expect given the length of the runs in the predicted segmentation:</p>
+<p>Finally, the transition probabilities also make sense, and roughly correspond to what we would expect given the length of the runs in the predicted segmentation: the run length for state <em>i</em> can be considered a <a href="https://en.wikipedia.org/wiki/Geometric_distribution">geometric random variable</a> with success probability <span class="math inline">\(A_{i,i}\)</span>.</p>
 <pre class="r"><code>sum(x.hat == 1)</code></pre>
 <pre><code>## [1] 15</code></pre>
 <pre class="r"><code>1/A.hat[1,2]</code></pre>
