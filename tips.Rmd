@@ -1,0 +1,47 @@
+---
+title: "Tips to succeed in Computational Biology research"
+author: "[Michael Love](http://mikelove.github.io)"
+output: html_document
+---
+
+Big picture:
+
+* Work on relevant topics
+    - Get advice from many sources on relevance
+    - Avoid topics that may be quickly outdated
+    - Search google/pubmed for previous work on topic
+    - Will the topic have an impact on biomedical research?
+    - Does the topic need a [new method](https://scientificbsides.wordpress.com/2012/01/06/spare-me-your-method-show-me-your-finding/)?
+* Seek out excellent collaborators / labs
+    - Care about the computational and quantitative aspects
+    - Care about technical bias and experimental design
+* Lots of luck involved
+    - Not every research produce will get any attention
+	- Diversify and see what works
+
+Details:
+
+* Work on small subsets of data first
+    - Do lots of sanity checks early on
+    - 1 hour of sanity checking saves months of errorful analyses
+    - With large data, don't immediately run on all data, but try a
+      small subset (something that will finish in < 10 min)
+* Check results by eye
+    - Visualizing overall patterns (boxplots, PCA, MA, heatmap, dendrograms)
+    - Visualize individual examples (data for one gene/feature)
+    - Visualize lower-level patterns (genomic coverage of reads)
+* Successful software requires more than a good algorithm
+    - Documentation and user support take time but go a long way
+    - When possible, provide online HTML resources, gets more eyeballs
+      and is more search friendly than PDF
+
+Writing:
+
+* Don't bury the most important message
+    - Put the important message in title, and early in abstract
+	- Most of the people who see your paper will only read the title,
+	then some fraction will read the abstract. Only a minority will
+	actually open the paper, and most of those will look at Figures
+	and the headings in the Results section
+    - Use simple language, repeat same words/structure for simplicity
+
