@@ -112,10 +112,19 @@ reference in class.
 * Rafael Irizarry and Michael Love, "Data Analysis for the Life Sciences" 
 [Free PDF](https://leanpub.com/dataanalysisforthelifesciences),
 [HTML](http://genomicsclass.github.io/book/)
-* [Kasper Hansen "Bioconductor for Genomic Data Science"](https://kasperdanielhansen.github.io/genbioconductor/)
-* [Aaron Quinlan "Applied Computational Genomics" (Slides)](https://github.com/quinlan-lab/applied-computational-genomics)
-* [Jennifer Bryan et al Stat 545](http://stat545.com/)
+* [Kasper Hansen, "Bioconductor for Genomic Data Science"](https://kasperdanielhansen.github.io/genbioconductor/)
+* [Aaron Quinlan, "Applied Computational Genomics" (Slides)](https://github.com/quinlan-lab/applied-computational-genomics)
+* [Jennifer Bryan et al, Stat 545](http://stat545.com/)
 * [Tips to succeed in Computational Biology research](tips.html)
+
+Some R resources
+
+* [Quick-R](http://www.statmethods.net/)
+* [R for Matlab users](http://mathesaurus.sourceforge.net/octave-r.html)
+* [R Cookbook](http://www.cookbook-r.com/)
+* [R Reference Card](https://cran.r-project.org/doc/contrib/Short-refcard.pdf)
+* [Advanced R](http://adv-r.had.co.nz/)
+* [Bioconductor Reference Card](https://github.com/mikelove/bioc-refcard)
 
 ### Wait, how come ___ is missing?
 
