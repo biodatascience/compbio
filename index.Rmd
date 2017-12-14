@@ -148,4 +148,4 @@ in biology and biomedical research.
 This page was last updated on `r format(Sys.time(), "%m/%d/%Y")`. 
 
 * [GitHub repo](https://github.com/biodatascience/compbio_src)
-* [License](https://github.com/biodatascience/compbio_src/blob/gh-pages/LICENSE)
+* [License](https://github.com/biodatascience/compbio_src/blob/master/LICENSE)
