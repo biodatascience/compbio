@@ -8,6 +8,10 @@ output:
 
 ### Course information
 
+BIOS 784 / BCB 784
+
+Spring 2021, 9:30-10:45 TR
+
 For official course information see Sakai (syllabus, calendar, paper PDFs, etc).
 This course makes extensive use of R and assumes basic familiarity with
 base R (not packages) as a prerequisite. 
@@ -29,34 +33,34 @@ RStudio.
 
 | Week | Topic | Dir. | HW | HTML | Title |
 |------|-------|------|----|------|-------|
-|Aug 23         | GitHub | | | [github](github.html) | RStudio, git, and GitHub |
-|Aug 28 & 30    | R & EDA | `eda` | [🔭](https://github.com/biodatascience/compbio_src/blob/master/eda/EDA_hw.Rmd) | [EDA](eda/EDA.html) | Exploratory data analysis |
+| | GitHub | | | [github](github.html) | RStudio, git, and GitHub |
+| | R & EDA | `eda` | <!--[🔭](https://github.com/biodatascience/compbio_src/blob/master/eda/EDA_hw.Rmd)--> | [EDA](eda/EDA.html) | Exploratory data analysis |
 | | | | | [NAs](eda/NAs.html) | Missing values in R |
 | | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
-|LbrDay & Sep 6 | Bioconductor | `bioc` | [♫](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc1_HW.Rmd) | [objects](bioc/objects.html) | Complex data objects: eSet |
+| | Bioconductor | `bioc` | <!--[♫](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc1_HW.Rmd)--> | [objects](bioc/objects.html) | Complex data objects: eSet |
 | | | | | [ranges](bioc/ranges.html) | Genomic ranges |
 | | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
-|Sep 11 & 13    | Bioconductor | `bioc` | [♬](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc2_HW.Rmd) | [SE](bioc/SE.html) | The SummarizedExperiment |
+| | Bioconductor | `bioc` | <!--[♬](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc2_HW.Rmd)--> | [SE](bioc/SE.html) | The SummarizedExperiment |
 | | | | | [anno](bioc/anno.html) | Accessing annotations |
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
-|Sep 18 & 20    | Distances & norm. | `dist` | [⚖](https://github.com/biodatascience/compbio_src/blob/master/dist/dist1_HW.Rmd) | [distances](dist/distances.html) | Distances in high dimensions |
+| | Distances & norm. | `dist` | <!--[⚖](https://github.com/biodatascience/compbio_src/blob/master/dist/dist1_HW.Rmd)--> | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | | [hclust](dist/hclust.html) | Hierarchical clustering |
-|Sep 25 & 27    | Distances & norm. | `dist` | [⚠](https://github.com/biodatascience/compbio_src/blob/master/dist/dist2_HW.Rmd) | [batch](dist/batch.html) | Batch effects and sources |
+| | Distances & norm. | `dist` | <!--[⚠](https://github.com/biodatascience/compbio_src/blob/master/dist/dist2_HW.Rmd)--> | [batch](dist/batch.html) | Batch effects and sources |
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
-|Oct 2 & 4      | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
+| | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
 | | | | | [localfdr](test/localfdr.html) | Local false discovery rate |
 | | | | |  [IDR](test/IDR.html) | Irreproducible discovery rate |
-|Oct 9 & 11	    | *Mid-term* | | | | |
-|Oct 16 & 18    | *Fall break* | | | | |
-|Oct 23 & 25    | Models and EM | `model` | [⛰](https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd) | [EM](model/EM.html) | Expectation maximization |
+| | *Mid-term* | | | | |
+| | *Break* | | | | |
+| | Models and EM | `model` | <!--[⛰](https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd)--> | [EM](model/EM.html) | Expectation maximization |
 | | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
-|Oct 30 & Nov 1 | Hierarchical models | `hier` |  [♔](https://github.com/biodatascience/compbio_src/blob/master/hier/hier_HW.Rmd) | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+| | Hierarchical models | `hier` |  <!--[♔](https://github.com/biodatascience/compbio_src/blob/master/hier/hier_HW.Rmd)--> | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
-|Nov 6 & 8	    | Signal processing | `signal` | [⛓](https://github.com/biodatascience/compbio_src/blob/master/signal/signal_HW.Rmd) | [hmm](signal/hmm.html) | Hidden Markov Models |
-|Nov 13 & 15    | Network analysis | `net` | | [network](net/network.html) | Network analysis |
-|Nov 20 & Thxg  | *Projects* | | | | |
-|Nov 27 & 29    | *Projects* | | | | |
-|Dec 4 & 6      | *Projects* | | | | |
+| | Signal processing | `signal` | <!--[⛓](https://github.com/biodatascience/compbio_src/blob/master/signal/signal_HW.Rmd)--> | [hmm](signal/hmm.html) | Hidden Markov Models |
+| | Network analysis | `net` | | [network](net/network.html) | Network analysis |
+| | *Projects* | | | | |
+| | *Projects* | | | | |
+| | *Projects* | | | | |
 
 ### Reading list
 

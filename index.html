@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 
 <head>
 
 <meta charset="utf-8" />
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Michael Love" />
@@ -21,8 +21,8 @@
 <script src="index_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="index_files/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="index_files/navigation-1.1/tabsets.js"></script>
-<link href="index_files/highlightjs-1.1/default.css" rel="stylesheet" />
-<script src="index_files/highlightjs-1.1/highlight.js"></script>
+<link href="index_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="index_files/highlightjs-9.12.0/highlight.js"></script>
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
@@ -31,10 +31,12 @@
   }
 </style>
 <script type="text/javascript">
-if (window.hljs && document.readyState && document.readyState === "complete") {
-   window.setTimeout(function() {
-      hljs.initHighlighting();
-   }, 0);
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
 }
 </script>
 
@@ -68,9 +70,7 @@ h6 {
 </style>
 
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -84,30 +84,91 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
 
 
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -117,13 +178,15 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">Introduction to Computational Biology</h1>
-<h4 class="author"><em><a href="http://mikelove.github.io">Michael Love</a></em></h4>
+<h4 class="author"><a href="http://mikelove.github.io">Michael Love</a></h4>
 
 </div>
 
 
 <div id="course-information" class="section level3">
 <h3>Course information</h3>
+<p>BIOS 784 / BCB 784</p>
+<p>Spring 2021, 9:30-10:45 TR</p>
 <p>For official course information see Sakai (syllabus, calendar, paper PDFs, etc). This course makes extensive use of R and assumes basic familiarity with base R (not packages) as a prerequisite. A self-quiz is available <a href="https://github.com/biodatascience/compbio/blob/gh-pages/selfquiz/selfquiz.R">here</a>, with answers provided <a href="https://github.com/biodatascience/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda">here</a>. You can also find a <a href="https://github.com/biodatascience/compbio_src/blob/master/eda/functions.md">list of base R functions</a> that one should be familiar with.</p>
 </div>
 <div id="schedule-and-course-notes" class="section level3">
@@ -142,7 +205,7 @@ $(document).ready(function () {
 </thead>
 <tbody>
 <tr class="odd">
-<td>Aug 23</td>
+<td></td>
 <td>GitHub</td>
 <td></td>
 <td></td>
@@ -150,10 +213,10 @@ $(document).ready(function () {
 <td>RStudio, git, and GitHub</td>
 </tr>
 <tr class="even">
-<td>Aug 28 &amp; 30</td>
+<td></td>
 <td>R &amp; EDA</td>
 <td><code>eda</code></td>
-<td><a href="https://github.com/biodatascience/compbio_src/blob/master/eda/EDA_hw.Rmd">🔭</a></td>
+<td><!--[🔭](https://github.com/biodatascience/compbio_src/blob/master/eda/EDA_hw.Rmd)--></td>
 <td><a href="eda/EDA.html">EDA</a></td>
 <td>Exploratory data analysis</td>
 </tr>
@@ -174,10 +237,10 @@ $(document).ready(function () {
 <td>Exploring brain RNA</td>
 </tr>
 <tr class="odd">
-<td>LbrDay &amp; Sep 6</td>
+<td></td>
 <td>Bioconductor</td>
 <td><code>bioc</code></td>
-<td><a href="https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc1_HW.Rmd">♫</a></td>
+<td><!--[♫](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc1_HW.Rmd)--></td>
 <td><a href="bioc/objects.html">objects</a></td>
 <td>Complex data objects: eSet</td>
 </tr>
@@ -198,10 +261,10 @@ $(document).ready(function () {
 <td>GRangesList: lists of ranges</td>
 </tr>
 <tr class="even">
-<td>Sep 11 &amp; 13</td>
+<td></td>
 <td>Bioconductor</td>
 <td><code>bioc</code></td>
-<td><a href="https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc2_HW.Rmd">♬</a></td>
+<td><!--[♬](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc2_HW.Rmd)--></td>
 <td><a href="bioc/SE.html">SE</a></td>
 <td>The SummarizedExperiment</td>
 </tr>
@@ -222,10 +285,10 @@ $(document).ready(function () {
 <td>Manipulating DNA strings</td>
 </tr>
 <tr class="odd">
-<td>Sep 18 &amp; 20</td>
+<td></td>
 <td>Distances &amp; norm.</td>
 <td><code>dist</code></td>
-<td><a href="https://github.com/biodatascience/compbio_src/blob/master/dist/dist1_HW.Rmd">⚖</a></td>
+<td><!--[⚖](https://github.com/biodatascience/compbio_src/blob/master/dist/dist1_HW.Rmd)--></td>
 <td><a href="dist/distances.html">distances</a></td>
 <td>Distances in high dimensions</td>
 </tr>
@@ -238,10 +301,10 @@ $(document).ready(function () {
 <td>Hierarchical clustering</td>
 </tr>
 <tr class="odd">
-<td>Sep 25 &amp; 27</td>
+<td></td>
 <td>Distances &amp; norm.</td>
 <td><code>dist</code></td>
-<td><a href="https://github.com/biodatascience/compbio_src/blob/master/dist/dist2_HW.Rmd">⚠</a></td>
+<td><!--[⚠](https://github.com/biodatascience/compbio_src/blob/master/dist/dist2_HW.Rmd)--></td>
 <td><a href="dist/batch.html">batch</a></td>
 <td>Batch effects and sources</td>
 </tr>
@@ -254,7 +317,7 @@ $(document).ready(function () {
 <td>Surrogate variable analysis</td>
 </tr>
 <tr class="odd">
-<td>Oct 2 &amp; 4</td>
+<td></td>
 <td>Multiple testing</td>
 <td><code>test</code></td>
 <td></td>
@@ -278,7 +341,7 @@ $(document).ready(function () {
 <td>Irreproducible discovery rate</td>
 </tr>
 <tr class="even">
-<td>Oct 9 &amp; 11</td>
+<td></td>
 <td><em>Mid-term</em></td>
 <td></td>
 <td></td>
@@ -286,18 +349,18 @@ $(document).ready(function () {
 <td></td>
 </tr>
 <tr class="odd">
-<td>Oct 16 &amp; 18</td>
-<td><em>Fall break</em></td>
+<td></td>
+<td><em>Break</em></td>
 <td></td>
 <td></td>
 <td></td>
 <td></td>
 </tr>
 <tr class="even">
-<td>Oct 23 &amp; 25</td>
+<td></td>
 <td>Models and EM</td>
 <td><code>model</code></td>
-<td><a href="https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd">⛰</a></td>
+<td><!--[⛰](https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd)--></td>
 <td><a href="model/EM.html">EM</a></td>
 <td>Expectation maximization</td>
 </tr>
@@ -310,10 +373,10 @@ $(document).ready(function () {
 <td>EM for finding DNA motifs</td>
 </tr>
 <tr class="even">
-<td>Oct 30 &amp; Nov 1</td>
+<td></td>
 <td>Hierarchical models</td>
 <td><code>hier</code></td>
-<td><a href="https://github.com/biodatascience/compbio_src/blob/master/hier/hier_HW.Rmd">♔</a></td>
+<td><!--[♔](https://github.com/biodatascience/compbio_src/blob/master/hier/hier_HW.Rmd)--></td>
 <td><a href="hier/hierarchical.html">hierarchical</a></td>
 <td>Hierarchical models</td>
 </tr>
@@ -326,15 +389,15 @@ $(document).ready(function () {
 <td>James-Stein estimator app</td>
 </tr>
 <tr class="even">
-<td>Nov 6 &amp; 8</td>
+<td></td>
 <td>Signal processing</td>
 <td><code>signal</code></td>
-<td><a href="https://github.com/biodatascience/compbio_src/blob/master/signal/signal_HW.Rmd">⛓</a></td>
+<td><!--[⛓](https://github.com/biodatascience/compbio_src/blob/master/signal/signal_HW.Rmd)--></td>
 <td><a href="signal/hmm.html">hmm</a></td>
 <td>Hidden Markov Models</td>
 </tr>
 <tr class="odd">
-<td>Nov 13 &amp; 15</td>
+<td></td>
 <td>Network analysis</td>
 <td><code>net</code></td>
 <td></td>
@@ -342,7 +405,7 @@ $(document).ready(function () {
 <td>Network analysis</td>
 </tr>
 <tr class="even">
-<td>Nov 20 &amp; Thxg</td>
+<td></td>
 <td><em>Projects</em></td>
 <td></td>
 <td></td>
@@ -350,7 +413,7 @@ $(document).ready(function () {
 <td></td>
 </tr>
 <tr class="odd">
-<td>Nov 27 &amp; 29</td>
+<td></td>
 <td><em>Projects</em></td>
 <td></td>
 <td></td>
@@ -358,7 +421,7 @@ $(document).ready(function () {
 <td></td>
 </tr>
 <tr class="even">
-<td>Dec 4 &amp; 6</td>
+<td></td>
 <td><em>Projects</em></td>
 <td></td>
 <td></td>
@@ -457,7 +520,7 @@ $(document).ready(function () {
 <h3>Wait, how come ___ is missing?</h3>
 <p>This is not nearly a complete list of topics in computational biology. The students taking the course are mostly graduate students in biostatistics, who have statistical background but not much exposure to genomic or biological datasets. Classic computational biology topics, such as alignment algorithms or molecular dynamics, are not covered, but instead the focus is on exploring genomic datasets and introducing the key statistical models that flourish in the high throughput setting (normalization, false discovery rate calculation, EM algorithm, hierarchical models, HMM, etc.). The course also focuses on R/Bioconductor, as this is a familiar tool for most of the students, and allows them to jump in to the data analysis. The goal is that exposure to these topics and these datasets will allow them to more effectively read the literature and pursue topics in biology and biomedical research.</p>
 <hr />
-<p>This page was last updated on 12/14/2017.</p>
+<p>This page was last updated on 06/03/2020.</p>
 <ul>
 <li><a href="https://github.com/biodatascience/compbio_src">GitHub repo</a></li>
 <li><a href="https://github.com/biodatascience/compbio_src/blob/master/LICENSE">License</a></li>
@@ -481,6 +544,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
