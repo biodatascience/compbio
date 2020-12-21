@@ -23,6 +23,10 @@ You can also find a
 [list of base R functions](https://github.com/biodatascience/compbio_src/blob/master/eda/functions.md)
 that one should be familiar with.
 
+**For 2021 BCB students**: BCB 720 (background on statistical inference,
+i.e. working with the likelihood for parameter inference, conditional
+probabilities) is suitable as a pre-requisite for BIOS 784.
+
 ### Schedule and course notes
 
 For `Rmd` files, go to the
