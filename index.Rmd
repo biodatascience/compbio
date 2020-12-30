@@ -12,7 +12,8 @@ BIOS 784 / BCB 784
 
 Spring 2021, 9:30-10:45 TR
 
-For official course information see Sakai (syllabus, calendar, paper PDFs, etc).
+For official course information see [Sakai](https://sakai.unc.edu/portal/site/bios784-2021) 
+(syllabus, calendar, paper PDFs, etc).
 This course makes extensive use of R and assumes basic familiarity with
 base R (not packages) as a prerequisite. 
 A self-quiz is available 
