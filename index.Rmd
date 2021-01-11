@@ -10,7 +10,7 @@ output:
 
 BIOS 784 / BCB 784
 
-Spring 2021, 9:30-10:45 TR
+Spring 2021, 9:30-10:45 TR (exclusively remote, no in-person component)
 
 For official course information see [Sakai](https://sakai.unc.edu/portal/site/bios784-2021) 
 (syllabus, calendar, paper PDFs, etc).
