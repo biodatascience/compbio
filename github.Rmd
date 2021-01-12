@@ -12,12 +12,11 @@ We talked about RStudio, git and GitHub in class, but to review:
 * `git` is a program for version control (mostly useful for plain text documents) 
 * GitHub and BitBucket are websites/companies which host `git` repositories 
 
-As of the writing of this document, GitHub offers free public repositories, 
-while BitBucket offers free public or private repositories. GitHub seems to
-be more popular for open source projects. For this course, we will use
-private repositories for turning in homeworks and final projects,
-which are available because the course is labeled as an educational
-*organization* on GitHub. 
+GitHub and BitBucket both offer free public or private repositories.
+GitHub seems to be more popular for open source projects. For this
+course, we will use private repositories for turning in homeworks and
+final projects, which are available because the course is labeled as
+an educational *organization* on GitHub.
 
 You can start a `git` repository (repo) by either *cloning* an existing repo
 (as you will do for this course), or *initializing* a repo
@@ -27,15 +26,14 @@ We want to clone the course repo in RStudio, but first, we may need to
 install or upgrade the software on your computer. We need to do the following
 steps:
 
-* Install/upgrade R (to version 3.4)
+* Install/upgrade R (to version 4.0.3)
 * Install RStudio for Desktop (free)
 * Install git
 * Hook RStudio up to use git and GitHub
 
 The first step can be done by visiting [CRAN](cran.r-project.org), and
 clicking the appropriate link for your operating system. When you load R,
-you want it to say that R is version 3.4 when you type `sessionInfo()`
-(`3.4.0` or `3.4.1` is fine).
+you want it to say that R is version 4.0.3 when you type `sessionInfo()`.
 
 The second step can be done by visiting the [RStudio](https://www.rstudio.com/) website.
 
