@@ -38,8 +38,8 @@ RStudio.
 
 | Week | Topic | Dir. | HW | HTML | Title |
 |------|-------|------|----|------|-------|
-| | GitHub | | | [github](github.html) | RStudio, git, and GitHub |
-| | R & EDA | `eda` | <!--[🔭](https://github.com/biodatascience/compbio_src/blob/master/eda/EDA_hw.Rmd)--> | [EDA](eda/EDA.html) | Exploratory data analysis |
+| | GitHub | | [HW0](https://github.com/biodatascience/compbio_src/blob/master/github/github.Rmd) | [github](github.html) | RStudio, git, and GitHub |
+| | R & EDA | `eda` | <!--[🔭](https://github.com/biodatascience/compbio_src/blob/master/eda/EDA_HW.Rmd)--> | [EDA](eda/EDA.html) | Exploratory data analysis |
 | | | | | [NAs](eda/NAs.html) | Missing values in R |
 | | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
 | | Bioconductor | `bioc` | <!--[♫](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc1_HW.Rmd)--> | [objects](bioc/objects.html) | Complex data objects: eSet |
