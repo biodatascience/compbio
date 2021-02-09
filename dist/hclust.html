@@ -453,26 +453,8 @@ vsd2$sample %&lt;&gt;% factor</code></pre>
 hc &lt;- hclust(dists)
 dend &lt;- as.dendrogram(hc)</code></pre>
 <p>Now we will use the <em>dendextend</em> package to color and annotate the dendrogram. Unlike above, after we’ve computed the dendrogram, we need to supply labels and colors <em>in the dendrogram order</em> not in the original data order. We therefore ask for the dendrogram order and apply this order to labels and colors when we want to modify these. Note that the four pairs of technical replicates often cluster tightly together.</p>
-<pre class="r"><code>library(dendextend)</code></pre>
-<pre><code>## 
-## ---------------------
-## Welcome to dendextend version 1.14.0
-## Type citation(&#39;dendextend&#39;) for how to cite the package.
-## 
-## Type browseVignettes(package = &#39;dendextend&#39;) for the package vignette.
-## The github page is: https://github.com/talgalili/dendextend/
-## 
-## Suggestions and bug-reports can be submitted at: https://github.com/talgalili/dendextend/issues
-## Or contact: &lt;tal.galili@gmail.com&gt;
-## 
-##  To suppress this message use:  suppressPackageStartupMessages(library(dendextend))
-## ---------------------</code></pre>
-<pre><code>## 
-## Attaching package: &#39;dendextend&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:stats&#39;:
-## 
-##     cutree</code></pre>
-<pre class="r"><code>library(RColorBrewer)
+<pre class="r"><code>suppressPackageStartupMessages(library(dendextend))
+library(RColorBrewer)
 palette(brewer.pal(8, &quot;Dark2&quot;))
 o.dend &lt;- order.dendrogram(dend)
 labels(dend) &lt;- vsd2$sample[o.dend]
