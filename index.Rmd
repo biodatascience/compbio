@@ -50,14 +50,13 @@ RStudio.
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
 | 2/9 | Distances & norm. | `dist` | [⚖](https://github.com/biodatascience/compbio_src/blob/master/dist/dist1_HW.Rmd) | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | | [hclust](dist/hclust.html) | Hierarchical clustering |
-| | Distances & norm. | `dist` | <!--[⚠](https://github.com/biodatascience/compbio_src/blob/master/dist/dist2_HW.Rmd)--> | [batch](dist/batch.html) | Batch effects and sources |
-| | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
 | (2/16) | *Break* | | | | |
-| 2/18 | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
+| 2/18 | Distances & norm. | `dist` | <!--[⚠](https://github.com/biodatascience/compbio_src/blob/master/dist/dist2_HW.Rmd)--> | [batch](dist/batch.html) | Batch effects and sources |
+| | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
+| 2/23 | *Guest lecture* | | | | Dr. Joshua Starmer |
+| 2/25 | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
 | | | | | [localfdr](test/localfdr.html) | Local false discovery rate |
 | | | | |  [IDR](test/IDR.html) | Irreproducible discovery rate |
-| 2/23 | *Guest lecture* | | | | Dr. Joshua Starmer |
-| 2/25 | Multiple testing | | | | |
 | 3/2 | *Review part I* | | | | |
 | 3/4 | *Mid-term* | | | | |
 | 3/9 | *Guest lecture* | | | | Dr. Di Wu |
