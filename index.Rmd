@@ -55,10 +55,9 @@ RStudio.
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
 | 2/23 | *Guest lecture* | | | | Dr. Joshua Starmer |
 | 2/25 | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
-| | | | | [localfdr](test/localfdr.html) | Local false discovery rate |
+| 3/2  | Multiple testing | `test` | | [localfdr](test/localfdr.html) | Local false discovery rate |
 | | | | |  [IDR](test/IDR.html) | Irreproducible discovery rate |
-| 3/2 | *Review part I* | | | | |
-| 3/4 | *Mid-term* | | | | |
+| 3/4 | *Mid-term assigned* | | | | |
 | 3/9 | *Guest lecture* | | | | Dr. Di Wu |
 | (3/11) | *Break* | | | | |
 | 3/16 | Models and EM | `model` | <!--[⛰](https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd)--> | [EM](model/EM.html) | Expectation maximization |
