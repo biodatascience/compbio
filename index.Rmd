@@ -52,7 +52,7 @@ RStudio.
 | | | | | [hclust](dist/hclust.html) | Hierarchical clustering |
 | (2/16) | *Break* | | | | |
 | 2/23 | *Guest lecture* | | | | Dr. Joshua Starmer |
-| 2/25 | Distances & norm. | `dist` | <!--[⚠](https://github.com/biodatascience/compbio_src/blob/master/dist/dist2_HW.Rmd)--> | [batch](dist/batch.html) | Batch effects and sources |
+| 2/25 | Distances & norm. | `dist` | [⚠](https://github.com/biodatascience/compbio_src/blob/master/dist/dist2_HW.Rmd) | [batch](dist/batch.html) | Batch effects and sources |
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
 | 3/2 | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
 | | | | | [localfdr](test/localfdr.html) | Local false discovery rate |
