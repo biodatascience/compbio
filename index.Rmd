@@ -69,7 +69,7 @@ RStudio.
 | 4/15 | Network analysis | `net` | | [network](net/network.html) | Network analysis |
 | 4/20 | *Project time* | | | | |
 | 4/27 | *Presentations 1* | | | | |
-| 4/29 | *Presentations 2* | | | | |
+| 4/29 | *Presentations 2* | | | | Reports due 5pm |
 | 5/4 | *Presentations 3* | | | | |
 
 ### Reading list
