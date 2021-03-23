@@ -403,11 +403,12 @@ summary {
 <p><span class="math display">\[ = \textrm{E}_{Z|X,\theta^t} \left[ \log \prod_i \prod_c \pi_c f(x_i; \mu_c, \sigma^2_c)^{\mathbb{1}(z_i = c)} \right] \]</span></p>
 <p><span class="math display">\[ = \textrm{E}_{Z|X,\theta^t} \left[ \sum_i \sum_c \mathbb{1}(z_i = c) (\log \pi_c + \log f(x_i; \mu_c, \sigma^2_c)) \right] \]</span></p>
 <p><span class="math display">\[ \sum_i \sum_c \textrm{E}_{Z|X,\theta^t} \mathbb{1}(z_i = c) \left( \log \pi_c + \log \frac{1}{\sqrt{2 \pi \sigma^2_c}} - \frac{1}{2 \sigma^2_c} (x_i - \mu_c)^2 \right) \]</span></p>
-<p>Now differentiate this double sum with respect to one of the parameters, say <span class="math inline">\(\mu_1\)</span>, and set it equal to zero:</p>
-<p><span class="math display">\[ \sum_i \textrm{E}_{Z|X,\theta^t} \mathbb{1}(z_i = 1) (x_i - \mu_1) = 0 \]</span></p>
-<p>Define <span class="math inline">\(\textrm{E}_{Z|X,\theta^t} \mathbb{1}(z_i = 1) \equiv w_i\)</span>, which we can calculate using our probability model, <span class="math inline">\(x\)</span>, and <span class="math inline">\(\theta^t\)</span>. We end up with:</p>
-<p><span class="math display">\[ \sum_i w_i (x_i - \mu_1) = 0 \]</span></p>
-<p><span class="math display">\[ \hat{\mu}^{t+1}_1 = \frac{\sum_i w_i x_i}{\sum_i w_i} \]</span></p>
+<p>Now differentiate this double sum with respect to one of the parameters, say <span class="math inline">\(\mu_1\)</span>, and set it equal to zero. Remember we have <span class="math inline">\(z_i = 0\)</span> if observation <em>i</em> is from the 1st Normal component.</p>
+<p><span class="math display">\[ \sum_i \textrm{E}_{Z|X,\theta^t} \mathbb{1}(z_i = 0) (x_i - \mu_1) = 0 \]</span></p>
+<p>Define <span class="math inline">\(\textrm{E}_{Z|X,\theta^t} \mathbb{1}(z_i = 0) \equiv w_i^1\)</span>, which we can calculate using our probability model, <span class="math inline">\(x\)</span>, and <span class="math inline">\(\theta^t\)</span>. Again, <span class="math inline">\(w_i^1\)</span> is the conditional probability that observation <em>i</em> is from component 1, given the data and the current best estimate of parameters.</p>
+<p>We end up with:</p>
+<p><span class="math display">\[ \sum_i w_i^1 (x_i - \mu_1) = 0 \]</span></p>
+<p><span class="math display">\[ \hat{\mu}^{t+1}_1 = \frac{\sum_i w_i^1 x_i}{\sum_i w_i^1} \]</span></p>
 <p>We obtain a weighted sum of the observations that belong to this component for our estimate of the mean. If we repeat the same for <span class="math inline">\(\sigma^2_1\)</span>, we will obtain a similar weighted sum of the squares <span class="math inline">\((x_i - \mu_1)^2\)</span>.</p>
 </div>
 <div id="running-em-on-simulated-data" class="section level1">
