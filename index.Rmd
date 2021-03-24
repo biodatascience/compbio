@@ -52,25 +52,24 @@ RStudio.
 | | | | | [hclust](dist/hclust.html) | Hierarchical clustering |
 | (2/16) | *Break* | | | | |
 | 2/23 | *Guest lecture* | | | | Dr. Joshua Starmer |
-| 2/25 | Distances & norm. | `dist` | <!--[⚠](https://github.com/biodatascience/compbio_src/blob/master/dist/dist2_HW.Rmd)--> | [batch](dist/batch.html) | Batch effects and sources |
+| 2/25 | Distances & norm. | `dist` | [⚠](https://github.com/biodatascience/compbio_src/blob/master/dist/dist2_HW.Rmd) | [batch](dist/batch.html) | Batch effects and sources |
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
-| 3/2 | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
-| | | | | [localfdr](test/localfdr.html) | Local false discovery rate |
-| | | | | [IDR](test/IDR.html) | Irreproducible discovery rate |
 | 3/4 | *Mid-term assigned* | | | | |
 | 3/9 | *Guest lecture* | | | | Dr. Di Wu |
 | (3/11) | *Break* | | | | |
-| 3/16 | Models and EM | `model` | <!--[⛰](https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd)--> | [EM](model/EM.html) | Expectation maximization |
+| 3/16 | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
+| | | | | [localfdr](test/localfdr.html) | Local false discovery rate |
+| | | | | [IDR](test/IDR.html) | Irreproducible discovery rate |
+| 3/23 | Models and EM | `model` | <!--[⛰](https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd)--> | [EM](model/EM.html) | Expectation maximization |
 | | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
-| 3/23 | Hierarchical models | `hier` |  <!--[♔](https://github.com/biodatascience/compbio_src/blob/master/hier/hier_HW.Rmd)--> | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+| 3/30 | Hierarchical models | `hier` |  <!--[♔](https://github.com/biodatascience/compbio_src/blob/master/hier/hier_HW.Rmd)--> | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
-| 3/30 | Signal processing | `signal` | <!--[⛓](https://github.com/biodatascience/compbio_src/blob/master/signal/signal_HW.Rmd)--> | [hmm](signal/hmm.html) | Hidden Markov Models |
-| 4/6 | Network analysis | `net` | | [network](net/network.html) | Network analysis |
+| 4/6 | Signal processing | `signal` | <!--[⛓](https://github.com/biodatascience/compbio_src/blob/master/signal/signal_HW.Rmd)--> | [hmm](signal/hmm.html) | Hidden Markov Models |
 | 4/13 | *Guest lecture* | | | | Dr. Yuchao Jiang |
-| 4/15 | *TBD* | | | | |
+| 4/15 | Network analysis | `net` | | [network](net/network.html) | Network analysis |
 | 4/20 | *Project time* | | | | |
 | 4/27 | *Presentations 1* | | | | |
-| 4/29 | *Presentations 2* | | | | |
+| 4/29 | *Presentations 2* | | | | Reports due 5pm |
 | 5/4 | *Presentations 3* | | | | |
 
 ### Reading list
