@@ -14,12 +14,22 @@
 
 <title>Introduction to Computational Biology</title>
 
+<script src="index_files/header-attrs-2.7/header-attrs.js"></script>
 <script src="index_files/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="index_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
 <script src="index_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
 <script src="index_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="index_files/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
 <script src="index_files/navigation-1.1/tabsets.js"></script>
 <link href="index_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="index_files/highlightjs-9.12.0/highlight.js"></script>
@@ -34,11 +44,6 @@
     </style>
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-  pre:not([class]) {
-    background-color: white;
-  }
-</style>
 <script type="text/javascript">
 if (window.hljs) {
   hljs.configure({languages: []});
@@ -51,32 +56,6 @@ if (window.hljs) {
 
 
 
-<style type="text/css">
-h1 {
-  font-size: 34px;
-}
-h1.title {
-  font-size: 38px;
-}
-h2 {
-  font-size: 30px;
-}
-h3 {
-  font-size: 24px;
-}
-h4 {
-  font-size: 18px;
-}
-h5 {
-  font-size: 16px;
-}
-h6 {
-  font-size: 12px;
-}
-.table th:not([align]) {
-  text-align: left;
-}
-</style>
 
 
 
@@ -87,10 +66,6 @@ h6 {
   max-width: 940px;
   margin-left: auto;
   margin-right: auto;
-}
-code {
-  color: inherit;
-  background-color: rgba(0, 0, 0, 0.04);
 }
 img {
   max-width:100%;
@@ -107,6 +82,9 @@ button.code-folding-btn:focus {
 summary {
   display: list-item;
 }
+pre code {
+  padding: 0;
+}
 </style>
 
 
@@ -119,7 +97,6 @@ summary {
   max-height: 500px;
   min-height: 44px;
   overflow-y: auto;
-  background: white;
   border: 1px solid #ddd;
   border-radius: 4px;
 }
@@ -183,7 +160,7 @@ summary {
 
 
 
-<div class="fluid-row" id="header">
+<div id="header">
 
 
 
@@ -395,7 +372,7 @@ summary {
 <td>3/23</td>
 <td>Models and EM</td>
 <td><code>model</code></td>
-<td><!--[⛰](https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd)--></td>
+<td><a href="https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd">⛰</a></td>
 <td><a href="model/EM.html">EM</a></td>
 <td>Expectation maximization</td>
 </tr>
@@ -571,7 +548,7 @@ summary {
 <h3>Wait, how come ___ is missing?</h3>
 <p>This is not nearly a complete list of topics in computational biology. The students taking the course are mostly graduate students in biostatistics, who have statistical background but not much exposure to genomic or biological datasets. Classic computational biology topics, such as alignment algorithms or molecular dynamics, are not covered, but instead the focus is on exploring genomic datasets and introducing the key statistical models that flourish in the high throughput setting (normalization, false discovery rate calculation, EM algorithm, hierarchical models, HMM, etc.). The course also focuses on R/Bioconductor, as this is a familiar tool for most of the students, and allows them to jump in to the data analysis. The goal is that exposure to these topics and these datasets will allow them to more effectively read the literature and pursue topics in biology and biomedical research.</p>
 <hr />
-<p>This page was last updated on 03/23/2021.</p>
+<p>This page was last updated on 03/25/2021.</p>
 <ul>
 <li><a href="https://github.com/biodatascience/compbio_src">GitHub repo</a></li>
 <li><a href="https://github.com/biodatascience/compbio_src/blob/master/LICENSE">License</a></li>
@@ -605,7 +582,7 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open')
+    $(this).parent().toggleClass('nav-tabs-open');
   });
 });
 </script>

@@ -60,7 +60,7 @@ RStudio.
 | 3/16 | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
 | | | | | [localfdr](test/localfdr.html) | Local false discovery rate |
 | | | | | [IDR](test/IDR.html) | Irreproducible discovery rate |
-| 3/23 | Models and EM | `model` | <!--[⛰](https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd)--> | [EM](model/EM.html) | Expectation maximization |
+| 3/23 | Models and EM | `model` | [⛰](https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd) | [EM](model/EM.html) | Expectation maximization |
 | | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
 | 3/30 | Hierarchical models | `hier` |  <!--[♔](https://github.com/biodatascience/compbio_src/blob/master/hier/hier_HW.Rmd)--> | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
