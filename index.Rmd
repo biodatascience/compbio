@@ -64,7 +64,7 @@ RStudio.
 | | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
 | 3/30 | Hierarchical models | `hier` |  <!--[♔](https://github.com/biodatascience/compbio_src/blob/master/hier/hier_HW.Rmd)--> | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
-| 4/6 | Signal processing | `signal` | <!--[⛓](https://github.com/biodatascience/compbio_src/blob/master/signal/signal_HW.Rmd)--> | [hmm](signal/hmm.html) | Hidden Markov Models |
+| 4/6 | Signal processing | `signal` | [♔+⛓](https://github.com/biodatascience/compbio_src/blob/master/signal/hier-signal_HW.Rmd) | [hmm](signal/hmm.html) | Hidden Markov Models |
 | 4/13 | *Guest lecture* | | | | Dr. Yuchao Jiang |
 | 4/15 | Network analysis | `net` | | [network](net/network.html) | Network analysis |
 | 4/20 | *Project time* | | | | |
