@@ -38,7 +38,7 @@ Details:
 Writing:
 
 * Don't bury the most important message
-    - Put the important message in title, and early in abstract
+    - Put the important message in title, and in abstract
 	- Most of the people who see your paper will only read the title,
 	then some fraction will read the abstract. Only a minority will
 	actually open the paper, and most of those will look at Figures
