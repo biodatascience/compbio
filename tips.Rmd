@@ -9,21 +9,21 @@ Big picture:
 * Work on relevant topics
     - Get advice from many sources on relevance
     - Avoid topics that may be quickly outdated
-    - Search google/pubmed for previous work on topic
+    - Search Google/PubMed for previous work on topic
     - Will the topic have an impact on biomedical research?
     - Does the topic need a [new method](https://scientificbsides.wordpress.com/2012/01/06/spare-me-your-method-show-me-your-finding/)?
 * Seek out excellent collaborators / labs
     - Care about the computational and quantitative aspects
     - Care about technical bias and experimental design
 * Lots of luck involved
-    - Not every research produce will get any attention
+    - Not every research product will get any attention
 	- Diversify and see what works
 
 Details:
 
 * Work on small subsets of data first
     - Do lots of sanity checks early on
-    - 1 hour of sanity checking saves months of errorful analyses
+    - 1 day of sanity checking saves months of erroneous analyses
     - With large data, don't immediately run on all data, but try a
       small subset (something that will finish in < 10 min)
 * Check results by eye
@@ -44,4 +44,3 @@ Writing:
 	actually open the paper, and most of those will look at Figures
 	and the headings in the Results section
     - Use simple language, repeat same words/structure for simplicity
-
