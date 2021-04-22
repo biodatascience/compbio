@@ -22,8 +22,8 @@ Big picture:
 Details:
 
 * Work on small subsets of data first
-    - Do lots of sanity checks early on
-    - 1 day of sanity checking saves months of erroneous analyses
+    - Do lots of spot checks early on
+    - 1 day of spot checks saves months of erroneous analyses
     - With large data, don't immediately run on all data, but try a
       small subset (something that will finish in < 10 min)
 * Check results by eye
