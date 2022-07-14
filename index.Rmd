@@ -12,8 +12,8 @@ BIOS/BCB 784
 
 Fall 2022, 1:25-2:40 MW (Gillings SPH Room 2304)
 
-For official course information see [Sakai](https://sakai.unc.edu/portal/site/bios784-2021) 
-(syllabus, calendar, paper PDFs, etc).
+Syllabus coming soon.
+
 This course makes extensive use of R and assumes basic familiarity with
 base R (not packages) as a prerequisite. 
 A self-quiz is available 
