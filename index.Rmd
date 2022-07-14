@@ -8,9 +8,9 @@ output:
 
 ### Course information
 
-BIOS 784 / BCB 784
+BIOS/BCB 784
 
-Spring 2021, 9:30-10:45 TR (exclusively remote, no in-person component)
+Fall 2022, 1:25-2:40 MW (Gillings SPH Room 2304)
 
 For official course information see [Sakai](https://sakai.unc.edu/portal/site/bios784-2021) 
 (syllabus, calendar, paper PDFs, etc).
@@ -24,9 +24,9 @@ You can also find a
 [list of base R functions](https://github.com/biodatascience/compbio_src/blob/master/eda/functions.md)
 that one should be familiar with.
 
-**For 2021 BCB students**: BCB 720 (background on statistical inference,
+**For 2022 BCB students**: BCB 720 (background on statistical inference,
 i.e. working with the likelihood for parameter inference, conditional
-probabilities) is suitable as a pre-requisite for BIOS 784.
+probabilities) is suitable as a pre-requisite for BIOS/BCB 784.
 
 ### Schedule and course notes
 
