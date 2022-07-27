@@ -35,42 +35,48 @@ For `Rmd` files, go to the
 directories, or best of all to clone the repo and navigate within
 RStudio. 
 
+```{r echo=FALSE}
+hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/master/",x,".Rmd")
+```
 
 | Week | Topic | Dir. | HW | HTML | Title |
-|------|-------|------|----|------|-------|
-| 8/15 | GitHub | | [](https://github.com/biodatascience/compbio_src/blob/master/github/github_HW.Rmd) | [github](github.html) | RStudio, git, and GitHub |
-| 8/22 | R & EDA | `eda` | [](https://github.com/biodatascience/compbio_src/blob/master/eda/EDA_HW.Rmd) | [EDA](eda/EDA.html) | Exploratory data analysis |
+|:-----|:------|:-----|:---|:-----|:------|
+| 8/15 | GitHub | `-` | [HW0](`r hw("github/github_HW")`) | [github](github.html) | RStudio, git, and GitHub |
+| 8/22 | R & EDA | `eda` | [](`r hw("eda/EDA_HW.Rmd")`) | [EDA](eda/EDA.html) | Exploratory data analysis |
 | | | | | [NAs](eda/NAs.html) | Missing values in R |
 | | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
-| 8/29 | Bioconductor | `bioc` | [](https://github.com/biodatascience/compbio_src/blob/master/bioc/bioc_HW.Rmd) | [objects](bioc/objects.html) | Complex data objects: eSet |
+| 8/29 | Bioconductor | `bioc` | [](`r hw("bioc/bioc_HW.Rmd")`) | [objects](bioc/objects.html) | Complex data objects: eSet |
 | | | | | [ranges](bioc/ranges.html) | Genomic ranges |
 | | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
 | | Bioconductor | `bioc` | | [SE](bioc/SE.html) | The SummarizedExperiment |
 | | | | | [anno](bioc/anno.html) | Accessing annotations |
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
 | (9/5) | *Labor day* | | | | |
-| 9/7 | Distances & norm. | `dist` | [](https://github.com/biodatascience/compbio_src/blob/master/dist/dist1_HW.Rmd) | [distances](dist/distances.html) | Distances in high dimensions |
+| 9/7 | Distances & norm. I | `dist` | [](`r hw("dist/dist1_HW.Rmd")`) | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | | [hclust](dist/hclust.html) | Hierarchical clustering |
-| 9/12 | Distances & norm. | `dist` | [](https://github.com/biodatascience/compbio_src/blob/master/dist/dist2_HW.Rmd) | [batch](dist/batch.html) | Batch effects and sources |
-| | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
-| (9/26) | *Well-being day* | | | | |
-| 9/28 | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
+| 9/12 | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
 | | | | | [localfdr](test/localfdr.html) | Local false discovery rate |
 | | | | | [IDR](test/IDR.html) | Irreproducible discovery rate |
-| 10/3 | Models and EM | `model` | [](https://github.com/biodatascience/compbio_src/blob/master/model/model_HW.Rmd) | [EM](model/EM.html) | Expectation maximization |
+| (9/14) | *BCB/GMB retreat* | | | | |
+| 9/19 | Multiple testing | `test` | | | |
+| 9/21 | Guest lecture | | | | |
+| (9/26) | *Well-being day* | | | | |
+| 9/28 | Distances & norm. II | `dist` | [](`r hw("dist/dist2_HW.Rmd")`) | [batch](dist/batch.html) | Batch effects and sources |
+| | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
+| 10/3 | Models and EM | `model` | [](`r hw("model/model_HW.Rmd")`) | [EM](model/EM.html) | Expectation maximization |
 | | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
-| 10/10 | Hierarchical models | `hier` |  <!--[♔](https://github.com/biodatascience/compbio_src/blob/master/hier/hier_HW.Rmd)--> | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+| 10/10 | Hierarchical models | `hier` |  [](`r hw("hier/hier_HW.Rmd")`) | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
 | (10/12) | *University day* | | | | |
-| 10/17 | Signal processing | `signal` | [](https://github.com/biodatascience/compbio_src/blob/master/signal/hier-signal_HW.Rmd) | [hmm](signal/hmm.html) | Hidden Markov Models |
+| 10/17 | Signal processing | `signal` | [](`r hw("signal/hier-signal_HW.Rmd")`) | [hmm](signal/hmm.html) | Hidden Markov Models |
 | 10/24 | Network analysis | `net` | | [network](net/network.html) | Network analysis |
-| 10/31 | -- | | | | |
+| 10/31 | Tidy genomics | `-` | | [tidy](https://nullranges.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
 | 11/7 | *Project time* | | | | |
 | 11/16 | *Presentations 1* | | | | |
 | 11/14 | *Presentations 2* | | | | |
 | 11/21 | *Presentations 3* | | | | |
 | (11/23) | *Thanksgiving break* | | | | |
-| 11/28 | -- | | | | |
+| 11/28 | Bonus | | | | |
 | 11/30 | *Classes end* | | | | |
 
 ### Reading list
