@@ -59,7 +59,7 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | | | | | [IDR](test/IDR.html) | Irreproducible discovery rate |
 | (9/14) | *BCB/GMB retreat* | | | | |
 | 9/19 | Multiple testing | `test` | | | |
-| 9/21 | Guest lecture | | | | |
+| 9/21 | Mult. test. w/ codata | | | | Guest: [Nikos Ignatiadis](https://nignatiadis.github.io/) |
 | (9/26) | *Well-being day* | | | | |
 | 9/28 | Distances & norm. II | `dist` | [](`r hw("dist/dist2_HW.Rmd")`) | [batch](dist/batch.html) | Batch effects and sources |
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
