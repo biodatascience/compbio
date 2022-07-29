@@ -65,6 +65,7 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
 | 10/3 | Models and EM | `model` | [](`r hw("model/model_HW.Rmd")`) | [EM](model/EM.html) | Expectation maximization |
 | | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
+| 10/5 | Motifs & {memes} | | | | Guest: [Spencer Nystrom](https://snystrom.github.io/) |
 | 10/10 | Hierarchical models | `hier` |  [](`r hw("hier/hier_HW.Rmd")`) | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
 | (10/12) | *University day* | | | | |
