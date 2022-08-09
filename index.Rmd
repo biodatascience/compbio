@@ -12,7 +12,9 @@ BIOS/BCB 784
 
 Fall 2022, 1:25-2:40 MW (Gillings SPH Room 2304)
 
-Syllabus coming soon.
+Syllabus is available on
+[Sakai](https://sakai.unc.edu/portal/site/bios784-2022) 
+under Resources.
 
 This course makes extensive use of R and assumes basic familiarity with
 base R (not packages) as a prerequisite. 
@@ -41,14 +43,14 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 
 | Week | Topic | Dir. | HW | HTML | Title |
 |:-----|:------|:-----|:---|:-----|:------|
-| 8/15 | GitHub | `-` | [HW0](`r hw("github/github_HW")`) | [github](github.html) | RStudio, git, and GitHub |
-| 8/22 | R & EDA | `eda` | [](`r hw("eda/EDA_HW.Rmd")`) | [EDA](eda/EDA.html) | Exploratory data analysis |
+| 8/15 | Bio Intro / GitHub | `-` | [HW0](`r hw("github/github_HW")`) | [github](github.html) | RStudio, git, and GitHub |
+| 8/22 | Simple EDA (<font color="red">virtual</font>) | `eda` | [](`r hw("eda/EDA_HW.Rmd")`) | [EDA](eda/EDA.html) | Exploratory data analysis |
 | | | | | [NAs](eda/NAs.html) | Missing values in R |
 | | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
-| 8/29 | Bioconductor | `bioc` | [](`r hw("bioc/bioc_HW.Rmd")`) | [objects](bioc/objects.html) | Complex data objects: eSet |
+| 8/29 | Bioconductor I | `bioc` | [](`r hw("bioc/bioc_HW.Rmd")`) | [objects](bioc/objects.html) | Complex data objects: eSet |
 | | | | | [ranges](bioc/ranges.html) | Genomic ranges |
 | | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
-| | Bioconductor | `bioc` | | [SE](bioc/SE.html) | The SummarizedExperiment |
+| | Bioconductor II | `bioc` | | [SE](bioc/SE.html) | The SummarizedExperiment |
 | | | | | [anno](bioc/anno.html) | Accessing annotations |
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
 | (9/5) | *Labor day* | | | | |
