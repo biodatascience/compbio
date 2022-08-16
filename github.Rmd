@@ -26,14 +26,14 @@ We want to clone the course repo in RStudio, but first, we may need to
 install or upgrade the software on your computer. We need to do the following
 steps:
 
-* Install/upgrade R (to version 4.0.3)
+* Install/upgrade R (to version 4.2 if possible)
 * Install RStudio for Desktop (free)
 * Install git
 * Hook RStudio up to use git and GitHub
 
 The first step can be done by visiting [CRAN](cran.r-project.org), and
 clicking the appropriate link for your operating system. When you load R,
-you want it to say that R is version 4.0.3 when you type `sessionInfo()`.
+you want it to say that R is version 4.2 when you type `sessionInfo()`.
 
 The second step can be done by visiting the [RStudio](https://www.rstudio.com/) website.
 
