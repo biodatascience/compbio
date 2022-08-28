@@ -47,11 +47,10 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | 8/22 | Simple EDA (<font color="red">virtual</font>) | `eda` | [](`r hw("eda/EDA_HW.Rmd")`) | [EDA](eda/EDA.html) | Exploratory data analysis |
 | | | | | [NAs](eda/NAs.html) | Missing values in R |
 | | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
-| 8/29 | Bioconductor I | `bioc` | [](`r hw("bioc/bioc_HW.Rmd")`) | [objects](bioc/objects.html) | Complex data objects: eSet |
+| 8/29 | Bioconductor I | `bioc` | [](`r hw("bioc/bioc_HW.Rmd")`) | [objects](bioc/objects.html) | Bioc data objects |
 | | | | | [ranges](bioc/ranges.html) | Genomic ranges |
 | | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
-| | Bioconductor II | `bioc` | | [SE](bioc/SE.html) | The SummarizedExperiment |
-| | | | | [anno](bioc/anno.html) | Accessing annotations |
+| | Bioconductor II | `bioc` | | [anno](bioc/anno.html) | Accessing annotations |
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
 | (9/5) | *Labor day* | | | | |
 | 9/7 | Distances & norm. I | `dist` | [](`r hw("dist/dist1_HW.Rmd")`) | [distances](dist/distances.html) | Distances in high dimensions |
