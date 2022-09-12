@@ -49,20 +49,19 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
 | 8/29 | Bioconductor I | `bioc` | [](`r hw("bioc/bioc_HW")`) | [objects](bioc/objects.html) | Bioc data objects |
 | | | | | [ranges](bioc/ranges.html) | Genomic ranges |
-| | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
-| | Bioconductor II | `bioc` | | [anno](bioc/anno.html) | Accessing annotations |
-| | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
 | (9/5) | *Labor day* | | | | |
-| 9/7 | Distances & norm. I | `dist` | [](`r hw("dist/dist1_HW")`) | [distances](dist/distances.html) | Distances in high dimensions |
-| | | | | [hclust](dist/hclust.html) | Hierarchical clustering |
-| 9/12 | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
+| 9/7 | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
+| 9/12 | Bioconductor II | | | [anno](bioc/anno.html) | Accessing annotations |
+| | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
+| (9/14) | *BCB/GMB retreat* | | | | |
+| 9/19 | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
 | | | | | [localfdr](test/localfdr.html) | Local false discovery rate |
 | | | | | [IDR](test/IDR.html) | Irreproducible discovery rate |
-| (9/14) | *BCB/GMB retreat* | | | | |
-| 9/19 | Multiple testing | `test` | | | |
 | 9/21 | Mult. test. w/ codata | | | | Guest: [Nikos Ignatiadis](https://nignatiadis.github.io/) |
 | (9/26) | *Well-being day* | | | | |
-| 9/28 | Distances & norm. II | `dist` | [](`r hw("dist/dist2_HW")`) | [batch](dist/batch.html) | Batch effects and sources |
+| 9/28 | Distances & norm. I | `dist` | [](`r hw("dist/dist1_HW")`) | [distances](dist/distances.html) | Distances in high dimensions |
+| | | | | [hclust](dist/hclust.html) | Hierarchical clustering |
+| | Distances & norm. II | | [](`r hw("dist/dist2_HW")`) | [batch](dist/batch.html) | Batch effects and sources |
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
 | 10/3 | Models and EM | `model` | [](`r hw("model/model_HW")`) | [EM](model/EM.html) | Expectation maximization |
 | | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
