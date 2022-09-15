@@ -47,11 +47,11 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | 8/22 | Simple EDA (<font color="red">virtual</font>) | `eda` | [HW1](`r hw("eda/EDA-Bioc1_HW")`) | [EDA](eda/EDA.html) | Exploratory data analysis |
 | | | | | [NAs](eda/NAs.html) | Missing values in R |
 | | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
-| 8/29 | Bioconductor I | `bioc` | [](`r hw("bioc/bioc_HW")`) | [objects](bioc/objects.html) | Bioc data objects |
+| 8/29 | Bioconductor I | `bioc` | | [objects](bioc/objects.html) | Bioc data objects |
 | | | | | [ranges](bioc/ranges.html) | Genomic ranges |
 | (9/5) | *Labor day* | | | | |
 | 9/7 | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
-| 9/12 | Bioconductor II | | | [anno](bioc/anno.html) | Accessing annotations |
+| 9/12 | Bioconductor II | | [HW2](`r hw("bioc/Bioc2_HW")`) | [anno](bioc/anno.html) | Accessing annotations |
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
 | (9/14) | *BCB/GMB retreat* | | | | |
 | 9/19 | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
