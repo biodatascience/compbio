@@ -70,29 +70,29 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | 10/12 | Motifs part II | | | | (In-class EM notes posted to GH) |
 | 10/17 | Distances & norm. II | `dist` | | [batch](dist/batch.html) | Batch effects and sources |
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
+| 10/19 | | | | | Batch effect solutions |
 | 10/19 | **Midterm due** (5pm) | | | | |
-| 10/24 | *Project groups* | | | | |
-| 10/26 | | | | | |
-| 10/31 | | | | | |
-| 11/2 | | | | | |
-| TBD | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
-| TBD | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
-| TBD | Signal processing | `signal` | | [hmm](signal/hmm.html) | Hidden Markov Models |
-| TBD | Network analysis | `net` | | [network](net/network.html) | Network analysis |
-| TBD | Tidy genomics | `-` | | [tidy](https://nullranges.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
-| 11/7 | *Project time* | | | | |
+| 10/24 | *Project time* (in class) | | | | |
+| 10/26 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+| | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
+| 10/31 | *Project time* (in class) | | | | |
+| 11/2 | Signal processing | `signal` | | [hmm](signal/hmm.html) | Hidden Markov Models |
+| 11/7 | *Project time* (in class) | | | | |
+| 11/9 | Prof at CSHL | | | | Groups meet to finalize presentations |
 | 11/14 | *Presentations 1* | | | | |
 | 11/16 | *Presentations 2* | | | | |
 | 11/21 | *Presentations 3* | | | | |
 | (11/23) | *Thanksgiving break* | | | | |
-| 11/28 | Bonus | | | | |
-| 11/30 | Bonus | | | | |
+| 11/28 | Tidy genomics | `-` | | [tidy](https://nullranges.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
+| 11/30 | TBD | | | | | 
+
+### Bonus material
+
+| Week | Topic | Dir. | HW | HTML | Title |
+|:-----|:------|:-----|:---|:-----|:------|
+| ~ | Network analysis | `net` | | [network](net/network.html) | Network analysis |
 
 ### Reading list
-
-I will fill out the reading list as the course goes on. This is not
-nearly a complete reading list, but just some of literature I will
-reference in class.
 
 * **What is the role of the computational biologist / statistician?**
     - [All biology is computational biology](http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2002050) Florian Markowetz
