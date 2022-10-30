@@ -83,8 +83,8 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | 11/16 | *Presentations 2* | | | | |
 | 11/21 | *Presentations 3* | | | | |
 | (11/23) | *Thanksgiving break* | | | | |
-| 11/28 | Tidy genomics | `-` | | [tidy](https://nullranges.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
-| 11/30 | TBD | | | | | 
+| 11/28 | Guest lecture (<font color="red">virtual</font>) | | | | TBD | 
+| 11/30 | Tidy genomics | `-` | | [tidy](https://nullranges.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
 
 ### Bonus material
 
