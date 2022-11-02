@@ -85,6 +85,7 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | (11/23) | *Thanksgiving break* | | | | |
 | 11/28 | [GraphReg](https://genome.cshlp.org/content/early/2022/04/08/gr.275870.121) (<font color="red">virtual</font>) | | | | Guest: [Alireza Karbalayghareh](https://karbalayghareh.github.io/) | 
 | 11/30 | Tidy genomics | `-` | | [tidy](https://nullranges.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
+| 12/2 | **Final report due** (12pm) | | | | |
 
 ### Bonus material
 
