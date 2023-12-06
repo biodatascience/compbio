@@ -1,6 +1,6 @@
 ---
 title: "Introduction to Computational Biology"
-author: "[Michael Love](http://mikelove.github.io)"
+author: "[Michael Love](http://mikelove.github.io) (he/him)"
 output: 
   html_document:
     self_contained: false
@@ -10,11 +10,7 @@ output:
 
 BIOS/BCB 784
 
-Fall 2022, 1:25-2:40 MW (Gillings SPH Room 2304)
-
-Syllabus is available on
-[Sakai](https://sakai.unc.edu/portal/site/bios784-2022) 
-under Resources.
+Fall 2024 hour/classroom TBD
 
 This course makes extensive use of R and assumes basic familiarity with
 base R (not packages) as a prerequisite. 
@@ -26,7 +22,7 @@ You can also find a
 [list of base R functions](https://github.com/biodatascience/compbio_src/blob/master/eda/functions.md)
 that one should be familiar with.
 
-**For 2022 BCB students**: BCB 720 (background on statistical inference,
+**For 2024 BCB students**: BCB 720 (background on statistical inference,
 i.e. working with the likelihood for parameter inference, conditional
 probabilities) is suitable as a pre-requisite for BIOS/BCB 784.
 
@@ -43,55 +39,32 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 
 | Week | Topic | Dir. | HW | HTML | Title |
 |:-----|:------|:-----|:---|:-----|:------|
-| 8/15 | Bio Intro / GitHub | `-` | [HW0](`r hw("github/github_HW")`) | [github](github.html) | RStudio, git, and GitHub |
-| 8/22 | Simple EDA (<font color="red">virtual</font>) | `eda` | [HW1](`r hw("eda/EDA-Bioc1_HW")`) | [EDA](eda/EDA.html) | Exploratory data analysis |
+| | Bio Intro / GitHub | `-` | <!--[HW0](`r hw("github/github_HW")`)--> | [github](github.html) | RStudio, git, and GitHub |
+| | Simple EDA | `eda` | | [EDA](eda/EDA.html) | Exploratory data analysis |
 | | | | | [NAs](eda/NAs.html) | Missing values in R |
 | | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
-| 8/29 | Bioconductor I | `bioc` | | [objects](bioc/objects.html) | Bioc data objects |
+| | Bioconductor I | `bioc` | | [objects](bioc/objects.html) | Bioc data objects |
 | | | | | [ranges](bioc/ranges.html) | Genomic ranges |
-| (9/5) | *Labor day* | | | | |
-| 9/7 | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
-| 9/12 | Bioconductor II | | [HW2](`r hw("bioc/Bioc2_HW")`) | [anno](bioc/anno.html) | Accessing annotations |
+| | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
+| | Bioconductor II | | | [anno](bioc/anno.html) | Accessing annotations |
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
-| (9/14) | *BCB/GMB retreat* | | | | |
-| 9/19 | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
+| | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
 | | | | | [localfdr](test/localfdr.html) | Local false discovery rate |
 | | | | | [IDR](test/IDR.html) | Irreproducible discovery rate |
-| 9/21 | Mult. test. w/ codata (<font color="red">virtual</font>) | | | | Guest: [Nikos Ignatiadis](https://nignatiadis.github.io/) |
-| (9/26) | *Well-being day* | | | | |
-| 9/28 | Distances & norm. I | `dist` | | [distances](dist/distances.html) | Distances in high dimensions |
+| | Distances & norm. I | `dist` | | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | | [hclust](dist/hclust.html) | Hierarchical clustering |
-| 10/3 | Models and EM | `model` | | [EM](model/EM.html) | Expectation maximization |
+| | Models and EM | `model` | | [EM](model/EM.html) | Expectation maximization |
 | | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
-| 10/5 | Motifs & {memes} | | | | Guest: [Spencer Nystrom](https://snystrom.github.io/) |
-| 10/5 | **Midterm assigned** | | | | |
-| | Due: Oct 19, 5pm | | | | |
-| 10/10 | ChIP-seq | | | | (Slides on Sakai) |
-| 10/12 | Motifs part II | | | | (In-class EM notes posted to GH) |
-| 10/17 | Distances & norm. II | `dist` | | [batch](dist/batch.html) | Batch effects and sources |
+| | ChIP-seq | | | | (Slides on Sakai) |
+| | Motifs part II | | | | (In-class EM notes posted to GH) |
+| | Distances & norm. II | `dist` | | [batch](dist/batch.html) | Batch effects and sources |
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
-| 10/19 | | | | | Batch effect solutions |
-| 10/19 | **Midterm due** (5pm) | | | | |
-| 10/24 | *Project time* (in class) | | | | |
-| 10/26 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+| | | | | | Batch effect solutions |
+| | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
-| 10/31 | *Project time* (in class) | | | | |
-| 11/2 | Signal processing | `signal` | | [hmm](signal/hmm.html) | Hidden Markov Models |
-| 11/7 | *Project time* (in class) | | | | |
-| 11/9 | Prof at CSHL | | | | Groups meet to finalize presentations |
-| 11/14 | *Presentations 1* | | | | |
-| 11/16 | *Presentations 2* | | | | |
-| 11/21 | *Presentations 3* | | | | |
-| (11/23) | *Thanksgiving break* | | | | |
-| 11/28 | [GraphReg](https://genome.cshlp.org/content/early/2022/04/08/gr.275870.121) (<font color="red">virtual</font>) | | | | Guest: [Alireza Karbalayghareh](https://karbalayghareh.github.io/) | 
-| 11/30 | Tidy genomics | `-` | | [tidy](https://nullranges.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
-| 12/2 | **Final report due** (12pm) | | | | |
-
-### Bonus material
-
-| Week | Topic | Dir. | HW | HTML | Title |
-|:-----|:------|:-----|:---|:-----|:------|
-| ~ | Network analysis | `net` | | [network](net/network.html) | Network analysis |
+| | Signal processing | `signal` | | [hmm](signal/hmm.html) | Hidden Markov Models |
+| | Tidy genomics | `-` | | [tidy](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
+| | Network analysis | `net` | | [network](net/network.html) | Network analysis |
 
 ### Reading list
 
