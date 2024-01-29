@@ -10,7 +10,7 @@ output:
 
 BIOS/BCB 784
 
-Fall 2024 hour/classroom TBD
+Fall 2024 -- 1:25-2:40 MoWe
 
 This course makes extensive use of R and assumes basic familiarity with
 base R (not packages) as a prerequisite. 
