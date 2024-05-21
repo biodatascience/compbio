@@ -1,5 +1,5 @@
 ---
-title: "Introduction to Computational Biology"
+title: "Introduction to Computational Biology - UNC BIOS / BCB 784"
 author: "[Michael Love](http://mikelove.github.io) (he/him)"
 output: 
   html_document:
