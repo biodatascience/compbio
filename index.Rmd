@@ -12,7 +12,7 @@ BIOS/BCB 784
 
 Fall 2024 -- 1:25-2:40 MoWe -- [McGavran 2306](https://sph.unc.edu/room/2306-mcgavran-greenberg-hall/)
 
-[2022 syllabus](BIOS784-Fall2022-Gillings-v4.docx)
+[2024 syllabus](BIOS784-Fall2024-Gillings-v7.docx)
 
 This course makes extensive use of R and assumes basic familiarity with
 base R (not packages) as a prerequisite. 
