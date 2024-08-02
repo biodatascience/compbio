@@ -14,7 +14,7 @@
 
 <title>Intro to Computational Biology - UNC BIOS/BCB 784</title>
 
-<script src="index_files/header-attrs-2.25/header-attrs.js"></script>
+<script src="index_files/header-attrs-2.27/header-attrs.js"></script>
 <script src="index_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="index_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
@@ -178,7 +178,15 @@ pre code {
 <div id="schedule-and-course-notes" class="section level3">
 <h3>Schedule and course notes</h3>
 <p>For <code>Rmd</code> files, go to the <a href="https://github.com/biodatascience/compbio_src">course repo</a> and navigate the directories, or best of all to clone the repo and navigate within RStudio.</p>
-<table>
+<table style="width:100%;">
+<colgroup>
+<col width="16%" />
+<col width="19%" />
+<col width="16%" />
+<col width="11%" />
+<col width="16%" />
+<col width="19%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Week</th>
@@ -192,27 +200,27 @@ pre code {
 <tbody>
 <tr class="odd">
 <td align="left"></td>
-<td align="left">Bio Intro / GitHub</td>
-<td align="left"><code>-</code></td>
-<td align="left"><!--[HW0](https://github.com/biodatascience/compbio_src/blob/master/github/github_HW.Rmd)--></td>
-<td align="left"><a href="github.html">github</a></td>
-<td align="left">RStudio, git, and GitHub</td>
+<td align="left"><strong>Data analysis</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
-<td align="left">Simple EDA</td>
+<td align="left">Biological intro / GitHub</td>
+<td align="left"><code>-</code></td>
+<td align="left"><a href="https://github.com/biodatascience/compbio_src/blob/master/github/github_HW.Rmd">HW0</a></td>
+<td align="left"><a href="github.html">github</a></td>
+<td align="left">RStudio, git, and GitHub</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">Exploring bio data</td>
 <td align="left"><code>eda</code></td>
 <td align="left"></td>
 <td align="left"><a href="eda/EDA.html">EDA</a></td>
 <td align="left">Exploratory data analysis</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="eda/NAs.html">NAs</a></td>
-<td align="left">Missing values in R</td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -224,7 +232,7 @@ pre code {
 </tr>
 <tr class="odd">
 <td align="left"></td>
-<td align="left">Bioconductor I</td>
+<td align="left">R/Bioconductor I</td>
 <td align="left"><code>bioc</code></td>
 <td align="left"></td>
 <td align="left"><a href="bioc/objects.html">objects</a></td>
@@ -248,7 +256,23 @@ pre code {
 </tr>
 <tr class="even">
 <td align="left"></td>
-<td align="left">Bioconductor II</td>
+<td align="left">“tidyomics”</td>
+<td align="left"><code>tidy</code></td>
+<td align="left"></td>
+<td align="left"><a href="https://tidyomics.github.io/tidy-intro-talk/">tidy intro</a></td>
+<td align="left">Tidiness-in-Bioconductor intro</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><a href="https://tidyomics.github.io/tidy-ranges-tutorial/">tidy ranges</a></td>
+<td align="left">Tidy ranges tutorial</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">R/Bioconductor II</td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"><a href="bioc/anno.html">anno</a></td>
@@ -264,43 +288,59 @@ pre code {
 </tr>
 <tr class="even">
 <td align="left"></td>
-<td align="left">Multiple testing</td>
-<td align="left"><code>test</code></td>
-<td align="left"></td>
-<td align="left"><a href="test/multtest.html">multtest</a></td>
-<td align="left">FDR and Benjamini-Hochberg</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="test/localfdr.html">localfdr</a></td>
-<td align="left">Local false discovery rate</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="test/IDR.html">IDR</a></td>
-<td align="left">Irreproducible discovery rate</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
 <td align="left">Distances &amp; norm. I</td>
 <td align="left"><code>dist</code></td>
 <td align="left"></td>
 <td align="left"><a href="dist/distances.html">distances</a></td>
 <td align="left">Distances in high dimensions</td>
 </tr>
-<tr class="even">
+<tr class="odd">
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"><a href="dist/hclust.html">hclust</a></td>
 <td align="left">Hierarchical clustering</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left">Distances &amp; norm. II</td>
+<td align="left"><code>dist</code></td>
+<td align="left"></td>
+<td align="left"><a href="dist/batch.html">batch</a></td>
+<td align="left">Batch effects and sources</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><a href="dist/sva.html">sva</a></td>
+<td align="left">Surrogate variable analysis</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left">Batch effect solutions</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left">python for bio data</td>
+<td align="left"><code>python</code></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"><strong>Data modeling</strong></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
@@ -324,7 +364,7 @@ pre code {
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
-<td align="left">(Slides on Sakai)</td>
+<td align="left"></td>
 </tr>
 <tr class="even">
 <td align="left"></td>
@@ -332,33 +372,9 @@ pre code {
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
-<td align="left">(In-class EM notes posted to GH)</td>
+<td align="left">(EM notes posted to GH)</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left">Distances &amp; norm. II</td>
-<td align="left"><code>dist</code></td>
-<td align="left"></td>
-<td align="left"><a href="dist/batch.html">batch</a></td>
-<td align="left">Batch effects and sources</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="dist/sva.html">sva</a></td>
-<td align="left">Surrogate variable analysis</td>
-</tr>
-<tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left">Batch effect solutions</td>
-</tr>
-<tr class="even">
 <td align="left"></td>
 <td align="left">Hierarchical models</td>
 <td align="left"><code>hier</code></td>
@@ -366,31 +382,47 @@ pre code {
 <td align="left"><a href="hier/hierarchical.html">hierarchical</a></td>
 <td align="left">Hierarchical models</td>
 </tr>
-<tr class="odd">
+<tr class="even">
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"></td>
 <td align="left"><a href="hier/jamesstein.html">jamesstein</a></td>
-<td align="left">James-Stein estimator app</td>
-</tr>
-<tr class="even">
-<td align="left"></td>
-<td align="left">Signal processing</td>
-<td align="left"><code>signal</code></td>
-<td align="left"></td>
-<td align="left"><a href="signal/hmm.html">hmm</a></td>
-<td align="left">Hidden Markov Models</td>
+<td align="left">James-Stein estimator</td>
 </tr>
 <tr class="odd">
 <td align="left"></td>
-<td align="left">Tidy genomics</td>
-<td align="left"><code>-</code></td>
+<td align="left">Markov models</td>
+<td align="left"><code>markov</code></td>
 <td align="left"></td>
-<td align="left"><a href="https://tidyomics.github.io/tidy-ranges-tutorial/">tidy</a></td>
-<td align="left">Tidy ranges tutorial</td>
+<td align="left"><a href="markov/hmm.html">hmm</a></td>
+<td align="left">Hidden Markov Models</td>
 </tr>
 <tr class="even">
+<td align="left"></td>
+<td align="left">Simultaneous Hypothesis Testing</td>
+<td align="left"><code>multiple</code></td>
+<td align="left"></td>
+<td align="left"><a href="multiple/multtest.html">multtest</a></td>
+<td align="left">FDR and Benjamini-Hochberg</td>
+</tr>
+<tr class="odd">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><a href="multiple/localfdr.html">localfdr</a></td>
+<td align="left">Local false discovery rate</td>
+</tr>
+<tr class="even">
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"></td>
+<td align="left"><a href="multiple/IDR.html">IDR</a></td>
+<td align="left">Irreproducible discovery rate</td>
+</tr>
+<tr class="odd">
 <td align="left"></td>
 <td align="left">Network analysis</td>
 <td align="left"><code>net</code></td>
@@ -490,7 +522,7 @@ pre code {
 <h3>Wait, how come ___ is missing?</h3>
 <p>This is not nearly a complete list of topics in computational biology. The students taking the course are mostly graduate students in biostatistics, who have statistical background but not much exposure to genomic or biological datasets. Classic computational biology topics, such as alignment algorithms or molecular dynamics, are not covered, but instead the focus is on exploring genomic datasets and introducing the key statistical models that flourish in the high throughput setting (normalization, false discovery rate calculation, EM algorithm, hierarchical models, HMM, etc.). The course also focuses on R/Bioconductor, as this is a familiar tool for most of the students, and allows them to jump in to the data analysis. The goal is that exposure to these topics and these datasets will allow them to more effectively read the literature and pursue topics in biology and biomedical research.</p>
 <hr />
-<p>This page was last updated on 06/03/2024.</p>
+<p>This page was last updated on 08/02/2024.</p>
 <ul>
 <li><a href="https://github.com/biodatascience/compbio_src">GitHub repo</a></li>
 <li><a href="https://github.com/biodatascience/compbio_src/blob/master/LICENSE">License</a></li>

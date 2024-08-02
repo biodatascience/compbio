@@ -41,31 +41,34 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 
 | Week | Topic | Dir. | HW | HTML | Title |
 |:-----|:------|:-----|:---|:-----|:------|
-| | Bio Intro / GitHub | `-` | <!--[HW0](`r hw("github/github_HW")`)--> | [github](github.html) | RStudio, git, and GitHub |
-| | Simple EDA | `eda` | | [EDA](eda/EDA.html) | Exploratory data analysis |
-| | | | | [NAs](eda/NAs.html) | Missing values in R |
+| | **Data analysis** | | | | |
+| | Biological intro / GitHub | `-` | [HW0](`r hw("github/github_HW")`) | [github](github.html) | RStudio, git, and GitHub |
+| | Exploring bio data | `eda` | | [EDA](eda/EDA.html) | Exploratory data analysis |
 | | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
-| | Bioconductor I | `bioc` | | [objects](bioc/objects.html) | Bioc data objects |
+| | R/Bioconductor I | `bioc` | | [objects](bioc/objects.html) | Bioc data objects |
 | | | | | [ranges](bioc/ranges.html) | Genomic ranges |
 | | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
-| | Bioconductor II | | | [anno](bioc/anno.html) | Accessing annotations |
+| | "tidyomics" | `tidy` | | [tidy intro](https://tidyomics.github.io/tidy-intro-talk/) | Tidiness-in-Bioconductor intro |
+| | | | | [tidy ranges](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
+| | R/Bioconductor II | | | [anno](bioc/anno.html) | Accessing annotations |
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
-| | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
-| | | | | [localfdr](test/localfdr.html) | Local false discovery rate |
-| | | | | [IDR](test/IDR.html) | Irreproducible discovery rate |
 | | Distances & norm. I | `dist` | | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | | [hclust](dist/hclust.html) | Hierarchical clustering |
-| | Models and EM | `model` | | [EM](model/EM.html) | Expectation maximization |
-| | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
-| | ChIP-seq | | | | (Slides on Sakai) |
-| | Motifs part II | | | | (In-class EM notes posted to GH) |
 | | Distances & norm. II | `dist` | | [batch](dist/batch.html) | Batch effects and sources |
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
 | | | | | | Batch effect solutions |
+| | python for bio data | `python` | | | |
+| | **Data modeling** | | | | |
+| | Models and EM | `model` | | [EM](model/EM.html) | Expectation maximization |
+| | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
+| | ChIP-seq | | | | |
+| | Motifs part II | | | | (EM notes posted to GH) |
 | | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
-| | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
-| | Signal processing | `signal` | | [hmm](signal/hmm.html) | Hidden Markov Models |
-| | Tidy genomics | `-` | | [tidy](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
+| | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator |
+| | Markov models | `markov` | | [hmm](markov/hmm.html) | Hidden Markov Models |
+| | Simultaneous Hypothesis Testing | `multiple` | | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
+| | | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
+| | | | | [IDR](multiple/IDR.html) | Irreproducible discovery rate |
 | | Network analysis | `net` | | [network](net/network.html) | Network analysis |
 
 ### Reading list
