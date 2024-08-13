@@ -167,8 +167,8 @@ pre code {
 </div>
 
 
-<p>Why use Bioconductor? From a user perspective, the answer is clear: because many statisticians, bioinformaticians, and computer scientists have spent time writing methods and algorithms specifically for biological (often genomic) data. A reason for this (why many people have contributed to this project) is that there is a shared infrastructure for common data types. This infrastructure is built up of object classes. An example of a class is <em>GRanges</em> (stands for “genomic ranges”), which is a way to specify a set of ranges in a particular genome, e.g. from basepair 101 to basepair 200 on chromosome 1 of the human genome (version 38).</p>
-<p>What’s an object? Well everything in R is an object, but usually when we talk about Bioconductor objects, we mean data structures containing many attributes, so more complex than a vector or matrix. And the objects have specific <em>methods</em> that help you either access the information in the object, run analyses on the object, plot the object, etc. Bioconductor also allows for <em>class hierarchy</em>, which means that you can define a class of object that inherits the structure and methods of a <em>superclass</em> on which it depends. This last point is mostly important for people who are developing new software for Bioconductor (maybe that’s you!)</p>
+<p>Why use Bioconductor? From a user perspective, the answer is clear: because many statisticians, bioinformaticians, and computer scientists have spent time writing methods and algorithms specifically for biological/genomic data. A reason for this, and why many people have contributed to this project, is that there is a shared infrastructure for common data types. This infrastructure is built up of object classes. An example of a class is <em>GRanges</em> (stands for “genomic ranges”), which is a way to specify a set of ranges in a particular genome, e.g. from basepair 101 to basepair 200 on chromosome 1 of the human genome (version 38).</p>
+<p>What’s an object? Well everything in R is an object, but usually when we talk about Bioconductor objects, we mean data structures containing many attributes, so more complex than a vector or matrix. And the objects have specific <em>methods</em> that help you either access the information in the object, run analyses on the object, plot the object, etc. Bioconductor also allows for <em>inheritance</em>, which means that you can define a class of object that inherits the structure and methods of a <em>superclass</em> on which it depends. This last point is mostly important for people who are developing new software for Bioconductor (maybe that’s you!)</p>
 <div id="getting-started-with-bioconductor" class="section level1">
 <h1>Getting started with Bioconductor</h1>
 <p>Before we get started, you need to know how to install Bioconductor packages. The most important details are:</p>
@@ -263,28 +263,28 @@ mcols(se)</code></pre>
 ## ENSG00000239945 ENSG00000239945 RP11-34P13.8                lincRNA       chromosome RP11-34P13.8
 ##                                       entrezid      score
 ##                                         &lt;list&gt;  &lt;numeric&gt;
-## ENSG00000223972 100287596,100287102,727856,... -0.0439863
-## ENSG00000227232                             NA  0.4021350
-## ENSG00000278267                      102466751  0.9690493
-## ENSG00000243485            105376912,100302278 -2.6680275
-## ENSG00000237613           654835,645520,641702 -0.1583440
-## ENSG00000268020                             NA -0.1439107
-## ENSG00000240361                             NA  1.1284054
-## ENSG00000186092                          79501  0.5457013
-## ENSG00000238009                             NA  1.3335071
-## ENSG00000239945                             NA -0.2924300</code></pre>
+## ENSG00000223972 100287596,100287102,727856,... -0.4889648
+## ENSG00000227232                             NA -0.8803820
+## ENSG00000278267                      102466751  2.5141563
+## ENSG00000243485            105376912,100302278 -1.6969716
+## ENSG00000237613           654835,645520,641702 -0.3169311
+## ENSG00000268020                             NA -2.4621162
+## ENSG00000240361                             NA -0.0901627
+## ENSG00000186092                          79501 -0.2040252
+## ENSG00000238009                             NA  0.4823729
+## ENSG00000239945                             NA  0.3895264</code></pre>
 <p>Adding data to the column metadata is even easier, we can just use <code>$</code>:</p>
 <pre class="r"><code>se$librarySize &lt;- runif(6,1e6,2e6)
 colData(se)</code></pre>
 <pre><code>## DataFrame with 6 rows and 4 columns
 ##     sample condition  treated librarySize
 ##   &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;   &lt;numeric&gt;
-## 1        1         A        0     1194966
-## 2        2         A        1     1399619
-## 3        3         B        0     1449977
-## 4        4         B        1     1667033
-## 5        5         C        0     1642624
-## 6        6         C        1     1524010</code></pre>
+## 1        1         A        0     1256734
+## 2        2         A        1     1548478
+## 3        3         B        0     1328600
+## 4        4         B        1     1627599
+## 5        5         C        0     1039155
+## 6        6         C        1     1750676</code></pre>
 </div>
 <div id="using-the-ranges-of-a-se" class="section level1">
 <h1>Using the ranges of a SE</h1>
@@ -303,16 +303,16 @@ se_sub &lt;- se[overlapsAny(se, query), ]</code></pre>
 ##   ENSG00000237613        1 34554-36081      - | ENSG00000237613     FAM138A                lincRNA
 ##                   seq_coord_system      symbol             entrezid     score
 ##                        &lt;character&gt; &lt;character&gt;               &lt;list&gt; &lt;numeric&gt;
-##   ENSG00000227232       chromosome      WASH7P                 &lt;NA&gt;  0.402135
-##   ENSG00000243485       chromosome   MIR1302-2  105376912,100302278 -2.668028
-##   ENSG00000237613       chromosome     FAM138A 654835,645520,641702 -0.158344
+##   ENSG00000227232       chromosome      WASH7P                 &lt;NA&gt; -0.880382
+##   ENSG00000243485       chromosome   MIR1302-2  105376912,100302278 -1.696972
+##   ENSG00000237613       chromosome     FAM138A 654835,645520,641702 -0.316931
 ##   -------
 ##   seqinfo: 25 sequences (1 circular) from GRCh38 genome</code></pre>
 <pre class="r"><code>assay(se_sub)</code></pre>
-<pre><code>##                        [,1]       [,2]       [,3]       [,4]       [,5]       [,6]
-## ENSG00000227232 -0.26112521  1.0085663  0.6368803 -0.4304613  0.5025273  0.8846260
-## ENSG00000243485 -0.01742268  1.9015650 -0.9076508 -0.5390484  1.5217313  0.7822824
-## ENSG00000237613  0.02512835 -0.5776169 -2.2559453 -0.3853810 -0.5488187 -0.8900073</code></pre>
+<pre><code>##                        [,1]      [,2]       [,3]       [,4]      [,5]      [,6]
+## ENSG00000227232 -1.09211830 1.2537605  0.3746282 -0.4390667 -0.771851  0.987548
+## ENSG00000243485 -0.43138851 1.3093922 -0.5049535 -1.9335980 -1.706632  0.216856
+## ENSG00000237613  0.06172723 0.1675966 -0.2865516 -1.0245629 -0.651175 -0.192441</code></pre>
 <p>Another useful property is that we know metadata about the chromosomes, and the version of the genome. (If you were not yet aware, the basepair position of a given feature, say gene <em>XYZ</em>, will change between versions of the genome, as sequences are added or rearranged.)</p>
 <pre class="r"><code>seqinfo(se)</code></pre>
 <pre><code>## Seqinfo object with 25 sequences (1 circular) from GRCh38 genome:
@@ -339,8 +339,9 @@ if (!file.exists(file)) download.file(url, file)
 load(file)</code></pre>
 <p>We use a custom function to produce a matrix which a count of RNA fragments for each gene (rows) and each sample (columns).</p>
 <p>(Recount project calls these objects <code>rse</code> for <em>RangedSummarizedExperiment</em>, meaning it has <code>rowRanges</code> information.)</p>
-<pre class="r"><code>library(here)
-source(here(&quot;bioc&quot;,&quot;my_scale_counts.R&quot;))
+<pre class="r"><code>library(here)</code></pre>
+<pre><code>## here() starts at /Users/milove/teach/compbio/compbio_src</code></pre>
+<pre class="r"><code>source(here(&quot;bioc&quot;,&quot;my_scale_counts.R&quot;))
 rse &lt;- my_scale_counts(rse_gene)</code></pre>
 <p>We can take a peek at the column data:</p>
 <pre class="r"><code>colData(rse)[,1:6]</code></pre>
@@ -526,8 +527,9 @@ sce</code></pre>
 ## mainExpName: NULL
 ## altExpNames(0):</code></pre>
 <p>There are special functions dedicated to scaling the samples (we will discuss this technical aspect soon):</p>
-<pre class="r"><code>library(scran)
-sce &lt;- computeSumFactors(sce)
+<pre class="r"><code>library(scran)</code></pre>
+<pre><code>## Loading required package: scuttle</code></pre>
+<pre class="r"><code>sce &lt;- computeSumFactors(sce)
 sizeFactors(sce)</code></pre>
 <pre><code>##  [1] 0.7672143 0.8205514 0.8686567 0.9479224 0.6484723 0.9815079 1.0797070 1.0569889 1.4377886
 ## [10] 0.9465292 1.4759422 1.2630195 0.8889808 1.0524670 0.9677885 0.8086102 0.8806503 0.8999780
