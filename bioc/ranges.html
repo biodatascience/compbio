@@ -103,8 +103,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 </header>
 
-<p>Here we show off the way we specify genomic ranges in Bioconductor, using the <em>GenomicRanges</em> package and the <em>GRanges</em> class.</p>
-<p>A <em>GRanges</em> object specifies both the basepairs involved in the range (these are integer ranges), the strand (+ or -), and the chromosome. Chromosomes in Bioconductor are called “sequences” (because sometimes we may want to specify ranges of non-chromosomes, for example viral DNA, un-incorporated contigs, etc.).</p>
+<p>In this lecture note, we demonstrate how to specify regions of the genome (genomic ranges) in R/Bioconductor. We will make use of the <em>GenomicRanges</em> package and the <em>GRanges</em> object defined by this package. The package also provides a number of methods that work on this type of object. Finally we will show some extensions to related packages, and other ways of working with genomic range data.</p>
+<p>A <em>GRanges</em> object specifies:</p>
+<ol type="1">
+<li><p>the basepairs involved in the range (these are integer ranges)</p></li>
+<li><p>the strand (+ or -)</p></li>
+<li><p>the chromosome</p></li>
+<li><p>additional metadata (the “score” for the feature, some statistics, etc.)</p></li>
+</ol>
+<p>Chromosomes in Bioconductor are called “sequences” and specified with the column <code>seqnames</code>, because sometimes we may want to specify ranges of molecules that are not chromosomes, for example the mitochondrial genome, viral DNA, un-incorporated contigs, etc. Although the package name is <em>GenomicRanges</em>, we don’t specify that the molecule is necessarily DNA, as it could also in theory be RNA or protein sequence within which we are referring to ranges.</p>
 <section id="interval-ranges" class="level1">
 <h1>Interval ranges</h1>
 <p>Let’s start with a set of interval ranges, an <em>IRanges</em> object.</p>
@@ -139,14 +146,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p>We can make a plot of these ranges. It’s a bit different than a typical plot, because I want to point out that we have <em>discrete</em> locations in the genome (so the position isn’t defined over <span class="math inline">\(\mathbb{R}\)</span> but over <span class="math inline">\(\mathbb{N}\)</span>). So I’ve shifted the positions of the labels by 0.5 (see the <code>axis</code> command). Another detail to notice is that the ranges are <em>inclusive</em>. So the first range, from 101 to 110 <em>includes</em> the 110 basepair. So I’ve added +1 when I draw the arrows to show it includes the last basepair.</p>
-<p>(Note that the convention used in Bioconductor to define interval ranges is not universal. The BED convention is that the range does <strong>not</strong> include the start position of the range. So 101-110 in BED format would not include the 101th basepair.)</p>
+<p>Note that the convention used in Bioconductor to define interval ranges is not universal. The BED convention is that the range does <strong>not</strong> include the start position of the range. So the interval range written <code>101 110</code> in BED format would not include the 101th basepair. These details matter when we want to refer to specific sequences in the genome, e.g.&nbsp;the transcription start site, or TSS, of a gene.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rafalib)</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">nullplot</span>(<span class="fu">start</span>(<span class="fu">range</span>(ir)), <span class="fu">end</span>(<span class="fu">range</span>(ir))<span class="sc">+</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="at">xaxt=</span><span class="st">"n"</span>)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">100</span><span class="sc">:</span><span class="dv">115</span>, <span class="at">col=</span><span class="st">"grey"</span>)</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at=</span><span class="dv">100</span><span class="sc">:</span><span class="dv">115</span> <span class="sc">+</span> .<span class="dv">5</span>, <span class="at">labels=</span><span class="dv">100</span><span class="sc">:</span><span class="dv">115</span>) </span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(<span class="fu">start</span>(ir),<span class="fu">seq_along</span>(ir),<span class="fu">end</span>(ir)<span class="sc">+</span><span class="dv">1</span>,<span class="fu">seq_along</span>(ir),</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd=</span><span class="dv">3</span>,<span class="at">code=</span><span class="dv">3</span>,<span class="at">angle=</span><span class="dv">90</span>,<span class="at">length=</span>.<span class="dv">05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">2.5</span>,<span class="fl">2.5</span>,.<span class="dv">5</span>,.<span class="dv">5</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="fu">nullplot</span>(<span class="fu">start</span>(<span class="fu">range</span>(ir)), <span class="fu">end</span>(<span class="fu">range</span>(ir))<span class="sc">+</span><span class="dv">1</span>, <span class="dv">0</span>, <span class="dv">6</span>, <span class="at">xaxt=</span><span class="st">"n"</span>)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="fu">abline</span>(<span class="at">v=</span><span class="dv">100</span><span class="sc">:</span><span class="dv">115</span>, <span class="at">col=</span><span class="st">"grey"</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at=</span><span class="dv">100</span><span class="sc">:</span><span class="dv">115</span> <span class="sc">+</span> .<span class="dv">5</span>, <span class="at">labels=</span><span class="dv">100</span><span class="sc">:</span><span class="dv">115</span>) </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a><span class="fu">arrows</span>(<span class="fu">start</span>(ir),<span class="fu">seq_along</span>(ir),<span class="fu">end</span>(ir)<span class="sc">+</span><span class="dv">1</span>,<span class="fu">seq_along</span>(ir),</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">lwd=</span><span class="dv">3</span>,<span class="at">code=</span><span class="dv">3</span>,<span class="at">angle=</span><span class="dv">90</span>,<span class="at">length=</span>.<span class="dv">05</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <p><img src="ranges_files/figure-html/unnamed-chunk-3-1.png" class="img-fluid" width="672"></p>
 </div>
@@ -178,10 +186,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   seqinfo: 1 sequence from an unspecified genome; no seqlengths</code></pre>
 </div>
 </div>
-<p>Note that <em>GRanges</em> objects, when printed, also have a note about the genome. Here it says that we have an unspecified genome, and there is no information about the <code>seqlengths</code>, the lengths of the chromosomes. This information (basically in what universe do the ranges live) is important to track along with the ranges themselves, in case the user asks to, e.g.&nbsp;move all ranges 1 million basepairs to the right. This is not necessarily possible if we have a range that ends less than 1 million basepairs from the end of a chromosome. So the <em>GRanges</em> object really needs to also contain details about the genome itself.</p>
+<p>Note that <em>GRanges</em> objects, when printed, also have a note about the genome. Here it says that we have an unspecified genome, and there is no information about the <code>seqlengths</code>, the lengths of the chromosomes. This information (basically in what universe do the ranges live) is important to track along with the ranges themselves, in case the user asks to, e.g.&nbsp;move all ranges 1 million basepairs to the right. This is not necessarily possible if we have a range that ends less than 1 million basepairs from the end of a chromosome. Or for example, if you want to randomly select features from the genome, or randomly shuffle the locations of features in the genome, we needto know where the component sequences start and end.</p>
+<p>So the <em>GRanges</em> object really needs to also contain details about the genome itself.</p>
 </section>
 <section id="bed-files-and-granges" class="level1">
 <h1>BED files and GRanges</h1>
+<p>As we previewed above, another common format for representing ranges is the plain-text <a href="https://genome.ucsc.edu/FAQ/FAQformat.html#format1">BED format</a>, where the intervals are described in an open-closed format: exclusive of the basepair on the left side, inclusive of the basepair on the right side. As these files are common, we quickly can show the equivalent code for reading/manipulating genomic ranges using <a href="https://bedtools.readthedocs.io/en/latest/">bedtools</a> or in Bioconductor:</p>
+<p>First, read in some data from BED file format. Here we have some transcript ranges from Ensembl v86 in the hg38 human genome. We also have a set of three query ranges (note the different strand of these).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>chr1query <span class="ot">&lt;-</span> plyranges<span class="sc">::</span><span class="fu">read_bed</span>(<span class="st">"chr1_query.bed"</span>)</span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>txp <span class="ot">&lt;-</span> plyranges<span class="sc">::</span><span class="fu">read_bed</span>(<span class="st">"chr1_100Mb_v86_txps.bed"</span>)</span>
@@ -218,8 +229,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   seqinfo: 1 sequence from hg38 genome; no seqlengths</code></pre>
 </div>
 </div>
+<p>We can see the number of transcripts that overlap our query ranges. We can ask for this number in different ways, by specifying what to do with the strand information: count only matching strand or missing strand, count only matching strand for the features with strand information, or count but we ignore strand altogether.</p>
+<p>The <code>overlapsAny</code> function returns a logical vector along the object that is its first argument (here <code>txp</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>txp[ <span class="fu">overlapsAny</span>(txp, chr1query) ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>txp[ <span class="fu">overlapsAny</span>(txp, chr1query) ] <span class="co"># 19</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GRanges object with 19 ranges and 2 metadata columns:
        seqnames              ranges strand |            name     score
@@ -238,7 +251,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   -------
   seqinfo: 1 sequence from hg38 genome; no seqlengths</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>txp[ <span class="fu">overlapsAny</span>(txp, chr1query[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]) ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>txp[ <span class="fu">overlapsAny</span>(txp, chr1query[<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>]) ] <span class="co"># 16</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GRanges object with 16 ranges and 2 metadata columns:
        seqnames              ranges strand |            name     score
@@ -257,7 +270,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   -------
   seqinfo: 1 sequence from hg38 genome; no seqlengths</code></pre>
 </div>
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>txp[ <span class="fu">overlapsAny</span>(txp, chr1query, <span class="at">ignore.strand=</span><span class="cn">TRUE</span>) ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>txp[ <span class="fu">overlapsAny</span>(txp, chr1query, <span class="at">ignore.strand=</span><span class="cn">TRUE</span>) ] <span class="co"># 26</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GRanges object with 26 ranges and 2 metadata columns:
        seqnames              ranges strand |            name     score
@@ -277,6 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   seqinfo: 1 sequence from hg38 genome; no seqlengths</code></pre>
 </div>
 </div>
+<p>We can repeat these overlap calls using <code>bedtools intersect</code> (this is a command line program, not run in R):</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> intersect <span class="at">-wa</span> <span class="at">-a</span> chr1_100Mb_v86_txps.bed <span class="at">-b</span> chr1_query.bed <span class="kw">|</span> <span class="fu">head</span> <span class="at">-3</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -285,12 +299,14 @@ chr1    100538136   100542018   ENST00000315033 0   +
 chr1    100586648   100587431   ENST00000455141 0   -</code></pre>
 </div>
 </div>
+<p>Let’s count first by ignoring strand. This corresponds to the number above when we set <code>ignore.strand=TRUE</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> intersect <span class="at">-wa</span> <span class="at">-a</span> chr1_100Mb_v86_txps.bed <span class="at">-b</span> chr1_query.bed <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>      26</code></pre>
 </div>
 </div>
+<p>In <code>bedtools</code> you use an <code>-s</code> to specify you only want to return overlaps with matching strand (and we drop the unstranded features).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> intersect <span class="at">-s</span> <span class="at">-wa</span> <span class="at">-a</span> chr1_100Mb_v86_txps.bed <span class="at">-b</span> chr1_query.bed <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -300,7 +316,7 @@ chr1    100586648   100587431   ENST00000455141 0   -</code></pre>
 </section>
 <section id="granges-range-manipulation" class="level1">
 <h1>GRanges range manipulation</h1>
-<p>Here we show some basic manipulations of <em>GRanges</em>:</p>
+<p>Here we show some more basic manipulations of <em>GRanges</em>:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>gr <span class="sc">+</span> <span class="dv">10</span> <span class="co"># growing by 10 on either side</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -601,7 +617,8 @@ Levels(357): 1 10 11 12 13 14 15 16 17 18 ... LRG_187 LRG_239 LRG_311 LRG_721 LR
 </section>
 <section id="finding-overlaps" class="level1">
 <h1>Finding overlaps</h1>
-<p>Finally, I want to introduce some functionality we will use a couple times later in the course: finding overlaps of sets of genomic ranges. One scenario is that we have two sets and we want to know which ranges from the two sets overlap each other. We might make a <em>query</em> set and ask which genes are overlapping the set in our query.</p>
+<p>Now we return to the overlaps functionality that we briefly covered above. There are many ways to find overlaps. I first introduce the <em>base Bioconductor</em> functions for computing overlaps, although later I will show a way to compute overlaps using <code>join</code>-style operations, using a package called <em>plyranges</em>.</p>
+<p>One scenario is that we have two sets of genomic ranges and we want to know which ranges from the two sets overlap each other. We might make a <em>query</em> set and ask which genes are overlapping the set in our query.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="fu">GRanges</span>(<span class="dv">1</span>, <span class="fu">IRanges</span>((<span class="dv">101</span><span class="sc">:</span><span class="dv">110</span>)<span class="sc">*</span><span class="fl">1e6</span> <span class="sc">+</span> <span class="dv">1</span>,<span class="at">width=</span><span class="fl">1e6</span>))</span>
 <span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>query</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -717,7 +734,7 @@ Levels(357): 1 10 11 12 13 14 15 16 17 18 ... LRG_187 LRG_239 LRG_311 LRG_721 LR
 <pre><code>[1] 29470</code></pre>
 </div>
 </div>
-<p>If we just wanted to subset to the genes which overlap a given range, we can use <code>overlapsAny</code>:</p>
+<p>If we just wanted to subset to the genes which overlap a given range, we can use <code>overlapsAny</code>, as we saw above:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb88"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>g[ <span class="fu">overlapsAny</span>(g, query[<span class="dv">1</span>]) ]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -791,7 +808,7 @@ Levels(357): 1 10 11 12 13 14 15 16 17 18 ... LRG_187 LRG_239 LRG_311 LRG_721 LR
 <section id="plyranges" class="level1">
 <h1>plyranges</h1>
 <p>As with <em>SummarizedExperiment</em>, there is a “tidy” way to work with <em>GRanges</em>, called <em>plyranges</em>. For more examples of this type of analysis, take a look at some tutorial content I’ve been working on here:</p>
-<p><a href="https://tidybiology.github.io/tidy-ranges-tutorial" class="uri">https://tidybiology.github.io/tidy-ranges-tutorial</a></p>
+<p><a href="https://tidyomics.github.io/tidy-ranges-tutorial" class="uri">https://tidyomics.github.io/tidy-ranges-tutorial</a></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb92"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(plyranges)</span>
 <span id="cb92-2"><a href="#cb92-2" aria-hidden="true" tabindex="-1"></a>g <span class="sc">%&gt;%</span> </span>
