@@ -3147,11 +3147,12 @@ vertical-align: -.125em;
 <p>As we previewed above, another common format for representing ranges is the plain-text <a href="https://genome.ucsc.edu/FAQ/FAQformat.html#format1">BED format</a>, where the intervals are described in an open-closed format: exclusive of the basepair on the left side, inclusive of the basepair on the right side. As these files are common, we quickly can show the equivalent code for reading/manipulating genomic ranges using <a href="https://bedtools.readthedocs.io/en/latest/">bedtools</a> or in Bioconductor:</p>
 <p>First, read in some data from BED file format. Here we have some transcript ranges from Ensembl v86 in the hg38 human genome. We also have a set of three query ranges (note the different strand of these).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>chr1query <span class="ot">&lt;-</span> plyranges<span class="sc">::</span><span class="fu">read_bed</span>(<span class="st">&quot;chr1_query.bed&quot;</span>)</span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>txp <span class="ot">&lt;-</span> plyranges<span class="sc">::</span><span class="fu">read_bed</span>(<span class="st">&quot;chr1_100Mb_v86_txps.bed&quot;</span>)</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">genome</span>(chr1query) <span class="ot">&lt;-</span> <span class="st">&quot;hg38&quot;</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">genome</span>(txp) <span class="ot">&lt;-</span> <span class="st">&quot;hg38&quot;</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>chr1query</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(here)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>chr1query <span class="ot">&lt;-</span> plyranges<span class="sc">::</span><span class="fu">read_bed</span>(<span class="fu">here</span>(<span class="st">&quot;bioc&quot;</span>,<span class="st">&quot;chr1_query.bed&quot;</span>))</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>txp <span class="ot">&lt;-</span> plyranges<span class="sc">::</span><span class="fu">read_bed</span>(<span class="fu">here</span>(<span class="st">&quot;bioc&quot;</span>,<span class="st">&quot;chr1_100Mb_v86_txps.bed&quot;</span>))</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">genome</span>(chr1query) <span class="ot">&lt;-</span> <span class="st">&quot;hg38&quot;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">genome</span>(txp) <span class="ot">&lt;-</span> <span class="st">&quot;hg38&quot;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>chr1query</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>GRanges object with 3 ranges and 2 metadata columns:
       seqnames              ranges strand |        name     score
@@ -3864,10 +3865,10 @@ other attached packages:
  [1] ggplot2_3.5.1             tibble_3.2.1              plyranges_1.24.0         
  [4] EnsDb.Hsapiens.v86_2.99.0 ensembldb_2.28.0          AnnotationFilter_1.28.0  
  [7] GenomicFeatures_1.56.0    AnnotationDbi_1.66.0      Biobase_2.64.0           
-[10] rafalib_1.0.0             GenomicRanges_1.56.1      GenomeInfoDb_1.40.1      
-[13] IRanges_2.38.1            S4Vectors_0.42.1          BiocGenerics_0.50.0      
-[16] testthat_3.2.1.1          rmarkdown_2.27            devtools_2.4.5           
-[19] usethis_3.0.0            
+[10] here_1.0.1                rafalib_1.0.0             GenomicRanges_1.56.1     
+[13] GenomeInfoDb_1.40.1       IRanges_2.38.1            S4Vectors_0.42.1         
+[16] BiocGenerics_0.50.0       testthat_3.2.1.1          rmarkdown_2.27           
+[19] devtools_2.4.5            usethis_3.0.0            
 
 loaded via a namespace (and not attached):
  [1] DBI_1.2.3                   bitops_1.0-8                remotes_2.5.0              
@@ -3891,17 +3892,17 @@ loaded via a namespace (and not attached):
 [55] lattice_0.22-6              withr_3.0.1                 shiny_1.9.1                
 [58] KEGGREST_1.44.1             evaluate_0.24.0             urlchecker_1.0.1           
 [61] Biostrings_2.72.1           pillar_1.9.0                MatrixGenerics_1.16.0      
-[64] generics_0.1.3              RCurl_1.98-1.16             munsell_0.5.1              
-[67] scales_1.3.0                xtable_1.8-4                glue_1.7.0                 
-[70] lazyeval_0.2.2              tools_4.4.1                 BiocIO_1.14.0              
-[73] GenomicAlignments_1.40.0    fs_1.6.4                    XML_3.99-0.17              
-[76] grid_4.4.1                  colorspace_2.1-1            GenomeInfoDbData_1.2.12    
-[79] restfulr_0.0.15             cli_3.6.3                   fansi_1.0.6                
-[82] S4Arrays_1.4.1              dplyr_1.1.4                 gtable_0.3.5               
-[85] digest_0.6.36               SparseArray_1.4.8           farver_2.1.2               
-[88] rjson_0.2.21                htmlwidgets_1.6.4           memoise_2.0.1              
-[91] htmltools_0.5.8.1           lifecycle_1.0.4             httr_1.4.7                 
-[94] mime_0.12                   bit64_4.0.5                </code></pre>
+[64] generics_0.1.3              rprojroot_2.0.4             RCurl_1.98-1.16            
+[67] munsell_0.5.1               scales_1.3.0                xtable_1.8-4               
+[70] glue_1.7.0                  lazyeval_0.2.2              tools_4.4.1                
+[73] BiocIO_1.14.0               GenomicAlignments_1.40.0    fs_1.6.4                   
+[76] XML_3.99-0.17               grid_4.4.1                  colorspace_2.1-1           
+[79] GenomeInfoDbData_1.2.12     restfulr_0.0.15             cli_3.6.3                  
+[82] fansi_1.0.6                 S4Arrays_1.4.1              dplyr_1.1.4                
+[85] gtable_0.3.5                digest_0.6.36               SparseArray_1.4.8          
+[88] farver_2.1.2                rjson_0.2.21                htmlwidgets_1.6.4          
+[91] memoise_2.0.1               htmltools_0.5.8.1           lifecycle_1.0.4            
+[94] httr_1.4.7                  mime_0.12                   bit64_4.0.5                </code></pre>
 </div>
 </div>
 </section>
