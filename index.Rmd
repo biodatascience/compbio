@@ -41,15 +41,16 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | Week | Topic | Dir. | HW | HTML | Title |
 |:-----|:------|:-----|:---|:-----|:------|
 | | **Data analysis** | | | | |
-| Aug 19 & 21 | Biological intro / GitHub | `-` | [HW0](`r hw("github/github_HW")`) | [github](github.html) | RStudio, git, and GitHub |
-| Aug 26 & 28 | Exploring bio data | `eda` | | [EDA](eda/EDA.html) | Exploratory data analysis |
+| Aug 19 | Biological intro / GitHub | `-` | [HW0](`r hw("github/github_HW")`) | [github](github.html) | RStudio, git, and GitHub |
+| Aug 21 | Exploring bio data | `eda` | | [EDA](eda/EDA.html) | Exploratory data analysis |
 | | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
-| Sep 4 | R/Bioconductor I | `bioc` | | [objects](bioc/objects.html) | Bioc data objects |
+| Aug 26 & 28 | R/Bioconductor I | `bioc` | | [objects](bioc/objects.html) | Bioc data objects |
 | | | | | [ranges](bioc/ranges.html) | Genomic ranges |
 | | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
-| Sep 9 & 11 | "tidyomics" | `tidy` | | [tidy intro](https://tidyomics.github.io/tidy-intro-talk/) | Tidiness-in-Bioconductor intro |
+| Sep 2 | Labor day | | | | |
+| Sep 4 | "tidyomics" | `TO@GH` | | [tidy intro](https://tidyomics.github.io/tidy-intro-talk/) | Tidiness-in-Bioconductor intro |
 | | | | | [tidy ranges](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
-| | R/Bioconductor II | `bioc` | | [anno](bioc/anno.html) | Accessing annotations |
+| Sep 9 & 11 | R/Bioconductor II | `bioc` | | [anno](bioc/anno.html) | Accessing annotations |
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
 | Sep 16 & 18 | Distances & norm. I | `dist` | | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | | [hclust](dist/hclust.html) | Hierarchical clustering |
