@@ -3065,9 +3065,9 @@ vertical-align: -.125em;
 <li><p>additional metadata (the “score” for the feature, some statistics, etc.)</p></li>
 </ol>
 <p>Chromosomes in Bioconductor are called “sequences” and specified with the column <code>seqnames</code>, because sometimes we may want to specify ranges of molecules that are not chromosomes, for example the mitochondrial genome, viral DNA, un-incorporated contigs, etc. Although the package name is <em>GenomicRanges</em>, we don’t specify that the molecule is necessarily DNA, as it could also in theory be RNA or protein sequence within which we are referring to ranges.</p>
-<section id="interval-ranges" class="level1">
-<h1>Interval ranges</h1>
-<p>Let’s start with a set of interval ranges, an <em>IRanges</em> object.</p>
+<section id="integer-ranges" class="level1">
+<h1>Integer ranges</h1>
+<p>Let’s start with a set of integer ranges, an <em>IRanges</em> object.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(GenomicRanges)</span>
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>ir <span class="ot">&lt;-</span> <span class="fu">IRanges</span>(<span class="at">start=</span><span class="dv">100</span> <span class="sc">+</span> <span class="dv">1</span><span class="sc">:</span><span class="dv">5</span>, <span class="at">width=</span><span class="dv">10</span>)</span>
@@ -3099,7 +3099,7 @@ vertical-align: -.125em;
 </div>
 </div>
 <p>We can make a plot of these ranges. It’s a bit different than a typical plot, because I want to point out that we have <em>discrete</em> locations in the genome (so the position isn’t defined over <span class="math inline">\(\mathbb{R}\)</span> but over <span class="math inline">\(\mathbb{N}\)</span>). So I’ve shifted the positions of the labels by 0.5 (see the <code>axis</code> command). Another detail to notice is that the ranges are <em>inclusive</em>. So the first range, from 101 to 110 <em>includes</em> the 110 basepair. So I’ve added +1 when I draw the arrows to show it includes the last basepair.</p>
-<p>Note that the convention used in Bioconductor to define interval ranges is not universal. The BED convention is that the range does <strong>not</strong> include the start position of the range. So the interval range written <code>101 110</code> in BED format would not include the 101th basepair. These details matter when we want to refer to specific sequences in the genome, e.g. the transcription start site, or TSS, of a gene.</p>
+<p>Note that the convention used in Bioconductor to define interval ranges is not universal. The BED convention is that the range does <strong>not</strong> include the start position of the range. So the integer range written <code>101 110</code> in BED format would not include the 101th basepair. These details matter when we want to refer to specific sequences in the genome, e.g. the transcription start site, or TSS, of a gene.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rafalib)</span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mar=</span><span class="fu">c</span>(<span class="fl">2.5</span>,<span class="fl">2.5</span>,.<span class="dv">5</span>,.<span class="dv">5</span>))</span>
@@ -3115,7 +3115,7 @@ vertical-align: -.125em;
 </section>
 <section id="genomic-ranges" class="level1">
 <h1>Genomic ranges</h1>
-<p>So far we’ve just shown interval ranges. To specify a genomic range, we also will come up with the <em>strand</em> of the ranges (+ or -) and the chromosome.</p>
+<p>So far we’ve just shown integer ranges. To specify a genomic range, we also will come up with the <em>strand</em> of the ranges (+ or -) and the chromosome.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>st <span class="ot">&lt;-</span> <span class="fu">rep</span>(<span class="fu">c</span>(<span class="st">&quot;+&quot;</span>,<span class="st">&quot;-&quot;</span>),<span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">2</span>))</span>
 <span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>st</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
