@@ -52,7 +52,7 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | | | | | [tidy ranges](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
 | Sep 9 & 11 | R/Bioconductor II | `bioc` | [HW2](`r hw("bioc/bioc_anno_strings_HW")`) | [anno](bioc/anno.html) | Accessing annotations |
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
-| Sep 16 & 18 | Distances & norm. I | `dist` | | [distances](dist/distances.html) | Distances in high dimensions |
+| Sep 16 & 18 | Distances & norm. I | `dist` | [HW3](`r hw("dist/dist_biases_scaling_HW")`) | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | | [transform_clust](dist/transform_clust.html) | Transformations and clustering |
 | Sep 23 | Wellness day | | | | |
 | Sep 25 | Spatial data analysis (guest lecture) | | | | |
