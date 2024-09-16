@@ -55,7 +55,7 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | Sep 16 & 18 | Distances & norm. I | `dist` | [HW3](`r hw("dist/dist_biases_scaling_HW")`) | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | | [transform_clust](dist/transform_clust.html) | Transformations and clustering |
 | Sep 23 | Wellness day | | | | |
-| Sep 25 | Spatial data analysis (guest lecture) | | | | |
+| Sep 25 | Spatial data analysis (guest lecture) | | | | Peyton Kuhlers (Hoadley lab, UNC) |
 | Sep 30 | BCB retreat | | | | |
 | Oct 2 | Distances & norm. II | `dist` | | [batch](dist/batch.html) | Batch effects and sources |
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
