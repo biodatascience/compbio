@@ -54,6 +54,7 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
 | Sep 16 & 18 | Distances & norm. I | `dist` | [HW3](`r hw("dist/dist_biases_scaling_HW")`) | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | | [transform_clust](dist/transform_clust.html) | Transformations and clustering |
+| | | | | [vst_math](https://github.com/biodatascience/compbio_src/blob/master/dist/vst_math.qmd) | VST math |
 | Sep 23 | Wellness day | | | | |
 | Sep 25 | Spatial data analysis (guest lecture) | | | | [Peyton Kuhlers](https://www.linkedin.com/in/peyton-kuhlers/) (Hoadley & Raab labs, UNC) |
 | Sep 30 | BCB retreat | | | | |
