@@ -58,25 +58,27 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | Sep 23 | Wellness day | | | | |
 | Sep 25 | Spatial data analysis (guest lecture) | | | | [Peyton Kuhlers](https://www.linkedin.com/in/peyton-kuhlers/) (Hoadley & Raab labs, UNC) |
 | Sep 30 | BCB retreat | | | | |
-| Oct 2 | Distances & norm. II | `dist` | | [batch](dist/batch.html) | Batch effects and sources |
+| Oct 2 | Sources of technical bias | | | | |
+| Oct 7 & 9 | Distances & norm. II | `dist` | | [batch](dist/batch.html) | Batch effects and sources |
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
 | | | | | | Batch effect solutions |
+| Oct 7 | Midterm assigned, due Oct 21 | | | | |
 | | **Data modeling** | | | | |
-| Oct 7 & 9 | Models and EM | `model` | | [EM](model/EM.html) | Expectation maximization |
-| | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
-| | ChIP-seq | | | | |
-| | Motifs part II | | | | (EM notes posted to GH) |
-| Oct 14 & 16 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+| Oct 14 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator |
-| Oct 21 & 23 | Markov models | `markov` | | [hmm](markov/hmm.html) | Hidden Markov Models |
-| Oct 28 & 30 | Simultaneous Hypothesis Testing | `multiple` | | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
+| Oct 16  | Simultaneous Hypothesis Testing | `multiple` | | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
 | | | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
 | | | | | [IDR](multiple/IDR.html) | Irreproducible discovery rate |
-| Nov 4 | TBA | | | | |
-| Nov 6 | Guest lecture TBA | | | | |
-| Nov 11 & 23 | Network analysis | `net` | | [network](net/network.html) | Network analysis |
-| Nov 18 & 20 | python for bio data | `python` | | | |
-| Nov 25 | Final project presentations | | | | |
+| Oct 21 & 23 | Models and EM | `model` | | [EM](model/EM.html) | Expectation maximization |
+| | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
+| Oct 28 & 30 | Markov models | `markov` | | [hmm](markov/hmm.html) | Hidden Markov Models |
+| Nov 4 | Network analysis | `net` | | [network](net/network.html) | Network analysis |
+| Nov 6  | ASHG | | | | |
+| Nov 11 | Biostatistics 75th event | | | | |
+| Nov 13 | Class time for projects | | | | |
+| Nov 18 & 20 | Class time for projects | | | | |
+| Nov 25 | Zoom lecture | | | | |
+| Nov 27 | Thanksgiving | | | | |
 | Dec 2 & 4 | Final project presentations | | | | |
 
 ### Reading list
