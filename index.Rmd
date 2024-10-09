@@ -36,6 +36,8 @@ directories, or clone the repo and navigate within RStudio.
 
 ```{r echo=FALSE}
 hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/master/",x,".Rmd")
+rscr <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/master/",x,".R")
+qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/master/",x,".qmd")
 ```
 
 | Week | Topic | Dir. | HW | HTML | Title |
@@ -54,7 +56,7 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
 | Sep 16 & 18 | Distances & norm. I | `dist` | [HW3](`r hw("dist/dist_biases_scaling_HW")`) | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | | [transform_clust](dist/transform_clust.html) | Transformations and clustering |
-| | | | | [vst_math](https://github.com/biodatascience/compbio_src/blob/master/dist/vst_math.qmd) | VST math |
+| | | | | [vst_math](`r qrto("dist/vst_math")`) | VST math |
 | Sep 23 | Wellness day | | | | |
 | Sep 25 | Spatial data analysis (guest lecture) | | | | [Peyton Kuhlers](https://www.linkedin.com/in/peyton-kuhlers/) (Hoadley & Raab labs, UNC) |
 | Sep 30 | BCB retreat | | | | |
@@ -62,6 +64,7 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 | Oct 7 & 9 | Distances & norm. II | `dist` | | [batch](dist/batch.html) | Batch effects and sources |
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
 | | | | | | Batch effect solutions |
+| | | | | [ruv script](`r rscr("dist/ruv")`)| RUV and friends |
 | Oct 7 | Midterm assigned, due Oct 21 | | | | |
 | | **Data modeling** | | | | |
 | Oct 14 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
@@ -102,6 +105,14 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
     - [Capturing Heterogeneity in Gene Expression Studies by Surrogate Variable Analysis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1994707/) Jeffrey Leek and John Storey
 	- [Normalization of RNA-seq data using factor analysis of control genes or samples](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4404308/) Risso et al
 	- [Using probabilistic estimation of expression residuals (PEER) to obtain increased power and interpretability of gene expression analyses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3398141/) Stegle et al
+	- **More on factor analysis methods:**
+	- RUV - Using control genes to correct for unwanted variation in microarray data. Gagnon-Bartsch and Speed, 2012. 
+    - RUV - Removing Unwanted Variation from High Dimensional Data with Negative Controls. Gagnon-Bartsch, Jacob, and Speed, 2013. 
+    - RUVSeq - Risso D, Ngai J, Speed TP, Dudoit S. Normalization of RNA-seq data using factor analysis of control genes or samples. 2014.
+	- ZINB-WaVE - A general and flexible method for signal extraction from single-cell RNA-seq data Davide Risso, Fanny Perraudeau, Svetlana Gribkova, Sandrine Dudoit & Jean-Philippe Vert 
+	- NewWave: a scalable R/Bioconductor package for the dimensionality reduction and batch effect removal of single-cell RNA-seq data Bioinformatics, Volume 38, Issue 9, March 2022, Pages 2648–2650, <https://doi.org/10.1093/bioinformatics/btac149>
+	- GLM-PCA Feature selection and dimension reduction for single-cell RNA-Seq based on a multinomial model F. William Townes, Stephanie C. Hicks, Martin J. Aryee & Rafael A. Irizarry 
+
 * **Multiple testing**
     - [Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing](http://www.jstor.org/stable/2346101) Yoav Benjamini and Yosef Hochberg
 	- [A direct approach to false discovery rates](http://genomics.princeton.edu/storeylab//papers/directfdr.pdf) John Storey
