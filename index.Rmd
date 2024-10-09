@@ -106,12 +106,12 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 	- [Normalization of RNA-seq data using factor analysis of control genes or samples](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4404308/) Risso et al
 	- [Using probabilistic estimation of expression residuals (PEER) to obtain increased power and interpretability of gene expression analyses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3398141/) Stegle et al
 	- **More on factor analysis methods:**
-	- RUV - Using control genes to correct for unwanted variation in microarray data. Gagnon-Bartsch and Speed, 2012. 
-    - RUV - Removing Unwanted Variation from High Dimensional Data with Negative Controls. Gagnon-Bartsch, Jacob, and Speed, 2013. 
-    - RUVSeq - Risso D, Ngai J, Speed TP, Dudoit S. Normalization of RNA-seq data using factor analysis of control genes or samples. 2014.
-	- ZINB-WaVE - A general and flexible method for signal extraction from single-cell RNA-seq data Davide Risso, Fanny Perraudeau, Svetlana Gribkova, Sandrine Dudoit & Jean-Philippe Vert 
-	- NewWave: a scalable R/Bioconductor package for the dimensionality reduction and batch effect removal of single-cell RNA-seq data Bioinformatics, Volume 38, Issue 9, March 2022, Pages 2648–2650, <https://doi.org/10.1093/bioinformatics/btac149>
-	- GLM-PCA Feature selection and dimension reduction for single-cell RNA-Seq based on a multinomial model F. William Townes, Stephanie C. Hicks, Martin J. Aryee & Rafael A. Irizarry 
+	- RUV - [Using control genes to correct for unwanted variation in microarray data](https://doi.org/10.1093/biostatistics/kxr034) Gagnon-Bartsch and Speed et al., 2012
+    - RUV - [Removing Unwanted Variation from High Dimensional Data with Negative Controls](https://doi.org/10.1038/s41587-022-01440-w) Gagnon-Bartsch et al., 2013
+    - RUVSeq - [Normalization of RNA-seq data using factor analysis of control genes or samples](https://doi.org/10.1038/nbt.2931) Risso et al., 2014
+    - ZINB-WaVE - [A general and flexible method for signal extraction from single-cell RNA-seq data](https://doi.org/10.1038/s41467-017-02554-5) Risso and Perraudeau et al., 2018
+    - NewWave - [A scalable R/Bioconductor package for the dimensionality reduction and batch effect removal of single-cell RNA-seq data](https://doi.org/10.1093/bioinformatics/btac149) Agostinis et al., 2022
+    - GLM-PCA - [Feature selection and dimension reduction for single-cell RNA-Seq based on a multinomial model](https://doi.org/10.1186/s13059-019-1861-6) Townes et al., 2019
 
 * **Multiple testing**
     - [Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing](http://www.jstor.org/stable/2346101) Yoav Benjamini and Yosef Hochberg
