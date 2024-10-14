@@ -67,11 +67,8 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 | | | | | [ruv script](`r rscr("dist/ruv")`)| RUV and friends |
 | Oct 7 | Midterm assigned, due Oct 21 | | | | |
 | | **Data modeling** | | | | |
-| Oct 14 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+| Oct 14 & 16 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator |
-| Oct 16  | Simultaneous Hypothesis Testing | `multiple` | | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
-| | | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
-| | | | | [IDR](multiple/IDR.html) | Irreproducible discovery rate |
 | Oct 21 & 23 | Models and EM | `model` | | [EM](model/EM.html) | Expectation maximization |
 | | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
 | Oct 28 & 30 | Markov models | `markov` | | [hmm](markov/hmm.html) | Hidden Markov Models |
@@ -80,7 +77,8 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 | Nov 11 | Biostatistics 75th event | | | | |
 | Nov 13 | Class time for projects | | | | |
 | Nov 18 & 20 | Class time for projects | | | | |
-| Nov 25 | Zoom lecture | | | | |
+| Nov 25  | Zoom lecture: multiple testing | `multiple` | | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
+| | | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
 | Nov 27 | Thanksgiving | | | | |
 | Dec 2 & 4 | Final project presentations | | | | |
 
