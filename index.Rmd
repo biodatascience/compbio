@@ -77,7 +77,7 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 | Nov 11 | Biostatistics 75th event | | | | |
 | Nov 13 | Class time for projects | | | | |
 | Nov 18 & 20 | Class time for projects | | | | |
-| Nov 25 | Zoom lecture: Network analysis | `net` | | [network](net/network.html) | Network analysis |
+| Nov 25 | Gene regulatory networks | `net` | | [network](net/network.html) | Network analysis |
 | Nov 27 | Thanksgiving | | | | |
 | Dec 2 & 4 | Final project presentations | | | | |
 | Extra lectures | | | | | |
