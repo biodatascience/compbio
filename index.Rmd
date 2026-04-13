@@ -12,7 +12,7 @@ BIOS/BCB 784
 
 Instructor details:
 
-  - Assoc. Prof. Michael Love, love [at] unc [dot] edu
+  - Assoc. Prof. Michael Love, love [at] unc [dot] edu
 
 Course time and place:
 
@@ -47,43 +47,60 @@ Pre-reqs and expectations:
 
 ### Schedule and course notes
 
-For `Rmd` files, go to the
+For `Rmd` or `qmd` files, go to the
 [course repo](https://github.com/biodatascience/compbio_src) and navigate the
-directories, or best of all to clone the repo and navigate within
-RStudio. 
+directories, or clone the repo and navigate within RStudio. 
 
 ```{r echo=FALSE}
 hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/master/",x,".Rmd")
+rscr <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/master/",x,".R")
+qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/master/",x,".qmd")
 ```
 
 | Week | Topic | Dir. | HW | HTML | Title |
 |:-----|:------|:-----|:---|:-----|:------|
-| | Bio Intro / GitHub | `-` | <!--[HW0](`r hw("github/github_HW")`)--> | [github](github.html) | RStudio, git, and GitHub |
-| | Simple EDA | `eda` | | [EDA](eda/EDA.html) | Exploratory data analysis |
-| | | | | [NAs](eda/NAs.html) | Missing values in R |
+| | **Data analysis** | | | | |
+| Aug 19 | Biological intro / GitHub | `-` | [HW0](`r hw("github/github_HW")`) | [github](github.html) | RStudio, git, and GitHub |
+| Aug 21 | Exploring bio data | `eda` | | [EDA](eda/EDA.html) | Exploratory data analysis |
 | | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
-| | Bioconductor I | `bioc` | | [objects](bioc/objects.html) | Bioc data objects |
+| Aug 26 & 28 | R/Bioconductor I | `bioc` | [HW1](`r hw("bioc/bioc_objects_ranges_HW")`) | [objects](bioc/objects.html) | Bioc data objects |
 | | | | | [ranges](bioc/ranges.html) | Genomic ranges |
 | | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
-| | Bioconductor II | | | [anno](bioc/anno.html) | Accessing annotations |
+| Sep 2 | Labor day | | | | |
+| Sep 4 | "tidyomics" | `TO@GH` | | [tidy intro](https://tidyomics.github.io/tidy-intro-talk/) | Tidiness-in-Bioconductor intro |
+| | | | | [tidy ranges](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
+| Sep 9 & 11 | R/Bioconductor II | `bioc` | [HW2](`r hw("bioc/bioc_anno_strings_HW")`) | [anno](bioc/anno.html) | Accessing annotations |
 | | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
-| | Multiple testing | `test` | | [multtest](test/multtest.html) | FDR and Benjamini-Hochberg |
-| | | | | [localfdr](test/localfdr.html) | Local false discovery rate |
-| | | | | [IDR](test/IDR.html) | Irreproducible discovery rate |
-| | Distances & norm. I | `dist` | | [distances](dist/distances.html) | Distances in high dimensions |
-| | | | | [hclust](dist/hclust.html) | Hierarchical clustering |
-| | Models and EM | `model` | | [EM](model/EM.html) | Expectation maximization |
-| | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
-| | ChIP-seq | | | | (Slides on Sakai) |
-| | Motifs part II | | | | (In-class EM notes posted to GH) |
-| | Distances & norm. II | `dist` | | [batch](dist/batch.html) | Batch effects and sources |
+| Sep 16 & 18 | Distances & norm. I | `dist` | [HW3](`r hw("dist/dist_biases_scaling_HW")`) | [distances](dist/distances.html) | Distances in high dimensions |
+| | | | | [transform_clust](dist/transform_clust.html) | Transformations and clustering |
+| | | | | [vst_math](`r qrto("dist/vst_math")`) | VST math |
+| Sep 23 | Wellness day | | | | |
+| Sep 25 | Spatial data analysis (guest lecture) | | | | [Peyton Kuhlers](https://www.linkedin.com/in/peyton-kuhlers/) (Hoadley & Raab labs, UNC) |
+| Sep 30 | BCB retreat | | | | |
+| Oct 2 | Sources of technical bias | | | | |
+| Oct 7 & 9 | Distances & norm. II | `dist` | | [batch](dist/batch.html) | Batch effects and sources |
 | | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
 | | | | | | Batch effect solutions |
-| | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
-| | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator app |
-| | Signal processing | `signal` | | [hmm](signal/hmm.html) | Hidden Markov Models |
-| | Tidy genomics | `-` | | [tidy](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
-| | Network analysis | `net` | | [network](net/network.html) | Network analysis |
+| | | | | [ruv script](`r rscr("dist/ruv")`)| RUV and friends |
+| Oct 7 | Midterm assigned, due Oct 21 | | | | |
+| | **Data modeling** | | | | |
+| Oct 14 & 16 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+| | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator |
+| Oct 21 & 23 | Models and EM | `model` | | [EM](model/EM.html) | Expectation maximization |
+| | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
+| Oct 28 & 30 | Markov models | `markov` | [HW4](`r hw("model/model_HW")`) | [hmm](markov/hmm.html) | Hidden Markov Models |
+| Nov 4  | HMM: Baum-Welch | | | | |
+| Nov 6  | ASHG | | | | |
+| Nov 11 | Biostatistics 75th event | | | | |
+| Nov 13 | Class time for projects | | | | |
+| Nov 18 & 20 | Class time for projects | | | | |
+| Nov 25 | Gene regulatory networks | `net` | | [network](net/network.html) | Network analysis |
+| Nov 27 | Thanksgiving | | | | |
+| Dec 2 & 4 | Final project presentations | | | | |
+| Extra lectures | | | | | |
+| | multiple testing | `multiple` | | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
+| | | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
+
 
 ### Reading list
 
@@ -106,6 +123,14 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
     - [Capturing Heterogeneity in Gene Expression Studies by Surrogate Variable Analysis](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1994707/) Jeffrey Leek and John Storey
 	- [Normalization of RNA-seq data using factor analysis of control genes or samples](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4404308/) Risso et al
 	- [Using probabilistic estimation of expression residuals (PEER) to obtain increased power and interpretability of gene expression analyses](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3398141/) Stegle et al
+	- **More on factor analysis methods:**
+	- RUV - [Using control genes to correct for unwanted variation in microarray data](https://doi.org/10.1093/biostatistics/kxr034) Gagnon-Bartsch and Speed et al., 2012
+    - RUV - [Removing Unwanted Variation from High Dimensional Data with Negative Controls](https://doi.org/10.1038/s41587-022-01440-w) Gagnon-Bartsch et al., 2013
+    - RUVSeq - [Normalization of RNA-seq data using factor analysis of control genes or samples](https://doi.org/10.1038/nbt.2931) Risso et al., 2014
+    - ZINB-WaVE - [A general and flexible method for signal extraction from single-cell RNA-seq data](https://doi.org/10.1038/s41467-017-02554-5) Risso and Perraudeau et al., 2018
+    - NewWave - [A scalable R/Bioconductor package for the dimensionality reduction and batch effect removal of single-cell RNA-seq data](https://doi.org/10.1093/bioinformatics/btac149) Agostinis et al., 2022
+    - GLM-PCA - [Feature selection and dimension reduction for single-cell RNA-Seq based on a multinomial model](https://doi.org/10.1186/s13059-019-1861-6) Townes et al., 2019
+
 * **Multiple testing**
     - [Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing](http://www.jstor.org/stable/2346101) Yoav Benjamini and Yosef Hochberg
 	- [A direct approach to false discovery rates](http://genomics.princeton.edu/storeylab//papers/directfdr.pdf) John Storey
@@ -133,8 +158,8 @@ hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/mas
 
 * [Online R Classes and Resources](http://genomicsclass.github.io/book/pages/resources.html)
 * Rafael Irizarry and Michael Love, "Data Analysis for the Life Sciences" 
-[Free PDF](https://leanpub.com/dataanalysisforthelifesciences),
-[HTML](http://genomicsclass.github.io/book/)
+  [Free PDF](https://leanpub.com/dataanalysisforthelifesciences),
+  [HTML](http://genomicsclass.github.io/book/)
 * [Kasper Hansen, "Bioconductor for Genomic Data Science"](https://kasperdanielhansen.github.io/genbioconductor/)
 * [Aaron Quinlan, "Applied Computational Genomics" (Slides)](https://github.com/quinlan-lab/applied-computational-genomics)
 * [Jennifer Bryan et al, Stat 545](http://stat545.com/)
@@ -149,23 +174,6 @@ Some R resources
 * [R Reference Card](https://cran.r-project.org/doc/contrib/Short-refcard.pdf)
 * [Advanced R](http://adv-r.had.co.nz/)
 * [Bioconductor Reference Card](https://github.com/mikelove/bioc-refcard)
-
-### Wait, how come ___ is missing?
-
-This is not nearly a complete list of topics in computational
-biology. The students taking the course are mostly graduate students
-in biostatistics, who have statistical background but not much
-exposure to genomic or biological datasets. Classic computational
-biology topics, such as alignment algorithms or molecular dynamics,
-are not covered, but instead the focus is on exploring genomic
-datasets and introducing the key statistical models that flourish in
-the high throughput setting (normalization, false discovery rate
-calculation, EM algorithm, hierarchical models, HMM, etc.). The course
-also focuses on R/Bioconductor, as this is a familiar tool for most
-of the students, and allows them to jump in to the data analysis.
-The goal is that exposure to these topics and these datasets will
-allow them to more effectively read the literature and pursue topics
-in biology and biomedical research.
 
 ---
 
