@@ -2,3 +2,4 @@
 *.gz
 */*_cache
 */*_files
+.DS_store

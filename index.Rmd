@@ -10,23 +10,40 @@ output:
 
 BIOS/BCB 784
 
-Fall 2024 -- 1:25-2:40 MoWe -- [McGavran 2306](https://sph.unc.edu/room/2306-mcgavran-greenberg-hall/)
+Instructor details:
 
-[2022 syllabus](BIOS784-Fall2022-Gillings-v4.docx)
+  - Assoc. Prof. Michael Love, love [at] unc [dot] edu
 
-This course makes extensive use of R and assumes basic familiarity with
-base R (not packages) as a prerequisite. 
-A self-quiz is available 
-[here](https://github.com/biodatascience/compbio/blob/gh-pages/selfquiz/selfquiz.R), 
-with answers provided 
-[here](https://github.com/biodatascience/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda).
-You can also find a
-[list of base R functions](https://github.com/biodatascience/compbio_src/blob/master/eda/functions.md)
-that one should be familiar with.
+Course time and place:
 
-**For 2024 BCB students**: BCB 720 (background on statistical inference,
-i.e. working with the likelihood for parameter inference, conditional
-probabilities) is suitable as a pre-requisite for BIOS/BCB 784.
+  - Fall 2026 </br>
+    8/17/2026-12/11/2025 </br>
+    Tue/Thur 12:30-1:45pm </br>
+    Michael Hooker Research Center room 0003 </br>
+    <https://sph.unc.edu/room/0003-0004-mhrc/>
+
+Syllabus:
+
+  - [2024 syllabus](BIOS784-Fall2024-Gillings-v.docx)
+
+Pre-reqs and expectations:
+
+  - This course makes extensive use of R and assumes basic familiarity with
+    base R (not packages) as a prerequisite. 
+    A self-quiz is available 
+    [here](https://github.com/biodatascience/compbio/blob/gh-pages/selfquiz/selfquiz.R), 
+    with answers provided 
+    [here](https://github.com/biodatascience/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda).
+    You can also find a
+    [list of base R functions](https://github.com/biodatascience/compbio_src/blob/master/eda/functions.md)
+    that one should be familiar with.
+  - This course also assumes basic familiarity with statistical concepts such as
+    parameter inference, hypothesis testing, basic probability (e.g. conditional
+    probability and conditional expectation).
+    For BCB students, BCB 720, which covers statistical inference,
+    is suitable as a pre-requisite for BIOS/BCB 784.
+    For other students not sure about pre-requisites, email me with any questions
+    with BIOS 784 in the subject line.
 
 ### Schedule and course notes
 
