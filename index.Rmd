@@ -22,9 +22,9 @@ Course time and place:
     Michael Hooker Research Center room 0003 </br>
     <https://sph.unc.edu/room/0003-0004-mhrc/>
 
-Syllabus:
+Previous year course details:
 
-  - [2024 syllabus](BIOS784-Fall2024-Gillings-v.docx)
+  - [2024](old_syllabi/BIOS784-Fall2024-Gillings-v.docx)
 
 Pre-reqs and expectations:
 
