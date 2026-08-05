@@ -13,16 +13,16 @@ BIOS/BCB 784
 Instructor details:
 
   - Assoc. Prof. Michael Love, love [at] unc [dot] edu
-
+  - TA Biostatistics PhD candidate Yishu Zhang, yzhang4 [at] unc [dot] edu
 Course time and place:
 
   - Fall 2026 </br>
-    8/17/2026-12/11/2025 </br>
+    8/17/2026-12/11/2026 </br>
     Tue/Thur 12:30-1:45pm </br>
     Michael Hooker Research Center room 0003 </br>
     <https://sph.unc.edu/room/0003-0004-mhrc/>
 
-Previous year course details:
+Previous year course details (**new course details will be available week of August 10, 2026**)
 
   - [2024](old_syllabi/BIOS784-Fall2024-Gillings-v7.docx)
 
@@ -52,54 +52,40 @@ For `Rmd` or `qmd` files, go to the
 directories, or clone the repo and navigate within RStudio. 
 
 ```{r echo=FALSE}
-hw <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/master/",x,".Rmd")
 rscr <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/master/",x,".R")
 qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/master/",x,".qmd")
 ```
 
-| Week | Topic | Dir. | HW | HTML | Title |
-|:-----|:------|:-----|:---|:-----|:------|
-| | **Data analysis** | | | | |
-| Aug 19 | Biological intro / GitHub | `-` | [HW0](`r hw("github/github_HW")`) | [github](github.html) | RStudio, git, and GitHub |
-| Aug 21 | Exploring bio data | `eda` | | [EDA](eda/EDA.html) | Exploratory data analysis |
-| | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
-| Aug 26 & 28 | R/Bioconductor I | `bioc` | [HW1](`r hw("bioc/bioc_objects_ranges_HW")`) | [objects](bioc/objects.html) | Bioc data objects |
-| | | | | [ranges](bioc/ranges.html) | Genomic ranges |
-| | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
-| Sep 2 | Labor day | | | | |
-| Sep 4 | "tidyomics" | `TO@GH` | | [tidy intro](https://tidyomics.github.io/tidy-intro-talk/) | Tidiness-in-Bioconductor intro |
-| | | | | [tidy ranges](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
-| Sep 9 & 11 | R/Bioconductor II | `bioc` | [HW2](`r hw("bioc/bioc_anno_strings_HW")`) | [anno](bioc/anno.html) | Accessing annotations |
-| | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
-| Sep 16 & 18 | Distances & norm. I | `dist` | [HW3](`r hw("dist/dist_biases_scaling_HW")`) | [distances](dist/distances.html) | Distances in high dimensions |
-| | | | | [transform_clust](dist/transform_clust.html) | Transformations and clustering |
-| | | | | [vst_math](`r qrto("dist/vst_math")`) | VST math |
-| Sep 23 | Wellness day | | | | |
-| Sep 25 | Spatial data analysis (guest lecture) | | | | [Peyton Kuhlers](https://www.linkedin.com/in/peyton-kuhlers/) (Hoadley & Raab labs, UNC) |
-| Sep 30 | BCB retreat | | | | |
-| Oct 2 | Sources of technical bias | | | | |
-| Oct 7 & 9 | Distances & norm. II | `dist` | | [batch](dist/batch.html) | Batch effects and sources |
-| | | | |  [sva](dist/sva.html) | Surrogate variable analysis |
-| | | | | | Batch effect solutions |
-| | | | | [ruv script](`r rscr("dist/ruv")`)| RUV and friends |
-| Oct 7 | Midterm assigned, due Oct 21 | | | | |
-| | **Data modeling** | | | | |
-| Oct 14 & 16 | Hierarchical models | `hier` | | [hierarchical](hier/hierarchical.html) | Hierarchical models |
-| | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator |
-| Oct 21 & 23 | Models and EM | `model` | | [EM](model/EM.html) | Expectation maximization |
-| | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
-| Oct 28 & 30 | Markov models | `markov` | [HW4](`r hw("model/model_HW")`) | [hmm](markov/hmm.html) | Hidden Markov Models |
-| Nov 4  | HMM: Baum-Welch | | | | |
-| Nov 6  | ASHG | | | | |
-| Nov 11 | Biostatistics 75th event | | | | |
-| Nov 13 | Class time for projects | | | | |
-| Nov 18 & 20 | Class time for projects | | | | |
-| Nov 25 | Gene regulatory networks | `net` | | [network](net/network.html) | Network analysis |
-| Nov 27 | Thanksgiving | | | | |
-| Dec 2 & 4 | Final project presentations | | | | |
-| Extra lectures | | | | | |
-| | multiple testing | `multiple` | | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
-| | | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
+**Note:** Class content will be put on a day-by-day schedule by August 10, 2026.
+
+| Week | Topic | Dir. | HTML | Title |
+|:-----|:------|:-----|:-----|:------|
+| | **Data analysis** | | | |
+| | Biological intro / GitHub | `-` | [github](github.html) | RStudio, git, and GitHub |
+| | Exploring bio data | `eda` | [EDA](eda/EDA.html) | Exploratory data analysis |
+| | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
+| | Bioconductor | `bioc` | [objects](bioc/objects.html) | Bioc data objects |
+| | | | [ranges](bioc/ranges.html) | Genomic ranges |
+| | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
+| | | | [anno](bioc/anno.html) | Accessing annotations |
+| | | | [strings](bioc/strings.html) | Manipulating DNA strings |
+| | "tidyomics" | `TO@GH` | [tidy intro](https://tidyomics.github.io/tidy-intro-talk/) | Tidiness-in-Bioconductor intro |
+| | | | [tidy ranges](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
+| | Distances & normalization | `dist` | [distances](dist/distances.html) | Distances in high dimensions |
+| | | | [transform_clust](dist/transform_clust.html) | Transformations and clustering |
+| | | | [vst_math](`r qrto("dist/vst_math")`) | VST math |
+| | | | [batch](dist/batch.html) | Batch effects and sources |
+| | | | [sva](dist/sva.html) | Surrogate variable analysis |
+| | | | [ruv script](`r rscr("dist/ruv")`) | RUV and friends |
+| | **Data modeling** | | | |
+| | Hierarchical models | `hier` | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+| | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator |
+| | Models and EM | `model` | [EM](model/EM.html) | Expectation maximization |
+| | | |  [motif](model/motif.html) | EM for finding DNA motifs |
+| | Markov models | `markov` | [hmm](markov/hmm.html) | Hidden Markov Models |
+| | Gene regulatory networks | `net` | [network](net/network.html) | Network analysis |
+| | Multiple testing | `multiple` | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
+| | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
 
 
 ### Reading list
