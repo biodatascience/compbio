@@ -24,7 +24,7 @@ Course time and place:
 
 Previous year course details:
 
-  - [2024](old_syllabi/BIOS784-Fall2024-Gillings-v.docx)
+  - [2024](old_syllabi/BIOS784-Fall2024-Gillings-v7.docx)
 
 Pre-reqs and expectations:
 
