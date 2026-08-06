@@ -1,676 +1,912 @@
 <!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
-<html>
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.38">
 
-<head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta charset="utf-8" />
-<meta name="generator" content="pandoc" />
-<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+<meta name="author" content="Michael Love">
 
-
-<meta name="author" content="Michael Love (he/him)" />
-
-
-<title>Intro to Computational Biology - UNC BIOS/BCB 784</title>
-
-<script src="index_files/header-attrs-2.31/header-attrs.js"></script>
-<script src="index_files/jquery-3.6.0/jquery-3.6.0.min.js"></script>
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<link href="index_files/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
-<script src="index_files/bootstrap-3.3.5/js/bootstrap.min.js"></script>
-<script src="index_files/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
-<script src="index_files/bootstrap-3.3.5/shim/respond.min.js"></script>
-<style>h1 {font-size: 34px;}
-       h1.title {font-size: 38px;}
-       h2 {font-size: 30px;}
-       h3 {font-size: 24px;}
-       h4 {font-size: 18px;}
-       h5 {font-size: 16px;}
-       h6 {font-size: 12px;}
-       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
-       pre:not([class]) { background-color: white }</style>
-<script src="index_files/navigation-1.1/tabsets.js"></script>
-<link href="index_files/highlightjs-9.12.0/default.css" rel="stylesheet" />
-<script src="index_files/highlightjs-9.12.0/highlight.js"></script>
-
-<style type="text/css">
-  code{white-space: pre-wrap;}
-  span.smallcaps{font-variant: small-caps;}
-  span.underline{text-decoration: underline;}
-  div.column{display: inline-block; vertical-align: top; width: 50%;}
-  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-  ul.task-list{list-style: none;}
-    </style>
-
-<style type="text/css">code{white-space: pre;}</style>
-<script type="text/javascript">
-if (window.hljs) {
-  hljs.configure({languages: []});
-  hljs.initHighlightingOnLoad();
-  if (document.readyState && document.readyState === "complete") {
-    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
-  }
-}
-</script>
-
-
-
-
-
-
-
-
-
-<style type = "text/css">
-.main-container {
-  max-width: 940px;
-  margin-left: auto;
-  margin-right: auto;
-}
-img {
-  max-width:100%;
-}
-.tabbed-pane {
-  padding-top: 12px;
-}
-.html-widget {
-  margin-bottom: 20px;
-}
-button.code-folding-btn:focus {
-  outline: none;
-}
-summary {
-  display: list-item;
-}
-details > summary > p:only-child {
-  display: inline;
-}
-pre code {
-  padding: 0;
+<title>Computational Biology - UNC BIOS/BCB 784</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
 }
 </style>
 
 
-
-<!-- tabsets -->
-
-<style type="text/css">
-.tabset-dropdown > .nav-tabs {
-  display: inline-table;
-  max-height: 500px;
-  min-height: 44px;
-  overflow-y: auto;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-}
-
-.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "\e259";
-  font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "\e258";
-  font-family: 'Glyphicons Halflings';
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs > li.active {
-  display: block;
-}
-
-.tabset-dropdown > .nav-tabs > li > a,
-.tabset-dropdown > .nav-tabs > li > a:focus,
-.tabset-dropdown > .nav-tabs > li > a:hover {
-  border: none;
-  display: inline-block;
-  border-radius: 4px;
-  background-color: transparent;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
-  display: block;
-  float: none;
-}
-
-.tabset-dropdown > .nav-tabs > li {
-  display: none;
-}
-</style>
-
-<!-- code folding -->
-
-
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
+<script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap-138a6193a3bd40baf1e627da441a4734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
 
-<body>
+<body class="fullcontent quarto-light">
 
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 
-<div class="container-fluid main-container">
+<main class="content" id="quarto-document-content">
 
-
-
-
-<div id="header">
-
-
-
-<h1 class="title toc-ignore">Intro to Computational Biology - UNC
-BIOS/BCB 784</h1>
-<h4 class="author"><a href="http://mikelove.github.io">Michael Love</a>
-(he/him)</h4>
-
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Computational Biology - UNC BIOS/BCB 784</h1>
 </div>
 
 
-<div id="course-information" class="section level3">
-<h3>Course information</h3>
-<p>BIOS/BCB 784</p>
-<p>Instructor details:</p>
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p><a href="http://mikelove.github.io">Michael Love</a> </p>
+          </div>
+  </div>
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="course-information" class="level3">
+<h3 class="anchored" data-anchor-id="course-information">Course information</h3>
+<p><strong>Introduction to Computational Biology – BIOS/BCB 784</strong></p>
+<section id="instructors" class="level4">
+<h4 class="anchored" data-anchor-id="instructors">Instructors</h4>
 <ul>
-<li><p>Assoc. Prof. Michael Love, love [at] unc [dot] edu</p></li>
-<li><p>TA Biostatistics PhD candidate Yishu Zhang, yzhang4 [at] unc
-[dot] edu Course time and place:</p></li>
-<li><p>Fall 2026 </br> 8/17/2026-12/11/2026 </br> Tue/Thur 12:30-1:45pm
-</br> Michael Hooker Research Center room 0003 </br> <a
-href="https://sph.unc.edu/room/0003-0004-mhrc/"
-class="uri">https://sph.unc.edu/room/0003-0004-mhrc/</a></p></li>
+<li>Assoc. Prof.&nbsp;<a href="https://mikelove.github.io/">Michael Love</a>, love [at] unc [dot] edu</li>
+<li>TA Yishu Zhang (Biostatistics PhD candidate), yzhang4 [at] unc [dot] edu</li>
 </ul>
-<p>Previous year course details (<strong>new course details will be
-available week of August 10, 2026</strong>)</p>
+<p>Please include <strong>“784”</strong> in the subject line when emailing instructors.</p>
+</section>
+<section id="time-and-place" class="level4">
+<h4 class="anchored" data-anchor-id="time-and-place">Time and place</h4>
+<p>Fall 2026, 8/17/2026–12/1/2026<br>
+Tue/Thur 12:30–1:45pm<br>
+<a href="https://sph.unc.edu/room/0003-0004-mhrc/">Michael Hooker Research Center, room 0003</a></p>
+</section>
+<section id="syllabus" class="level4">
+<h4 class="anchored" data-anchor-id="syllabus">Syllabus</h4>
+<p><a href="https://uncch.simplesyllabus.com/doc/j3wugrscu/2026-Fall-BCB-784-001-INTRO-TO-COMP-BIOL?mode=view">BIOS/BCB 784 – Fall 2006</a></p>
+</section>
+<section id="prerequisites" class="level4">
+<h4 class="anchored" data-anchor-id="prerequisites">Prerequisites</h4>
 <ul>
-<li><a
-href="old_syllabi/BIOS784-Fall2024-Gillings-v7.docx">2024</a></li>
+<li><strong>R:</strong> This course makes extensive use of R and assumes basic familiarity with base R (not packages) as a prerequisite. A self-quiz is available <a href="https://github.com/biodatascience/compbio/blob/gh-pages/selfquiz/selfquiz.R">here</a>, with answers <a href="https://github.com/biodatascience/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda">here</a>. See also this <a href="https://github.com/biodatascience/compbio_src/blob/master/eda/functions.md">list of base R functions</a>.</li>
+<li><strong>Statistics:</strong> This course assumes basic familiarity with parameter inference, hypothesis testing, and basic probability (e.g.&nbsp;conditional probability and conditional expectation). For BCB students, BCB 720 is suitable as a prerequisite. Email with “784” in the subject line for any questions.</li>
 </ul>
-<p>Pre-reqs and expectations:</p>
-<ul>
-<li>This course makes extensive use of R and assumes basic familiarity
-with base R (not packages) as a prerequisite. A self-quiz is available
-<a
-href="https://github.com/biodatascience/compbio/blob/gh-pages/selfquiz/selfquiz.R">here</a>,
-with answers provided <a
-href="https://github.com/biodatascience/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda">here</a>.
-You can also find a <a
-href="https://github.com/biodatascience/compbio_src/blob/master/eda/functions.md">list
-of base R functions</a> that one should be familiar with.</li>
-<li>This course also assumes basic familiarity with statistical concepts
-such as parameter inference, hypothesis testing, basic probability
-(e.g. conditional probability and conditional expectation). For BCB
-students, BCB 720, which covers statistical inference, is suitable as a
-pre-requisite for BIOS/BCB 784. For other students not sure about
-pre-requisites, email me with any questions with BIOS 784 in the subject
-line.</li>
-</ul>
-</div>
-<div id="schedule-and-course-notes" class="section level3">
-<h3>Schedule and course notes</h3>
-<p>For <code>Rmd</code> or <code>qmd</code> files, go to the <a
-href="https://github.com/biodatascience/compbio_src">course repo</a> and
-navigate the directories, or clone the repo and navigate within
-RStudio.</p>
-<p><strong>Note:</strong> Class content will be put on a day-by-day
-schedule by August 10, 2026.</p>
-<table>
-<colgroup>
-<col width="18%" />
-<col width="21%" />
-<col width="18%" />
-<col width="18%" />
-<col width="21%" />
-</colgroup>
+</section>
+</section>
+<section id="schedule-and-course-notes" class="level3">
+<h3 class="anchored" data-anchor-id="schedule-and-course-notes">Schedule and course notes</h3>
+<p>For <code>Rmd</code> or <code>qmd</code> files, go to the <a href="https://github.com/biodatascience/compbio_src">course repo</a>, or clone the repo and navigate within your IDE.</p>
+<p><strong>Note:</strong> Class content will be put on a day-by-day schedule by August 10, 2026.</p>
+<table class="caption-top table">
 <thead>
 <tr class="header">
-<th align="left">Week</th>
-<th align="left">Topic</th>
-<th align="left">Dir.</th>
-<th align="left">HTML</th>
-<th align="left">Title</th>
+<th style="text-align: left;">Week</th>
+<th style="text-align: left;">Topic</th>
+<th style="text-align: left;">Dir.</th>
+<th style="text-align: left;">HTML</th>
+<th style="text-align: left;">Title</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"><strong>Data analysis</strong></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Data analysis</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left">Biological intro / GitHub</td>
-<td align="left"><code>-</code></td>
-<td align="left"><a href="github.html">github</a></td>
-<td align="left">RStudio, git, and GitHub</td>
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Biological intro / GitHub</td>
+<td style="text-align: left;"><code>-</code></td>
+<td style="text-align: left;"><a href="github.html">github</a></td>
+<td style="text-align: left;">RStudio, git, and GitHub</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left">Exploring bio data</td>
-<td align="left"><code>eda</code></td>
-<td align="left"><a href="eda/EDA.html">EDA</a></td>
-<td align="left">Exploratory data analysis</td>
+<td style="text-align: left;">2–3</td>
+<td style="text-align: left;">Exploring bio data</td>
+<td style="text-align: left;"><code>eda</code></td>
+<td style="text-align: left;"><a href="eda/EDA.html">EDA</a></td>
+<td style="text-align: left;">Exploratory data analysis</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="eda/brain_RNA.html">brain RNA</a></td>
-<td align="left">Exploring brain RNA</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="eda/brain_RNA.html">brain RNA</a></td>
+<td style="text-align: left;">Exploring brain RNA</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left">Bioconductor</td>
-<td align="left"><code>bioc</code></td>
-<td align="left"><a href="bioc/objects.html">objects</a></td>
-<td align="left">Bioc data objects</td>
+<td style="text-align: left;">3–5</td>
+<td style="text-align: left;">Bioconductor</td>
+<td style="text-align: left;"><code>bioc</code></td>
+<td style="text-align: left;"><a href="bioc/objects.html">objects</a></td>
+<td style="text-align: left;">Bioc data objects</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="bioc/ranges.html">ranges</a></td>
-<td align="left">Genomic ranges</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="bioc/ranges.html">ranges</a></td>
+<td style="text-align: left;">Genomic ranges</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="bioc/GRL.html">GRL</a></td>
-<td align="left">GRangesList: lists of ranges</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="bioc/GRL.html">GRL</a></td>
+<td style="text-align: left;">GRangesList: lists of ranges</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="bioc/anno.html">anno</a></td>
-<td align="left">Accessing annotations</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="bioc/anno.html">anno</a></td>
+<td style="text-align: left;">Accessing annotations</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="bioc/strings.html">strings</a></td>
-<td align="left">Manipulating DNA strings</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="bioc/strings.html">strings</a></td>
+<td style="text-align: left;">Manipulating DNA strings</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left">“tidyomics”</td>
-<td align="left"><code>TO@GH</code></td>
-<td align="left"><a
-href="https://tidyomics.github.io/tidy-intro-talk/">tidy intro</a></td>
-<td align="left">Tidiness-in-Bioconductor intro</td>
+<td style="text-align: left;">5–6</td>
+<td style="text-align: left;">Tidy Data for ’omics</td>
+<td style="text-align: left;"><code>TO@GH</code></td>
+<td style="text-align: left;"><a href="https://tidyomics.github.io/tidy-intro-talk/">tidy intro</a></td>
+<td style="text-align: left;">Tidiness-in-Bioconductor intro</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a
-href="https://tidyomics.github.io/tidy-ranges-tutorial/">tidy
-ranges</a></td>
-<td align="left">Tidy ranges tutorial</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="https://tidyomics.github.io/tidy-ranges-tutorial/">tidy ranges</a></td>
+<td style="text-align: left;">Tidy ranges tutorial</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left">Distances &amp; normalization</td>
-<td align="left"><code>dist</code></td>
-<td align="left"><a href="dist/distances.html">distances</a></td>
-<td align="left">Distances in high dimensions</td>
+<td style="text-align: left;">6–7</td>
+<td style="text-align: left;">Distances &amp; normalization</td>
+<td style="text-align: left;"><code>dist</code></td>
+<td style="text-align: left;"><a href="dist/distances.html">distances</a></td>
+<td style="text-align: left;">Distances in high dimensions</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a
-href="dist/transform_clust.html">transform_clust</a></td>
-<td align="left">Transformations and clustering</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="dist/transform_clust.html">transform_clust</a></td>
+<td style="text-align: left;">Transformations and clustering</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a
-href="https://github.com/biodatascience/compbio_src/blob/master/dist/vst_math.qmd">vst_math</a></td>
-<td align="left">VST math</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="https://github.com/biodatascience/compbio_src/blob/master/dist/vst_math.qmd">vst_math</a></td>
+<td style="text-align: left;">VST math</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="dist/batch.html">batch</a></td>
-<td align="left">Batch effects and sources</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="dist/batch.html">batch</a></td>
+<td style="text-align: left;">Batch effects and sources</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="dist/sva.html">sva</a></td>
-<td align="left">Surrogate variable analysis</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="dist/sva.html">sva</a></td>
+<td style="text-align: left;">Surrogate variable analysis</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a
-href="https://github.com/biodatascience/compbio_src/blob/master/dist/ruv.R">ruv
-script</a></td>
-<td align="left">RUV and friends</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="https://github.com/biodatascience/compbio_src/blob/master/dist/ruv.R">ruv script</a></td>
+<td style="text-align: left;">RUV and friends</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"><strong>Data modeling</strong></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><strong>Data modeling</strong></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left">Hierarchical models</td>
-<td align="left"><code>hier</code></td>
-<td align="left"><a href="hier/hierarchical.html">hierarchical</a></td>
-<td align="left">Hierarchical models</td>
+<td style="text-align: left;">8–9</td>
+<td style="text-align: left;">Hierarchical models</td>
+<td style="text-align: left;"><code>hier</code></td>
+<td style="text-align: left;"><a href="hier/hierarchical.html">hierarchical</a></td>
+<td style="text-align: left;">Hierarchical models</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="hier/jamesstein.html">jamesstein</a></td>
-<td align="left">James-Stein estimator</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="hier/jamesstein.html">jamesstein</a></td>
+<td style="text-align: left;">James-Stein estimator</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left">Models and EM</td>
-<td align="left"><code>model</code></td>
-<td align="left"><a href="model/EM.html">EM</a></td>
-<td align="left">Expectation maximization</td>
+<td style="text-align: left;">9–10</td>
+<td style="text-align: left;">Models and EM</td>
+<td style="text-align: left;"><code>model</code></td>
+<td style="text-align: left;"><a href="model/EM.html">EM</a></td>
+<td style="text-align: left;">Expectation maximization</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="model/motif.html">motif</a></td>
-<td align="left">EM for finding DNA motifs</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="model/motif.html">motif</a></td>
+<td style="text-align: left;">EM for finding DNA motifs</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left">Markov models</td>
-<td align="left"><code>markov</code></td>
-<td align="left"><a href="markov/hmm.html">hmm</a></td>
-<td align="left">Hidden Markov Models</td>
+<td style="text-align: left;">11–12</td>
+<td style="text-align: left;">Markov models</td>
+<td style="text-align: left;"><code>markov</code></td>
+<td style="text-align: left;"><a href="markov/hmm.html">hmm</a></td>
+<td style="text-align: left;">Hidden Markov Models</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left">Gene regulatory networks</td>
-<td align="left"><code>net</code></td>
-<td align="left"><a href="net/network.html">network</a></td>
-<td align="left">Network analysis</td>
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">Gene regulatory networks</td>
+<td style="text-align: left;"><code>net</code></td>
+<td style="text-align: left;"><a href="net/network.html">network</a></td>
+<td style="text-align: left;">Network analysis</td>
 </tr>
 <tr class="odd">
-<td align="left"></td>
-<td align="left">Multiple testing</td>
-<td align="left"><code>multiple</code></td>
-<td align="left"><a href="multiple/multtest.html">multtest</a></td>
-<td align="left">FDR and Benjamini-Hochberg</td>
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">Multiple testing</td>
+<td style="text-align: left;"><code>multiple</code></td>
+<td style="text-align: left;"><a href="multiple/multtest.html">multtest</a></td>
+<td style="text-align: left;">FDR and Benjamini-Hochberg</td>
 </tr>
 <tr class="even">
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"></td>
-<td align="left"><a href="multiple/localfdr.html">localfdr</a></td>
-<td align="left">Local false discovery rate</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"><a href="multiple/localfdr.html">localfdr</a></td>
+<td style="text-align: left;">Local false discovery rate</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">14–16</td>
+<td style="text-align: left;">Final project</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">In-class work (wk 14–15) + presentations (Dec 1)</td>
 </tr>
 </tbody>
 </table>
-</div>
-<div id="reading-list" class="section level3">
-<h3>Reading list</h3>
+</section>
+<section id="calendar" class="level3">
+<h3 class="anchored" data-anchor-id="calendar">2026 Calendar</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th style="text-align: left;">Week</th>
+<th style="text-align: left;">Tuesday</th>
+<th style="text-align: left;">Thursday</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">1</td>
+<td style="text-align: left;">Aug 18 <em>(intro)</em></td>
+<td style="text-align: left;">Aug 20</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">2</td>
+<td style="text-align: left;">Aug 25</td>
+<td style="text-align: left;">Aug 27</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">3</td>
+<td style="text-align: left;">Sep 1</td>
+<td style="text-align: left;">Sep 3</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">4</td>
+<td style="text-align: left;">Sep 8</td>
+<td style="text-align: left;">Sep 10</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">5</td>
+<td style="text-align: left;">Sep 15</td>
+<td style="text-align: left;">Sep 17</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">6</td>
+<td style="text-align: left;">Sep 22</td>
+<td style="text-align: left;">Sep 24</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">7</td>
+<td style="text-align: left;">Sep 29</td>
+<td style="text-align: left;">Oct 1</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">8</td>
+<td style="text-align: left;">Oct 6</td>
+<td style="text-align: left;">Oct 8</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">9</td>
+<td style="text-align: left;">Oct 13</td>
+<td style="text-align: left;">Oct 15</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">10</td>
+<td style="text-align: left;">Oct 20</td>
+<td style="text-align: left;">Oct 22</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">11</td>
+<td style="text-align: left;">Oct 27</td>
+<td style="text-align: left;">Oct 29</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">12</td>
+<td style="text-align: left;">Nov 3</td>
+<td style="text-align: left;">Nov 5</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">13</td>
+<td style="text-align: left;">Nov 10</td>
+<td style="text-align: left;">Nov 12</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">14</td>
+<td style="text-align: left;">Nov 17</td>
+<td style="text-align: left;">Nov 19</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">15</td>
+<td style="text-align: left;">Nov 24</td>
+<td style="text-align: left;"><em>(Thanksgiving)</em></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">16</td>
+<td style="text-align: left;">Dec 1</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="reading-list" class="level3">
+<h3 class="anchored" data-anchor-id="reading-list">Reading list</h3>
 <ul>
-<li><strong>What is the role of the computational biologist /
-statistician?</strong>
+<li><strong>What is the role of the computational biologist / statistician?</strong>
 <ul>
-<li><a
-href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2002050">All
-biology is computational biology</a> Florian Markowetz</li>
-<li><a
-href="https://www.stat.berkeley.edu/~sandrine/Docs/TerrySelectedWorksSpringer/Version1/Nolan/Nolan.pdf">Questions,
-Answers and Statistics</a> Deborah Nolan</li>
-<li><a
-href="https://dl.dropboxusercontent.com/u/23421017/50YearsDataScience.pdf">50
-Years of Data Science</a> David Donoho</li>
-<li><a href="https://projecteuclid.org/euclid.aoms/1177704711">The
-Future of Data Analysis</a> John Tukey (this article, discussed by
-Donoho, is from 1962)</li>
-<li><a
-href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004961">Ten
-Simple Rules for Effective Statistical Practice</a> Kass, Caffo,
-Davidian, Meng, Yu, and Reid</li>
-<li><a href="https://projecteuclid.org/euclid.ss/1009213726">Statistical
-Modeling: The Two Cultures</a> Leo Breiman</li>
+<li><a href="http://journals.plos.org/plosbiology/article?id=10.1371/journal.pbio.2002050">All biology is computational biology</a> Florian Markowetz</li>
+<li><a href="https://www.stat.berkeley.edu/~sandrine/Docs/TerrySelectedWorksSpringer/Version1/Nolan/Nolan.pdf">Questions, Answers and Statistics</a> Deborah Nolan</li>
+<li><a href="https://dl.dropboxusercontent.com/u/23421017/50YearsDataScience.pdf">50 Years of Data Science</a> David Donoho</li>
+<li><a href="https://projecteuclid.org/euclid.aoms/1177704711">The Future of Data Analysis</a> John Tukey (this article, discussed by Donoho, is from 1962)</li>
+<li><a href="http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004961">Ten Simple Rules for Effective Statistical Practice</a> Kass, Caffo, Davidian, Meng, Yu, and Reid</li>
+<li><a href="https://projecteuclid.org/euclid.ss/1009213726">Statistical Modeling: The Two Cultures</a> Leo Breiman</li>
 </ul></li>
 <li><strong>Exploratory data analysis</strong>
 <ul>
-<li><a href="http://dplyr.tidyverse.org/">dplyr - A Grammar of Data
-Manipulation</a></li>
+<li><a href="http://dplyr.tidyverse.org/">dplyr - A Grammar of Data Manipulation</a></li>
 <li><a href="http://ggplot2.org/">ggplot2</a></li>
-<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4547484/">The
-Genotype-Tissue Expression (GTEx) pilot analysis: Multitissue gene
-regulation in humans</a></li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4547484/">The Genotype-Tissue Expression (GTEx) pilot analysis: Multitissue gene regulation in humans</a></li>
 </ul></li>
 <li><strong>Bioconductor</strong>
 <ul>
-<li><a
-href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4509590/">Orchestrating
-high-throughput genomic analysis with Bioconductor</a> Huber et al</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4509590/">Orchestrating high-throughput genomic analysis with Bioconductor</a> Huber et al</li>
 </ul></li>
 <li><strong>Distances and normalization</strong>
 <ul>
-<li><a
-href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3218662/">Differential
-expression analysis for sequence count data</a> Simon Anders and
-Wolfgang Huber</li>
-<li><a
-href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3880143/">Tackling
-the widespread and critical impact of batch effects in high-throughput
-data</a> Leek et al</li>
-<li><a
-href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1994707/">Capturing
-Heterogeneity in Gene Expression Studies by Surrogate Variable
-Analysis</a> Jeffrey Leek and John Storey</li>
-<li><a
-href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4404308/">Normalization
-of RNA-seq data using factor analysis of control genes or samples</a>
-Risso et al</li>
-<li><a
-href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3398141/">Using
-probabilistic estimation of expression residuals (PEER) to obtain
-increased power and interpretability of gene expression analyses</a>
-Stegle et al</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3218662/">Differential expression analysis for sequence count data</a> Simon Anders and Wolfgang Huber</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3880143/">Tackling the widespread and critical impact of batch effects in high-throughput data</a> Leek et al</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1994707/">Capturing Heterogeneity in Gene Expression Studies by Surrogate Variable Analysis</a> Jeffrey Leek and John Storey</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4404308/">Normalization of RNA-seq data using factor analysis of control genes or samples</a> Risso et al</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3398141/">Using probabilistic estimation of expression residuals (PEER) to obtain increased power and interpretability of gene expression analyses</a> Stegle et al</li>
 <li><strong>More on factor analysis methods:</strong></li>
-<li>RUV - <a href="https://doi.org/10.1093/biostatistics/kxr034">Using
-control genes to correct for unwanted variation in microarray data</a>
-Gagnon-Bartsch and Speed et al., 2012</li>
-<li>RUV - <a href="https://doi.org/10.1038/s41587-022-01440-w">Removing
-Unwanted Variation from High Dimensional Data with Negative Controls</a>
-Gagnon-Bartsch et al., 2013</li>
-<li>RUVSeq - <a href="https://doi.org/10.1038/nbt.2931">Normalization of
-RNA-seq data using factor analysis of control genes or samples</a> Risso
-et al., 2014</li>
-<li>ZINB-WaVE - <a href="https://doi.org/10.1038/s41467-017-02554-5">A
-general and flexible method for signal extraction from single-cell
-RNA-seq data</a> Risso and Perraudeau et al., 2018</li>
-<li>NewWave - <a href="https://doi.org/10.1093/bioinformatics/btac149">A
-scalable R/Bioconductor package for the dimensionality reduction and
-batch effect removal of single-cell RNA-seq data</a> Agostinis et al.,
-2022</li>
-<li>GLM-PCA - <a
-href="https://doi.org/10.1186/s13059-019-1861-6">Feature selection and
-dimension reduction for single-cell RNA-Seq based on a multinomial
-model</a> Townes et al., 2019</li>
+<li>RUV - <a href="https://doi.org/10.1093/biostatistics/kxr034">Using control genes to correct for unwanted variation in microarray data</a> Gagnon-Bartsch and Speed et al., 2012</li>
+<li>RUV - <a href="https://doi.org/10.1038/s41587-022-01440-w">Removing Unwanted Variation from High Dimensional Data with Negative Controls</a> Gagnon-Bartsch et al., 2013</li>
+<li>RUVSeq - <a href="https://doi.org/10.1038/nbt.2931">Normalization of RNA-seq data using factor analysis of control genes or samples</a> Risso et al., 2014</li>
+<li>ZINB-WaVE - <a href="https://doi.org/10.1038/s41467-017-02554-5">A general and flexible method for signal extraction from single-cell RNA-seq data</a> Risso and Perraudeau et al., 2018</li>
+<li>NewWave - <a href="https://doi.org/10.1093/bioinformatics/btac149">A scalable R/Bioconductor package for the dimensionality reduction and batch effect removal of single-cell RNA-seq data</a> Agostinis et al., 2022</li>
+<li>GLM-PCA - <a href="https://doi.org/10.1186/s13059-019-1861-6">Feature selection and dimension reduction for single-cell RNA-Seq based on a multinomial model</a> Townes et al., 2019</li>
 </ul></li>
 <li><strong>Multiple testing</strong>
 <ul>
-<li><a href="http://www.jstor.org/stable/2346101">Controlling the False
-Discovery Rate: A Practical and Powerful Approach to Multiple
-Testing</a> Yoav Benjamini and Yosef Hochberg</li>
-<li><a
-href="http://genomics.princeton.edu/storeylab//papers/directfdr.pdf">A
-direct approach to false discovery rates</a> John Storey</li>
-<li><a
-href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC170937/">Statistical
-significance for genomewide studies</a> John Storey and Robert
-Tibshirani</li>
-<li><a
-href="http://www.tandfonline.com/doi/abs/10.1198/016214504000000089">Large-scale
-simultaneous hypothesis testing</a> Bradley Efron</li>
-<li><a href="http://dx.doi.org/10.1198/016214501753382129">Empirical
-Bayes Analysis of a Microarray Experiment</a> Efron et al</li>
-<li><a href="https://projecteuclid.org/euclid.aoas/1318514284">Measuring
-reproducibility of high-throughput experiments</a> Li et al</li>
+<li><a href="http://www.jstor.org/stable/2346101">Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing</a> Yoav Benjamini and Yosef Hochberg</li>
+<li><a href="http://genomics.princeton.edu/storeylab//papers/directfdr.pdf">A direct approach to false discovery rates</a> John Storey</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC170937/">Statistical significance for genomewide studies</a> John Storey and Robert Tibshirani</li>
+<li><a href="http://www.tandfonline.com/doi/abs/10.1198/016214504000000089">Large-scale simultaneous hypothesis testing</a> Bradley Efron</li>
+<li><a href="http://dx.doi.org/10.1198/016214501753382129">Empirical Bayes Analysis of a Microarray Experiment</a> Efron et al</li>
+<li><a href="https://projecteuclid.org/euclid.aoas/1318514284">Measuring reproducibility of high-throughput experiments</a> Li et al</li>
 </ul></li>
 <li><strong>Expectation maximization</strong>
 <ul>
-<li><a
-href="https://www.nature.com/nbt/journal/v26/n8/full/nbt1406.html">What
-is the expectation maximization algorithm?</a> Chuong B Do and Serafim
-Batzoglou</li>
-<li><a
-href="https://people.csail.mit.edu/rameshvs/content/gmm-em.pdf">Gaussian
-mixture models and the EM algorithm</a> Ramesh Sridharan</li>
-<li><a href="http://cs229.stanford.edu/notes/cs229-notes8.pdf">EM
-algorithm notes</a> Andrew Ng</li>
-<li><a
-href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1538909/">MEME:
-discovering and analyzing DNA and protein sequence motifs</a> Bailey et
-al</li>
+<li><a href="https://www.nature.com/nbt/journal/v26/n8/full/nbt1406.html">What is the expectation maximization algorithm?</a> Chuong B Do and Serafim Batzoglou</li>
+<li><a href="https://people.csail.mit.edu/rameshvs/content/gmm-em.pdf">Gaussian mixture models and the EM algorithm</a> Ramesh Sridharan</li>
+<li><a href="http://cs229.stanford.edu/notes/cs229-notes8.pdf">EM algorithm notes</a> Andrew Ng</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1538909/">MEME: discovering and analyzing DNA and protein sequence motifs</a> Bailey et al</li>
 </ul></li>
 <li><strong>Hierarchical models</strong>
 <ul>
-<li><a href="http://www.statsci.org/smyth/pubs/ebayes.pdf">Linear models
-and empirical Bayes methods for assessing differential expression in
-microarray experiments</a> Gordon Smyth</li>
-<li><a
-href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2904972/">Analyzing
-’omics data using hierarchical models</a> Hongkai Ji and X Shirley
-Liu</li>
-<li><a
-href="http://statweb.stanford.edu/~ckirby/brad/other/Article1977.pdf">Stein’s
-Paradox in Statistics</a> Bradley Efron and Carl Morris</li>
-<li><a href="https://www.jstor.org/stable/2284155">Stein’s estimation
-rule and its competitors - an empirical Bayes approach</a> Bradley Efron
-and Carl Morris</li>
+<li><a href="http://www.statsci.org/smyth/pubs/ebayes.pdf">Linear models and empirical Bayes methods for assessing differential expression in microarray experiments</a> Gordon Smyth</li>
+<li><a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2904972/">Analyzing ’omics data using hierarchical models</a> Hongkai Ji and X Shirley Liu</li>
+<li><a href="http://statweb.stanford.edu/~ckirby/brad/other/Article1977.pdf">Stein’s Paradox in Statistics</a> Bradley Efron and Carl Morris</li>
+<li><a href="https://www.jstor.org/stable/2284155">Stein’s estimation rule and its competitors - an empirical Bayes approach</a> Bradley Efron and Carl Morris</li>
 </ul></li>
 <li><strong>Signal processing</strong>
 <ul>
-<li><a
-href="http://ieeexplore.ieee.org/abstract/document/1165342/?reload=true">An
-Introduction to Hidden Markov Models</a> Lawrence Rabiner and
-Biing-Hwang Juang</li>
-<li><a
-href="http://www.sciencedirect.com/science/article/pii/S0047259X04000260">Hidden
-Markov models approach to the analysis of array CGH data</a> Fridlyand
-et al</li>
+<li><a href="http://ieeexplore.ieee.org/abstract/document/1165342/?reload=true">An Introduction to Hidden Markov Models</a> Lawrence Rabiner and Biing-Hwang Juang</li>
+<li><a href="http://www.sciencedirect.com/science/article/pii/S0047259X04000260">Hidden Markov models approach to the analysis of array CGH data</a> Fridlyand et al</li>
 </ul></li>
 <li><strong>Network analysis</strong>
 <ul>
-<li><a href="http://dx.doi.org/10.1016/j.molcel.2017.08.006">Static And
-Dynamic DNA Loops Form AP-1 Bound Activation Hubs During Macrophage
-Development</a> Phanstiel et al</li>
+<li><a href="http://dx.doi.org/10.1016/j.molcel.2017.08.006">Static And Dynamic DNA Loops Form AP-1 Bound Activation Hubs During Macrophage Development</a> Phanstiel et al</li>
 </ul></li>
 </ul>
-</div>
-<div id="resources" class="section level3">
-<h3>Resources</h3>
+</section>
+<section id="resources" class="level3">
+<h3 class="anchored" data-anchor-id="resources">Resources</h3>
 <ul>
-<li><a
-href="http://genomicsclass.github.io/book/pages/resources.html">Online R
-Classes and Resources</a></li>
-<li>Rafael Irizarry and Michael Love, “Data Analysis for the Life
-Sciences” <a
-href="https://leanpub.com/dataanalysisforthelifesciences">Free PDF</a>,
-<a href="http://genomicsclass.github.io/book/">HTML</a></li>
-<li><a
-href="https://kasperdanielhansen.github.io/genbioconductor/">Kasper
-Hansen, “Bioconductor for Genomic Data Science”</a></li>
-<li><a
-href="https://github.com/quinlan-lab/applied-computational-genomics">Aaron
-Quinlan, “Applied Computational Genomics” (Slides)</a></li>
-<li><a href="http://stat545.com/">Jennifer Bryan et al, Stat
-545</a></li>
-<li><a href="https://doi.org/10.1371/journal.pcbi.1004387">Florian
-Markowetz, “You Are Not Working for Me; I Am Working with You”</a></li>
-<li><a href="tips.html">Tips to succeed in Computational Biology
-research</a></li>
+<li><a href="http://genomicsclass.github.io/book/pages/resources.html">Online R Classes and Resources</a></li>
+<li>Rafael Irizarry and Michael Love, “Data Analysis for the Life Sciences” <a href="https://leanpub.com/dataanalysisforthelifesciences">Free PDF</a>, <a href="http://genomicsclass.github.io/book/">HTML</a></li>
+<li><a href="https://kasperdanielhansen.github.io/genbioconductor/">Kasper Hansen, “Bioconductor for Genomic Data Science”</a></li>
+<li><a href="https://github.com/quinlan-lab/applied-computational-genomics">Aaron Quinlan, “Applied Computational Genomics” (Slides)</a></li>
+<li><a href="http://stat545.com/">Jennifer Bryan et al, Stat 545</a></li>
+<li><a href="https://doi.org/10.1371/journal.pcbi.1004387">Florian Markowetz, “You Are Not Working for Me; I Am Working with You”</a></li>
+<li><a href="tips.html">Tips to succeed in Computational Biology research</a></li>
 </ul>
 <p>Some R resources</p>
 <ul>
 <li><a href="http://www.statmethods.net/">Quick-R</a></li>
-<li><a href="http://mathesaurus.sourceforge.net/octave-r.html">R for
-Matlab users</a></li>
+<li><a href="http://mathesaurus.sourceforge.net/octave-r.html">R for Matlab users</a></li>
 <li><a href="http://www.cookbook-r.com/">R Cookbook</a></li>
-<li><a href="https://cran.r-project.org/doc/contrib/Short-refcard.pdf">R
-Reference Card</a></li>
+<li><a href="https://cran.r-project.org/doc/contrib/Short-refcard.pdf">R Reference Card</a></li>
 <li><a href="http://adv-r.had.co.nz/">Advanced R</a></li>
-<li><a href="https://github.com/mikelove/bioc-refcard">Bioconductor
-Reference Card</a></li>
+<li><a href="https://github.com/mikelove/bioc-refcard">Bioconductor Reference Card</a></li>
 </ul>
-<hr />
-<p>This page was last updated on 08/05/2026.</p>
+<hr>
+<p>This page was last updated on 08/06/2026.</p>
 <ul>
-<li><a href="https://github.com/biodatascience/compbio_src">GitHub
-repo</a></li>
-<li><a
-href="https://github.com/biodatascience/compbio_src/blob/master/LICENSE">License</a></li>
+<li><a href="https://github.com/biodatascience/compbio_src">GitHub repo</a></li>
+<li><a href="https://github.com/biodatascience/compbio_src/blob/master/LICENSE">License</a></li>
 </ul>
-</div>
+</section>
 
-
-
-
-</div>
-
-<script>
-
-// add bootstrap table styles to pandoc tables
-function bootstrapStylePandocTables() {
-  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
-}
-$(document).ready(function () {
-  bootstrapStylePandocTables();
-});
-
-
-</script>
-
-<!-- tabsets -->
-
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-
-$(document).ready(function () {
-  $('.tabset-dropdown > .nav-tabs > li').click(function () {
-    $(this).parent().toggleClass('nav-tabs-open');
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
   });
-});
-</script>
-
-<!-- code folding -->
+  </script>
+</div> <!-- /content -->
 
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 
-</body>
-</html>
+
+</body></html>

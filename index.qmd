@@ -1,57 +1,53 @@
 ---
-title: "Intro to Computational Biology - UNC BIOS/BCB 784"
-author: "[Michael Love](http://mikelove.github.io) (he/him)"
-output: 
-  html_document:
-    self_contained: false
+title: "Computational Biology - UNC BIOS/BCB 784"
+author: "[Michael Love](http://mikelove.github.io)"
+format:
+  html:
+    embed-resources: false
 ---
 
 ### Course information
 
-BIOS/BCB 784
+**Introduction to Computational Biology -- BIOS/BCB 784**
 
-Instructor details:
+#### Instructors
 
-  - Assoc. Prof. Michael Love, love [at] unc [dot] edu
-  - TA Biostatistics PhD candidate Yishu Zhang, yzhang4 [at] unc [dot] edu
-Course time and place:
+- Assoc. Prof. [Michael Love](https://mikelove.github.io/), love [at] unc [dot] edu
+- TA Yishu Zhang (Biostatistics PhD candidate), yzhang4 [at] unc [dot] edu
 
-  - Fall 2026 </br>
-    8/17/2026-12/11/2026 </br>
-    Tue/Thur 12:30-1:45pm </br>
-    Michael Hooker Research Center room 0003 </br>
-    <https://sph.unc.edu/room/0003-0004-mhrc/>
+Please include **"784"** in the subject line when emailing instructors.
 
-Previous year course details (**new course details will be available week of August 10, 2026**)
+#### Time and place
 
-  - [2024](old_syllabi/BIOS784-Fall2024-Gillings-v7.docx)
+Fall 2026, 8/17/2026--12/1/2026\
+Tue/Thur 12:30--1:45pm\
+[Michael Hooker Research Center, room 0003](https://sph.unc.edu/room/0003-0004-mhrc/)
 
-Pre-reqs and expectations:
+#### Syllabus
 
-  - This course makes extensive use of R and assumes basic familiarity with
-    base R (not packages) as a prerequisite. 
-    A self-quiz is available 
-    [here](https://github.com/biodatascience/compbio/blob/gh-pages/selfquiz/selfquiz.R), 
-    with answers provided 
-    [here](https://github.com/biodatascience/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda).
-    You can also find a
-    [list of base R functions](https://github.com/biodatascience/compbio_src/blob/master/eda/functions.md)
-    that one should be familiar with.
-  - This course also assumes basic familiarity with statistical concepts such as
-    parameter inference, hypothesis testing, basic probability (e.g. conditional
-    probability and conditional expectation).
-    For BCB students, BCB 720, which covers statistical inference,
-    is suitable as a pre-requisite for BIOS/BCB 784.
-    For other students not sure about pre-requisites, email me with any questions
-    with BIOS 784 in the subject line.
+[BIOS/BCB 784 -- Fall 2006](https://uncch.simplesyllabus.com/doc/j3wugrscu/2026-Fall-BCB-784-001-INTRO-TO-COMP-BIOL?mode=view)
+
+#### Prerequisites
+
+- **R:** This course makes extensive use of R and assumes basic familiarity with
+  base R (not packages) as a prerequisite. A self-quiz is available
+  [here](https://github.com/biodatascience/compbio/blob/gh-pages/selfquiz/selfquiz.R),
+  with answers
+  [here](https://github.com/biodatascience/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda).
+  See also this [list of base R functions](https://github.com/biodatascience/compbio_src/blob/master/eda/functions.md).
+- **Statistics:** This course assumes basic familiarity with parameter inference,
+  hypothesis testing, and basic probability (e.g. conditional probability and
+  conditional expectation). For BCB students, BCB 720 is suitable as a
+  prerequisite. Email with "784" in the subject line for any questions.
 
 ### Schedule and course notes
 
 For `Rmd` or `qmd` files, go to the
-[course repo](https://github.com/biodatascience/compbio_src) and navigate the
-directories, or clone the repo and navigate within RStudio. 
+[course repo](https://github.com/biodatascience/compbio_src), 
+or clone the repo and navigate within your IDE.
 
-```{r echo=FALSE}
+```{r}
+#| echo: false
 rscr <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/master/",x,".R")
 qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/master/",x,".qmd")
 ```
@@ -61,32 +57,53 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 | Week | Topic | Dir. | HTML | Title |
 |:-----|:------|:-----|:-----|:------|
 | | **Data analysis** | | | |
-| | Biological intro / GitHub | `-` | [github](github.html) | RStudio, git, and GitHub |
-| | Exploring bio data | `eda` | [EDA](eda/EDA.html) | Exploratory data analysis |
+| 1 | Biological intro / GitHub | `-` | [github](github.html) | RStudio, git, and GitHub |
+| 2--3 | Exploring bio data | `eda` | [EDA](eda/EDA.html) | Exploratory data analysis |
 | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
-| | Bioconductor | `bioc` | [objects](bioc/objects.html) | Bioc data objects |
+| 3--5 | Bioconductor | `bioc` | [objects](bioc/objects.html) | Bioc data objects |
 | | | | [ranges](bioc/ranges.html) | Genomic ranges |
 | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
 | | | | [anno](bioc/anno.html) | Accessing annotations |
 | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
-| | "tidyomics" | `TO@GH` | [tidy intro](https://tidyomics.github.io/tidy-intro-talk/) | Tidiness-in-Bioconductor intro |
+| 5--6 | Tidy Data for 'omics | `TO@GH` | [tidy intro](https://tidyomics.github.io/tidy-intro-talk/) | Tidiness-in-Bioconductor intro |
 | | | | [tidy ranges](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
-| | Distances & normalization | `dist` | [distances](dist/distances.html) | Distances in high dimensions |
+| 6--7 | Distances & normalization | `dist` | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | [transform_clust](dist/transform_clust.html) | Transformations and clustering |
 | | | | [vst_math](`r qrto("dist/vst_math")`) | VST math |
 | | | | [batch](dist/batch.html) | Batch effects and sources |
 | | | | [sva](dist/sva.html) | Surrogate variable analysis |
 | | | | [ruv script](`r rscr("dist/ruv")`) | RUV and friends |
 | | **Data modeling** | | | |
-| | Hierarchical models | `hier` | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+| 8--9 | Hierarchical models | `hier` | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator |
-| | Models and EM | `model` | [EM](model/EM.html) | Expectation maximization |
+| 9--10 | Models and EM | `model` | [EM](model/EM.html) | Expectation maximization |
 | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
-| | Markov models | `markov` | [hmm](markov/hmm.html) | Hidden Markov Models |
-| | Gene regulatory networks | `net` | [network](net/network.html) | Network analysis |
-| | Multiple testing | `multiple` | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
+| 11--12 | Markov models | `markov` | [hmm](markov/hmm.html) | Hidden Markov Models |
+| 12 | Gene regulatory networks | `net` | [network](net/network.html) | Network analysis |
+| 13 | Multiple testing | `multiple` | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
 | | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
+| 14--16 | Final project | | | In-class work (wk 14--15) + presentations (Dec 1) |
 
+### 2026 Calendar
+
+| Week | Tuesday | Thursday |
+|:-----|:--------|:---------|
+| 1 | Aug 18 *(intro)* | Aug 20 |
+| 2 | Aug 25 | Aug 27 |
+| 3 | Sep 1 | Sep 3 |
+| 4 | Sep 8 | Sep 10 |
+| 5 | Sep 15 | Sep 17 |
+| 6 | Sep 22 | Sep 24 |
+| 7 | Sep 29 | Oct 1 |
+| 8 | Oct 6 | Oct 8 |
+| 9 | Oct 13 | Oct 15 |
+| 10 | Oct 20 | Oct 22 |
+| 11 | Oct 27 | Oct 29 |
+| 12 | Nov 3 | Nov 5 |
+| 13 | Nov 10 | Nov 12 |
+| 14 | Nov 17 | Nov 19 |
+| 15 | Nov 24 | *(Thanksgiving)* |
+| 16 | Dec 1 | |
 
 ### Reading list
 
@@ -96,13 +113,13 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 	- [50 Years of Data Science](https://dl.dropboxusercontent.com/u/23421017/50YearsDataScience.pdf) David Donoho
 	- [The Future of Data Analysis](https://projecteuclid.org/euclid.aoms/1177704711) John Tukey (this article, discussed by Donoho, is from 1962)
     - [Ten Simple Rules for Effective Statistical Practice](http://journals.plos.org/ploscompbiol/article?id=10.1371/journal.pcbi.1004961) Kass, Caffo, Davidian, Meng, Yu, and Reid
-    - [Statistical Modeling: The Two Cultures](https://projecteuclid.org/euclid.ss/1009213726) Leo Breiman 
+    - [Statistical Modeling: The Two Cultures](https://projecteuclid.org/euclid.ss/1009213726) Leo Breiman
 * **Exploratory data analysis**
     - [dplyr - A Grammar of Data Manipulation](http://dplyr.tidyverse.org/)
 	- [ggplot2](http://ggplot2.org/)
 	- [The Genotype-Tissue Expression (GTEx) pilot analysis: Multitissue gene regulation in humans](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4547484/)
 * **Bioconductor**
-    - [Orchestrating high-throughput genomic analysis with Bioconductor](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4509590/) Huber et al 
+    - [Orchestrating high-throughput genomic analysis with Bioconductor](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4509590/) Huber et al
 * **Distances and normalization**
     - [Differential expression analysis for sequence count data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3218662/) Simon Anders and Wolfgang Huber
     - [Tackling the widespread and critical impact of batch effects in high-throughput data](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3880143/) Leek et al
@@ -131,7 +148,7 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 	- [MEME: discovering and analyzing DNA and protein sequence motifs](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC1538909/) Bailey et al
 * **Hierarchical models**
     - [Linear models and empirical Bayes methods for assessing differential expression in microarray experiments](http://www.statsci.org/smyth/pubs/ebayes.pdf) Gordon Smyth
-    - [Analyzing ’omics data using hierarchical models](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2904972/) Hongkai Ji and X Shirley Liu
+    - [Analyzing 'omics data using hierarchical models](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC2904972/) Hongkai Ji and X Shirley Liu
 	- [Stein's Paradox in Statistics](http://statweb.stanford.edu/~ckirby/brad/other/Article1977.pdf) Bradley Efron and Carl Morris
 	- [Stein's estimation rule and its competitors - an empirical Bayes approach](https://www.jstor.org/stable/2284155) Bradley Efron and Carl Morris
 * **Signal processing**
@@ -143,7 +160,7 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 ### Resources
 
 * [Online R Classes and Resources](http://genomicsclass.github.io/book/pages/resources.html)
-* Rafael Irizarry and Michael Love, "Data Analysis for the Life Sciences" 
+* Rafael Irizarry and Michael Love, "Data Analysis for the Life Sciences"
   [Free PDF](https://leanpub.com/dataanalysisforthelifesciences),
   [HTML](http://genomicsclass.github.io/book/)
 * [Kasper Hansen, "Bioconductor for Genomic Data Science"](https://kasperdanielhansen.github.io/genbioconductor/)
@@ -163,7 +180,7 @@ Some R resources
 
 ---
 
-This page was last updated on `r format(Sys.time(), "%m/%d/%Y")`. 
+This page was last updated on `r format(Sys.time(), "%m/%d/%Y")`.
 
 * [GitHub repo](https://github.com/biodatascience/compbio_src)
 * [License](https://github.com/biodatascience/compbio_src/blob/master/LICENSE)
