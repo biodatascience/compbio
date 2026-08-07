@@ -4,11 +4,14 @@ author: "[Michael Love](http://mikelove.github.io)"
 format:
   html:
     embed-resources: false
+    toc: true
 ---
 
 ### Course information
 
-**Introduction to Computational Biology -- BIOS/BCB 784**
+#### Title
+
+Introduction to Computational Biology -- BIOS/BCB 784
 
 #### Instructors
 
@@ -19,13 +22,13 @@ Please include **"784"** in the subject line when emailing instructors.
 
 #### Time and place
 
-Fall 2026, 8/17/2026--12/1/2026\
-Tue/Thur 12:30--1:45pm\
-[Michael Hooker Research Center, room 0003](https://sph.unc.edu/room/0003-0004-mhrc/)
+- Fall 2026, 8/17/2026--12/1/2026\
+  Tue/Thur 12:30--1:45pm\
+  [Michael Hooker Research Center, room 0003](https://sph.unc.edu/room/0003-0004-mhrc/)
 
 #### Syllabus
 
-[BIOS/BCB 784 -- Fall 2006](https://uncch.simplesyllabus.com/doc/j3wugrscu/2026-Fall-BCB-784-001-INTRO-TO-COMP-BIOL?mode=view)
+- [BIOS/BCB 784 -- Fall 2006](https://uncch.simplesyllabus.com/doc/j3wugrscu/2026-Fall-BCB-784-001-INTRO-TO-COMP-BIOL?mode=view)
 
 #### Prerequisites
 
@@ -40,7 +43,7 @@ Tue/Thur 12:30--1:45pm\
   conditional expectation). For BCB students, BCB 720 is suitable as a
   prerequisite. Email with "784" in the subject line for any questions.
 
-### Schedule and course notes
+### Schedule of lectures
 
 For `Rmd` or `qmd` files, go to the
 [course repo](https://github.com/biodatascience/compbio_src), 
@@ -58,14 +61,14 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 |:-----|:------|:-----|:-----|:------|
 | | **Data analysis** | | | |
 | 1 | Biological intro / GitHub | `-` | [github](github.html) | RStudio, git, and GitHub |
-| 2--3 | Exploring bio data | `eda` | [EDA](eda/EDA.html) | Exploratory data analysis |
+| 2--3 | Exploring biol. data | `eda` | [EDA](eda/EDA.html) | Exploratory data analysis |
 | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
 | 3--5 | Bioconductor | `bioc` | [objects](bioc/objects.html) | Bioc data objects |
 | | | | [ranges](bioc/ranges.html) | Genomic ranges |
 | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
 | | | | [anno](bioc/anno.html) | Accessing annotations |
 | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
-| 5--6 | Tidy Data for 'omics | `TO@GH` | [tidy intro](https://tidyomics.github.io/tidy-intro-talk/) | Tidiness-in-Bioconductor intro |
+| 5--6 | Tidy data for 'omics | `tidyomics` | [tidy intro](https://tidyomics.github.io/tidy-intro-talk/) | Tidiness-in-Bioconductor intro |
 | | | | [tidy ranges](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
 | 6--7 | Distances & normalization | `dist` | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | [transform_clust](dist/transform_clust.html) | Transformations and clustering |
@@ -83,8 +86,18 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 | 13 | Multiple testing | `multiple` | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
 | | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
 | 14--16 | Final project | | | In-class work (wk 14--15) + presentations (Dec 1) |
+| | **Impromptu topics** | | | |
+| | Genomic visualization | | | |
+| | Permutation / bootstrapping | | | |
+| | Single-cell | | | |
+| | Sequence alignment | | | |
+| | ChIP-seq / ATAC-seq | | | |
+| | Perturbation assays / CRISPR | | | |
+| | Spatial transcriptomics | | | |
+| | RNA splicing | | | |
+| | Reproducible / workflows | | | |
 
-### 2026 Calendar
+### Fall 2026 Calendar
 
 | Week | Tuesday | Thursday |
 |:-----|:--------|:---------|
