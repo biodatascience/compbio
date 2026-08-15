@@ -95,7 +95,10 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 | | Perturbation assays / CRISPR | | | |
 | | Spatial transcriptomics | | | |
 | | RNA splicing | | | |
-| | Reproducible / workflows | | | |
+| | Data: FASTQ/BAM/VCF | | | |
+| | Data: HDF5/Zarr/Parquet | | | |
+| | Computational efficiency | | | |
+| | Reproducible workflows | | | |
 
 ### Fall 2026 Calendar
 
