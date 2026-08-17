@@ -1,8 +1,13 @@
 ---
 title: "Using git and GitHub"
 author: "[Michael Love](http://mikelove.github.io)"
-output: html_document
+format:
+  html:
+    embed-resources: false
+    toc: true
 ---
+
+![](images/remote_control.jpg){width="33%"}
 
 This class is hosted on GitHub, and we will use the `git` program and GitHub accounts
 to distribute lecture notes and homework assignments.
@@ -26,10 +31,19 @@ We want to clone the course repo in RStudio, but first, we may need to
 install or upgrade the software on your computer. We need to do the following
 steps:
 
-* Install/upgrade R to version 4.4.1 (ideal to use latest version)
+* Install/upgrade R to version 4.6
 * Install RStudio for Desktop
 * Install git
 * Hook RStudio up to use git and GitHub
+
+We will use R version 4.6 which is paired with Bioconductor 3.23. 
+If you don't have Bioconductor installed that is fine, we will do 
+this in a later class.
+
+```{r}
+R.version.string
+BiocManager::version()
+```
 
 The first step can be done by visiting [CRAN](cran.r-project.org), and
 clicking the appropriate link for your operating system. When you load R,
@@ -51,7 +65,7 @@ The [HTML/website version](https://biodatascience.github.io/compbio/) and the
 [GitHub version](https://github.com/biodatascience/compbio_src) which
 has all the "source" Rmarkdown files. From the GitHub version,
 you can poke around, and click on Rmarkdown files, even see the history of the code.
-If you want to look at the raw text for an Rmd file, 
+If you want to look at the raw text for a quarto file (`.qmd`), 
 you can click the **Raw** link on the top of the document.
 
 To clone the class repo, you should go to the GitHub version of this class 
@@ -64,7 +78,7 @@ You will paste the link from the previous step into the box that
 says "repository URL". You can set the project directory name to `compbio`.
 
 Following this, you should see a number of directories, which contain
-`Rmd` files in the Files panel on the lower right hand side. And there
+quarto files (`.qmd`) in the Files panel on the lower right hand side. And there
 will be a git tab in the top right panel. The git tab will allow you
 to **pull** down new material as the course goes on and homeworks are
 posted to the course repo.
