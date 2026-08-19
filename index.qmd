@@ -38,10 +38,12 @@ Please include **"784"** in the subject line when emailing instructors.
   with answers
   [here](https://github.com/biodatascience/compbio/raw/gh-pages/selfquiz/selfquiz_answers.rda).
   See also this [list of base R functions](https://github.com/biodatascience/compbio_src/blob/master/eda/functions.md).
-- **Statistics:** This course assumes basic familiarity with parameter inference,
-  hypothesis testing, and basic probability (e.g. conditional probability and
-  conditional expectation). For BCB students, BCB 720 is suitable as a
-  prerequisite. Email with "784" in the subject line for any questions.
+- **Statistics:** The second half of the course involves Maximum Likelihood
+  Estimation (MLE), optimization over latent variables, and basic application of
+  Bayes theorem, drawing regularly on conditional probabilities and expectation.
+  Students should be comfortable with these topics before enrolling.
+  784 is targeted to 2nd or 3rd year Biostatistics MS/PhD students and BCB students who
+  have taken BCB 720. Email with "784" in the subject line for any questions.
 
 ### Schedule of lectures
 
