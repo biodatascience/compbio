@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.37">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,7 +69,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="github_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="github_files/libs/quarto-html/anchor.min.js"></script>
 <link href="github_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="github_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="github_files/libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="github_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="github_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
 <link href="github_files/libs/bootstrap/bootstrap-138a6193a3bd40baf1e627da441a4734.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
@@ -111,13 +111,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p><img src="images/remote_control.jpg" class="img-fluid" style="width:33.0%"></p>
-<p>This class is hosted on GitHub, and we will use the <code>git</code> program and GitHub accounts to distribute lecture notes and homework assignments. We talked about RStudio, git and GitHub in class, but to review:</p>
+<p>This class is hosted on GitHub, and we will use the <code>git</code> program and GitHub accounts to distribute lecture notes and code. We talked about RStudio, git and GitHub in class, but to review:</p>
 <ul>
 <li><a href="https://www.rstudio.com/">RStudio</a> is an interface to R, with support for git and GitHub integration</li>
 <li><code>git</code> is a program for version control (mostly useful for plain text documents)</li>
 <li>GitHub and BitBucket are websites/companies which host <code>git</code> repositories</li>
 </ul>
-<p>GitHub and BitBucket both offer free public or private repositories. GitHub seems to be more popular for open source projects. For this course, we will use private repositories for turning in homeworks and final projects, which are available because the course is labeled as an educational <em>organization</em> on GitHub.</p>
+<p>GitHub and BitBucket both offer free public or private repositories. GitHub seems to be more popular for open source projects.</p>
 <p>You can start a <code>git</code> repository (repo) by either <em>cloning</em> an existing repo (as you will do for this course), or <em>initializing</em> a repo from scratch.</p>
 <p>We want to clone the course repo in RStudio, but first, we may need to install or upgrade the software on your computer. We need to do the following steps:</p>
 <ul>
@@ -137,14 +137,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <pre><code>[1] '3.23'</code></pre>
 </div>
 </div>
-<p>The first step can be done by visiting <a href="cran.r-project.org">CRAN</a>, and clicking the appropriate link for your operating system. When you load R, you want it to say that R is version 4.4.1 when you type <code>sessionInfo()</code>.</p>
+<p>The first step can be done by visiting <a href="cran.r-project.org">CRAN</a>, and clicking the appropriate link for your operating system. When you load R, you want it to say that R is version 4.6 when you type <code>sessionInfo()</code>.</p>
 <p>The second step can be done by visiting the <a href="https://www.rstudio.com/">RStudio</a> website.</p>
-<p>The third and fourth step are best accomplished by following the instructions at the <a href="http://happygitwithr.com/">happygitwithr</a> website. To follow along with the course, you just need to clone the course repository from GitHub. However, to turn in homework, you will also need to <em>commit</em> and <em>push</em> your local work into private assignment repos. So you should follow the instructions at the link above to: register a GitHub account, install git, introduce yourself to git, set up keys for SSH, connect RStudio to Git and GitHub.</p>
+<p>The third and fourth step are best accomplished by following the instructions at the <a href="http://happygitwithr.com/">happygitwithr</a> website. You should follow the instructions at the link above to: register a GitHub account, install git, introduce yourself to git, set up keys for SSH, connect RStudio to Git and GitHub.</p>
 <p>This class has two “views” you might say. The <a href="https://biodatascience.github.io/compbio/">HTML/website version</a> and the <a href="https://github.com/biodatascience/compbio_src">GitHub version</a> which has all the “source” Rmarkdown files. From the GitHub version, you can poke around, and click on Rmarkdown files, even see the history of the code. If you want to look at the raw text for a quarto file (<code>.qmd</code>), you can click the <strong>Raw</strong> link on the top of the document.</p>
 <p>To clone the class repo, you should go to the GitHub version of this class and look for a green link that says “Clone or download”. You should copy the link that appears to the clipboard.</p>
 <p>Now, open RStudio, and follow the menu items: <em>File &gt; New Project &gt; Version Control &gt; Git</em>. You will paste the link from the previous step into the box that says “repository URL”. You can set the project directory name to <code>compbio</code>.</p>
 <p>Following this, you should see a number of directories, which contain quarto files (<code>.qmd</code>) in the Files panel on the lower right hand side. And there will be a git tab in the top right panel. The git tab will allow you to <strong>pull</strong> down new material as the course goes on and homeworks are posted to the course repo.</p>
-<p>We will explain in class how you will keep a private repo for turning in assignments.</p>
 
 </main>
 <!-- /main column -->

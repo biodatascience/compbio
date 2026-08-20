@@ -10,7 +10,7 @@ format:
 ![](images/remote_control.jpg){width="33%"}
 
 This class is hosted on GitHub, and we will use the `git` program and GitHub accounts
-to distribute lecture notes and homework assignments.
+to distribute lecture notes and code.
 We talked about RStudio, git and GitHub in class, but to review:
 
 * [RStudio](https://www.rstudio.com/) is an interface to R, with support for git and GitHub integration
@@ -18,10 +18,7 @@ We talked about RStudio, git and GitHub in class, but to review:
 * GitHub and BitBucket are websites/companies which host `git` repositories 
 
 GitHub and BitBucket both offer free public or private repositories.
-GitHub seems to be more popular for open source projects. For this
-course, we will use private repositories for turning in homeworks and
-final projects, which are available because the course is labeled as
-an educational *organization* on GitHub.
+GitHub seems to be more popular for open source projects.
 
 You can start a `git` repository (repo) by either *cloning* an existing repo
 (as you will do for this course), or *initializing* a repo
@@ -47,16 +44,13 @@ BiocManager::version()
 
 The first step can be done by visiting [CRAN](cran.r-project.org), and
 clicking the appropriate link for your operating system. When you load R,
-you want it to say that R is version 4.4.1 when you type `sessionInfo()`.
+you want it to say that R is version 4.6 when you type `sessionInfo()`.
 
 The second step can be done by visiting the [RStudio](https://www.rstudio.com/) website.
 
 The third and fourth step are best accomplished by following the instructions
-at the [happygitwithr](http://happygitwithr.com/) website. To follow
-along with the course, you just need to clone the course repository
-from GitHub. However, to turn in homework, you will also need to
-*commit* and *push* your local work into private assignment repos. So
-you should follow the instructions at the link above to: register a
+at the [happygitwithr](http://happygitwithr.com/) website. You should
+follow the instructions at the link above to: register a
 GitHub account, install git, introduce yourself to git, set up keys
 for SSH, connect RStudio to Git and GitHub.
 
@@ -83,5 +77,3 @@ will be a git tab in the top right panel. The git tab will allow you
 to **pull** down new material as the course goes on and homeworks are
 posted to the course repo.
 
-We will explain in class how you will keep a private repo for turning
-in assignments.
