@@ -42,7 +42,7 @@ R.version.string
 BiocManager::version()
 ```
 
-The first step can be done by visiting [CRAN](cran.r-project.org), and
+The first step can be done by visiting [CRAN](https://cran.r-project.org), and
 clicking the appropriate link for your operating system. When you load R,
 you want it to say that R is version 4.6 when you type `sessionInfo()`.
 
