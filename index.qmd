@@ -63,31 +63,31 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 |:-----|:------|:-----|:-----|:------|
 | | **Data analysis** | | | |
 | 1 | Biological intro / GitHub | `-` | [github](github.html) | RStudio, git, and GitHub |
-| 2--3 | Exploring biol. data | `eda` | [EDA](eda/EDA.html) | Exploratory data analysis |
+| 2 | Exploring biol. data | `eda` | [EDA](eda/EDA.html) | Exploratory data analysis |
 | | | | [brain RNA](eda/brain_RNA.html) | Exploring brain RNA |
-| 3--5 | Bioconductor | `bioc` | [objects](bioc/objects.html) | Bioc data objects |
+| 3--4 | Bioconductor | `bioc` | [objects](bioc/objects.html) | Bioc data objects |
 | | | | [ranges](bioc/ranges.html) | Genomic ranges |
 | | | |  [GRL](bioc/GRL.html) | GRangesList: lists of ranges |
 | | | | [anno](bioc/anno.html) | Accessing annotations |
 | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
-| 5--6 | Tidy data for 'omics | `tidyomics` | [tidy intro](https://tidyomics.github.io/tidy-intro-talk/) | Tidiness-in-Bioconductor intro |
+| 4 | Tidy data for 'omics | `tidyomics` | [tidy intro](https://tidyomics.github.io/tidy-intro-talk/) | Tidiness-in-Bioconductor intro |
 | | | | [tidy ranges](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
-| 6--7 | Distances & normalization | `dist` | [distances](dist/distances.html) | Distances in high dimensions |
+| 5--6 | Distances & normalization | `dist` | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | [transform_clust](dist/transform_clust.html) | Transformations and clustering |
 | | | | [vst_math](`r qrto("dist/vst_math")`) | VST math |
 | | | | [batch](dist/batch.html) | Batch effects and sources |
 | | | | [sva](dist/sva.html) | Surrogate variable analysis |
 | | | | [ruv script](`r rscr("dist/ruv")`) | RUV and friends |
 | | **Data modeling** | | | |
-| 8--9 | Hierarchical models | `hier` | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+| 7 | Hierarchical models | `hier` | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator |
-| 9--10 | Models and EM | `model` | [EM](model/EM.html) | Expectation maximization |
+| 8 | Models and EM | `model` | [EM](model/EM.html) | Expectation maximization |
 | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
-| 11--12 | Markov models | `markov` | [hmm](markov/hmm.html) | Hidden Markov Models |
-| 12 | Gene regulatory networks | `net` | [network](net/network.html) | Network analysis |
-| 13 | Multiple testing | `multiple` | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
+| 9 | Markov models | `markov` | [hmm](markov/hmm.html) | Hidden Markov Models |
+| 10 | Gene regulatory networks | `net` | [network](net/network.html) | Network analysis |
+| 11 | Multiple testing | `multiple` | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
 | | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
-| 14--16 | Final project | | | In-class work (wk 14--15) + presentations (Dec 1) |
+| 12--15 | Final project | | | In-class work (wk 14--15) + presentations (Dec 1) |
 | | **Impromptu topics** | | | |
 | | Genomic visualization | | | |
 | | Permutation / bootstrapping | | | |
