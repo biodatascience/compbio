@@ -1,10 +1,12 @@
 ---
 title: "Tips to succeed in Computational Biology research"
 author: "[Michael Love](http://mikelove.github.io)"
-output: html_document
+format:
+  html:
+    embed-resources: true
 ---
 
-Big picture:
+## Big picture
 
 * Work on relevant topics
     - Get advice from many sources on relevance
@@ -17,9 +19,9 @@ Big picture:
     - Care about technical bias and experimental design
 * Lots of luck involved
     - Not every research product will get any attention
-	- Diversify and see what works
+    - Diversify and see what works
 
-Details:
+## Details
 
 * Work on small subsets of data first
     - Do lots of spot checks early on
@@ -35,12 +37,12 @@ Details:
     - When possible, provide online HTML resources, gets more eyeballs
       and is more search friendly than PDF
 
-Writing:
+## Writing
 
 * Don't bury the most important message
     - Put the important message in title, and in abstract
-	- Most of the people who see your paper will only read the title,
-	then some fraction will read the abstract. Only a minority will
-	actually open the paper, and most of those will look at Figures
-	and the headings in the Results section
+    - Most of the people who see your paper will only read the title,
+      then some fraction will read the abstract. Only a minority will
+      actually open the paper, and most of those will look at Figures
+      and the headings in the Results section
     - Use simple language, repeat same words/structure for simplicity
