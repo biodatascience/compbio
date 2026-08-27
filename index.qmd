@@ -47,9 +47,9 @@ Please include **"784"** in the subject line when emailing instructors.
 
 ### Schedule of lectures
 
-For `Rmd` or `qmd` files, go to the
+For quarto source files (`.qmd`), go to the
 [course repo](https://github.com/biodatascience/compbio_src), 
-or clone the repo and navigate within your IDE.
+and clone the repo to navigate within your IDE (e.g. RStudio).
 
 ```{r}
 #| echo: false
