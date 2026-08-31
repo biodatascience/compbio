@@ -2566,23 +2566,23 @@ window.Quarto = {
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> intersect <span class="at">-wa</span> <span class="at">-a</span> chr1_100Mb_v86_txps.bed <span class="at">-b</span> chr1_query.bed <span class="kw">|</span> <span class="fu">head</span> <span class="at">-3</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>bash: line 1: bedtools: command not found</code></pre>
+<pre><code>chr1    100352599   100520277   ENST00000336454 0   +
+chr1    100538136   100542018   ENST00000315033 0   +
+chr1    100586648   100587431   ENST00000455141 0   -</code></pre>
 </div>
 </div>
 <p>Let’s count first by ignoring strand. This corresponds to the number above when we set <code>ignore.strand=TRUE</code>.</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> intersect <span class="at">-wa</span> <span class="at">-a</span> chr1_100Mb_v86_txps.bed <span class="at">-b</span> chr1_query.bed <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>bash: line 1: bedtools: command not found
-       0</code></pre>
+<pre><code>      26</code></pre>
 </div>
 </div>
 <p>In <code>bedtools</code> you use an <code>-s</code> to specify you only want to return overlaps with matching strand (and we drop the unstranded features).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="ex">bedtools</span> intersect <span class="at">-s</span> <span class="at">-wa</span> <span class="at">-a</span> chr1_100Mb_v86_txps.bed <span class="at">-b</span> chr1_query.bed <span class="kw">|</span> <span class="fu">wc</span> <span class="at">-l</span></span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>bash: line 1: bedtools: command not found
-       0</code></pre>
+<pre><code>      16</code></pre>
 </div>
 </div>
 </section>
