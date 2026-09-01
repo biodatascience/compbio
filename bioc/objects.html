@@ -2348,16 +2348,16 @@ ENSG00000238009 ENSG00000238009 RP11-34P13.7                lincRNA       chromo
 ENSG00000239945 ENSG00000239945 RP11-34P13.8                lincRNA       chromosome RP11-34P13.8
                                       entrezid     score
                                         &lt;list&gt; &lt;numeric&gt;
-ENSG00000223972 100287596,100287102,727856,... -1.050943
-ENSG00000227232                             NA  1.056449
-ENSG00000278267                      102466751  0.239509
-ENSG00000243485            105376912,100302278  1.011855
-ENSG00000237613           654835,645520,641702  0.605323
-ENSG00000268020                             NA  0.232657
-ENSG00000240361                             NA  0.142175
-ENSG00000186092                          79501  1.026058
-ENSG00000238009                             NA -0.486861
-ENSG00000239945                             NA  0.888771</code></pre>
+ENSG00000223972 100287596,100287102,727856,...  1.921721
+ENSG00000227232                             NA  0.698899
+ENSG00000278267                      102466751 -0.141519
+ENSG00000243485            105376912,100302278 -1.401671
+ENSG00000237613           654835,645520,641702 -1.047796
+ENSG00000268020                             NA  2.975802
+ENSG00000240361                             NA -0.136753
+ENSG00000186092                          79501 -1.254690
+ENSG00000238009                             NA  0.368120
+ENSG00000239945                             NA -0.408156</code></pre>
 </div>
 </div>
 <p>Adding data to the column metadata is even easier, we can just use <code>$</code>:</p>
@@ -2368,12 +2368,12 @@ ENSG00000239945                             NA  0.888771</code></pre>
 <pre><code>DataFrame with 6 rows and 4 columns
     sample condition  treated librarySize
   &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;   &lt;numeric&gt;
-1        1         A        0     1322214
-2        2         A        1     1178426
-3        3         B        0     1517968
-4        4         B        1     1328766
-5        5         C        0     1557898
-6        6         C        1     1448064</code></pre>
+1        1         A        0     1645682
+2        2         A        1     1635530
+3        3         B        0     1629957
+4        4         B        1     1082758
+5        5         C        0     1146296
+6        6         C        1     1003788</code></pre>
 </div>
 </div>
 </section>
@@ -2400,18 +2400,18 @@ ENSG00000239945                             NA  0.888771</code></pre>
   ENSG00000237613        1 34554-36081      - | ENSG00000237613     FAM138A                lincRNA
                   seq_coord_system      symbol             entrezid     score
                        &lt;character&gt; &lt;character&gt;               &lt;list&gt; &lt;numeric&gt;
-  ENSG00000227232       chromosome      WASH7P                 &lt;NA&gt;  1.056449
-  ENSG00000243485       chromosome   MIR1302-2  105376912,100302278  1.011855
-  ENSG00000237613       chromosome     FAM138A 654835,645520,641702  0.605323
+  ENSG00000227232       chromosome      WASH7P                 &lt;NA&gt;  0.698899
+  ENSG00000243485       chromosome   MIR1302-2  105376912,100302278 -1.401671
+  ENSG00000237613       chromosome     FAM138A 654835,645520,641702 -1.047796
   -------
   seqinfo: 25 sequences (1 circular) from GRCh38 genome</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assay</span>(se_sub)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                     [,1]        [,2]       [,3]       [,4]      [,5]       [,6]
-ENSG00000227232 1.2999670 -0.07099211 -1.3513477 -0.2374976 -1.817457  1.5747440
-ENSG00000243485 0.5734338 -0.18702448  0.4147024  0.2251577  1.971866  0.1310517
-ENSG00000237613 0.1267985  1.02402496  0.5384512  0.2792769  1.685622 -1.2347771</code></pre>
+<pre><code>                      [,1]       [,2]       [,3]       [,4]       [,5]       [,6]
+ENSG00000227232 -0.6918380 -1.0559073 -0.6748035  0.4592746 -1.0424676 -0.7387476
+ENSG00000243485  0.1863184 -0.2027204  0.2140049 -0.1494230 -1.5117206 -1.8970310
+ENSG00000237613 -0.1832178  0.8591328 -1.0910554 -0.4840279 -0.3493797 -1.4938933</code></pre>
 </div>
 </div>
 <p>Another useful property is that we know metadata about the chromosomes, and the version of the genome. (If you were not yet aware, the basepair position of a given feature, say gene <em>XYZ</em>, will change between versions of the genome, as sequences are added or rearranged.)</p>
@@ -2487,6 +2487,9 @@ SRR1565948         13320398
 SRR1565949         13002276</code></pre>
 </div>
 </div>
+</section>
+<section id="parsing-sample-information" class="level1">
+<h1>Parsing sample information</h1>
 <p>The information we are interested in is contained in the <code>characteristics</code> column (which is a character list).</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(rse<span class="sc">$</span>characteristics)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2543,6 +2546,9 @@ attr(,&quot;package&quot;)
   non.asthmatic     6       6</code></pre>
 </div>
 </div>
+</section>
+<section id="looking-at-the-genes-and-their-ranges" class="level1">
+<h1>Looking at the genes and their ranges</h1>
 <p>Let’s see what the <code>rowRanges</code> of this experiment look like:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rowRanges</span>(rse)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -2594,7 +2600,10 @@ attr(,&quot;package&quot;)
   chrM           &lt;NA&gt;       TRUE   &lt;NA&gt;</code></pre>
 </div>
 </div>
-<p>The <code>rowRanges</code> here were determined by the quantification method that the <em>recount2</em> authors used. We don’t know what the genome is from the <code>seqinfo</code>, but by doing some simple look-ups we can infer it is GRCh38.</p>
+<p>The <code>rowRanges</code> here were determined by the quantification method that the <em>recount2</em> authors used. We don’t know what the genome is from the <code>seqinfo</code>, but we can see from the <a href="https://jhubiostatistics.shinyapps.io/recount/">recount2 website</a> the following information:</p>
+<blockquote class="blockquote">
+<p>The RangedSummarizedExperiment object for the counts summarized at the gene level using the Gencode v25 (GRCh38.p7, CHR) annotation.</p>
+</blockquote>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Seqinfo)</span>
 <span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>si_obj <span class="ot">&lt;-</span> Seqinfo<span class="sc">::</span><span class="fu">Seqinfo</span>(<span class="at">genome=</span><span class="st">&quot;hg38&quot;</span>)</span>
@@ -2674,30 +2683,58 @@ Warning in valid.GenomicRanges.seqinfo(x, suggest.trim = TRUE): GRanges object c
 </div>
 </div>
 </section>
+<section id="adding-gene-metadata-from-a-gtf-file" class="level1">
+<h1>Adding gene metadata from a GTF file</h1>
+<p>One piece of metadata we might want to add to the rows of our SE is the gene biotype, e.g. whether a gene is protein-coding, a lncRNA, a pseudogene, etc. This information is available in the GENCODE annotation GTF file. Here we use <em>rtracklayer</em> to import the GTF directly, keeping only the gene-level entries. We will see other ways to work with GTF files and annotation databases later in the Bioconductor section of the course. The GTF is ~37 Mb.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rtracklayer)</span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="co"># GENCODE v25</span></span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>gtf_url <span class="ot">&lt;-</span> <span class="st">&quot;https://ftp.ebi.ac.uk/pub/databases/gencode/Gencode_human/release_25/gencode.v25.annotation.gtf.gz&quot;</span></span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>gtf_file <span class="ot">&lt;-</span> <span class="fu">here</span>(<span class="st">&quot;bioc&quot;</span>, <span class="st">&quot;gencode.v25.gtf.gz&quot;</span>)</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(gtf_file)) <span class="fu">download.file</span>(gtf_url, gtf_file)</span>
+<span id="cb56-6"><a href="#cb56-6" aria-hidden="true" tabindex="-1"></a>genes_gtf <span class="ot">&lt;-</span> rtracklayer<span class="sc">::</span><span class="fu">import</span>(gtf_file, <span class="at">feature.type=</span><span class="st">&quot;gene&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</div>
+<p>The <code>feature.type</code> argument limits the import to gene-level rows, so we avoid parsing the full multi-million line file. The result is ranges with metadata columns from the GTF, including <code>gene_type</code>. Both the GTF and our <code>rse</code> use versioned GENCODE gene IDs (e.g. <code>ENSG00000000003.14</code>), so we can match them directly.</p>
+<div class="cell">
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>m <span class="ot">&lt;-</span> <span class="fu">match</span>(<span class="fu">rownames</span>(rse), genes_gtf<span class="sc">$</span>gene_id)</span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mcols</span>(rse)<span class="sc">$</span>gene_type <span class="ot">&lt;-</span> genes_gtf<span class="sc">$</span>gene_type[m]</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>tab <span class="ot">&lt;-</span> <span class="fu">table</span>(<span class="fu">mcols</span>(rse)<span class="sc">$</span>gene_type)</span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(<span class="fu">sort</span>(tab, <span class="at">decreasing =</span> <span class="cn">TRUE</span>),<span class="dv">10</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+        protein_coding   processed_pseudogene                lincRNA              antisense 
+                 19950                  10275                   7539                   5530 
+unprocessed_pseudogene               misc_RNA                  snRNA                  miRNA 
+                  2663                   2213                   1900                   1569 
+                   TEC                 snoRNA 
+                  1048                    944 </code></pre>
+</div>
+</div>
+</section>
 <section id="visualizing-count-matrix-data-in-a-se" class="level1">
 <h1>Visualizing count matrix data in a SE</h1>
 <p>We will discuss transformations and normalization in a following section, but here we will just use a transformation so that we can compute meaningful distances on count data. We build a <em>DESeqDataSet</em> and then specify the experimental design using a <code>~</code> and the variables that we expect to produce differences in the counts. (These variables are used to assess how much technical variability is in the data, but not used in the transformation function itself.)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span>
-<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>dds <span class="ot">&lt;-</span> <span class="fu">DESeqDataSet</span>(rse, <span class="sc">~</span>condition <span class="sc">+</span> treatment)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DESeq2)</span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>dds <span class="ot">&lt;-</span> <span class="fu">DESeqDataSet</span>(rse, <span class="sc">~</span>condition <span class="sc">+</span> treatment)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>converting counts to integer mode</code></pre>
 </div>
 </div>
 <p>We use this function, which implements a <em>variance stabilizing transformation</em> (more on this next time):</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>vsd <span class="ot">&lt;-</span> <span class="fu">vst</span>(dds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>vsd <span class="ot">&lt;-</span> <span class="fu">vst</span>(dds)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We calculate the variance across all samples (on the transformed data):</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(matrixStats)</span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>rv <span class="ot">&lt;-</span> <span class="fu">rowVars</span>(<span class="fu">assay</span>(vsd))</span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>o <span class="ot">&lt;-</span> <span class="fu">order</span>(rv, <span class="at">decreasing=</span><span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(matrixStats)</span>
+<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>rv <span class="ot">&lt;-</span> <span class="fu">rowVars</span>(<span class="fu">assay</span>(vsd))</span>
+<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>o <span class="ot">&lt;-</span> <span class="fu">order</span>(rv, <span class="at">decreasing=</span><span class="cn">TRUE</span>)[<span class="dv">1</span><span class="sc">:</span><span class="dv">100</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>Finally, before plotting a heatmap, we extract the covariates that we want to annotated the top of the plot.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb60"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>anno_col <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colData</span>(vsd)[,<span class="fu">c</span>(<span class="st">&quot;condition&quot;</span>,<span class="st">&quot;treatment&quot;</span>)])</span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>anno_col</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>anno_col <span class="ot">&lt;-</span> <span class="fu">as.data.frame</span>(<span class="fu">colData</span>(vsd)[,<span class="fu">c</span>(<span class="st">&quot;condition&quot;</span>,<span class="st">&quot;treatment&quot;</span>)])</span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>anno_col</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>               condition treatment
 SRR1565926     asthmatic     HRV16
@@ -2728,11 +2765,11 @@ SRR1565949 non.asthmatic   Vehicle</code></pre>
 </div>
 <p>This code pull out the top of the transformed data by variance, and adds an annotation to the top of the plot. By default the rows and columns will be clustered by Euclidean distance. See <code>?pheatmap</code> for more details on this function (it’s a very detailed manual page).</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb62"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(<span class="fu">assay</span>(vsd)[o,],</span>
-<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">annotation_col=</span>anno_col,</span>
-<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">show_rownames=</span><span class="cn">FALSE</span>, </span>
-<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">show_colnames=</span><span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pheatmap)</span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a><span class="fu">pheatmap</span>(<span class="fu">assay</span>(vsd)[o,],</span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">annotation_col=</span>anno_col,</span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">show_rownames=</span><span class="cn">FALSE</span>, </span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">show_colnames=</span><span class="cn">FALSE</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2743,7 +2780,7 @@ SRR1565949 non.asthmatic   Vehicle</code></pre>
 </div>
 <p>We can also easily make a PCA plot with dedicated functions:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotPCA</span>(vsd, <span class="at">intgroup=</span><span class="st">&quot;treatment&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb66"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotPCA</span>(vsd, <span class="at">intgroup=</span><span class="st">&quot;treatment&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>using ntop=500 top features by variance</code></pre>
 </div>
@@ -2762,9 +2799,9 @@ SRR1565949 non.asthmatic   Vehicle</code></pre>
 <p>For more details, there is a free online book “Orchestrating Single Cell Analysis With Bioconductor” produced by a group within the Bioconductor Project, with lots of example analyses: <a href="http://bioconductor.org/books/3.15/OSCA.basic/">OSCA</a>.</p>
 <p>Here we show a quick example of how this object extends the SE.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SingleCellExperiment)</span>
-<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>sce <span class="ot">&lt;-</span> <span class="fu">as</span>(rse, <span class="st">&quot;SingleCellExperiment&quot;</span>)</span>
-<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>sce</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb68"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(SingleCellExperiment)</span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>sce <span class="ot">&lt;-</span> <span class="fu">as</span>(rse, <span class="st">&quot;SingleCellExperiment&quot;</span>)</span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>sce</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>class: SingleCellExperiment 
 dim: 58037 24 
@@ -2772,7 +2809,7 @@ metadata(0):
 assays(1): counts
 rownames(58037): ENSG00000000003.14 ENSG00000000005.5 ... ENSG00000283698.1
   ENSG00000283699.1
-rowData names(3): gene_id bp_length symbol
+rowData names(4): gene_id bp_length symbol gene_type
 colnames(24): SRR1565926 SRR1565927 ... SRR1565948 SRR1565949
 colData names(23): project sample ... condition treatment
 reducedDimNames(0):
@@ -2782,49 +2819,49 @@ altExpNames(0):</code></pre>
 </div>
 <p>There are special functions dedicated to scaling the samples (we will discuss this technical aspect soon):</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scran)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb70"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scran)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Loading required package: scuttle</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a>sce <span class="ot">&lt;-</span> <span class="fu">computeSumFactors</span>(sce)</span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sizeFactors</span>(sce)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb72"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>sce <span class="ot">&lt;-</span> <span class="fu">computeSumFactors</span>(sce)</span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sizeFactors</span>(sce)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code> [1] 0.7672143 0.8205514 0.8686567 0.9479224 0.6484723 0.9815079 1.0797070 1.0569889 1.4377886
 [10] 0.9465292 1.4759422 1.2630195 0.8889808 1.0524670 0.9677885 0.8086102 0.8806503 0.8999780
 [19] 0.9505805 1.0430322 1.2527967 0.9908707 0.5208294 1.4491155</code></pre>
 </div>
 </div>
-<p>Similarly, dedicated functions for transformations:</p>
+<p>Similarly, dedicated functions for transformations (the deprecation warning is ignorable for now, as of 2026 functions for single cell transformation are being migrated to new packages…)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>sce <span class="ot">&lt;-</span> <span class="fu">logNormCounts</span>(sce)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb74"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a>sce <span class="ot">&lt;-</span> <span class="fu">logNormCounts</span>(sce)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in .local(x, ...): &#39;normalizeCounts&#39; is deprecated.
 Use &#39;scrapper::normalizeCounts&#39; instead.
 See help(&quot;Deprecated&quot;)</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assayNames</span>(sce)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb76"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assayNames</span>(sce)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;counts&quot;    &quot;logcounts&quot;</code></pre>
 </div>
 </div>
-<p>And dedicated functions and new slots for reduced dimensions:</p>
+<p>And dedicated functions and new slots for reduced dimensions. (Again ignore the deprecation warnings…)</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>sce <span class="ot">&lt;-</span> <span class="fu">fixedPCA</span>(sce, <span class="at">rank=</span><span class="dv">5</span>, <span class="at">subset.row=</span><span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb78"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1</span>)</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a>sce <span class="ot">&lt;-</span> <span class="fu">fixedPCA</span>(sce, <span class="at">rank=</span><span class="dv">5</span>, <span class="at">subset.row=</span><span class="cn">NULL</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning in fixedPCA(sce, rank = 5, subset.row = NULL): &#39;fixedPCA&#39; is deprecated.
 Use &#39;scrapper::runPca.se&#39; instead.
 See help(&quot;Deprecated&quot;)</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reducedDimNames</span>(sce)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">reducedDimNames</span>(sce)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] &quot;PCA&quot;</code></pre>
 </div>
 </div>
 <p>We can manually get at the PCs:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb79"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">reducedDim</span>(sce, <span class="st">&quot;PCA&quot;</span>)</span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pca[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a>pca <span class="ot">&lt;-</span> <span class="fu">reducedDim</span>(sce, <span class="st">&quot;PCA&quot;</span>)</span>
+<span id="cb82-2"><a href="#cb82-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(pca[,<span class="dv">1</span><span class="sc">:</span><span class="dv">2</span>])</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2835,11 +2872,11 @@ See help(&quot;Deprecated&quot;)</code></pre>
 </div>
 <p>But we can more easily use dedicated visualization functions:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb80"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scater)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scater)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Warning: package &#39;scater&#39; was built under R version 4.6.1</code></pre>
 </div>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb82"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotReducedDim</span>(sce, <span class="st">&quot;PCA&quot;</span>, <span class="at">color_by=</span><span class="st">&quot;treatment&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb85"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plotReducedDim</span>(sce, <span class="st">&quot;PCA&quot;</span>, <span class="at">color_by=</span><span class="st">&quot;treatment&quot;</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -2860,7 +2897,7 @@ See help(&quot;Deprecated&quot;)</code></pre>
 <li>TreeSummarizedExperiment<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> for data with hierarchical or tree-like structure on the rows or columns</li>
 </ul>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb83"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb86"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sessionInfo</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>R version 4.6.0 (2026-04-24)
 Platform: aarch64-apple-darwin23
@@ -2882,12 +2919,13 @@ attached base packages:
 other attached packages:
  [1] scater_1.40.2               ggplot2_4.0.3               scran_1.40.0               
  [4] scuttle_1.22.0              SingleCellExperiment_1.34.0 pheatmap_1.0.13            
- [7] DESeq2_1.52.0               stringr_1.6.0               here_1.0.2                 
-[10] EnsDb.Hsapiens.v86_2.99.0   ensembldb_2.36.1            AnnotationFilter_1.36.0    
-[13] GenomicFeatures_1.64.0      AnnotationDbi_1.74.0        SummarizedExperiment_1.42.0
-[16] Biobase_2.72.0              GenomicRanges_1.64.0        Seqinfo_1.2.0              
-[19] IRanges_2.46.0              S4Vectors_0.50.1            BiocGenerics_0.58.1        
-[22] generics_0.1.4              MatrixGenerics_1.24.0       matrixStats_1.5.0          
+ [7] DESeq2_1.52.0               rtracklayer_1.72.0          stringr_1.6.0              
+[10] here_1.0.2                  EnsDb.Hsapiens.v86_2.99.0   ensembldb_2.36.1           
+[13] AnnotationFilter_1.36.0     GenomicFeatures_1.64.0      AnnotationDbi_1.74.0       
+[16] SummarizedExperiment_1.42.0 Biobase_2.72.0              GenomicRanges_1.64.0       
+[19] Seqinfo_1.2.0               IRanges_2.46.0              S4Vectors_0.50.1           
+[22] BiocGenerics_0.58.1         generics_0.1.4              MatrixGenerics_1.24.0      
+[25] matrixStats_1.5.0          
 
 loaded via a namespace (and not attached):
  [1] DBI_1.3.0                bitops_1.1-0             gridExtra_2.3.1         
@@ -2902,27 +2940,27 @@ loaded via a namespace (and not attached):
 [28] jsonlite_2.0.0           blob_1.3.0               DelayedArray_0.38.2     
 [31] BiocParallel_1.46.0      irlba_2.3.7              parallel_4.6.0          
 [34] cluster_2.1.8.3          R6_2.6.1                 stringi_1.8.9           
-[37] RColorBrewer_1.1-3       limma_3.68.4             rtracklayer_1.72.0      
-[40] Rcpp_1.1.2               knitr_1.51               Matrix_1.7-6            
-[43] igraph_2.3.3             tidyselect_1.2.1         viridis_0.6.5           
-[46] dichromat_2.0-1          abind_1.4-8              yaml_2.3.12             
-[49] codetools_0.2-20         curl_7.1.0               lattice_0.22-9          
-[52] tibble_3.3.1             withr_3.0.3              KEGGREST_1.52.2         
-[55] S7_0.2.2                 evaluate_1.0.5           Biostrings_2.80.1       
-[58] pillar_1.11.1            BiocManager_1.30.27      rprojroot_2.1.1         
-[61] RCurl_1.98-1.19          scales_1.4.0             glue_1.8.1              
-[64] metapod_1.20.0           lazyeval_0.2.3           tools_4.6.0             
-[67] BiocIO_1.22.0            BiocNeighbors_2.6.0      ScaledMatrix_1.20.0     
-[70] locfit_1.5-9.12          GenomicAlignments_1.48.0 XML_3.99-0.23           
-[73] cowplot_1.2.0            grid_4.6.0               edgeR_4.10.1            
-[76] beeswarm_0.4.0           BiocSingular_1.28.0      vipor_0.4.7             
-[79] restfulr_0.0.17          cli_3.6.6                rsvd_1.0.5              
-[82] viridisLite_0.4.3        S4Arrays_1.12.0          dplyr_1.2.1             
-[85] gtable_0.3.6             digest_0.6.39            ggrepel_0.9.8           
-[88] SparseArray_1.12.2       dqrng_0.4.1              rjson_0.2.23            
-[91] htmlwidgets_1.6.4        farver_2.1.2             memoise_2.0.1           
-[94] htmltools_0.5.9          lifecycle_1.0.5          httr_1.4.8              
-[97] statmod_1.5.2            bit64_4.8.2             </code></pre>
+[37] RColorBrewer_1.1-3       limma_3.68.4             Rcpp_1.1.2              
+[40] knitr_1.51               Matrix_1.7-6             igraph_2.3.3            
+[43] tidyselect_1.2.1         viridis_0.6.5            dichromat_2.0-1         
+[46] abind_1.4-8              yaml_2.3.12              codetools_0.2-20        
+[49] curl_7.1.0               lattice_0.22-9           tibble_3.3.1            
+[52] withr_3.0.3              KEGGREST_1.52.2          S7_0.2.2                
+[55] evaluate_1.0.5           Biostrings_2.80.1        pillar_1.11.1           
+[58] BiocManager_1.30.27      rprojroot_2.1.1          RCurl_1.98-1.19         
+[61] scales_1.4.0             glue_1.8.1               metapod_1.20.0          
+[64] lazyeval_0.2.3           tools_4.6.0              BiocIO_1.22.0           
+[67] BiocNeighbors_2.6.0      ScaledMatrix_1.20.0      locfit_1.5-9.12         
+[70] GenomicAlignments_1.48.0 XML_3.99-0.23            cowplot_1.2.0           
+[73] grid_4.6.0               edgeR_4.10.1             beeswarm_0.4.0          
+[76] BiocSingular_1.28.0      vipor_0.4.7              restfulr_0.0.17         
+[79] cli_3.6.6                rsvd_1.0.5               viridisLite_0.4.3       
+[82] S4Arrays_1.12.0          dplyr_1.2.1              gtable_0.3.6            
+[85] digest_0.6.39            ggrepel_0.9.8            SparseArray_1.12.2      
+[88] dqrng_0.4.1              rjson_0.2.23             htmlwidgets_1.6.4       
+[91] farver_2.1.2             memoise_2.0.1            htmltools_0.5.9         
+[94] lifecycle_1.0.5          httr_1.4.8               statmod_1.5.2           
+[97] bit64_4.8.2             </code></pre>
 </div>
 </div>
 </section>
