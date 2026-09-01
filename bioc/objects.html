@@ -2295,13 +2295,15 @@ vertical-align: -.125em;
 </div>
 <p>An important aspect of SEs is that the rows can optionally correspond to particular set of <em>GRanges</em>, e.g. a row of an SE could give the number of RNA-seq reads that can be assigned to a particular gene, and the row could also have metadata in the 3rd slot including, e.g. location of the gene in the genome. In this case, we use the <code>rowRanges</code> slot to specify the information.</p>
 <p>If we don’t have ranges, we can just put a table on the “side” of the SE by specifying <code>rowData</code>.</p>
-<p>I will show in the example though how to provide <code>rowRanges</code>. Let’s use the first 10 genes in the Ensembl database for human. The following code loads a database, pulls out all the genes (as <em>GRanges</em>), removes extra “non-standard” chromosomes, and then subsets to the first 10 genes.</p>
+<p>I will show in the example though how to provide <code>rowRanges</code>. Let’s use the first 10 genes from the UCSC hg38 knownGene annotation. The following code loads a database, pulls out all the genes (as <em>GRanges</em>), removes extra “non-standard” chromosomes, and then subsets to the first 10 genes.</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(EnsDb.Hsapiens.v86)</span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>txdb <span class="ot">&lt;-</span> EnsDb.Hsapiens.v86</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> <span class="fu">genes</span>(txdb)</span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> GenomeInfoDb<span class="sc">::</span><span class="fu">keepStandardChromosomes</span>(g, <span class="at">pruning.mode=</span><span class="st">&quot;coarse&quot;</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>row_ranges <span class="ot">&lt;-</span> g[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(TxDb.Hsapiens.UCSC.hg38.knownGene)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>txdb <span class="ot">&lt;-</span> TxDb.Hsapiens.UCSC.hg38.knownGene</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressMessages</span>({</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  g <span class="ot">&lt;-</span> <span class="fu">sort</span>(<span class="fu">genes</span>(txdb))</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>})</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>g <span class="ot">&lt;-</span> GenomeInfoDb<span class="sc">::</span><span class="fu">keepStandardChromosomes</span>(g, <span class="at">pruning.mode=</span><span class="st">&quot;coarse&quot;</span>)</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>row_ranges <span class="ot">&lt;-</span> g[<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We will make up some simulated “expression” measurements, and then store these in the SE. I call <code>list</code> so I can name the matrix, otherwise it would not be named.</p>
 <div class="cell">
@@ -2315,8 +2317,8 @@ vertical-align: -.125em;
 dim: 10 6 
 metadata(0):
 assays(1): exprs
-rownames(10): ENSG00000223972 ENSG00000227232 ... ENSG00000238009 ENSG00000239945
-rowData names(6): gene_id gene_name ... symbol entrezid
+rownames(10): 100287102 107985730 ... 400728 643837
+rowData names(1): gene_id
 colnames: NULL
 colData names(3): sample condition treated</code></pre>
 </div>
@@ -2333,31 +2335,19 @@ colData names(3): sample condition treated</code></pre>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mcols</span>(se)<span class="sc">$</span>score <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">10</span>)</span>
 <span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">mcols</span>(se)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>DataFrame with 10 rows and 7 columns
-                        gene_id    gene_name           gene_biotype seq_coord_system       symbol
-                    &lt;character&gt;  &lt;character&gt;            &lt;character&gt;      &lt;character&gt;  &lt;character&gt;
-ENSG00000223972 ENSG00000223972      DDX11L1 transcribed_unproces..       chromosome      DDX11L1
-ENSG00000227232 ENSG00000227232       WASH7P unprocessed_pseudogene       chromosome       WASH7P
-ENSG00000278267 ENSG00000278267    MIR6859-1                  miRNA       chromosome    MIR6859-1
-ENSG00000243485 ENSG00000243485    MIR1302-2                lincRNA       chromosome    MIR1302-2
-ENSG00000237613 ENSG00000237613      FAM138A                lincRNA       chromosome      FAM138A
-ENSG00000268020 ENSG00000268020       OR4G4P unprocessed_pseudogene       chromosome       OR4G4P
-ENSG00000240361 ENSG00000240361      OR4G11P unprocessed_pseudogene       chromosome      OR4G11P
-ENSG00000186092 ENSG00000186092        OR4F5         protein_coding       chromosome        OR4F5
-ENSG00000238009 ENSG00000238009 RP11-34P13.7                lincRNA       chromosome RP11-34P13.7
-ENSG00000239945 ENSG00000239945 RP11-34P13.8                lincRNA       chromosome RP11-34P13.8
-                                      entrezid     score
-                                        &lt;list&gt; &lt;numeric&gt;
-ENSG00000223972 100287596,100287102,727856,...  1.921721
-ENSG00000227232                             NA  0.698899
-ENSG00000278267                      102466751 -0.141519
-ENSG00000243485            105376912,100302278 -1.401671
-ENSG00000237613           654835,645520,641702 -1.047796
-ENSG00000268020                             NA  2.975802
-ENSG00000240361                             NA -0.136753
-ENSG00000186092                          79501 -1.254690
-ENSG00000238009                             NA  0.368120
-ENSG00000239945                             NA -0.408156</code></pre>
+<pre><code>DataFrame with 10 rows and 2 columns
+              gene_id      score
+          &lt;character&gt;  &lt;numeric&gt;
+100287102   100287102  1.1418449
+107985730   107985730  1.2985157
+100302278   100302278  1.6422630
+79501           79501 -0.2848453
+102725121   102725121  2.6633842
+124903815   124903815  0.0929827
+105378580   105378580 -0.4121722
+124903817   124903817  0.0185722
+400728         400728  0.0207893
+643837         643837 -1.2392003</code></pre>
 </div>
 </div>
 <p>Adding data to the column metadata is even easier, we can just use <code>$</code>:</p>
@@ -2368,12 +2358,12 @@ ENSG00000239945                             NA -0.408156</code></pre>
 <pre><code>DataFrame with 6 rows and 4 columns
     sample condition  treated librarySize
   &lt;factor&gt;  &lt;factor&gt; &lt;factor&gt;   &lt;numeric&gt;
-1        1         A        0     1645682
-2        2         A        1     1635530
-3        3         B        0     1629957
-4        4         B        1     1082758
-5        5         C        0     1146296
-6        6         C        1     1003788</code></pre>
+1        1         A        0     1176159
+2        2         A        1     1081057
+3        3         B        0     1275764
+4        4         B        1     1198264
+5        5         C        0     1807873
+6        6         C        1     1631031</code></pre>
 </div>
 </div>
 </section>
@@ -2381,56 +2371,51 @@ ENSG00000239945                             NA -0.408156</code></pre>
 <h1>Using the ranges of a SE</h1>
 <p>How does this additional functionality of the <code>rowRanges</code> facilitate faster data analysis? Suppose we are working with another data set besides <code>se</code> and we find a region of interest on chromsome 1. If we want to pull out the expression data for that region, we just ask for the subset of <code>se</code> that overlaps. First we build the query region, and then use the <em>GRanges</em> function <code>overlapsAny</code> within single square brackets (like you would subset any matrix-like object:</p>
 <div class="cell">
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="fu">GRanges</span>(<span class="st">&quot;1&quot;</span>, <span class="fu">IRanges</span>(<span class="dv">25000</span>,<span class="dv">40000</span>))</span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>query <span class="ot">&lt;-</span> <span class="fu">GRanges</span>(<span class="st">&quot;chr1&quot;</span>, <span class="fu">IRanges</span>(<span class="dv">5000</span>,<span class="dv">35000</span>))</span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>se_sub <span class="ot">&lt;-</span> se[<span class="fu">overlapsAny</span>(se, query), ]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
 <p>We could have equivalently used the shorthand code:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>se_sub <span class="ot">&lt;-</span> se[se <span class="sc">%over%</span> query,]</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </div>
-<p>We get just three ranges, and three rows of the SE:</p>
+<p>We get just the overlapping ranges, and the corresponding rows of the SE:</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rowRanges</span>(se_sub)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>GRanges object with 3 ranges and 7 metadata columns:
-                  seqnames      ranges strand |         gene_id   gene_name           gene_biotype
-                     &lt;Rle&gt;   &lt;IRanges&gt;  &lt;Rle&gt; |     &lt;character&gt; &lt;character&gt;            &lt;character&gt;
-  ENSG00000227232        1 14404-29570      - | ENSG00000227232      WASH7P unprocessed_pseudogene
-  ENSG00000243485        1 29554-31109      + | ENSG00000243485   MIR1302-2                lincRNA
-  ENSG00000237613        1 34554-36081      - | ENSG00000237613     FAM138A                lincRNA
-                  seq_coord_system      symbol             entrezid     score
-                       &lt;character&gt; &lt;character&gt;               &lt;list&gt; &lt;numeric&gt;
-  ENSG00000227232       chromosome      WASH7P                 &lt;NA&gt;  0.698899
-  ENSG00000243485       chromosome   MIR1302-2  105376912,100302278 -1.401671
-  ENSG00000237613       chromosome     FAM138A 654835,645520,641702 -1.047796
+<pre><code>GRanges object with 3 ranges and 2 metadata columns:
+            seqnames      ranges strand |     gene_id     score
+               &lt;Rle&gt;   &lt;IRanges&gt;  &lt;Rle&gt; | &lt;character&gt; &lt;numeric&gt;
+  100287102     chr1 11121-14421      + |   100287102   1.14184
+  107985730     chr1 28977-31109      + |   107985730   1.29852
+  100302278     chr1 30366-30503      + |   100302278   1.64226
   -------
-  seqinfo: 25 sequences (1 circular) from GRCh38 genome</code></pre>
+  seqinfo: 25 sequences (1 circular) from hg38 genome</code></pre>
 </div>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">assay</span>(se_sub)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>                      [,1]       [,2]       [,3]       [,4]       [,5]       [,6]
-ENSG00000227232 -0.6918380 -1.0559073 -0.6748035  0.4592746 -1.0424676 -0.7387476
-ENSG00000243485  0.1863184 -0.2027204  0.2140049 -0.1494230 -1.5117206 -1.8970310
-ENSG00000237613 -0.1832178  0.8591328 -1.0910554 -0.4840279 -0.3493797 -1.4938933</code></pre>
+<pre><code>                [,1]       [,2]       [,3]       [,4]      [,5]     [,6]
+100287102  1.2415408 -2.8962065 -0.5820229  0.2291434 1.1412485 2.853652
+107985730  2.0337348  0.6713310  0.5457085  2.0416815 1.5675024 1.422555
+100302278 -0.3548704  0.1838906 -1.0552120 -0.8388115 0.6943347 2.125127</code></pre>
 </div>
 </div>
 <p>Another useful property is that we know metadata about the chromosomes, and the version of the genome. (If you were not yet aware, the basepair position of a given feature, say gene <em>XYZ</em>, will change between versions of the genome, as sequences are added or rearranged.)</p>
 <div class="cell">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seqinfo</span>(se)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>Seqinfo object with 25 sequences (1 circular) from GRCh38 genome:
+<pre><code>Seqinfo object with 25 sequences (1 circular) from hg38 genome:
   seqnames seqlengths isCircular genome
-  1         248956422      FALSE GRCh38
-  10        133797422      FALSE GRCh38
-  11        135086622      FALSE GRCh38
-  12        133275309      FALSE GRCh38
-  13        114364328      FALSE GRCh38
+  chr1      248956422      FALSE   hg38
+  chr2      242193529      FALSE   hg38
+  chr3      198295559      FALSE   hg38
+  chr4      190214555      FALSE   hg38
+  chr5      181538259      FALSE   hg38
   ...             ...        ...    ...
-  8         145138636      FALSE GRCh38
-  9         138394717      FALSE GRCh38
-  MT            16569       TRUE GRCh38
-  X         156040895      FALSE GRCh38
-  Y          57227415      FALSE GRCh38</code></pre>
+  chr21      46709983      FALSE   hg38
+  chr22      50818468      FALSE   hg38
+  chrX      156040895      FALSE   hg38
+  chrY       57227415      FALSE   hg38
+  chrM          16569       TRUE   hg38</code></pre>
 </div>
 </div>
 </section>
@@ -2917,50 +2902,52 @@ attached base packages:
 [1] stats4    stats     graphics  grDevices datasets  utils     methods   base     
 
 other attached packages:
- [1] scater_1.40.2               ggplot2_4.0.3               scran_1.40.0               
- [4] scuttle_1.22.0              SingleCellExperiment_1.34.0 pheatmap_1.0.13            
- [7] DESeq2_1.52.0               rtracklayer_1.72.0          stringr_1.6.0              
-[10] here_1.0.2                  EnsDb.Hsapiens.v86_2.99.0   ensembldb_2.36.1           
-[13] AnnotationFilter_1.36.0     GenomicFeatures_1.64.0      AnnotationDbi_1.74.0       
-[16] SummarizedExperiment_1.42.0 Biobase_2.72.0              GenomicRanges_1.64.0       
-[19] Seqinfo_1.2.0               IRanges_2.46.0              S4Vectors_0.50.1           
-[22] BiocGenerics_0.58.1         generics_0.1.4              MatrixGenerics_1.24.0      
-[25] matrixStats_1.5.0          
+ [1] scater_1.40.2                            ggplot2_4.0.3                           
+ [3] scran_1.40.0                             scuttle_1.22.0                          
+ [5] SingleCellExperiment_1.34.0              pheatmap_1.0.13                         
+ [7] DESeq2_1.52.0                            rtracklayer_1.72.0                      
+ [9] stringr_1.6.0                            here_1.0.2                              
+[11] TxDb.Hsapiens.UCSC.hg38.knownGene_3.22.0 GenomicFeatures_1.64.0                  
+[13] AnnotationDbi_1.74.0                     SummarizedExperiment_1.42.0             
+[15] Biobase_2.72.0                           GenomicRanges_1.64.0                    
+[17] Seqinfo_1.2.0                            IRanges_2.46.0                          
+[19] S4Vectors_0.50.1                         BiocGenerics_0.58.1                     
+[21] generics_0.1.4                           MatrixGenerics_1.24.0                   
+[23] matrixStats_1.5.0                       
 
 loaded via a namespace (and not attached):
  [1] DBI_1.3.0                bitops_1.1-0             gridExtra_2.3.1         
  [4] rlang_1.3.0              magrittr_2.0.5           otel_0.2.0              
  [7] compiler_4.6.0           RSQLite_3.53.3           png_0.1-9               
-[10] vctrs_0.7.3              ProtGenerics_1.44.0      pkgconfig_2.0.3         
-[13] crayon_1.5.3             fastmap_1.2.0            XVector_0.52.0          
-[16] labeling_0.4.3           Rsamtools_2.28.0         rmarkdown_2.31          
-[19] ggbeeswarm_0.7.3         UCSC.utils_1.8.0         bit_4.6.0               
-[22] xfun_0.60                bluster_1.22.0           cachem_1.1.0            
-[25] beachmat_2.28.0          cigarillo_1.2.1          GenomeInfoDb_1.48.0     
-[28] jsonlite_2.0.0           blob_1.3.0               DelayedArray_0.38.2     
-[31] BiocParallel_1.46.0      irlba_2.3.7              parallel_4.6.0          
-[34] cluster_2.1.8.3          R6_2.6.1                 stringi_1.8.9           
-[37] RColorBrewer_1.1-3       limma_3.68.4             Rcpp_1.1.2              
-[40] knitr_1.51               Matrix_1.7-6             igraph_2.3.3            
-[43] tidyselect_1.2.1         viridis_0.6.5            dichromat_2.0-1         
-[46] abind_1.4-8              yaml_2.3.12              codetools_0.2-20        
-[49] curl_7.1.0               lattice_0.22-9           tibble_3.3.1            
-[52] withr_3.0.3              KEGGREST_1.52.2          S7_0.2.2                
-[55] evaluate_1.0.5           Biostrings_2.80.1        pillar_1.11.1           
-[58] BiocManager_1.30.27      rprojroot_2.1.1          RCurl_1.98-1.19         
-[61] scales_1.4.0             glue_1.8.1               metapod_1.20.0          
-[64] lazyeval_0.2.3           tools_4.6.0              BiocIO_1.22.0           
-[67] BiocNeighbors_2.6.0      ScaledMatrix_1.20.0      locfit_1.5-9.12         
-[70] GenomicAlignments_1.48.0 XML_3.99-0.23            cowplot_1.2.0           
-[73] grid_4.6.0               edgeR_4.10.1             beeswarm_0.4.0          
-[76] BiocSingular_1.28.0      vipor_0.4.7              restfulr_0.0.17         
-[79] cli_3.6.6                rsvd_1.0.5               viridisLite_0.4.3       
-[82] S4Arrays_1.12.0          dplyr_1.2.1              gtable_0.3.6            
-[85] digest_0.6.39            ggrepel_0.9.8            SparseArray_1.12.2      
-[88] dqrng_0.4.1              rjson_0.2.23             htmlwidgets_1.6.4       
-[91] farver_2.1.2             memoise_2.0.1            htmltools_0.5.9         
-[94] lifecycle_1.0.5          httr_1.4.8               statmod_1.5.2           
-[97] bit64_4.8.2             </code></pre>
+[10] vctrs_0.7.3              pkgconfig_2.0.3          crayon_1.5.3            
+[13] fastmap_1.2.0            XVector_0.52.0           labeling_0.4.3          
+[16] Rsamtools_2.28.0         rmarkdown_2.31           ggbeeswarm_0.7.3        
+[19] UCSC.utils_1.8.0         bit_4.6.0                xfun_0.60               
+[22] bluster_1.22.0           cachem_1.1.0             beachmat_2.28.0         
+[25] cigarillo_1.2.1          GenomeInfoDb_1.48.0      jsonlite_2.0.0          
+[28] blob_1.3.0               DelayedArray_0.38.2      BiocParallel_1.46.0     
+[31] irlba_2.3.7              parallel_4.6.0           cluster_2.1.8.3         
+[34] R6_2.6.1                 stringi_1.8.9            RColorBrewer_1.1-3      
+[37] limma_3.68.4             Rcpp_1.1.2               knitr_1.51              
+[40] Matrix_1.7-6             igraph_2.3.3             tidyselect_1.2.1        
+[43] viridis_0.6.5            dichromat_2.0-1          abind_1.4-8             
+[46] yaml_2.3.12              codetools_0.2-20         curl_7.1.0              
+[49] lattice_0.22-9           tibble_3.3.1             withr_3.0.3             
+[52] KEGGREST_1.52.2          S7_0.2.2                 evaluate_1.0.5          
+[55] Biostrings_2.80.1        pillar_1.11.1            BiocManager_1.30.27     
+[58] rprojroot_2.1.1          RCurl_1.98-1.19          scales_1.4.0            
+[61] glue_1.8.1               metapod_1.20.0           tools_4.6.0             
+[64] BiocIO_1.22.0            BiocNeighbors_2.6.0      ScaledMatrix_1.20.0     
+[67] locfit_1.5-9.12          GenomicAlignments_1.48.0 XML_3.99-0.23           
+[70] cowplot_1.2.0            grid_4.6.0               edgeR_4.10.1            
+[73] beeswarm_0.4.0           BiocSingular_1.28.0      vipor_0.4.7             
+[76] restfulr_0.0.17          cli_3.6.6                rsvd_1.0.5              
+[79] viridisLite_0.4.3        S4Arrays_1.12.0          dplyr_1.2.1             
+[82] gtable_0.3.6             digest_0.6.39            ggrepel_0.9.8           
+[85] SparseArray_1.12.2       dqrng_0.4.1              rjson_0.2.23            
+[88] htmlwidgets_1.6.4        farver_2.1.2             memoise_2.0.1           
+[91] htmltools_0.5.9          lifecycle_1.0.5          httr_1.4.8              
+[94] statmod_1.5.2            bit64_4.8.2             </code></pre>
 </div>
 </div>
 </section>
