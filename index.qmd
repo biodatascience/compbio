@@ -74,7 +74,7 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 | | | | [tidy ranges](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
 | 5--6 | Distances & normalization | `dist` | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | [transform_clust](dist/transform_clust.html) | Transformations and clustering |
-| | | | [vst_math](`r qrto("dist/vst_math")`) | VST math |
+| | | | [vst_math](dist/vst_math.html) | Variance stabilization |
 | | | | [batch](dist/batch.html) | Batch effects and sources |
 | | | | [sva](dist/sva.html) | Surrogate variable analysis |
 | | | | [ruv script](`r rscr("dist/ruv")`) | RUV and friends |
