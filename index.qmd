@@ -57,7 +57,11 @@ rscr <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/master/",x,".qmd")
 ```
 
-**Note:** Class content will be put on a day-by-day schedule by August 10, 2026.
+```{=html}
+<style>
+td a, td code, td strong { white-space: nowrap; }
+</style>
+```
 
 | Week | Topic | Dir. | HTML | Title |
 |:-----|:------|:-----|:-----|:------|
@@ -72,35 +76,28 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 | | | | [strings](bioc/strings.html) | Manipulating DNA strings |
 | 4 | Tidy data for 'omics | `tidyomics` | [tidy intro](https://tidyomics.github.io/tidy-intro-talk/) | Tidiness-in-Bioconductor intro |
 | | | | [tidy ranges](https://tidyomics.github.io/tidy-ranges-tutorial/) | Tidy ranges tutorial |
-| 5--6 | Distances & normalization | `dist` | [distances](dist/distances.html) | Distances in high dimensions |
+| 5--7 | Distances & normalization | `dist` | [distances](dist/distances.html) | Distances in high dimensions |
 | | | | [transform_clust](dist/transform_clust.html) | Transformations and clustering |
 | | | | [vst_math](dist/vst_math.html) | Variance stabilization |
 | | | | [batch](dist/batch.html) | Batch effects and sources |
 | | | | [sva](dist/sva.html) | Surrogate variable analysis |
 | | | | [ruv script](`r rscr("dist/ruv")`) | RUV and friends |
 | | **Data modeling** | | | |
-| 7 | Hierarchical models | `hier` | [hierarchical](hier/hierarchical.html) | Hierarchical models |
+| 8 | Hierarchical models | `hier` | [hierarchical](hier/hierarchical.html) | Hierarchical models |
 | | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator |
-| 8 | Models and EM | `model` | [EM](model/EM.html) | Expectation maximization |
+| 9 | TBD | | | Oct 13 |
+| 9 | Spatial transcriptomics | | | Guest: TA Yishu Zhang (Oct 15) |
+| 10 | Models and EM | `model` | [EM](model/EM.html) | Expectation maximization |
 | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
-| 9 | Markov models | `markov` | [hmm](markov/hmm.html) | Hidden Markov Models |
-| 10 | Gene regulatory networks | `net` | [network](net/network.html) | Network analysis |
-| 11 | Multiple testing | `multiple` | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
+| 11 | Markov models | `markov` | [hmm](markov/hmm.html) | Hidden Markov Models |
+| 12 | Multiple testing | `multiple` | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
 | | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
-| 12--15 | Final project | | | In-class work (wk 14--15) + presentations (Dec 1) |
+| 13--16 | Final project | | | In-class work (Nov 10, 12, 19, 24) + presentations (Dec 1) |
+| 14 | Cancer transcriptomics & imaging | | | Guest: Katie Hoadley, Assoc. Prof., Genetics and LCCC (Nov 17) |
 | | **Impromptu topics** | | | |
-| | Genomic visualization | | | |
-| | Permutation / bootstrapping | | | |
-| | Single-cell | | | |
-| | Sequence alignment | | | |
-| | ChIP-seq / ATAC-seq | | | |
-| | Perturbation assays / CRISPR | | | |
-| | Spatial transcriptomics | | | |
-| | RNA splicing | | | |
-| | Data: FASTQ/BAM/VCF | | | |
-| | Data: HDF5/Zarr/Parquet | | | |
-| | Computational efficiency | | | |
-| | Reproducible workflows | | | |
+| | Gene regulatory networks | `net` | [network](net/network.html) | Network analysis |
+
+<p>Other impromptu topics: genomic visualization, permutation / bootstrapping, single-cell, sequence alignment, ChIP-seq / ATAC-seq, perturbation assays / CRISPR, RNA splicing, data formats (FASTQ/BAM/VCF, HDF5/Zarr/Parquet), computational efficiency, reproducible workflows.</p>
 
 ### Fall 2026 Calendar
 
@@ -113,15 +110,17 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 | 5 | Sep 15 | Sep 17 |
 | 6 | Sep 22 | Sep 24 |
 | 7 | Sep 29 | Oct 1 |
-| 8 | Oct 6 | Oct 8 |
-| 9 | Oct 13 | Oct 15 |
+| 8 | Oct 6 *(Well-being day, no class; midterm due Wed Oct 7)* | Oct 8 *(hierarchical models, no quiz)* |
+| 9 | Oct 13 *(TBD)* | Oct 15 *(guest: Yishu Zhang, spatial transcriptomics)* |
 | 10 | Oct 20 | Oct 22 |
 | 11 | Oct 27 | Oct 29 |
 | 12 | Nov 3 | Nov 5 |
-| 13 | Nov 10 | Nov 12 |
-| 14 | Nov 17 | Nov 19 |
-| 15 | Nov 24 | *(Thanksgiving)* |
+| 13 | Nov 10 *(final project work)* | Nov 12 *(final project work)* |
+| 14 | Nov 17 *(guest: Katie Hoadley, transcriptomics & imaging in cancer)* | Nov 19 *(final project work)* |
+| 15 | Nov 24 *(final project work)* | *(Thanksgiving)* |
 | 16 | Dec 1 | |
+
+The midterm is due Wednesday, Oct 7; deadlines with approved accommodations are adjusted accordingly.
 
 ### Reading list
 
