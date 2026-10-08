@@ -84,9 +84,9 @@ td a, td code, td strong { white-space: nowrap; }
 | | | | [ruv script](`r rscr("dist/ruv")`) | RUV and friends |
 | | **Data modeling** | | | |
 | 8 | Hierarchical models | `hier` | [hierarchical](hier/hierarchical.html) | Hierarchical models |
-| | | |  [jamesstein](hier/jamesstein.html) | James-Stein estimator |
-| 9 | TBD | | | Oct 13 |
-| 9 | Spatial transcriptomics | | | Guest: TA Yishu Zhang (Oct 15) |
+| 9 | James-Stein and Stan | `hier` | [jamesstein](hier/jamesstein.html) | James-Stein estimator (Oct 13) |
+| | | | [stan script](`r rscr("hier/simple_stan")`) | Hierarchical model in Stan |
+| 9 | Fall break | | | No class (Oct 15) |
 | 10 | Models and EM | `model` | [EM](model/EM.html) | Expectation maximization |
 | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
 | 11 | Markov models | `markov` | [hmm](markov/hmm.html) | Hidden Markov Models |
@@ -111,7 +111,7 @@ td a, td code, td strong { white-space: nowrap; }
 | 6 | Sep 22 | Sep 24 |
 | 7 | Sep 29 | Oct 1 |
 | 8 | Oct 6 *(Well-being day, no class; midterm due Wed Oct 7)* | Oct 8 *(hierarchical models, no quiz)* |
-| 9 | Oct 13 *(TBD)* | Oct 15 *(guest: Yishu Zhang, spatial transcriptomics)* |
+| 9 | Oct 13 *(James-Stein and Stan)* | Oct 15 *(Fall break, no class)* |
 | 10 | Oct 20 | Oct 22 |
 | 11 | Oct 27 | Oct 29 |
 | 12 | Nov 3 | Nov 5 |
