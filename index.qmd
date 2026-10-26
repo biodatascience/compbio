@@ -60,6 +60,7 @@ qrto <- function(x) paste0("https://github.com/biodatascience/compbio_src/blob/m
 ```{=html}
 <style>
 td a, td code, td strong { white-space: nowrap; }
+.small-table table { font-size: 0.8em; }
 </style>
 ```
 
@@ -84,43 +85,37 @@ td a, td code, td strong { white-space: nowrap; }
 | | | | [ruv script](`r rscr("dist/ruv")`) | RUV and friends |
 | | **Data modeling** | | | |
 | 8 | Hierarchical models | `hier` | [hierarchical](hier/hierarchical.html) | Hierarchical models |
-| 9 | James-Stein and Stan | `hier` | [jamesstein](hier/jamesstein.html) | James-Stein estimator (Oct 13) |
+| 9 | James-Stein and Stan | `hier` | [jamesstein](hier/jamesstein.html) | James-Stein estimator |
 | | | | [stan script](`r rscr("hier/simple_stan")`) | Hierarchical model in Stan |
-| 9 | Fall break | | | No class (Oct 15) |
-| 10 | Models and EM | `model` | [EM](model/EM.html) | Expectation maximization |
+| 9 | Fall break | | | No class |
+| 10--11 | Models and EM | `model` | [EM](model/EM.html) | Expectation maximization |
 | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
-| 11 | Markov models | `markov` | [hmm](markov/hmm.html) | Hidden Markov Models |
-| 12 | Multiple testing | `multiple` | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
-| | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
-| 13--16 | Final project | | | In-class work (Nov 10, 12, 19, 24) + presentations (Dec 1) |
+| 13--14 | Markov models | `markov` | [hmm](markov/hmm.html) | Hidden Markov Models |
+| 12--15 | Final project | | | In-class work (Nov 3, 5, 12, 19, 24) |
 | 14 | Cancer transcriptomics & imaging | | | Guest: Katie Hoadley, Assoc. Prof., Genetics and LCCC (Nov 17) |
+| 16 | Final project presentations | | | Presentations (Dec 1) |
 | | **Impromptu topics** | | | |
+| | Multiple testing | `multiple` | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
+| | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
 | | Gene regulatory networks | `net` | [network](net/network.html) | Network analysis |
 
 <p>Other impromptu topics: genomic visualization, permutation / bootstrapping, single-cell, sequence alignment, ChIP-seq / ATAC-seq, perturbation assays / CRISPR, RNA splicing, data formats (FASTQ/BAM/VCF, HDF5/Zarr/Parquet), computational efficiency, reproducible workflows.</p>
 
 ### Fall 2026 Calendar
 
+::: {.small-table}
+
 | Week | Tuesday | Thursday |
 |:-----|:--------|:---------|
-| 1 | Aug 18 *(intro)* | Aug 20 |
-| 2 | Aug 25 | Aug 27 |
-| 3 | Sep 1 | Sep 3 |
-| 4 | Sep 8 | Sep 10 |
-| 5 | Sep 15 | Sep 17 |
-| 6 | Sep 22 | Sep 24 |
-| 7 | Sep 29 | Oct 1 |
-| 8 | Oct 6 *(Well-being day, no class; midterm due Wed Oct 7)* | Oct 8 *(hierarchical models, no quiz)* |
-| 9 | Oct 13 *(James-Stein and Stan)* | Oct 15 *(Fall break, no class)* |
-| 10 | Oct 20 | Oct 22 |
-| 11 | Oct 27 | Oct 29 |
-| 12 | Nov 3 | Nov 5 |
-| 13 | Nov 10 *(final project work)* | Nov 12 *(final project work)* |
-| 14 | Nov 17 *(guest: Katie Hoadley, transcriptomics & imaging in cancer)* | Nov 19 *(final project work)* |
-| 15 | Nov 24 *(final project work)* | *(Thanksgiving)* |
-| 16 | Dec 1 | |
+| 11 | Oct 27 *(EM for motif detection)* | Oct 29 *(EM for motif detection; discuss group projects)* |
+| 12 | Nov 3 *(project time; email to meet with instructor during class)* | Nov 5 *(project time; instructor away)* |
+| 13 | Nov 10 *(HMMs; HMM quiz due)* | Nov 12 *(project time)* |
+| 14 | Nov 17 *(guest: Katie Hoadley, transcriptomics & imaging in cancer)* | Nov 19 *(finish HMMs; project time)* |
+| 15 | Nov 24 *(finish group projects)* | *(Thanksgiving)* |
+| 16 | Dec 1 *(final presentations)* | |
 
-The midterm is due Wednesday, Oct 7; deadlines with approved accommodations are adjusted accordingly.
+:::
+
 
 ### Reading list
 
