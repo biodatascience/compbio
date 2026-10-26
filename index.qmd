@@ -90,6 +90,7 @@ td a, td code, td strong { white-space: nowrap; }
 | 9 | Fall break | | | No class |
 | 10--11 | Models and EM | `model` | [EM](model/EM.html) | Expectation maximization |
 | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
+| | | | [chip_seqs.rds](model/chip_seqs.rds) | ChIP-seq peak sequences for motif lecture |
 | 13--14 | Markov models | `markov` | [hmm](markov/hmm.html) | Hidden Markov Models |
 | 12--15 | Final project | | | In-class work (Nov 3, 5, 12, 19, 24) |
 | 14 | Cancer transcriptomics & imaging | | | Guest: Katie Hoadley, Assoc. Prof., Genetics and LCCC (Nov 17) |
