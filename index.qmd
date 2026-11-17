@@ -91,10 +91,9 @@ td a, td code, td strong { white-space: nowrap; }
 | 10--11 | Models and EM | `model` | [EM](model/EM.html) | Expectation maximization |
 | | | |  [motif](model/motif.html) | EM for finding DNA motifs |
 | | | | [chip_seqs.rds](model/chip_seqs.rds) | ChIP-seq peak sequences for motif lecture |
-| 13 | Markov models | `markov` | [hmm](markov/hmm.html) | Hidden Markov Models |
-| 12--15 | Final project | | | In-class work (Nov 3, 5, 12, 19, 24) |
+| 12--15 | Final project | | | In-class work (Nov 3, 5, 12, 19; Nov 24 meetings by Zoom/email) |
 | 14 | Cancer transcriptomics & imaging | | | Guest: Katie Hoadley, Assoc. Prof., Genetics and LCCC (Nov 17) |
-| 16 | Final project presentations | | | Presentations (Dec 1) |
+| 16 | Final project presentations | | | Presentations (Dec 1; 10--12 minutes per group) |
 | | **Impromptu topics** | | | |
 | | Multiple testing | `multiple` | [multtest](multiple/multtest.html) | FDR and Benjamini-Hochberg |
 | | | | [localfdr](multiple/localfdr.html) | Local false discovery rate |
@@ -108,12 +107,9 @@ td a, td code, td strong { white-space: nowrap; }
 
 | Week | Tuesday | Thursday |
 |:-----|:--------|:---------|
-| 11 | Oct 27 *(EM for motif detection)* | Oct 29 *(EM for motif detection; discuss group projects)* |
-| 12 | Nov 3 *(project time; email to meet with instructor during class)* | Nov 5 *(project time; instructor away)* |
-| 13 | Nov 10 *(HMMs; HMM quiz due)* | Nov 12 *(project time)* |
-| 14 | Nov 17 *(guest: Katie Hoadley, transcriptomics & imaging in cancer)* | Nov 19 *(project time)* |
-| 15 | Nov 24 *(finish group projects; email to arrange feedback on projects)* | *(Thanksgiving)* |
-| 16 | Dec 1 *(final presentations)* | |
+| 14 | Nov 17 *(guest: Katie Hoadley, transcriptomics & imaging in cancer)* | Nov 19 *(project time; instructor meets with every team in person, attendance expected)* |
+| 15 | Nov 24 *(no in-person class; instructor available during class time via Zoom, coordinate by email)* | *(Thanksgiving)* |
+| 16 | Dec 1 *(final presentations, 10--12 min per group)* | |
 
 :::
 
